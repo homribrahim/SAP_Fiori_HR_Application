@@ -1,0 +1,46 @@
+<tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="285px">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Home" icon="sap-icon://home" />
+					<tnt:NavigationListGroup text="New">
+						<tnt:NavigationListItem class="sapMText sapTntNLIText sapMTextNoWrap" text="Performance Pulse" icon="sap-icon://performance">
+							<tnt:NavigationListItem text="Auto Evaluation" icon="sap-icon://form"/>
+							<tnt:NavigationListItem text="Evaluation Manager" icon="sap-icon://manager"/>
+							<tnt:NavigationListItem text="Fixation Des Objectifs" icon="sap-icon://goal" />
+							<tnt:NavigationListItem text="Notes KPI" icon="sap-icon://kpi-corporate-performance"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Engagement Pulse" icon="sap-icon://curriculum">
+							<tnt:NavigationListItem text="Formulaire" icon="sap-icon://form" />
+							<tnt:NavigationListItem text="Chartes Analytiques" icon="sap-icon://filter-analytics"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Revue Des Talents" icon="sap-icon://favorite">
+							<tnt:NavigationListItem text="9 Box Grid" icon="sap-icon://grid"/>
+							<tnt:NavigationListItem text="Risque De Départ" icon="sap-icon://offsite-work"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Matrice Des Compétences" icon="sap-icon://table-view">
+							<tnt:NavigationListItem text="Technique" icon="sap-icon://employee" />
+							<tnt:NavigationListItem text="Fonctionelle" icon="sap-icon://employee"/>
+							<tnt:NavigationListItem text="Basis" icon="sap-icon://employee"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="Carriére" icon="sap-icon://mileage">
+							<tnt:NavigationListItem text="Revenu Salarial" icon="sap-icon://money-bills"/>
+							<tnt:NavigationListItem text="Evaluation Des Compétences" icon="sap-icon://badge"/>
+							<tnt:NavigationListItem text="Formation Et Développement" icon="sap-icon://study-leave"/>
+							<tnt:NavigationListItem text="Promotions Et Récompenses" icon="sap-icon://competitor"/>
+							<tnt:NavigationListItem text="Bilan De Carrière" icon="sap-icon://doc-attachment"/>
+						</tnt:NavigationListItem>
+						<tnt:NavigationListItem text="My Moment" icon="sap-icon://ai">
+							<tnt:NavigationListItem text="Evènements Et Activités" icon="sap-icon://widgets"/>
+							<tnt:NavigationListItem text="Défis Amicaux" icon="sap-icon://puzzle"/>
+							<tnt:NavigationListItem text="Programmes De Bien Être" icon="sap-icon://physical-activity"/>
+							<tnt:NavigationListItem text="Feedbacks Et Suggestions" icon="sap-icon://feedback"/>
+						</tnt:NavigationListItem>
+
+					</tnt:NavigationListGroup>
+				</tnt:NavigationList>
+
+				<tnt:fixedItem>
+					<tnt:NavigationList>
+						<tnt:NavigationListItem selectable="false" href="https://sap.com" target="_blank" text="Déconnexion" icon="sap-icon://journey-depart"/>
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>

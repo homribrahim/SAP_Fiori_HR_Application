@@ -1,0 +1,78 @@
+.authPage 
+{
+    background-color: #F2F2F2;
+}
+
+.HBOX1
+{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: -1px 5px 39px 1px rgba(71, 86, 145, 0.78);
+    -webkit-box-shadow: -1px 5px 39px 1px rgba(71, 86, 145, 0.78);
+    -moz-box-shadow: -1px 5px 39px 1px rgba(71, 86, 145, 0.78);
+    animation: 1.5s fadeInUp !important;    
+}
+
+.sapMInputBaseContentWrapper
+{
+    height: 2.5rem !important;
+    border-radius: 0 !important;
+}
+
+.btn .sapMBtnInner 
+{
+    background-color: #001575 !important;
+    color: white;
+    height: 2.5rem !important;
+    font-size: 16px !important;
+    padding: 7px !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold !important;
+    transition: .5s !important;
+    border-radius: 0 !important;
+}
+
+.btn .sapMBtnInner:hover
+{
+    color: white !important;
+    background-color: #0A8DC5 !important; 
+}
+
+.VBOX2
+{
+    background-color: white !important;
+    margin-bottom: 5px !important;
+}
+
+.customCard 
+{      
+    box-shadow: -1px 5px 39px 1px white inset;
+    -webkit-box-shadow: -1px 5px 39px 1px white inset;
+    -moz-box-shadow: -1px 5px 39px 1px white inset;
+}
+
+.sapFCard .sapFCardHeader .sapFCardHeaderText .sapFCardTitle
+{
+    font-size: 1.7rem !important;
+    color: #001575;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+}
+
+.sapMLabel
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+}
+
+@keyframes fadeInUp {
+    0% {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
