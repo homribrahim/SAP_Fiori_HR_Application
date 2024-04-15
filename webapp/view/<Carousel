@@ -1,0 +1,8 @@
+<f:Card class="sapUiMediumMargin" width="300px">
+		<f:header>
+			<card:Header title="Performance Pulse" subtitle="Revenue per Product | EUR" />
+		</f:header>
+		<f:content>
+			<textarea name="Hello Darnkess My Old Friend" id="" cols="30" rows="10"></textarea>
+		</f:content>
+</f:Card>

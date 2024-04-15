@@ -10,6 +10,14 @@ sap.ui.define([
         return Controller.extend("brahim.project.controller.Home", {
             onInit: function () {
 
-            }
+            },
+            onScrollToVBox: function() {
+                var targetId = this.byId("vb").getId();
+               // Get the hash changer instance
+                var oHashChanger = UIComponent.getRouterFor(this).getHashChanger();
+
+                // Scroll to the target VBox using HashChanger
+                oHashChanger.setHash(targetId);
+            } 
         });
     });

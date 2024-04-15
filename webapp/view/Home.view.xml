@@ -4,57 +4,229 @@
 	xmlns:f="sap.f"
 	xmlns:card="sap.f.cards"
 	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:html="http://www.w3.org/1999/xhtml"
     height="100%">
 
-    <Page class="authPage" showHeader="false">    
-        <VBox
-            width="100%"
-            height="100%"
-            alignItems="Center"
-            justifyContent="Center"
-            >
-                <HBox 
-                    width="53rem"
-                    height="595px"
-                    alignItems="Center"
-                    justifyContent="Center"
-                    class="HBOX1"
-                    >                              
-                   <Image width="100%" height="600px" src="/utils/images/astro.jpg" alt="Aymax"/> 
-                   <VBox
-                        width="27rem"
-                        height="600px"
-                        class="VBOX2"
-                    >
-                        <f:Card class="sapUiLargeMarginBeginEnd sapUiLargeMarginTop customCard" width="85%">
-                            <f:header>
-                                <card:Header class="sapUiLargeMarginTop" title="S'identifier" subtitle="Connectez-vous et stimuler vote expérience professionnelle"/>
-                            </f:header>                 
-                            <f:content>              
-                                <VBox
-                                    height="320px"
-                                    class="sapUiSmallMarginBeginEnd"
-                                    justifyContent="Center"
-                                    >                                                         
-                                    <VBox class="sapUiTinyMarginTop" justifyContent="Center">
-                                        <Label text="Identifiant" design="Bold"></Label>
-                                        <Input class="sapMInputBaseContentWrapper" placeholder="Identifiant" width="19rem">
-                                        </Input>
-                                    </VBox>
-                                    <VBox class="sapUiSmallMarginTop" justifyContent="Center">
-                                        <Label text="Mot de passe" design="Bold"></Label>
-                                        <Input class="sapMInputBaseContentWrapper" placeholder="Mot de passe" width="19rem" type="Password">
-                                        </Input>
-                                    </VBox>
-                                    <HBox>
-                                        <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
-                                    </HBox>                           
-                                </VBox>
-                            </f:content>
-                        </f:Card>
-                    </VBox>  
-                </HBox>
-        </VBox>
+    <Page class="homePage" showHeader="false">    
+
+    <FlexBox direction="Column" alignItems="Start" justifyContent='Center' height="100%">
+        <Text class="span" text="AYMAX"/>
+        <Text class="subtitle" text="Your Business Powererd by IT !"/>
+        <Text class="sapUiLargeMarginTop" text="Découvrez notre plateforme dédiée au développement 
+                et à l'épanouissement professionnel." />
+        <Text text="Explorez vos talents,
+                évaluez-vous et tracez votre chemin vers le succès."/>
+
+        <FlexBox class="flex2" direction="Row" alignItems="Start" justifyContent='Center'>
+           <!--  <html:button class="learn-more">
+                <html:span class="circle" aria-hidden="true">
+                    <html:span class="icon arrow"></html:span>
+                </html:span>
+                <html:span class="button-text">Decouvrir</html:span>
+            </html:button> -->     
+
+            <html:button>Decouvrir</html:button> 
+            <html:button>Connectez vous</html:button>
+
+        </FlexBox>
+    </FlexBox>
+
+    <VBox
+        height="150vh"
+        class="vbox"
+        id="vb"
+    >
+        <Text  class="textVB" text="Nos Services"/>
+        <Text  class="textVB2" text="Une gamme de services raffinés , façonnés pour illuminer votre parcours"/>
+        <Text  class="textVB2" text="professionnel et éclairer votre chemin vers l'excellence."/>
+
+        <!-- 	<FlexBox
+                class="sapUiLargeMarginTop"
+				height="200px"
+				alignItems="Start"
+				justifyContent="Center">
+				<f:Card class="sapUiMediumMargin card" width="450px" height="200px">
+                    <f:header>
+                        <card:Header title="Performance Pulse"/>
+                    </f:header>
+                    <f:content>
+                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+							<Text text="lOREM ipsum ipsum ipsum" />
+						</VBox>
+                    </f:content>
+                </f:Card>
+				<f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="Engagement Pulse" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card>
+                <f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header class="cardHead" title="Revue des Talents" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card>
+			</FlexBox> -->
+        <FlexBox class="flexy" direction="Column" alignItems="Start">
+
+             <FlexBox
+                class="sapUiLargeMarginTop"
+				height="200px"
+				alignItems="Start"
+				justifyContent="Center">
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Performance Pulse</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Engagement Pulse</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Matrice De Compétences
+                            </html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+			</FlexBox>
+
+            <FlexBox
+                class="sapUiLargeMarginTop flex22"
+				height="200px"
+				alignItems="Start"
+				justifyContent="Center">
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Revue des Talents</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Compensation Salariale</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">My Moment</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+			</FlexBox>
+        </FlexBox>
+
+    </VBox>
+
+
+    <!-- <f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="Matrice De Compétences" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card>
+				<f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="Compensation Salariale" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card>
+                <f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="My Moment" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card> -->
+
+      <!--  <Title class="desc" text="Découvrez notre plateforme dédiée au développement 
+            et à l'épanouissement professionnel ! Explorez vos talents,
+             évaluez-vous et tracez votre chemin vers le succès, le tout 
+             dans une interface conviviale et stimulante."
+        />  -->
+<!-- 
+        <l:BlockLayout class="BlockLayout">
+            <l:BlockLayoutRow>
+                <l:BlockLayoutCell title="AYMAX Technology">
+			    <Text
+			    id="text4"
+			    wrappingType="Hyphenated"
+			    text="Découvrez notre plateforme dédiée au développement 
+             et à l'épanouissement professionnel ! Explorez vos talents,
+             évaluez-vous et tracez votre chemin vers le succès, le tout 
+             dans une interface conviviale et stimulante."  />
+	            </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                    <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+	    </l:BlockLayout> -->
+
+        	<!-- <FlexBox class="sapUiLargeMarginLeft" direction="Column" alignItems="Start" justifyContent='Center' height="70%">
+				<Title text="AYMAX Technology" />
+				<Text text="Découvrez notre plateforme dédiée au développement 
+                et à l'épanouissement professionnel !" />
+                <Text text="Explorez vos talents,
+                 évaluez-vous et tracez votre chemin vers le succès, le tout 
+                dans une interface conviviale et stimulante."/>
+			    <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
+
+			</FlexBox> -->
+        <!-- 
+            <html:span>Hello</html:span>
+            <html:span>Hello</html:span>
+            <html:span>Hello</html:span>
+            <html:span>Hello</html:span>
+            <html:span>Hello</html:span>
+            <html:span>Hello</html:span>
+            <html:span>Hello</html:span>
+        -->
     </Page>
 </mvc:View>
 

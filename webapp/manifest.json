@@ -106,9 +106,14 @@
           "target": "Dashboard"
         },
         {
-          "name": "Auth",
-          "pattern": "Auth",
-          "target":"Auth"
+          "name": "Authentification",
+          "pattern": "Authentification",
+          "target":"Authentification"
+        },
+        {
+          "name": "Test",
+          "pattern": "Test",
+          "target": "Test"
         }
       ],
       "targets": {
@@ -126,12 +131,19 @@
           "viewId": "Dashboard",
           "viewName": "Dashboard"
         },
-        "Auth": {
+        "Authentification": {
           "viewType": "XML",
           "transition": "flip",
           "clearControlAggregation": false,
-          "viewId": "Auth",
-          "viewName": "Auth"
+          "viewId": "Authentification",
+          "viewName": "Authentification"
+        },
+        "Test": {
+          "viewType": "XML",
+          "transition": "flip",
+          "clearControlAggregation": false,
+          "viewId": "Test",
+          "viewName": "Test"
         }
       }
     },
