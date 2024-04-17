@@ -12,79 +12,72 @@
 
     <FlexBox direction="Column" alignItems="Start" justifyContent='Center' height="100%">
         <Text class="span" text="AYMAX"/>
-        <Text class="subtitle" text="Your Business Powererd by IT !"/>
-        <Text class="sapUiLargeMarginTop" text="Découvrez notre plateforme dédiée au développement 
+        <Text class="subtitle" text="Your Business Powered by IT !"/>
+        <Text class="sapUiLargeMarginTop jumboText" text="Découvrez notre plateforme dédiée au développement 
                 et à l'épanouissement professionnel." />
-        <Text text="Explorez vos talents,
+        <Text class="jumboText" text="Explorez vos talents,
                 évaluez-vous et tracez votre chemin vers le succès."/>
 
         <FlexBox class="flex2" direction="Row" alignItems="Start" justifyContent='Center'>
-           <!--  <html:button class="learn-more">
+            <html:button>Decouvrir</html:button> 
+            <html:button class="learn-more">
                 <html:span class="circle" aria-hidden="true">
                     <html:span class="icon arrow"></html:span>
                 </html:span>
-                <html:span class="button-text">Decouvrir</html:span>
-            </html:button> -->     
-
-            <html:button>Decouvrir</html:button> 
-            <html:button>Connectez vous</html:button>
-
+                <html:span class="button-text">Connectez-vous</html:span>
+            </html:button>  
+            <!-- <html:button>Connectez vous</html:button> -->
         </FlexBox>
     </FlexBox>
 
     <VBox
-        height="150vh"
+        height="auto"
         class="vbox"
         id="vb"
     >
-        <Text  class="textVB" text="Nos Services"/>
-        <Text  class="textVB2" text="Une gamme de services raffinés , façonnés pour illuminer votre parcours"/>
-        <Text  class="textVB2" text="professionnel et éclairer votre chemin vers l'excellence."/>
-
-        <!-- 	<FlexBox
-                class="sapUiLargeMarginTop"
-				height="200px"
-				alignItems="Start"
-				justifyContent="Center">
-				<f:Card class="sapUiMediumMargin card" width="450px" height="200px">
-                    <f:header>
-                        <card:Header title="Performance Pulse"/>
-                    </f:header>
-                    <f:content>
-                        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
-							<Text text="lOREM ipsum ipsum ipsum" />
-						</VBox>
-                    </f:content>
-                </f:Card>
-				<f:Card class="sapUiMediumMargin" width="450px">
-                    <f:header>
-                        <card:Header  title="Engagement Pulse" subtitle="Revenue per Product | EUR" />
-                    </f:header>
-                    <f:content>
-                        <Text text="Hello World"/>
-                    </f:content>
-                </f:Card>
-                <f:Card class="sapUiMediumMargin" width="450px">
-                    <f:header>
-                        <card:Header class="cardHead" title="Revue des Talents" subtitle="Revenue per Product | EUR" />
-                    </f:header>
-                    <f:content>
-                        <Text text="Hello World"/>
-                    </f:content>
-                </f:Card>
-			</FlexBox> -->
-        <FlexBox class="flexy" direction="Column" alignItems="Start">
+        <Text  class="textVB" text="NOS SERVICES"/>
+        <Text  class="sapUiLargeMarginBottom textVB2" text="Une gamme de services raffinés illuminant votre parcours professionnel et éclairant votre chemin vers l'excellence."/>
+        <FlexBox class="flexy" direction="Column" alignItems="Start" height="90%">
 
              <FlexBox
-                class="sapUiLargeMarginTop"
-				height="200px"
+                class="sapUiLargeMarginTop flexy1"			
 				alignItems="Start"
-				justifyContent="Center">
+				justifyContent="Center"
+                direction="Row">
 
-                <html:div class="flip-card">
+                <html:div class="card">
+                    <html:div class="icon">
+                       <svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M1.553,51.9l1.507.752L4.005,62.1A1,1,0,0,0,5,63H9a1,1,0,0,0,.995-.9l.945-9.453,1.507-.752A1,1,0,0,0,13,51V45a3.992,3.992,0,0,0-3.45-3.944,4,4,0,1,0-5.1,0A3.992,3.992,0,0,0,1,45v6A1,1,0,0,0,1.553,51.9ZM7,36a2,2,0,1,1-2,2A2,2,0,0,1,7,36ZM3,45a2,2,0,0,1,2-2H9a2,2,0,0,1,2,2v5.382l-1.447.723a1,1,0,0,0-.548.8L8.1,61H5.905L5,51.9a1,1,0,0,0-.548-.8L3,50.382Z"></path><path d="M60,40a1,1,0,0,0-1-1H53a1,1,0,0,0-1,1V61H48V49a1,1,0,0,0-1-1H41a1,1,0,0,0-1,1V61H36V56a1,1,0,0,0-1-1H29a1,1,0,0,0-1,1v5H25v2H63V61H60ZM34,61H30V57h4Zm12,0H42V50h4Zm12,0H54V41h4Z"></path><path d="M44.49,41.559a1,1,0,0,0,.839.455l.061,0a1,1,0,0,0,.838-.56l2.554-5.242a1,1,0,0,0-.06-.984.981.981,0,0,0-.875-.454l-5.827.213a1,1,0,0,0-.8,1.544l1.091,1.677L20.517,52.387l1.09,1.675L43.4,39.882Zm1.764-4.727L45.2,38.987l-1.347-2.068Z"></path><path d="M59.925,31.073C59.975,30.39,60,29.692,60,29A28,28,0,0,0,4,29c0,.692.025,1.39.075,2.073l2-.146C6.023,30.292,6,29.644,6,29a26,26,0,0,1,52,0c0,.644-.023,1.292-.07,1.927Z"></path><path d="M31,28H23v2h9a1,1,0,0,0,1-1V11H31Z"></path></svg>
+                    </html:div>
+                    <html:p class="title">Performance Pulse</html:p>
+                    <html:p class="text">Check all your favourites in one place.</html:p>
+                </html:div>
+
+                <html:div class="card">
+                    <html:div class="icon">
+                        <svg width="60px" height="60px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path class="cls-1" d="M36.0351,23.01915a10.9386,10.9386,0,0,0,21.47763,0l1.67375-8.60594A11.526,11.526,0,0,0,47.7663,1.33416H45.78153A11.526,11.526,0,0,0,34.36135,14.41322Z"></path><path class="cls-1" d="M26.50625,85.889a4.77482,4.77482,0,0,0,.88777-.49715v13.964L44.47909,80.74505a1.87926,1.87926,0,0,1,2.305-.36754L66.09011,91.22419V85.39181a4.70019,4.70019,0,0,0,6.9421-1.74884l9.33894-18.49145a5.04979,5.04979,0,0,0-.05327-4.66052l-.31072-.57705L79.2197,54.75627,72.38421,42.10608a6.837,6.837,0,0,0-1.05645-1.47363,4.08332,4.08332,0,0,0-2.166-1.18074c-2.8141-.577-10.56407-2.166-12.38386-2.4146a2.49048,2.49048,0,0,0-.96767.071l-.25745-.08878L50.546,42.02618l-2.68981,2.68988-.8877.8877-.19538-.19531v-.06214l-.03544.02663-.02671-.02663v.06214l-.19524.19531-3.57758-3.57758-5.00675-5.00683-.25753.08878a2.49,2.49,0,0,0-.9676-.071c-1.81979.24858-9.56976,1.83762-12.39274,2.4146a4.0908,4.0908,0,0,0-2.15714,1.18074A6.83416,6.83416,0,0,0,21.1,42.10608L14.25556,54.75627,11.477,59.91394l-.31072.57705a5.04979,5.04979,0,0,0-.05327,4.66052L20.443,83.643A4.76,4.76,0,0,0,26.50625,85.889ZM66.09011,56.8779,71.168,63.62469,66.09011,75.751Zm-38.69609,0V75.751L22.31618,63.62469Z"></path><path class="cls-2" d="M116.80954,66.58409,95.03784,68.4553a.57217.57217,0,0,0-.34357.98632l5.49207,5.17972L98.96728,75.8657l-.8135.83014-4.12941,4.28684q-2.38667,2.51551-4.75433,5.043-1.6962,1.81783-3.37317,3.657Q81.882,94.077,77.96971,98.57126c-1.29778,1.50293-2.59075,3.013-3.86463,4.53971-.33869.40556-.67271.81586-1.009,1.2238l-1.36214-.76585L50.48111,91.62221l-3.39226-1.90605L44.658,92.36409l-3.04159,3.31354L17.67031,121.76119l5.02872,4.90466,25.9094-25.00291h.00244l15.16725,9.86665L71.5335,116.575l2.81254,1.8297.64408.4174,3.65948-3.206q2.24718-1.97175,4.42511-4.00771c1.45758-1.355,2.8937-2.72665,4.325-4.10314q4.28684-4.14014,8.44725-8.39472c2.78628-2.8269,5.52011-5.70388,8.24683-8.58559l4.05779-4.356.54864-.59873,1.43479-1.56581,5.24386,4.94564a.57216.57216,0,0,0,.964-.38722L117.43,67.18319A.57222.57222,0,0,0,116.80954,66.58409Z"></path></svg>
+                    </html:div>
+                    <html:p class="title">Engagement Pulse</html:p>
+                    <html:p class="text">Check all your favourites in one place.</html:p>
+
+                </html:div>
+
+                <html:div class="card">
+                    <html:div class="icon">
+                        <svg height="60px" width="60px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M51,24l-.013,0A22.5,22.5,0,1,0,9.915,37.179a36.587,36.587,0,0,1,5.263,10.789A45.525,45.525,0,0,1,17,62H42V53H37V51H48a3,3,0,0,0,3-3V36h7ZM21,11a5,5,0,1,1-5,5A5,5,0,0,1,21,11Zm2.887,22H18.113l-2.886-5,2.886-5h5.774l2.886,5ZM30,33l5-10,5,10ZM40,21H30V11H40Z">
+                        </path>
+                        </svg>
+                    </html:div>
+                    <html:p class="title">Matrice de Compétences</html:p>
+                    <html:p class="text">Check all your favourites in one place.</html:p>
+
+                </html:div>
+
+               <!--  <html:div class="flip-card">
                     <html:div class="flip-card-inner">
                         <html:div class="flip-card-front">
                             <html:p class="title">Performance Pulse</html:p>   
+                            
                         </html:div>   
                         <html:div class="flip-card-back">
                             <html:p>Hover NOW</html:p>  
@@ -113,16 +106,59 @@
                             <html:p>Hover NOW</html:p>  
                         </html:div>  
                     </html:div>   
-                </html:div>
+                </html:div> -->
 			</FlexBox>
 
             <FlexBox
-                class="sapUiLargeMarginTop flex22"
-				height="200px"
+                class="sapUiLargeMarginBottom flexy2"
 				alignItems="Start"
-				justifyContent="Center">
+				justifyContent="Center"
+                direction="Row">
 
-                <html:div class="flip-card">
+                <html:div class="card">
+                    <html:div class="icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="63px" height="48px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path class="fil0" d="M466 512l-420 0c-4,0 -7,-3 -7,-7 0,-4 3,-7 7,-7l420 0c4,0 7,3 7,7 0,4 -3,7 -7,7z"></path>   
+                            <path class="fil0" d="M149 512l-44 0c-4,0 -7,-3 -7,-7l0 -156c0,-4 3,-7 7,-7l44 0c4,0 7,3 7,7l0 156c0,4 -3,7 -7,7zm-37 -14l31 0 0 -142 -31 0 0 142z"></path>
+                            <path class="fil0" d="M235 512l-44 0c-4,0 -7,-3 -7,-7l0 -209c0,-4 3,-7 7,-7l44 0c4,0 7,3 7,7l0 209c0,4 -3,7 -7,7zm-37 -14l31 0 0 -195 -31 0 0 195z"></path>
+                            <path class="fil0" d="M321 512l-44 0c-4,0 -7,-3 -7,-7l0 -262c0,-3 3,-7 7,-7l44 0c4,0 7,4 7,7l0 262c0,4 -3,7 -7,7zm-38 -14l31 0 0 -248 -31 0 0 248z"></path>
+                            <path class="fil0" d="M407 512l-44 0c-4,0 -7,-3 -7,-7l0 -315c0,-3 3,-6 7,-6l44 0c4,0 7,3 7,6l0 315c0,4 -3,7 -7,7zm-38 -14l31 0 0 -301 -31 0 0 301z"></path>
+                            <path class="fil0" d="M351 163c-1,0 -2,0 -3,0 -3,-2 -5,-6 -4,-9l14 -39 -40 -7c-4,0 -6,-4 -6,-8 1,-3 5,-6 8,-5l49 9c1,0 3,1 4,3 1,2 1,4 1,6l-17 46c-1,2 -4,4 -6,4z"></path>
+                            <path class="fil0" d="M89 278c-2,0 -4,-2 -6,-4 -2,-3 0,-7 3,-9l278 -161c3,-2 7,0 9,3 2,3 1,7 -2,9l-278 161c-1,0 -3,1 -4,1z"></path>
+                            <path class="fil0" d="M160 187c-51,0 -93,-42 -93,-93 0,-52 42,-94 93,-94 52,0 94,42 94,94 0,51 -42,93 -94,93zm0 -173c-44,0 -80,35 -80,80 0,44 36,79 80,79 44,0 80,-35 80,-79 0,-45 -36,-80 -80,-80z"></path>
+                            <path class="fil0" d="M160 139c-14,0 -26,-11 -26,-26 0,-4 3,-7 7,-7 3,0 6,3 6,7 0,7 6,13 13,13 7,0 13,-6 13,-13 0,-9 -4,-10 -14,-13 -10,-2 -25,-6 -25,-26 0,-14 12,-26 26,-26 15,0 26,12 26,26 0,4 -3,7 -6,7 -4,0 -7,-3 -7,-7 0,-7 -6,-13 -13,-13 -7,0 -13,6 -13,13 0,9 4,10 15,13 10,2 24,6 24,26 0,15 -11,26 -26,26z"></path>
+                            <path class="fil0" d="M160 61c-4,0 -7,-3 -7,-6l0 -16c0,-4 3,-7 7,-7 4,0 7,3 7,7l0 16c0,3 -3,6 -7,6z"></path>
+                            <path class="fil0" d="M160 155c-4,0 -7,-3 -7,-7l0 -15c0,-4 3,-7 7,-7 4,0 7,3 7,7l0 15c0,4 -3,7 -7,7z"></path>
+                        </svg>
+                    </html:div>
+                    <html:p class="title">Compensation Salariale</html:p>
+                    <html:p class="text">Check all your favourites in one place.</html:p>
+
+                </html:div>
+
+                <html:div class="card">
+                    <html:div class="icon">
+                       <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                        <path d="M62.951,19.854a1,1,0,0,0-.807-.68L45.39,16.739,37.9,1.558a1.041,1.041,0,0,0-1.794,0L28.61,16.739,11.856,19.174A1,1,0,0,0,11.3,20.88l8.039,7.836,1.4-1.432-6.589-6.422,15.269-2.219a1,1,0,0,0,.753-.547L37,4.259,43.829,18.1a1,1,0,0,0,.753.547l15.269,2.219L48.8,31.632a1,1,0,0,0-.288.885l2.609,15.208L47.465,45.8l-.93,1.77,5.45,2.866a1,1,0,0,0,1.452-1.054L50.575,32.7,62.7,20.88A1,1,0,0,0,62.951,19.854Z"></path>
+                        <path d="M38.749,48.949l3,1a1,1,0,0,0,1.306-.807l1-6.977a4,4,0,0,0-6.312-3.8l-3.43,2.5L35,34.624l8.549-4.75A1,1,0,0,0,44.065,29V25a1,1,0,0,0-1.486-.874l-9.79,5.439A4.929,4.929,0,0,0,33.065,28a5,5,0,1,0-6.179,4.844L15.579,39.126a1,1,0,0,0-.514.874v4a1,1,0,0,0,1.515.857l8.311-4.986-.782,8.6L16.465,54.2a1,1,0,0,0-.4.8v4a1,1,0,0,0,1.594.8L38.672,44.273l-.593,3.562A1,1,0,0,0,38.749,48.949ZM25.065,28a3,3,0,1,1,3,3A3,3,0,0,1,25.065,28Zm-7,29.018V55.5l7.6-5.7a1,1,0,0,0,.4-.71l1-11a1,1,0,0,0-1.511-.947l-8.485,5.091V40.588l25-13.888v1.712l-8.486,4.714a1,1,0,0,0-.508.764l-1,9a1,1,0,0,0,1.582.919l5.263-3.828a2,2,0,0,1,3.156,1.9l-.827,5.79-1.053-.35.859-5.157a1,1,0,0,0-1.58-.969Z"></path><rect x="8.565" y="59.5" width="4" height="2" transform="matrix(0.8, -0.6, 0.6, 0.8, -34.095, 18.748)"></rect><rect x="0.796" y="53.34" width="10.22" height="2" transform="translate(-28.899 13.235) rotate(-33.69)"></rect><rect x="1.17" y="46.06" width="6.473" height="2" transform="matrix(0.826, -0.563, 0.563, 0.826, -25.574, 11.225)"></rect>
+                       </svg>
+                    </html:div>
+                    <html:p class="title">Revue des Talents</html:p>
+                    <html:p class="text">Check all your favourites in one place.</html:p>
+                </html:div>
+
+                <html:div class="card">
+                    <html:div class="icon">
+                        <svg width="80px" height="80px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+                            <path d="M13.76,15.64 L16,15 L13.76,14.36 L13.76,14.36 L12.5,11 L11.24,14.36 L9,15 L11.24,15.64 L12.5,19 L13.76,15.64 L13.76,15.64 Z M23.7142857,9.23809524 L22.5,6 L21.2857143,9.23809524 L19,10 L21.2857143,10.7619048 L22.5,14 L23.7142857,10.7619048 L26,10 L23.7142857,9.23809524 L23.7142857,9.23809524 L23.7142857,9.23809524 Z M21.7142857,21.2380952 L20.5,18 L19.2857143,21.2380952 L17,22 L19.2857143,22.7619048 L20.5,26 L21.7142857,22.7619048 L24,22 L21.7142857,21.2380952 L21.7142857,21.2380952 L21.7142857,21.2380952 Z M14.4594595,13.4864865 L12.5,8 L10.5405405,13.4864865 L6,15 L10.5405405,16.5135135 L12.5,22 L14.4594595,16.5135135 L19,15 L14.4594595,13.4864865 L14.4594595,13.4864865 L14.4594595,13.4864865 Z" id="stars" sketch:type="MSShapeGroup"></path>
+                        </svg>
+                    </html:div>
+                    <html:p class="title">My Moment</html:p>
+                    <html:p class="text">Check all your favourites in one place.</html:p>
+
+                </html:div>
+
+               <!--  <html:div class="flip-card">
                     <html:div class="flip-card-inner">
                         <html:div class="flip-card-front">
                             <html:p class="title">Revue des Talents</html:p>   
@@ -153,10 +189,21 @@
                             <html:p>Hover NOW</html:p>  
                         </html:div>  
                     </html:div>   
-                </html:div>
+                </html:div> -->
 			</FlexBox>
         </FlexBox>
+    </VBox>
 
+    <VBox 
+        height="50vh"
+        class="vbox2"
+        >
+        <FlexBox justifyContent="Center" alignItems="Center" direction="Column">
+            <Image class="sapUiLargeMarginTop imageLog" src="../utils/images/logo.png" height="80px" width="80px"/>
+            
+
+            <Text class="footerText" text="COPYRIGHT © | 2024 CRAFTED BY Brahim &amp; Farah | ALL RIGHTS RESERVED"></Text>
+        </FlexBox>
     </VBox>
 
 
@@ -218,15 +265,7 @@
 			    <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
 
 			</FlexBox> -->
-        <!-- 
-            <html:span>Hello</html:span>
-            <html:span>Hello</html:span>
-            <html:span>Hello</html:span>
-            <html:span>Hello</html:span>
-            <html:span>Hello</html:span>
-            <html:span>Hello</html:span>
-            <html:span>Hello</html:span>
-        -->
+       
     </Page>
 </mvc:View>
 
