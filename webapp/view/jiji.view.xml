@@ -1,0 +1,10 @@
+<mvc:View controllerName="brahim.project.controller.Home"
+   	xmlns="sap.m" displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    height="100%">
+    </mvc:View>
