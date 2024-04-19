@@ -11,6 +11,10 @@ sap.ui.define([
             onInit: function () {
 
             },
+            onConnect: function ()
+            {
+                window.open("https://app.ouickly.fr/","_blank")
+            },
             onScrollToVBox: function() {
                 var targetId = this.byId("vb").getId();
                // Get the hash changer instance
@@ -18,6 +22,10 @@ sap.ui.define([
 
                 // Scroll to the target VBox using HashChanger
                 oHashChanger.setHash(targetId);
-            } 
+            },
+            onImagePress: function() 
+            {
+                window.open("https://app.ouickly.fr/","_blank")
+            }
         });
     });

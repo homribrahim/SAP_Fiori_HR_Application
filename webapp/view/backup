@@ -1,4 +1,4 @@
-<tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="285px">
+<!-- <tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="285px">
 				<tnt:NavigationList>
 					<tnt:NavigationListItem text="Home" icon="sap-icon://home" />
 					<tnt:NavigationListGroup text="New">
@@ -43,4 +43,139 @@
 						<tnt:NavigationListItem selectable="false" href="https://sap.com" target="_blank" text="Déconnexion" icon="sap-icon://journey-depart"/>
 					</tnt:NavigationList>
 				</tnt:fixedItem>
-			</tnt:SideNavigation>
+			</tnt:SideNavigation> -->
+
+
+<!--***********************************************************-->
+
+  <!--  <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Performance Pulse</html:p>   
+                            
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Engagement Pulse</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Matrice De Compétences
+                            </html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div> -->
+
+<!--***********************************************************-->
+
+
+               <!--  <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Revue des Talents</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">Compensation Salariale</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div>
+
+                <html:div class="flip-card">
+                    <html:div class="flip-card-inner">
+                        <html:div class="flip-card-front">
+                            <html:p class="title">My Moment</html:p>   
+                        </html:div>   
+                        <html:div class="flip-card-back">
+                            <html:p>Hover NOW</html:p>  
+                        </html:div>  
+                    </html:div>   
+                </html:div> -->
+
+<!--***********************************************************-->
+ <!-- <f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="Matrice De Compétences" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card>
+				<f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="Compensation Salariale" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card>
+                <f:Card class="sapUiMediumMargin" width="450px">
+                    <f:header>
+                        <card:Header  title="My Moment" subtitle="Revenue per Product | EUR" />
+                    </f:header>
+                    <f:content>
+                        <Text text="Hello World"/>
+                    </f:content>
+                </f:Card> -->
+
+      <!--  <Title class="desc" text="Découvrez notre plateforme dédiée au développement 
+            et à l'épanouissement professionnel ! Explorez vos talents,
+             évaluez-vous et tracez votre chemin vers le succès, le tout 
+             dans une interface conviviale et stimulante."
+        />  -->
+<!-- 
+        <l:BlockLayout class="BlockLayout">
+            <l:BlockLayoutRow>
+                <l:BlockLayoutCell title="AYMAX Technology">
+			    <Text
+			    id="text4"
+			    wrappingType="Hyphenated"
+			    text="Découvrez notre plateforme dédiée au développement 
+             et à l'épanouissement professionnel ! Explorez vos talents,
+             évaluez-vous et tracez votre chemin vers le succès, le tout 
+             dans une interface conviviale et stimulante."  />
+	            </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                    <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+	    </l:BlockLayout> -->
+
+        	<!-- <FlexBox class="sapUiLargeMarginLeft" direction="Column" alignItems="Start" justifyContent='Center' height="70%">
+				<Title text="AYMAX Technology" />
+				<Text text="Découvrez notre plateforme dédiée au développement 
+                et à l'épanouissement professionnel !" />
+                <Text text="Explorez vos talents,
+                 évaluez-vous et tracez votre chemin vers le succès, le tout 
+                dans une interface conviviale et stimulante."/>
+			    <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
+
+			</FlexBox> -->
+       

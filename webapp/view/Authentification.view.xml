@@ -17,40 +17,35 @@
                 <HBox 
                     alignItems="Center"
                     justifyContent="Center"
-                    class="HBOX1"
-                    >                              
-                   <VBox
-                        width="27rem"
-                        height="600px"
-                        class="VBOX2"
-                    >
-                        <f:Card class="sapUiLargeMarginBeginEnd sapUiLargeMarginTop customCard" width="85%">
+                    class="authElementsBox"
+                    >                                     
+                        <f:Card class="sapUiLargeMarginTop authCard" width="90%">
                             <f:header>
-                                <card:Header class="sapUiLargeMarginTop" title="S'identifier" subtitle="Connectez-vous et stimuler vote expérience professionnelle"/>
+                                <card:Header class="sapUiMediumMarginTop sapUiLargeMarginEnd sapUiSmallMarginBegin cardHeader" title="S'identifier" subtitle="Connectez-vous et stimuler votre expérience professionnelle"/>
                             </f:header>                 
                             <f:content>              
                                 <VBox
-                                    height="320px"
-                                    class="sapUiSmallMarginBeginEnd"
+                                    height="400px"
+                                    class="sapUiLargeMarginBegin"
                                     justifyContent="Center"
                                     >                                                         
-                                    <VBox class="sapUiTinyMarginTop" justifyContent="Center">
+                                    <VBox justifyContent="Center">
                                         <Label text="Identifiant" design="Bold"></Label>
-                                        <Input class="sapMInputBaseContentWrapper" placeholder="Identifiant" width="19rem">
+                                        <Input class="sapMInputBaseContentWrapper" placeholder="Identifiant" width="20.8rem">
                                         </Input>
                                     </VBox>
                                     <VBox class="sapUiSmallMarginTop" justifyContent="Center">
                                         <Label text="Mot de passe" design="Bold"></Label>
-                                        <Input class="sapMInputBaseContentWrapper" placeholder="Mot de passe" width="19rem" type="Password">
+                                        <Input class="sapMInputBaseContentWrapper" placeholder="Mot de passe" width="20.8rem" type="Password">
                                         </Input>
                                     </VBox>
                                     <HBox>
-                                        <Button class="sapUiSmallMarginTop btn" width="19rem" text="S'identifier"></Button>
+                                        <Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="20.8rem" text="S'identifier"></Button>
                                     </HBox>                           
                                 </VBox>
                             </f:content>
                         </f:Card>
-                    </VBox>  
+                     
                 </HBox>
         </VBox>
 </Page>

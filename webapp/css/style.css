@@ -3,6 +3,8 @@
   scroll-behavior: smooth;
 }
 
+/*Defining Fonts Section */
+
  @font-face {
   font-family: myFirstFont;
   src: url("../utils/fonts/ModernWarfare-OV7KP.ttf");
@@ -14,15 +16,158 @@
   src: url("../utils/fonts/mw.ttf");
 }
 
-.authPage
+/*End Of Defining Fonts Section */
+
+/*Media Queries Section*/
+
+@media only screen and (max-width: 522px)
 {
-    /* background-color: #F2F2F2; */
-  background-image: url("../utils/images/Image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  animation: 1s fadeInUp !important;   
+  .sapMFlexBox .homeButtons
+  {
+    flex-direction:column ;
+  }
+
+  button.learn-more 
+  {
+    margin-top: 10px;
+  }
+ 
+
 }
+
+@media only screen and (max-width: 1270px)
+{
+  .sapMFlexBox .cardsRowOne,.cardsRowTwo,.cardsRows,.sectionName,.sectionDescription
+  {
+    flex-direction:column;
+  } 
+}
+
+@media only screen and (max-width: 810px)
+{
+  .footerElements
+  {
+    flex-direction:column;
+    margin-top: 10px !important;
+  }
+}
+
+/*End Of Media Queries Section*/
+
+/*Animations Section*/
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}
+
+/*End Of Animations Section*/
+
+/*Common Elements*/
+
+.sapMInputBaseContentWrapper
+{
+  height: 2.5rem !important;
+  border-radius: 0 !important;
+}
+
+.sapMTitle
+{
+  background: -webkit-linear-gradient(#ffffffc1, #282877);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 230px;
+  animation: 1.5s fadeInUp !important;  
+}
+  
+.sapMFlexBox
+{
+  animation: 3s fadeInUp !important;   
+}
+
+.authElementsBox
+{
+  background-color: white;
+  width: 435px;
+}
+
+.sapFCard .sapFCardHeader .sapFCardHeaderText .sapFCardTitle
+{
+  font-size: 2rem !important;
+  color: #001575;
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+}
+
+.sapFCard .sapFCardHeader .sapFCardSubtitle
+{
+  font-size: 1rem;
+}
+
+.sapMLabel
+{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+}
+
+.sapMText
+{
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+  padding: 0px 20px;
+}
+
+.sapTntNLI .sapMText {
+  color: #010b3a !important;
+  font-size: 15px !important;
+}
+
+.discoverButton{
+  padding: 10px 50px;
+  height: 45px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.discoverButton:hover {
+  letter-spacing: 2px;
+  background-color:#1F2341;
+  color: hsl(0, 0%, 100%);
+} 
+
+.discoverButton:active {
+  letter-spacing: 3px;
+  background-color: hsl(261, 96%, 19%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: hsl(261, 96%, 19%) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+/*End Of Common Elements*/ 
+
+/*Home Page View*/
+
 .homePage
 {
   background-image: url("../utils/images/peakpx.jpg");
@@ -31,6 +176,7 @@
   background-position: center;
   animation: 1s fadeInUp !important; 
 }
+
 .homePage::before
 {
   content:'';
@@ -43,62 +189,119 @@
   animation: 1s fadeInUp !important;   
 }
 
-.desc
-{   
-    color: white !important;
-    animation: 1.5s fadeInUp !important;   
-}
+.sapMFlexBox .homeButtons
+  {
+    margin-left:50px;
+    margin-top:50px;
+  }
 
-h1 {
-    font-family: "Montserrat Medium";
-    max-width: 40ch;
+  button.learn-more 
+  {
+    width: 15rem;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding-left: 10px;
+    font-size: inherit;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+  }
+   
+   button.learn-more .circle 
+  {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #1F2341;
+    border-radius: 1.625rem;
+  }
+   
+   button.learn-more .circle .icon 
+  {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+  }
+   
+   button.learn-more .circle .icon.arrow 
+  {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+   
+   button.learn-more .circle .icon.arrow::before
+  {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+   
+   button.learn-more .button-text 
+  {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 2.5rem;
+    color: #ffffff;
+    line-height: 1.5;
     text-align: center;
-    transform: scale(0.94);
-    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
-  @keyframes scale {
-    100% {
-      transform: scale(1);
-    }
+   
+   button:hover .circle 
+  {
+    width: 100%;
   }
-  
- .HBOX1
+   
+   button:hover .circle .icon.arrow 
+  {
+    background: #fff;
+    transform: translate(1rem, 0);
+  }
+   
+   button:hover .button-text 
+  {
+    color: #fff;
+  }
+
+.jumboText
 {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    box-shadow: -1px 5px 39px 1px rgba(220, 227, 255, 0.78);
-    -webkit-box-shadow: -1px 5px 39px 1px rgba(220, 227, 255, 0.78);
-    -moz-box-shadow: -1px 5px 39px 1px rgba(220, 227, 255, 0.78);
-    animation: 1.5s fadeInUp !important;    
+  font-size:22px !important;
+  font-family: 'Poppins','sans-serif' !important;
+  margin-left: 35px;
+  color: white !important;
+  font-weight: 500 !important;
+  letter-spacing: 1.5px;
 }
 
-.sapMInputBaseContentWrapper
-{
-    height: 2.5rem !important;
-    border-radius: 0 !important;
-}
-
-.btn .sapMBtnInner 
-{
-    background-color: #001575 !important;
-    color: white;
-    height: 2.5rem !important;
-    font-size: 16px !important;
-    padding: 7px !important;
-    font-family: 'Times New Roman', Times, serif !important;
-    font-weight: bold !important;
-    transition: .5s !important;
-    border-radius: 0 !important;
-}
-
-.btn .sapMBtnInner:hover
-{
-    color: white !important;
-    background-color: #0A8DC5 !important; 
-}
-
-.vbox 
+.servicesSection 
 {
   display: flex;
   align-items: center;
@@ -109,12 +312,12 @@ h1 {
   animation: 1s fadeInUp !important;   
 }
 
-.vbox2
+.footerSection
 {
   position: relative;
 }
 
-.vbox2::before
+.footerSection::before
 {
   content:'';
   position: absolute;
@@ -123,8 +326,8 @@ h1 {
   width:100%;
   height:100%;
   background: rgba(1, 11, 58,0.6);
-
 }
+
 .imageLog
 {
   background-color: white;
@@ -132,6 +335,7 @@ h1 {
   padding: 10px;
   transition: .5s;
 }
+
 .imageLog:hover
 {
   padding: 15px;
@@ -139,86 +343,19 @@ h1 {
   -webkit-box-shadow: -2px 4px 30px -1px rgba(33, 33, 33, 0.75);
   -moz-box-shadow: -2px 4px 30px -1px rgba(26, 25, 25, 0.75);
   cursor: pointer;
-
 }
+
 .footerText
 {
   color: white;
+  text-align: center !important;
 }
 
-.customCard 
-{      
-  box-shadow: -1px 5px 39px 1px white inset;
-  -webkit-box-shadow: -1px 5px 39px 1px white inset;
-  -moz-box-shadow: -1px 5px 39px 1px white inset;
-}
-
-.sapFCard .sapFCardHeader .sapFCardHeaderText .sapFCardTitle
-{
-  font-size: 1.7rem !important;
-  color: #001575;
-  font-weight: bolder;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
-}
-
-.sapMLabel
-{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
-}
-
-@keyframes fadeInUp {
-    0% {
-      transform: translateY(-10%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0%);
-      opacity: 1;
-    }
-  }
-
-  .jumboText
-  {
-    font-size:22px !important;
-    font-family: 'Poppins','sans-serif' !important;
-    color: white !important;
-    font-weight: 500 !important;
-    letter-spacing: 1.5px;
-  }
-  
-  
-
-  .sapMTitle
-  {
-    background: -webkit-linear-gradient(#ffffffc1, #282877);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 170px;
-    animation: 1.5s fadeInUp !important;  
-  }
-  
-  .sapMFlexBox
-  {
-    animation: 3s fadeInUp !important;   
-  }
-
-  .sapMFlexBox .flex2
-  {
-    margin-left: 35px;
-  }
-
-  .sapMText
-  {
-    font-size: 20px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
-    padding: 0px 50px;
-  }
-
-  .span,.subtitle
+.jumboTitle,.jumboSubtitle
   {
     font-family: myFirstFont;
     font-size: 2.813rem;
-    padding: 0px 45px;
+    padding: 5px 45px;
     text-align: center;
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
@@ -242,51 +379,9 @@ h1 {
       0 14px 0 #141414, 
       0 15px 0 #121212, 
       0 22px 30px rgba(0, 0, 0, 0.9);
-    }
-     
-     button {
-      padding: 10px 50px;
-      margin-top: 50px;
-      height: 45px;
-      margin-left: 10px;
-      border-radius: 50px;
-      cursor: pointer;
-      border: 0;
-      background-color: white;
-      box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-size: 15px;
-      transition: all 0.5s ease;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
 
-    }
-    
-    button:hover {
-      letter-spacing: 2px;
-      background-color:#1F2341;
-      color: hsl(0, 0%, 100%);
-      box-shadow: hsl(261, 96%, 19%) 0px 7px 29px 0px;
-    }
-    
-    button:active {
-      letter-spacing: 3px;
-      background-color: hsl(261, 96%, 19%);
-      color: hsl(0, 0%, 100%);
-      box-shadow: hsl(261, 96%, 19%) 0px 0px 0px 0px;
-      transform: translateY(10px);
-      transition: 100ms;
-    }
-    
-    @media only screen and (max-width: 522px)
-    {
-      .sapMFlexBox .flex2
-      {
-        flex-direction:column ;
-      }
-    }
-    
-.textVB  
+.sectionName  
     {
       margin-top:100px;
       margin-bottom:20px;
@@ -297,7 +392,7 @@ h1 {
       animation: 1.25s fadeInUp !important;  
     }
 
-.textVB2
+.sectionDescription
     {
       max-width: 1310px;
       text-align: center !important;
@@ -309,266 +404,185 @@ h1 {
       animation: 1.25s fadeInUp !important;  
     }
 
-.bar
+.card 
+    {
+      width: 370px;
+      height: 260px;
+      background-color: #010b3a;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
+      border: 2px solid rgba(7, 7, 7, 0.12);
+      font-size: 10.5px;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
+      -webkit-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
+      -moz-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
+    }
+
+.card .cardTitle
+    {
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      margin-top: 30px;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 1.5em;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+    }
+
+    .cardIcon {
+      margin: 0 auto;
+      width: 100%;
+      height: 80px;
+      max-width: 80px;
+      background:linear-gradient(120deg, #698ca7 30%, #876b65 88%,
+      rgb(235, 230, 169) 40%,#876b65 78%);
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.8s ease;
+      background-position: 0px;
+      background-size: 200px;
+    }
+    
+    .cardIcon svg {
+      fill: white;
+    }
+    
+    .card .cardTitle {
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      margin-top: 30px;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+    
+    .card .cardText {
+      width: 80%;
+      margin: 0 auto;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 20px;
+      color: white;
+      font-weight: 200;
+      letter-spacing: 2px;
+      opacity: 0;
+      max-height: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      height: 270px;
+    }
+    
+    .card:hover .cardText {
+      transition: all 0.3s ease;
+      opacity: 1;
+      max-height: 40px;
+    }
+    
+    .card:hover .cardIcon {
+      background-position: -120px;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover .cardIcon svg path {
+      fill: white;
+      transition: all 0.3s ease;
+    }
+
+    .cardsRowOne,.cardsRowTwo
+    {
+      gap: 40px;
+    }
+
+    .cardsRows 
+    {
+      gap:30px;
+    }
+
+    .footText,.footerElements
+    {
+     color: white;
+     text-align: center !important;
+    }
+
+    .footerIcon
+    {
+     font-size: 40px;
+    }
+
+    .footer 
+    {
+      text-align: center !important;
+    }
+    
+/*End Of Home Page View */
+
+/*Authentification Page View*/
+
+.authPage
 {
-  position:absolute;
+  background-image: url("../utils/images/Image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: 1s fadeInUp !important;   
 }
 
-.flip-card {
-  background-color: transparent;
-  width: 400px;
-  padding: 25px;
-  height: 250px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  animation: 1.25s fadeInUp !important;  
- /*  box-shadow: 1px 3px 37px 6px rgba(53, 52, 52, 0.75);
-  -webkit-box-shadow: 1px 3px 37px 6px rgba(53, 52, 52, 0.75);
-  -moz-box-shadow: 1px 3px 37px 6px rgba(53, 52, 52, 0.75); */
-}
-
-.title {
-  font-size: 1.5em;
-  font-weight: 600;
-  text-align: center;
-  margin: 0;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  /* border: 1px solid rgb(63, 63, 63); */
-  border-radius: 1rem;
-}
-.flip-card-front {
-  background-color:white ;
-  color: black;
-}
-.flip-card-back {
-  background:linear-gradient(120deg, #94A2B7 30%, #8F8898 88%,
-  rgb(235, 230, 169) 40%,#8f899a 78%);
-  color: white;
-  transform: rotateY(180deg);
-}
-
-@media only screen and (max-width: 1270px)
+.authElementsBox
 {
-  .sapMFlexBox .flexy1,.flexy2,.textVB2,.textVB
-  {
-    flex-direction:column;
-    align-items: center;
-  }
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-shadow: -1px 5px 39px 1px rgba(220, 227, 255, 0.78);
+    -webkit-box-shadow: -1px 5px 39px 1px rgba(220, 227, 255, 0.78);
+    -moz-box-shadow: -1px 5px 39px 1px rgba(220, 227, 255, 0.78);
+    animation: 1.5s fadeInUp !important;    
+}
+
+.authCard 
+{      
+  box-shadow: -1px 5px 39px 1px white inset;
+  -webkit-box-shadow: -1px 5px 39px 1px white inset;
+  -moz-box-shadow: -1px 5px 39px 1px white inset;
+}
+
+.signInButton .sapMBtnInner 
+{
+    background-color: #001575 !important;
+    color: white;
+    height: 2.5rem !important;
+    font-size: 16px !important;
+    padding: 7px !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: bold !important;
+    transition: .5s !important;
+    border-radius: 0 !important;
+}
+
+.signInButton .sapMBtnInner:hover
+{
+    color: white !important;
+    background-color: #0A8DC5 !important; 
+}
   
-}
-
-.par 
-{
-  color: gray;
-}
-
-/************************************************************************/
-.card {
-  width: 370px;
-  height: 260px;
-  background-color: #010b3a;
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.24);
-  border: 2px solid rgba(7, 7, 7, 0.12);
-  font-size: 10.5px;
-  transition: all 0.3s ease;
-  position: relative;
-  display: flex;
-  font-weight: 700;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-}
-
-.icon {
-  margin: 0 auto;
-  width: 100%;
-  height: 80px;
-  max-width: 80px;
-  background:linear-gradient(120deg, #698ca7 30%, #876b65 88%,
-  rgb(235, 230, 169) 40%,#876b65 78%);
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.8s ease;
-  background-position: 0px;
-  background-size: 200px;
-}
-
-.icon svg {
-  fill: white;
-}
-
-.card .title {
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  margin-top: 30px;
-  color: white;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-}
-
-.card .text {
-  width: 80%;
-  margin: 0 auto;
-  font-size: 13px;
-  text-align: center;
-  margin-top: 20px;
-  color: white;
-  font-weight: 200;
-  letter-spacing: 2px;
-  opacity: 0;
-  max-height: 0;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  height: 270px;
-}
-
-.card:hover .text {
-  transition: all 0.3s ease;
-  opacity: 1;
-  max-height: 40px;
-}
-
-.card:hover .icon {
-  background-position: -120px;
-  transition: all 0.3s ease;
-}
-
-.card:hover .icon svg path {
-  fill: white;
-  transition: all 0.3s ease;
-}
-.flexy1,.flexy2
-{
-  gap: 40px;
-}
-
-.flexy 
-{
-  gap:30px;
-}
-/*-*******************************/
-
- button.learn-more {
-  width: 15rem;
-  height: auto;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 400;
- }
- 
- button.learn-more .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: relative;
-  display: block;
-  margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #1F2341;
-  border-radius: 1.625rem;
- }
- 
- button.learn-more .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
- }
- 
- button.learn-more .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
-  height: 0.125rem;
-  background: none;
- }
- 
- button.learn-more .circle .icon.arrow::before {
-  position: absolute;
-  content: "";
-  top: -0.29rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
-  transform: rotate(45deg);
- }
- 
- button.learn-more .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.75rem 0;
-  margin: 0 0 0 2.5rem;
-  color: #ffffff;
-  line-height: 1.5;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
- 
- button:hover .circle {
-  width: 100%;
- }
- 
- button:hover .circle .icon.arrow {
-  background: #fff;
-  transform: translate(1rem, 0);
- }
- 
- button:hover .button-text {
-  color: #fff;
- }
+/*End Of Authentification Page View*/

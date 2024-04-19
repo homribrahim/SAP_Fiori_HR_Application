@@ -1,7 +1,11 @@
 <mvc:View
 	controllerName="brahim.project.controller.Dashboardf"
 	xmlns="sap.m"
+    xmlns:card="sap.f.cards"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
 	xmlns:tnt="sap.tnt"
 	height="100%">
 	
@@ -30,7 +34,7 @@
 					icon="sap-icon://message-popup"
 				>
 				 <!-- This can be added to button props 
-						visible="{= ${alerts>/alerts/errors}.length === 0 ? false : true }"
+					visible="{= ${alerts>/alerts/errors}.length === 0 ? false : true }"
 					type="Transparent"
 					press=".onMessagePopoverPress"
 					tooltip="{i18n>errorButtonTooltip}" -->
@@ -43,7 +47,7 @@
 					icon="sap-icon://ui-notifications"
 				>
 				 <!-- This can be added to button props 
-						visible="{= ${alerts>/alerts/notifications}.length === 0 ? false : true }"
+					visible="{= ${alerts>/alerts/notifications}.length === 0 ? false : true }"
 					type="Transparent"
 					press=".onNotificationPress"
 					tooltip="{i18n>notificationButtonTooltip}" -->	
@@ -105,7 +109,90 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<App id="mainContents"/>
+
+			<VBox class="sapUiSmallMargin">
+				<f:SimpleForm id="SimpleFormToolbar"
+					editable="true"
+					layout="ResponsiveGridLayout"
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false"
+					ariaLabelledBy="Title1" >
+					<f:toolbar>
+						<Toolbar id="TB1">
+							<Text id="Title1" text="Auto-évaluation des performances"/>
+							<ToolbarSpacer />
+							<Button icon="sap-icon://settings"/>
+							<Button icon="sap-icon://drop-down-list" />
+						</Toolbar>
+					</f:toolbar>
+					<f:content>
+						<Toolbar ariaLabelledBy="Title2">
+						<Title id="Title11" class="number" text="1"/>
+						<Text class="number" text="Personal Informations"></Text>
+							<!-- <Title id="Title2" class="number" text="Personal informations"/> -->
+							<ToolbarSpacer />
+							<Button icon="sap-icon://settings"/>
+						</Toolbar>
+						<Label text="Name" />
+						<Input class="in" value="Eya Belghith" />
+						<Label text="Street/No." />
+						<Input value="{Street}">
+						</Input>
+						<Input value="{HouseNumber}">
+							<layoutData>
+								<l:GridData span="XL2 L1 M3 S4" />
+							</layoutData>
+						</Input>
+						<Label text="ZIP Code/City" />
+						<Input value="{ZIPCode}">
+							<layoutData>
+								<l:GridData span="XL2 L1 M3 S4" />
+							</layoutData>
+						</Input>
+						<Input value="{City}" />
+						<Label text="Country" />
+						<Select id="country" selectedKey="{Country}">
+							<items>
+								<core:Item text="England" key="England"/>
+								<core:Item text="Germany" key="Germany"/>
+								<core:Item text="USA" key="USA"/>
+							</items>
+						</Select>
+						<Label text="Web" />
+						<Input value="{Url}" type="Url" />
+						<Label text="Twitter" />
+						<Input value="{Twitter}" />
+						<Label text="Web" />
+						<Input value="{Url}" type="Url" />
+						<Label text="Twitter" />
+						<Input value="{Twitter}" />
+		
+					
+						<Toolbar ariaLabelledBy="Title3">
+							<Title id="Title3" text="2"/>
+							<Text id="Title33" text="Evaluez vous"/>
+							<ToolbarSpacer />
+							<Button icon="sap-icon://settings"/>
+						</Toolbar>
+						<Label text="Web" />
+						<Input value="{Url}" type="Url" />
+						<Label text="Twitter" />
+						<Input value="{Twitter}" />
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+
 		</tnt:mainContents>
 </tnt:ToolPage>
 </mvc:View>

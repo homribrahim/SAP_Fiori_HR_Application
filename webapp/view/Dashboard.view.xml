@@ -63,9 +63,9 @@
 
 		<VBox renderType="Bare" alignItems="Start" height="100%" class="sapUiTinyMargin">
 
-			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="285px">
-				<tnt:NavigationList>
-					<tnt:NavigationListItem text="Home" icon="sap-icon://home" />
+			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="350px">
+				<tnt:NavigationList >
+					<tnt:NavigationListItem class="sideNavigation" text="Home" icon="sap-icon://home" />
 					<tnt:NavigationListGroup text="New">
 						<tnt:NavigationListItem class="sapMText sapTntNLIText sapMTextNoWrap" text="Performance Pulse" icon="sap-icon://performance">
 							<tnt:NavigationListItem text="Auto Evaluation" icon="sap-icon://form"/>
