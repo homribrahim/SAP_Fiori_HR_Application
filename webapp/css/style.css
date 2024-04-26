@@ -631,6 +631,11 @@ a:visited
   font-weight: bold !important;
 }
 
+.feedInput
+{
+  height:500px !important;
+}
+
 .panelQuest
 {
   
