@@ -24,7 +24,9 @@
                 <html:span class="circle" aria-hidden="true">
                     <html:span class="icon arrow"></html:span>
                 </html:span>
-                <html:span class="button-text">Connectez-vous</html:span>
+                <html:span class="button-text">
+                    <html:a class="loginLink" href="https://port8080-workspaces-ws-prhhs.eu20.applicationstudio.cloud.sap/index.html#/Authentification" target="_blank">Connectez-vous</html:a
+                ></html:span>
             </html:button>  
         </FlexBox>
     </FlexBox>

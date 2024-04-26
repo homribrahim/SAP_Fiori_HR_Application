@@ -4,9 +4,13 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:tnt="sap.tnt"
 	height="100%">
-	<Page id="dashboard" showHeader="false">
-		<VBox renderType="Bare">
-			<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
+
+
+	<tnt:ToolPage
+        id="app"
+        class="sapUiDemoToolPage">
+        <tnt:header>
+        <tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
 			<Button icon="sap-icon://menu2" type="Transparent" tooltip="Menu" press=".onCollapseExpandPress">
 				<layoutData>
 					<OverflowToolbarLayoutData priority="NeverOverflow"/>
@@ -59,11 +63,9 @@
 				</layoutData>
 			</Avatar>
 			</tnt:ToolHeader>
-		</VBox>
-
-		<VBox renderType="Bare" alignItems="Start" height="100%" class="sapUiTinyMargin">
-
-			<tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="350px">
+        </tnt:header>
+        <tnt:sideContent>
+           <tnt:SideNavigation id="sideNavigation" selectedKey="walked" width="350px">
 				<tnt:NavigationList >
 					<tnt:NavigationListItem class="sideNavigation" text="Home" icon="sap-icon://home" />
 					<tnt:NavigationListGroup text="New">
@@ -109,6 +111,93 @@
 					</tnt:NavigationList>
 				</tnt:fixedItem>
 			</tnt:SideNavigation>
-		</VBox>
-	</Page>
+
+        </tnt:sideContent>
+        <tnt:mainContents>
+ 
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormToolbar"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    ariaLabelledBy="Title1" >
+                    <f:toolbar>
+                        <Toolbar id="TB1">
+                            <Text class="evalTitle" text="Auto-évaluation des performances Q1 -2024"/>
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://settings"/>
+                            <Button icon="sap-icon://drop-down-list" />
+                        </Toolbar>
+                    </f:toolbar>
+                    <f:content>
+                        <Toolbar ariaLabelledBy="Title2">
+                        <Title id="Title11" class="number" text="1"/>
+                        <Text class="number" text="Informations Personnels"></Text>
+                            <!-- <Title id="Title2" class="number" text="Personal informations"/> -->
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://settings"/>
+                        </Toolbar>
+                       
+                        <Label text="Name" />
+                        <Input class="in" value="Farah" />
+                        <Label text="Street/No." />
+                        <Input value="{Street}">
+                        </Input>
+                        <Input value="{HouseNumber}">
+                            <layoutData>
+                                <l:GridData span="XL2 L1 M3 S4" />
+                            </layoutData>
+                        </Input>
+                        <Label text="ZIP Code/City" />
+                        <Input value="{ZIPCode}">
+                            <layoutData>
+                                <l:GridData span="XL2 L1 M3 S4" />
+                            </layoutData>
+                        </Input>
+                        <Input value="{City}" />
+                        <Label text="Country" />
+                        <Select id="country" selectedKey="{Country}">
+                            <items>
+                                <core:Item text="England" key="England"/>
+                                <core:Item text="Germany" key="Germany"/>
+                                <core:Item text="USA" key="USA"/>
+                            </items>
+                        </Select>
+                        <Label text="Web" />
+                        <Input value="{Url}" type="Url" />
+                        <Label text="Twitter" />
+                        <Input value="{Twitter}" />
+                        <Label text="Web" />
+                        <Input value="{Url}" type="Url" />
+                        <Label text="Twitter" />
+                        <Input value="{Twitter}" />
+       
+                   
+                        <Toolbar ariaLabelledBy="Title3">
+                            <Title id="Title3" text="2"/>
+                            <Text id="Title33" text="Questionnaire de Performances"/>
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://settings"/>
+                        </Toolbar>
+                        <Label text="Web" />
+                        <Input value="{Url}" type="Url" />
+                        <Label text="Twitter" />
+                        <Input value="{Twitter}" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </tnt:mainContents>
+	</tnt:ToolPage>
 </mvc:View>

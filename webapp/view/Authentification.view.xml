@@ -40,7 +40,9 @@
                                         </Input>
                                     </VBox>
                                     <HBox>
-                                        <Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="20.8rem" text="S'identifier"></Button>
+                            
+
+                                        <Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="20.8rem" text="S'identifier" press="onDashboard"></Button>
                                     </HBox>                           
                                 </VBox>
                             </f:content>

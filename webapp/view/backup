@@ -179,3 +179,428 @@
 
 			</FlexBox> -->
        
+
+               <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormToolbar"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    ariaLabelledBy="Title1" >
+                    <f:toolbar>
+                        <Toolbar id="TB1">
+                            <Text class="evalTitle" text="Auto-évaluation des Performances Q1 - 2024"/>
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://settings"/>
+                            <Button icon="sap-icon://drop-down-list" />
+                        </Toolbar>
+                    </f:toolbar>
+                    <f:content>
+                        <Toolbar ariaLabelledBy="Title2">
+                        <Title id="Title11" class="number" text="1"/>
+                        <Text class="number" text="Informations Personnels"></Text>
+                            <!-- <Title id="Title2" class="number" text="Personal informations"/> -->
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://settings"/>
+                        </Toolbar>
+                       
+                        <Label text="Nom et prénom" />
+                        <Input class="inputInfo" value="Fatma Abidi" />
+						<Label text="Manager" />
+                        <Input class="inputInfo" value="Sabrine Ben Zid"/>
+                        <Label text="Agence" />
+                        <Input class="inputInfo" value="Aymax Technology">
+                        </Input>
+                        <Label text="Pôle" />
+                        <Input class="inputInfo" value="SAP Technique">
+                        </Input>
+                        <Label text="Country" />
+                       <!--  <Select id="country" selectedKey="{Country}">
+                            <items>
+                                <core:Item text="England" key="England"/>
+                                <core:Item text="Germany" key="Germany"/>
+                                <core:Item text="USA" key="USA"/>
+                            </items>
+                        </Select> -->
+                        
+                       
+       
+                   
+                        <Toolbar ariaLabelledBy="Title3">
+                            <Title id="Title3" text="2"/>
+                            <Text id="Title33" text="Questionnaire de Performances"/>
+                            <ToolbarSpacer />
+                            <Button icon="sap-icon://settings"/>
+                        </Toolbar>
+                        <Label text="Web" />
+                        <Input value="{Url}" type="Url" />
+                        <Label text="Twitter" />
+                        <Input value="{Twitter}" />
+                    </f:content>
+                </f:SimpleForm>
+            </VBox> 
+
+            ----------------
+            <VBox class="mainContent">
+				<f:SimpleForm   
+							id="SimpleFormDisplay480"
+							editable="false"
+							layout="ResponsiveGridLayout"
+							title="Address"
+							labelSpanL="4"
+							labelSpanM="4"
+							emptySpanL="0"
+							emptySpanM="0"
+							columnsL="4"
+							columnsM="4">
+					<f:toolbar>
+						<Toolbar 
+							height="60px"
+							class="toolbarInfo">
+							<Text class="titleGen" text="Performance Pulse"></Text>
+							<ToolbarSpacer/>
+							<Text class="titleGen" text="Auto-évaluations des Performances"></Text>
+							<ToolbarSpacer/>
+							<Text class="titleGen" text="Q1 - 2024"></Text>
+						</Toolbar>
+					</f:toolbar>	
+					<f:content>		
+					<FlexBox direction="Column">	
+						<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+							<Label class="labelNumber" text="1"></Label>
+							<Text class="sapUiTinyMarginTop textInf" text="Informations Personnelles"></Text>
+						</FlexBox>
+						<FlexBox 
+							class="sapUiTinyMarginTop sapUiSmallMarginLeft flexInfo"
+							direction="Row"
+							justifyContent="Center"
+							alignItems="Center"
+						>
+							<GenericTile 
+							width="95%"
+							class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+							header="Fatma Abidi" 
+							subheader="Collaborateur">
+								<layoutData>
+									<FlexItemData growFactor="1" />
+								</layoutData>
+							<TileContent>
+									<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://employee" />
+							</TileContent>
+							</GenericTile>
+
+							<GenericTile 
+							width="95%"
+							class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+							header="Aymax Technology" 
+							subheader="Agence">		
+								<layoutData>
+									<FlexItemData growFactor="1" />
+								</layoutData>
+							<TileContent>
+									<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://building" />
+							</TileContent>		
+							</GenericTile>		
+
+							<GenericTile 
+							width="95%"
+							class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+							header="SAP Technique" 
+							subheader="Pôle">	
+								<layoutData>
+									<FlexItemData growFactor="1" />
+								</layoutData>	
+							<TileContent>
+									<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://org-chart" />
+							</TileContent>		
+							</GenericTile>		
+
+							<GenericTile 
+							width="95%"
+							class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+							header="Sabrine Ben Zid" 
+							subheader="Manager">	
+								<layoutData>
+									<FlexItemData growFactor="1" />
+								</layoutData>
+							<TileContent>
+									<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://manager" />
+							</TileContent>	
+							</GenericTile>	
+
+						</FlexBox>
+
+						<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+							<Label class="labelNumber" text="2"></Label>
+							<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'évaluations"></Text>
+						</FlexBox>
+						
+						<FlexBox justifyContent="SpaceBetween">
+							<FlexBox class="sapUiLargeMarginLeft" direction="Column" justifyContent="Center">
+								<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+									<!-- <Label class="labelNum" text="Q1"></Label> -->
+									<Image src="../utils/images/bar.png" width="22px" height="40px"></Image>
+									<Text class="sapUiTinyMarginTop textInfo" text="Atteinte des Objectifs Organisationnels"></Text>
+								</FlexBox>
+									<VBox class="sapUiMediumMarginTop questionBox">
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de soumission des CRA" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de dépôt et de consommation des congés et télétravail" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
+										<RadioButtonGroup id="rbg3" columns="5" class="sapUiSmallMarginTop radioQuestions">
+											<RadioButton id="RB3-1" text="1" />
+											<RadioButton id="RB3-2" text="2" />
+											<RadioButton id="RB3-3" text="3" />
+											<RadioButton id="RB3-4" text="4" />
+											<RadioButton id="RB3-5" text="5" />
+										</RadioButtonGroup>
+									</VBox>
+							</FlexBox>
+
+							<FlexBox class="sapUiLargeMarginLeft" direction="Column" justifyContent="Center">
+								<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+									<!-- <Label class="labelNum" text="Q1"></Label> -->
+									<Image src="../utils/images/bar.png" width="22px" height="40px"></Image>
+									<Text class="sapUiTinyMarginTop textInfo" text="Atteinte des Objectifs Professionnels"></Text>
+								</FlexBox>
+									<VBox class="sapUiMediumMarginTop questionBox">
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de soumission des CRA" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de dépôt et de consommation des congés et télétravail" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
+										<RadioButtonGroup columns="5" class="sapUiSmallMarginTop radioQuestions">
+											<RadioButton text="1" />
+											<RadioButton text="2" />
+											<RadioButton text="3" />
+											<RadioButton text="4" />
+											<RadioButton text="5" />
+										</RadioButtonGroup>
+									</VBox>
+							</FlexBox>
+						</FlexBox>
+
+						<FlexBox justifyContent="SpaceBetween">
+							<FlexBox class="sapUiLargeMarginLeft" direction="Column" justifyContent="Center">
+								<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+									<!-- <Label class="labelNum" text="Q1"></Label> -->
+									<Image src="../utils/images/bar.png" width="22px" height="40px"></Image>
+									<Text class="sapUiTinyMarginTop textInfo" text="Communication"></Text>
+								</FlexBox>
+									<VBox class="sapUiMediumMarginTop questionBox">
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de soumission des CRA" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de dépôt et de consommation des congés et télétravail" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
+										<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+											<RadioButton  text="1" />
+											<RadioButton  text="2" />
+											<RadioButton  text="3" />
+											<RadioButton  text="4" />
+											<RadioButton  text="5" />
+										</RadioButtonGroup>
+									</VBox>
+							</FlexBox>
+
+							<FlexBox class="sapUiLargeMarginLeft" direction="Column" justifyContent="Center">
+								<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+									<!-- <Label class="labelNum" text="Q1"></Label> -->
+									<Image src="../utils/images/bar.png" width="22px" height="40px"></Image>
+									<Text class="sapUiTinyMarginTop textInfo" text="Intégration au Sein de L'équipe"></Text>
+								</FlexBox>
+									<VBox class="sapUiMediumMarginTop questionBox">
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de soumission des CRA" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Respect de dépôt et de consommation des congés et télétravail" />
+										<Label
+										class="labelQuestion"
+										labelFor="rbg3"
+										text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
+										<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+											<RadioButton text="1" />
+											<RadioButton text="2" />
+											<RadioButton text="3" />
+											<RadioButton text="4" />
+											<RadioButton text="5" />
+										</RadioButtonGroup>
+									</VBox>
+							</FlexBox>
+						</FlexBox>
+
+
+					</FlexBox>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+
+			----------------
+
+			<tnt:ToolPage
+			id="app"
+			class="sapUiDemoToolPage">
+			<tnt:header>
+			<tnt:ToolHeader id="shellLikeToolHeader" class="sapUiTinyMargin">
+				<Button icon="sap-icon://menu2" type="Transparent" tooltip="Menu" press=".onCollapseExpandPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<Image src="../utils/images/aymax.png" decorative="false" tooltip="AYMAX Logo">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Image>
+				<Text text="Your Business Powered By IT !" wrapping="false" id="secondTitle">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear"/>
+					</layoutData>
+				</Text>
+				<ToolbarSpacer />
+				<ToolbarSpacer id="spacerId">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" group="1"/>
+					</layoutData>
+				</ToolbarSpacer>
+				<Button visible="false" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/>
+				<OverflowToolbarButton icon="sap-icon://source-code" type="Transparent" tooltip="Action 1" text="Action 1">
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</OverflowToolbarButton>
+				<OverflowToolbarButton icon="sap-icon://card" type="Transparent" tooltip="Action 2" text="Action 2">
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+
+				</OverflowToolbarButton>
+				<ToolbarSeparator>
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</ToolbarSeparator>
+				<OverflowToolbarButton icon="sap-icon://action-settings" type="Transparent" text="Settings"/>
+				<Button icon="sap-icon://bell" type="Transparent" tooltip="Notification">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer width="1.125rem"/>
+				<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press=".onAvatarPressed" tooltip="Profile">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Avatar>
+				</tnt:ToolHeader>
+			</tnt:header>
+
+			<tnt:sideContent>
+				<tnt:SideNavigation class="sapUiLargeMarginLeft sideNavigation" id="sideNavigation" selectedKey="walked" width="300px">
+					<tnt:NavigationList >
+						<tnt:NavigationListItem text="Home" icon="sap-icon://home" />
+						<tnt:NavigationListGroup text="New">
+							<tnt:NavigationListItem class="sapMText sapTntNLIText sapMTextNoWrap" text="Performance Pulse" icon="sap-icon://performance">
+								<tnt:NavigationListItem text="Auto Evaluation" icon="sap-icon://form"/>
+								<tnt:NavigationListItem text="Evaluation Manager" icon="sap-icon://manager"/>
+								<tnt:NavigationListItem text="Fixation Des Objectifs" icon="sap-icon://goal" />
+								<tnt:NavigationListItem text="Notes KPI" icon="sap-icon://kpi-corporate-performance"/>
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem text="Engagement Pulse" icon="sap-icon://curriculum">
+								<tnt:NavigationListItem text="Formulaire" icon="sap-icon://form" />
+								<tnt:NavigationListItem text="Chartes Analytiques" icon="sap-icon://filter-analytics"/>
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem text="Revue Des Talents" icon="sap-icon://favorite">
+								<tnt:NavigationListItem text="9 Box Grid" icon="sap-icon://grid"/>
+								<tnt:NavigationListItem text="Risque De Départ" icon="sap-icon://offsite-work"/>
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem text="Matrice Des Compétences" icon="sap-icon://table-view">
+								<tnt:NavigationListItem text="Technique" icon="sap-icon://employee" />
+								<tnt:NavigationListItem text="Fonctionelle" icon="sap-icon://employee"/>
+								<tnt:NavigationListItem text="Basis" icon="sap-icon://employee"/>
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem text="Carriére" icon="sap-icon://mileage">
+								<tnt:NavigationListItem text="Revenu Salarial" icon="sap-icon://money-bills"/>
+								<tnt:NavigationListItem text="Evaluation Des Compétences" icon="sap-icon://badge"/>
+								<tnt:NavigationListItem text="Formation Et Développement" icon="sap-icon://study-leave"/>
+								<tnt:NavigationListItem text="Promotions Et Récompenses" icon="sap-icon://competitor"/>
+								<tnt:NavigationListItem text="Bilan De Carrière" icon="sap-icon://doc-attachment"/>
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem text="My Moment" icon="sap-icon://ai">
+								<tnt:NavigationListItem text="Evènements Et Activités" icon="sap-icon://widgets"/>
+								<tnt:NavigationListItem text="Défis Amicaux" icon="sap-icon://puzzle"/>
+								<tnt:NavigationListItem text="Programmes De Bien Être" icon="sap-icon://physical-activity"/>
+								<tnt:NavigationListItem text="Feedbacks Et Suggestions" icon="sap-icon://feedback"/>
+							</tnt:NavigationListItem>
+
+						</tnt:NavigationListGroup>
+					</tnt:NavigationList>
+					<tnt:fixedItem>
+						<tnt:NavigationList>
+							<tnt:NavigationListItem selectable="false" href="https://sap.com" target="_blank" text="Déconnexion" icon="sap-icon://journey-depart"/>
+						</tnt:NavigationList>
+					</tnt:fixedItem>
+				</tnt:SideNavigation>	
+			</tnt:sideContent>
+
+			<tnt:mainContents>
+				<NavContainer id="pageContainer" initialPage="page2">
+					<pages>
+						<ScrollContainer
+							id="root1"
+							horizontal="false"
+							vertical="true"
+							height="100%"
+							class="sapUiContentPadding">
+							<Text text="This is Home" />
+						</ScrollContainer>
+						<ScrollContainer
+							id="page1"
+							horizontal="false"
+							vertical="true"
+							height="100%"
+							class="sapUiContentPadding">
+							<Text text="This is the first page" />
+						</ScrollContainer>
+					</pages>
+				</NavContainer>
+			</tnt:mainContents>
+	</tnt:ToolPage>

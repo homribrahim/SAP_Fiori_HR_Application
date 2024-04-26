@@ -10,6 +10,10 @@ sap.ui.define([
         return Controller.extend("brahim.project.controller.Authentification", {
             onInit: function () {
 
+            },
+
+            onDashboard: function (){
+                window.open("https://port8080-workspaces-ws-prhhs.eu20.applicationstudio.cloud.sap/index.html#/DashboardF");
             }
         });
     });

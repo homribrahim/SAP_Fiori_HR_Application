@@ -1,74 +1,176 @@
 {
-	"selectedKey": "",
+	"selectedKey": "home",
 	"navigation": [
 		{
-			"titleI18nKey": "sideContentHome",
+			"title": "Home",
 			"icon": "sap-icon://home",
-			"expanded": true,
-			"key": "",
-			"items": []
+			"key": "home"
 		},
 		{
-			"titleI18nKey": "sideContentSettings",
-			"icon": "sap-icon://settings",
-			"expanded": false,
-			"key": "masterSettings",
-			"items": []
-		},
-		{
-			"titleI18nKey": "sideContentStatistics",
-			"icon": "sap-icon://line-chart",
-			"expanded": true,
-			"key": "statistics",
+			"title": "Performance Pulse",
+			"icon": "sap-icon://performance",
+			"expanded": true,	
 			"items": [
 				{
-					"titleI18nKey": "sideContentUsageStatistics",
-					"key": "usageStatistics"
+					"title": "Auto Evaluation Collaborateur",
+					"key": "evalCollab"
 				},
 				{
-					"titleI18nKey": "sideContentOrderStatistics",
-					"key": "orderStatistics"
+					"title": "Evaluation Manager",
+					"key": "evalManager"
+				},
+				{
+					"title": "Consolidation Des Résultats",
+					"key": "evalResults"
+				},
+				{
+					"title": "Grille D'évaluation",
+					"key": "evalGrille"
+				},
+				{
+					"title": "Indicateur de Performance",
+					"key": "evalKpi"
+				}
+			]
+		},
+		{
+			"title": "Engagement Pulse",
+			"icon": "sap-icon://curriculum",
+			"expanded": true,	
+			"items": [
+				{
+					"title": "Questionnaire Engagement Pulse",
+					"key": "epulseQuest"
+				},
+				{
+					"title": "Consolidation Des Résultats",
+					"key": "epulseResults"
+				},
+				{
+					"title": "Plan D'action",
+					"key": "epulseAction"
+				},
+				{
+					"title": "Indicateur D'engagement",
+					"key": "epulseKpi"
+				}
+			]
+		},
+		
+		{
+			"title": "Revue des Talents",
+			"icon": "sap-icon://favorite",
+			"expanded": true,	
+			"items": [
+				{
+					"title": "9 Box Grid",
+					"key": "talentGrid"
+				},
+				{
+					"title": "Niveau de Sénorité",
+					"key": "talentSeniority"
+				},
+				{
+					"title": "Risque de Départ",
+					"key": "talentDeparture"
+				},
+				{
+					"title": "Risque de Mobilité",
+					"key": "talentMobility"
+				},
+				{
+					"title": "Plan de Succession",
+					"key": "talentSuccession"
+				}
+			]
+		},
+
+		{
+			"title": "Matrice de Compétences",
+			"icon": "sap-icon://grid",
+			"expanded": true,	
+			"items": [
+				{
+					"title": "Evaluations des Compétences",
+					"key": "gridEval"
+				},
+				{
+					"title": "Consolidation Des Résultats",
+					"key": "gridResults"
+				},
+				{
+					"title": "Niveau de Sénorité",
+					"key": "gridSeniority"
+				}
+			]
+		},
+
+		{
+			"title": "Carriére",
+			"icon": "sap-icon://mileage",
+			"expanded": true,	
+			"items": [
+				{
+					"title": "Formation et Développement",
+					"key": "carrDev"
+				},
+				{
+					"title": "Promotions et Récompenses",
+					"key": "carrPromo"
+				},
+				{
+					"title": "Bilan de Carriére",
+					"key": "carrReport"
+				}
+			]
+		},
+
+		{
+			"title": "My Moment",
+			"icon": "sap-icon://ai",
+			"expanded": true,	
+			"items": [
+				{
+					"title": "Evènements et Activités",
+					"key": "momEvent"
+				},
+				{
+					"title": "Défis Amicaux",
+					"key": "momChallenge"
+				},
+				{
+					"title": "Programmes de Bien-être",
+					"key": "momWell"
+				},
+				{
+					"title": "Feedbacks et Suggestions",
+					"key": "momFeed"
 				}
 			]
 		}
 	],
+
 	"fixedNavigation": [
 		{
-			"titleI18nKey": "sideContentImportantLinks",
-			"icon": "sap-icon://chain-link",
-			"key": "importantLinks"
-		},
-		{
-			"titleI18nKey": "sideContentLegal",
-			"icon": "sap-icon://compare",
-			"key": "legal"
+			"title": "Déconnexion",
+			"icon": "sap-icon://arrow-right"
 		}
 	],
-	"masterSettings": [
+	"headerItems": [
 		{
-			"titleI18nKey": "sideContentSystemSettings",
-			"key": "systemSettings",
-			"selected": true
+			"text": "File"
 		},
 		{
-			"titleI18nKey": "sideContentOrderSettings",
-			"key": "orderSettings",
-			"selected": false
+			"text": "Edit"
 		},
 		{
-			"titleI18nKey": "sideContentSupplierSettings",
-			"key": "supplierSettings",
-			"selected": false
+			"text": "View"
 		},
 		{
-			"titleI18nKey": "sideContentCampaignSettings",
-			"key": "campaignSettings",
-			"selected": false
+			"text": "Settings"
 		},
 		{
-			"titleI18nKey": "sideContentShippingSettings",
-			"key": "shippingSettings",
-			"selected": false
+			"text": "Help"
 		}
 	]
 }

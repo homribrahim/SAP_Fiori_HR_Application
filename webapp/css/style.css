@@ -22,7 +22,7 @@
 
 @media only screen and (max-width: 522px)
 {
-  .sapMFlexBox .homeButtons
+  .sapMFlexBox .homeButtons 
   {
     flex-direction:column ;
   }
@@ -32,7 +32,6 @@
     margin-top: 10px;
   }
  
-
 }
 
 @media only screen and (max-width: 1270px)
@@ -162,6 +161,18 @@
   box-shadow: hsl(261, 96%, 19%) 0px 0px 0px 0px;
   transform: translateY(10px);
   transition: 100ms;
+}
+
+a:link
+{
+  color: white !important;
+  text-decoration: none;
+}
+
+a:visited
+{
+  color: white !important;
+  text-decoration: none;
 }
 
 /*End Of Common Elements*/ 
@@ -586,3 +597,52 @@
 }
   
 /*End Of Authentification Page View*/
+
+/*Dashboardf View Section*/
+ 
+.toolbarInfo
+{
+  background-color: #010b3a !important;
+}
+
+.titleGen
+{
+  color: white !important;
+  font-size:20px !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.sapMGT .sapMImageContentImageIcon
+{
+  font-size: 50px !important;
+}
+
+.labelNumber
+{ 
+  background-color: #0092C6;
+  color: white;
+  border-radius: 100%;
+  padding: 12px 18px;
+}
+.textInf
+{
+  font-size:21px !important;
+  font-weight: bold !important;
+}
+
+.panelQuest
+{
+  
+}
+
+.sapMRb.sapMRbHasLabel .sapMRbBLabel .sapMLabelTextWrapper
+{
+  color: #010b3a;
+}
+
+/*End Of Dashboardf View Section*/
+
+/*Form View Section*/
+
+/*End Of Form View Section*/

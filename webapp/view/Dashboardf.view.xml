@@ -4,195 +4,623 @@
     xmlns:card="sap.f.cards"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
+	xmlns:c="sap.ui.core"
     xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:tnt="sap.tnt"
+	xmlns:t="sap.ui.table"
 	height="100%">
-	
-<tnt:ToolPage
-		id="app"
-		class="sapUiDemoToolPage">
+
+	<tnt:ToolPage id="toolPage">
 		<tnt:header>
 			<tnt:ToolHeader>
 				<Button
 					id="sideNavigationToggleButton"
 					icon="sap-icon://menu2"
 					type="Transparent"
-					press=".onSideNavButtonPress"
-					tooltip="{i18n>collpaseMenuButtonText}">
+					press=".onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<ToolbarSpacer width="20px" />
+				<Image src="../utils/images/aymax.png" decorative="false" press="onLogoPressed" tooltip="SAP Logo">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow"/>
 					</layoutData>
-				</Button>
-				<ToolbarSpacer/>
-				<Title
-					text="{i18n>appTitle}"
-					level="H2"/>
-				<ToolbarSpacer/>
-				<Button
-					id="errorButton"
-					icon="sap-icon://message-popup"
-				>
-				 <!-- This can be added to button props 
-					visible="{= ${alerts>/alerts/errors}.length === 0 ? false : true }"
-					type="Transparent"
-					press=".onMessagePopoverPress"
-					tooltip="{i18n>errorButtonTooltip}" -->
+				</Image>
+				<Text text="Your Business Powered By IT !" wrapping="false" id="secondTitle">
 					<layoutData>
-						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+						<OverflowToolbarLayoutData priority="Disappear"/>
 					</layoutData>
-				</Button>
-				<Button
-					id="notificationButton"
-					icon="sap-icon://ui-notifications"
-				>
-				 <!-- This can be added to button props 
-					visible="{= ${alerts>/alerts/notifications}.length === 0 ? false : true }"
-					type="Transparent"
-					press=".onNotificationPress"
-					tooltip="{i18n>notificationButtonTooltip}" -->	
+				</Text>
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer>
 					<layoutData>
-						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
 					</layoutData>
-				</Button>
-				<Button
-					id="userButton"
-					text="{i18n>userName}"
-					type="Transparent"
-					press=".onUserNamePress">
+				</ToolbarSpacer>
+				<Button text="Fatma Abidi" type="Transparent" press=".handleUserNamePress" ariaHasPopup="Menu">
 					<layoutData>
-						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
 				</Button>
 			</tnt:ToolHeader>
 		</tnt:header>
-		<tnt:sideContent>
+			<tnt:sideContent>
 			<tnt:SideNavigation
+				id="sideNavigation"
 				expanded="true"
-				selectedKey="{side>/selectedKey}">
-				<tnt:NavigationList
-					items="{
-						path: 'side>/navigation',
-						templateShareable: false
-					}">
+				selectedKey="{/selectedKey}"
+				itemSelect=".onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
 					<tnt:NavigationListItem
-						text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}"
-						icon="{side>icon}"
-						expanded="{side>expanded}"
-						items="{
-							path: 'side>items',
-							templateShareable: false
-						}"
-						key="{side>key}"
-						href="#/{side>key}">
+						text="{title}"
+						icon="{icon}"
+						enabled="{enabled}"
+						expanded="{expanded}"
+						items="{items}"
+						key="{key}">
 						<tnt:NavigationListItem
-							text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}"
-							key="{side>key}"
-							href="#/{side>key}">
-						</tnt:NavigationListItem>
+							text="{title}"
+							key="{key}"
+							enabled="{enabled}" />
 					</tnt:NavigationListItem>
 				</tnt:NavigationList>
 				<tnt:fixedItem>
-					<tnt:NavigationList
-						items="{
-							path: 'side>/fixedNavigation',
-							templateShareable: false
-						}">
-						<tnt:NavigationListItem
-							text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}"
-							icon="{side>icon}"
-							key="{side>key}"
-							href="#/{side>key}">
-						</tnt:NavigationListItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}" />
 					</tnt:NavigationList>
 				</tnt:fixedItem>
 			</tnt:SideNavigation>
 		</tnt:sideContent>
+
 		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="evalCollab">
+				<pages>
+					<!--Start Of Performance Pulse-->
+					<ScrollContainer
+						id="home"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is homepage" />
+					</ScrollContainer>
+	
+					<ScrollContainer
+						id="evalCollab"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						>
+						<VBox>
+							<f:SimpleForm   
+							id="SimpleFormDisplay480"
+							editable="false"
+							layout="ResponsiveGridLayout"
+							title="Address"
+							labelSpanL="4"
+							labelSpanM="4"
+							emptySpanL="0"
+							emptySpanM="0"
+							columnsL="4"
+							columnsM="4">
+								<f:toolbar>
+									<Toolbar 
+										height="60px"
+										class="toolbarInfo">
+										<Text class="titleGen" text="Performance Pulse"></Text>
+										<ToolbarSpacer/>
+										<Text class="titleGen" text="Auto-évaluations des Performances"></Text>
+										<ToolbarSpacer/>
+										<Text class="titleGen" text="Q1 - 2024"></Text>
+									</Toolbar>
+								</f:toolbar>	
+								<f:content>		
+									<FlexBox direction="Column">	
+										<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+											<Label class="labelNumber" text="1"></Label>
+											<Text class="sapUiTinyMarginTop textInf" text="Informations Personnelles"></Text>
+										</FlexBox>
+										<FlexBox 
+											class="sapUiTinyMarginTop sapUiSmallMarginLeft flexInfo"
+											direction="Row"
+											justifyContent="Center"
+											alignItems="Center"
+										>
+											<GenericTile 
+											width="95%"
+											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+											header="Fatma Abidi" 
+											subheader="Collaborateur">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											<TileContent>
+													<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://employee" />
+											</TileContent>
+											</GenericTile>
 
-			<VBox class="sapUiSmallMargin">
-				<f:SimpleForm id="SimpleFormToolbar"
-					editable="true"
-					layout="ResponsiveGridLayout"
-					labelSpanXL="4"
-					labelSpanL="3"
-					labelSpanM="4"
-					labelSpanS="12"
-					adjustLabelSpan="false"
-					emptySpanXL="0"
-					emptySpanL="4"
-					emptySpanM="0"
-					emptySpanS="0"
-					columnsXL="2"
-					columnsL="1"
-					columnsM="1"
-					singleContainerFullSize="false"
-					ariaLabelledBy="Title1" >
-					<f:toolbar>
-						<Toolbar id="TB1">
-							<Text id="Title1" text="Auto-évaluation des performances"/>
-							<ToolbarSpacer />
-							<Button icon="sap-icon://settings"/>
-							<Button icon="sap-icon://drop-down-list" />
-						</Toolbar>
-					</f:toolbar>
-					<f:content>
-						<Toolbar ariaLabelledBy="Title2">
-						<Title id="Title11" class="number" text="1"/>
-						<Text class="number" text="Personal Informations"></Text>
-							<!-- <Title id="Title2" class="number" text="Personal informations"/> -->
-							<ToolbarSpacer />
-							<Button icon="sap-icon://settings"/>
-						</Toolbar>
-						<Label text="Name" />
-						<Input class="in" value="Eya Belghith" />
-						<Label text="Street/No." />
-						<Input value="{Street}">
-						</Input>
-						<Input value="{HouseNumber}">
-							<layoutData>
-								<l:GridData span="XL2 L1 M3 S4" />
-							</layoutData>
-						</Input>
-						<Label text="ZIP Code/City" />
-						<Input value="{ZIPCode}">
-							<layoutData>
-								<l:GridData span="XL2 L1 M3 S4" />
-							</layoutData>
-						</Input>
-						<Input value="{City}" />
-						<Label text="Country" />
-						<Select id="country" selectedKey="{Country}">
-							<items>
-								<core:Item text="England" key="England"/>
-								<core:Item text="Germany" key="Germany"/>
-								<core:Item text="USA" key="USA"/>
-							</items>
-						</Select>
-						<Label text="Web" />
-						<Input value="{Url}" type="Url" />
-						<Label text="Twitter" />
-						<Input value="{Twitter}" />
-						<Label text="Web" />
-						<Input value="{Url}" type="Url" />
-						<Label text="Twitter" />
-						<Input value="{Twitter}" />
-		
+											<GenericTile 
+											width="95%"
+											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+											header="Aymax Technology" 
+											subheader="Agence">		
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											<TileContent>
+													<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://building" />
+											</TileContent>		
+											</GenericTile>		
+
+											<GenericTile 
+											width="95%"
+											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+											header="SAP Technique" 
+											subheader="Pôle">	
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>	
+											<TileContent>
+													<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://org-chart" />
+											</TileContent>		
+											</GenericTile>		
+
+											<GenericTile 
+											width="95%"
+											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+											header="Sabrine Ben Zid" 
+											subheader="Manager">	
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											<TileContent>
+													<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://manager" />
+											</TileContent>	
+											</GenericTile>	
+										</FlexBox>
+
+										<FlexBox class="sapUiMediumMarginTop" direction="Row" >
+											<Label class="labelNumber" text="2"></Label>
+											<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'évaluations"></Text>
+										</FlexBox>
+
+										<Panel expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+											<headerToolbar>
+												<OverflowToolbar style="Clear">
+													<Title text="Atteinte des objectifs organisationnels"/>
+												</OverflowToolbar>
+											</headerToolbar>
+       										<content>
+          									<VBox class="sapUiMediumMarginTop questionBox">
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Respect de soumission des CRA" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Respect de dépôt et de consommation des congés et télétravail" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
+												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+													<RadioButton  text="1" />
+													<RadioButton  text="2" />
+													<RadioButton  text="3" />
+													<RadioButton  text="4" />
+													<RadioButton  text="5" />
+												</RadioButtonGroup>
+											</VBox>
+											</content>
+										</Panel>
+ 
+										<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+											<headerToolbar>
+												<OverflowToolbar style="Clear">
+													<Title text="Atteinte des Objectifs Professionnels"/>
+												</OverflowToolbar>
+											</headerToolbar>
+											<content>
+											<VBox class="sapUiMediumMarginTop questionBox">
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Commitment pour atteindre tes objectifs" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Respect des deadlines annoncés" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Qualité des livrables" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Identification des dysfonctionnements et proposition de solutions optimisées (coûts, délais, résultats)" />
+												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+													<RadioButton text="1" />
+													<RadioButton text="2" />
+													<RadioButton text="3" />
+													<RadioButton text="4" />
+													<RadioButton text="5" />
+												</RadioButtonGroup>
+											</VBox>
+											</content>
+										</Panel>
+ 
+    									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+											<headerToolbar>
+												<OverflowToolbar style="Clear">
+													<Title text="Communication" />
+												</OverflowToolbar>
+											</headerToolbar>
+       										<content>
+           								  	<VBox class="sapUiMediumMarginTop questionBox">
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Gestion du stress (ne s’emporte pas facilement)" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Communication relationnelle (communication avec autrui, sens d'écoute)" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Qualité de la communication orale et écrite" />
+												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+													<RadioButton text="1" />
+													<RadioButton text="2" />
+													<RadioButton text="3" />
+													<RadioButton text="4" />
+													<RadioButton text="5" />
+												</RadioButtonGroup>
+											</VBox>
+											</content>
+										</Panel>
+ 
+    									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+											<headerToolbar>
+												<OverflowToolbar style="Clear">
+													<Title text="Intégration au sein de l'équipe" />
+												</OverflowToolbar>
+											</headerToolbar>
+        									<content>
+          								    <VBox class="sapUiMediumMarginTop questionBox">
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Accompagnement et tutorat des new joiners" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Esprit d'équipe" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Autonomie et prise d’initiative" />
+												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+													<RadioButton text="1" />
+													<RadioButton text="2" />
+													<RadioButton text="3" />
+													<RadioButton text="4" />
+													<RadioButton text="5" />
+												</RadioButtonGroup>
+											</VBox>
+											</content>
+										</Panel>
+ 
+    									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+											<headerToolbar>
+												<OverflowToolbar style="Clear">
+													<Title text="Implication au sein de Aymax" />
+												</OverflowToolbar>
+											</headerToolbar>
+        									<content>
+             								<VBox class="sapUiMediumMarginTop questionBox">
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Alignement avec la stratégie et partage des valeurs AYMAX" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Sens d'appartenance" />
+												<Label
+												class="labelQuestion"
+												labelFor="rbg3"
+												text="Respect des règles générales de AYMAX" />
+												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+													<RadioButton text="1" />
+													<RadioButton text="2" />
+													<RadioButton text="3" />
+													<RadioButton text="4" />
+													<RadioButton text="5" />
+												</RadioButtonGroup>
+											</VBox>
+											</content>
+										</Panel>
+									<TextArea
+										id="TextArea"
+										placeholder="Enter text"
+										showExceededText="true"
+										rows="20"
+										width="80rem"
+										height="10rem"
+										ariaLabelledBy="TextAreaLabel"/>
+									</FlexBox>
+								</f:content>
+							</f:SimpleForm>
+           				</VBox> 
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="evalManager"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text text="This is the eval page" />
+					</ScrollContainer>
 					
-						<Toolbar ariaLabelledBy="Title3">
-							<Title id="Title3" text="2"/>
-							<Text id="Title33" text="Evaluez vous"/>
-							<ToolbarSpacer />
-							<Button icon="sap-icon://settings"/>
-						</Toolbar>
-						<Label text="Web" />
-						<Input value="{Url}" type="Url" />
-						<Label text="Twitter" />
-						<Input value="{Twitter}" />
-					</f:content>
-				</f:SimpleForm>
-			</VBox>
+					<ScrollContainer
+						id="evalResults"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text text="This is the results page" />
+					</ScrollContainer>
 
+					<ScrollContainer
+						id="evalGrille"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text text="This is the results page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="evalKpi"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text text="This is the kpi page" />
+					</ScrollContainer>
+
+					<!--End Of Performance Pulse-->
+
+					<!--Start Of Engagement Pulse-->
+
+					<ScrollContainer
+						id="epulseQuest"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<Text text="This is the Engagement page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="epulseResults"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Engagement page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="epulseAction"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Engagement page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="epulseKpi"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Engagement page" />
+					</ScrollContainer>	
+
+					<!--End Of Engagement Pulse-->
+
+					<!--Start Of Revue des Talents-->
+
+					<ScrollContainer
+						id="talentGrid"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Talent page" />
+					</ScrollContainer>	
+
+					<ScrollContainer
+						id="talentSeniority"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Talent page" />
+					</ScrollContainer>	
+
+					<ScrollContainer
+						id="talentDeparture"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Talent page" />
+					</ScrollContainer>	
+
+					<ScrollContainer
+						id="talentMobility"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Talent page" />
+					</ScrollContainer>	
+
+					<ScrollContainer
+						id="talentSuccession"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Talent page" />
+					</ScrollContainer>	
+
+					<!--End Of Revue des Talents-->	
+					
+					<!--Start Of Matrice des Compétences-->			
+					<ScrollContainer
+						id="gridEval"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Matrix page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="gridResults"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Matrix page" />
+					</ScrollContainer>	
+
+					<ScrollContainer
+						id="gridSeniority"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Matrix page" />
+					</ScrollContainer>		
+
+					<!--End Of Matrice des Compétences-->			
+
+					<!--Start Of Carrier -->		
+
+					<ScrollContainer
+						id="carrDev"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Carrier page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="carrPromo"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Carrier page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="carrReport"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Carrier page" />
+					</ScrollContainer>
+
+					<!--End Of Carrier-->	
+
+					<!--Start Of My Moment-->
+
+					<ScrollContainer
+						id="momEvent"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Moment page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="momChallenge"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Moment page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="momWell"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Moment page" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="momFeed"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is the Moment page" />
+					</ScrollContainer>
+
+					<!--End Of My Moment-->		
+
+				</pages>
+			</NavContainer>
 		</tnt:mainContents>
-</tnt:ToolPage>
+	</tnt:ToolPage>
+
 </mvc:View>
+
+
+<!-- <l:Grid class="sapUiSmallMarginTop contentText">						
+							<FeedContent
+								contentText="Fatma Abidi"
+								subheader="Nom et Prénom" 
+								class="sapUiSmallMargin"
+									>								
+							</FeedContent>
+							<FeedContent
+								contentText="Aymax Technology"
+								subheader="Agence" 
+								class="sapUiSmallMargin">
+							</FeedContent>
+							<FeedContent								
+								contentText="SAP Technique"
+								subheader="Pôle" 
+								class="sapUiSmallMargin">
+							</FeedContent>
+							<FeedContent
+								contentText="Sabrine Ben Zid"
+								subheader="Manager" 
+								class="sapUiSmallMargin">
+							</FeedContent>
+							<TileContent footer="Agence" class="sapUiSmallMargin">
+								<NumericContent value="3"
+									icon="sap-icon://travel-expense" />
+							</TileContent>
+							<TileContent footer="Pôle" class="sapUiSmallMargin">
+								<NumericContent value="9" icon="sap-icon://locked" />
+							</TileContent>
+							<TileContent footer="Manager" class="sapUiSmallMargin">
+								<FeedContent
+									value="132" />
+							</TileContent> 
+						</l:Grid> -->

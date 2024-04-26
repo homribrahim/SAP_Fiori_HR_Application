@@ -9,6 +9,20 @@ sap.ui.define([
 
         return Controller.extend("brahim.project.controller.Home", {
             onInit: function () {
+               /*  var loginLink = this.getView().byId("loginLink");
+
+                if (loginLink) {
+                    loginLink.attachPress(function() {
+                        sap.ui.core.BusyIndicator.show(0);
+            
+                        setTimeout(function() {
+                            window.location.href = loginLink.getHref();
+                            sap.ui.core.BusyIndicator.hide();
+                        }, 500);
+                    });
+                } else {
+                    console.error("Login link not found.");
+                } */
 
             },
             onConnect: function ()
