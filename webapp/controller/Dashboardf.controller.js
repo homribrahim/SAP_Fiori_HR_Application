@@ -1,11 +1,16 @@
 sap.ui.define([
 	"sap/ui/Device",
+    "sap/ui/core/Fragment",
+    "sap/ui/core/syncStyleClass",
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+    "sap/m/MessageToast",
 	"sap/m/Popover",
 	"sap/m/Button",
 	"sap/m/library"
-], function (Device, Controller, JSONModel, Popover, Button, library) {
+], function (Device,Fragment,syncStyleClass, Controller, JSONModel,Filter,FilterOperator,MessageToast, Popover, Button, library) {
 	"use strict";
 
 	var ButtonType = library.ButtonType,

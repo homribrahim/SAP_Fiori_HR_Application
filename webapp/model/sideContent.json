@@ -26,11 +26,8 @@
 				{
 					"title": "Grille D'évaluation",
 					"key": "evalGrille"
-				},
-				{
-					"title": "Indicateur de Performance",
-					"key": "evalKpi"
 				}
+				
 			]
 		},
 		{
@@ -49,10 +46,6 @@
 				{
 					"title": "Plan D'action",
 					"key": "epulseAction"
-				},
-				{
-					"title": "Indicateur D'engagement",
-					"key": "epulseKpi"
 				}
 			]
 		},

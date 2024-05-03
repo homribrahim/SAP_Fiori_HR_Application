@@ -9,6 +9,7 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:tnt="sap.tnt"
 	xmlns:t="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml"
 	height="100%">
 
 	<tnt:ToolPage id="toolPage">
@@ -49,6 +50,7 @@
 		</tnt:header>
 			<tnt:sideContent>
 			<tnt:SideNavigation
+				width="340px"
 				id="sideNavigation"
 				expanded="true"
 				selectedKey="{/selectedKey}"
@@ -184,13 +186,13 @@
 
 										<FlexBox class="sapUiMediumMarginTop" direction="Row" >
 											<Label class="labelNumber" text="2"></Label>
-											<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'évaluations"></Text>
+											<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'auto-évaluations"></Text>
 										</FlexBox>
 
 										<Panel expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Title text="Atteinte des objectifs organisationnels"/>
+													<Text class="textLabel" text="Atteinte des objectifs organisationnels"/>
 												</OverflowToolbar>
 											</headerToolbar>
        										<content>
@@ -208,11 +210,11 @@
 												labelFor="rbg3"
 												text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
 												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-													<RadioButton  text="1" />
-													<RadioButton  text="2" />
-													<RadioButton  text="3" />
-													<RadioButton  text="4" />
-													<RadioButton  text="5" />
+													<RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
 												</RadioButtonGroup>
 											</VBox>
 											</content>
@@ -221,7 +223,7 @@
 										<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Title text="Atteinte des Objectifs Professionnels"/>
+													<Text class="textLabel" text="Atteinte des Objectifs Professionnels"/>
 												</OverflowToolbar>
 											</headerToolbar>
 											<content>
@@ -243,11 +245,11 @@
 												labelFor="rbg3"
 												text="Identification des dysfonctionnements et proposition de solutions optimisées (coûts, délais, résultats)" />
 												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-													<RadioButton text="1" />
-													<RadioButton text="2" />
-													<RadioButton text="3" />
-													<RadioButton text="4" />
-													<RadioButton text="5" />
+													<RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
 												</RadioButtonGroup>
 											</VBox>
 											</content>
@@ -256,7 +258,7 @@
     									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Title text="Communication" />
+													<Text class="textLabel" text="Communication" />
 												</OverflowToolbar>
 											</headerToolbar>
        										<content>
@@ -274,11 +276,11 @@
 												labelFor="rbg3"
 												text="Qualité de la communication orale et écrite" />
 												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-													<RadioButton text="1" />
-													<RadioButton text="2" />
-													<RadioButton text="3" />
-													<RadioButton text="4" />
-													<RadioButton text="5" />
+													<RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
 												</RadioButtonGroup>
 											</VBox>
 											</content>
@@ -287,7 +289,7 @@
     									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Title text="Intégration au sein de l'équipe" />
+													<Text class="textLabel" text="Intégration au sein de l'équipe" />
 												</OverflowToolbar>
 											</headerToolbar>
         									<content>
@@ -305,11 +307,11 @@
 												labelFor="rbg3"
 												text="Autonomie et prise d’initiative" />
 												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-													<RadioButton text="1" />
-													<RadioButton text="2" />
-													<RadioButton text="3" />
-													<RadioButton text="4" />
-													<RadioButton text="5" />
+													<RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
 												</RadioButtonGroup>
 											</VBox>
 											</content>
@@ -318,7 +320,7 @@
     									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Title text="Implication au sein de Aymax" />
+													<Text class="textLabel" text="Implication au sein de Aymax" />
 												</OverflowToolbar>
 											</headerToolbar>
         									<content>
@@ -336,36 +338,323 @@
 												labelFor="rbg3"
 												text="Respect des règles générales de AYMAX" />
 												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-													<RadioButton text="1" />
-													<RadioButton text="2" />
-													<RadioButton text="3" />
-													<RadioButton text="4" />
-													<RadioButton text="5" />
+													<RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
 												</RadioButtonGroup>
 											</VBox>
 											</content>
 										</Panel>
-									<Panel expandable="true" expanded="true" stickyHeader="true" height="400px" headerText="Panel with a sticky header" width="auto" class="sapUiResponsiveMargin">
-										<content class="feedInput">
-												<FeedInput
-													post="onPost"
-													showIcon="false" 
-													/>
-										</content>
-									</Panel>
+										<Panel expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+												<headerToolbar>
+													<OverflowToolbar style="Clear">
+														<Text class="textLabel" text="Commentaires et Suggestions"/>
+													</OverflowToolbar>
+												</headerToolbar>
+											<content class="feedInput">
+													<FeedInput
+														post="onPost"
+														showIcon="false"
+														/>
+											</content>
+										</Panel>
+										<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
+											<html:button class="sendButton">Envoyer</html:button>
+											<html:button class="sendButton">Annuler</html:button>						
+										</FlexBox>
+										
+								
 									</FlexBox>
 								</f:content>
 							</f:SimpleForm>
            				</VBox> 
 					</ScrollContainer>
 
+
+
 					<ScrollContainer
-						id="evalManager"
-						horizontal="false"
-						vertical="true"
-						height="100%">
-						<Text text="This is the eval page" />
-					</ScrollContainer>
+                        id="evalManager"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        >
+ 
+                        <VBox>
+                            <f:SimpleForm  
+                            id="SimpleFormDisplay"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            title="Address"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            columnsL="4"
+                            columnsM="4">
+                                <f:toolbar>
+                                    <Toolbar
+                                        height="60px"
+                                        class="toolbarInfo">
+                                        <Text class="titleGen" text="Performance Pulse"></Text>
+                                        <ToolbarSpacer/>
+                                        <Text class="titleGen" text="Evaluation des performances"></Text>
+                                        <ToolbarSpacer/>
+                                        <Text class="titleGen" text="Q1 - 2024"></Text>
+                                    </Toolbar>
+                                </f:toolbar>    
+                                <f:content>    
+                                    <FlexBox direction="Column">    
+                                        <FlexBox class="sapUiMediumMarginTop" direction="Row" >
+                                            <Label class="labelNumber" text="1"></Label>
+                                            <Text class="sapUiTinyMarginTop textInf" text="Informations Personnelles"></Text>
+                                        </FlexBox>
+                                        <FlexBox
+                                            class="sapUiTinyMarginTop sapUiSmallMarginLeft flexInfo"
+                                            direction="Row"
+                                            justifyContent="Center"
+                                            alignItems="Center"
+                                        >
+                                            <GenericTile
+                                            width="95%"
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                                            header="Sabrine Ben Zid"
+                                            subheader="Manager">
+                                                <layoutData>
+                                                    <FlexItemData growFactor="1" />
+                                                </layoutData>
+                                            <TileContent>
+                                                    <ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://employee" />
+                                            </TileContent>
+                                            </GenericTile>
+ 
+                                            <GenericTile
+                                            width="95%"
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                                            header="Aymax Technology"
+                                            subheader="Agence">    
+                                                <layoutData>
+                                                    <FlexItemData growFactor="1" />
+                                                </layoutData>
+                                            <TileContent>
+                                                    <ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://building" />
+                                            </TileContent>      
+                                            </GenericTile>      
+ 
+                                            <GenericTile
+                                            width="95%"
+                                            class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                                            header="SAP Technique"
+                                            subheader="Pôle">  
+                                                <layoutData>
+                                                    <FlexItemData growFactor="1" />
+                                                </layoutData>  
+                                            <TileContent>
+                                                    <ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://org-chart" />
+                                            </TileContent>      
+                                            </GenericTile>      
+										
+                                               
+                                        </FlexBox>
+
+			
+                                        <FlexBox class="sapUiMediumMarginTop" direction="Row" >
+                                            <Label class="labelNumber" text="2"></Label>
+                                            <Text class="sapUiTinyMarginTop textInf" text="Choix du Collaborateur"></Text>
+                                        </FlexBox>
+
+											<ActionSelect
+												id="select"
+												class="sapUiMediumMarginTop sapUiLargeMarginLeft selectCollab"
+												buttons="button1 button2 button3"
+												text="Choisir Collaboratuer">
+												<items>
+													<core:Item class="itemCollab" text="Collaborateur" />
+													<core:Item class="itemCollab" key="idCollab" text="Fatma Abidi" />
+													<core:Item class="itemCollab" key="idCollab" text="Wissem Chagtmi" />
+													<core:Item class="itemCollab" key="idCollab" text="Elyes Baccour" />
+													<core:Item class="itemCollab" key="idCollab" text="Nour Khemiri" />
+													<core:Item class="itemCollab" key="idCollab" text="Manel Saket" />			
+												</items>
+												<!-- <dependents>
+													<Button id="button1" text="Fatma Abidi" press="onButtonPress" />
+													<Button id="button2" text="Wissem Chagtmi" press="onButtonPress" />
+													<Button id="button3" text="Elyes Baccour" press="onButtonPress" />
+
+												</dependents> -->
+											</ActionSelect>
+
+
+                                        <FlexBox class="sapUiMediumMarginTop" direction="Row" >
+                                            <Label class="labelNumber" text="3"></Label>
+                                            <Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'évaluations"></Text>
+                                        </FlexBox>
+ 
+                                        <Panel expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+                                            <headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="Je compte toujours sur mon(a) collaborateur-rice pour obtenir des résultats exceptionnels"/>
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <content>
+                                            <VBox class="sapUiMediumMarginTop questionBox">
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Dépendance et confiance" />
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Collaboration et synergie" />
+                                               
+                                                <RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+                                                    <RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
+                                                </RadioButtonGroup>
+                                            </VBox>
+                                            </content>
+                                        </Panel>
+ 
+                                        <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                                            <headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="Je choisis de travailler avec mon(a) collaborateur-rice dans la mesure du possible"/>
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <content>
+                                            <VBox class="sapUiMediumMarginTop questionBox">
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Meilleure communication et collaboration" />
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Motivation et soutien" />
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Apprentissage et développement" />
+                                               
+                                                <RadioButtonGroup columns="5" class="sapUiSmallMarginTop radioQuestions">
+                                                    <RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
+                                                </RadioButtonGroup>
+                                            </VBox>
+                                            </content>
+                                        </Panel>
+ 
+                                        <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                                            <headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="J’accorderais une promotion à mon(a) collaborateur-rice aujourd’hui si je le pouvais" />
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <content>
+                                            <VBox class="sapUiMediumMarginTop questionBox">
+                                               
+                                                <RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+                                                    <RadioButton text="Oui" />
+                                                    <RadioButton text="Non" />         
+                                                </RadioButtonGroup>
+                                            </VBox>
+                                            </content>
+                                        </Panel>
+ 
+                                        <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                                            <headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="Je pense que mon(a) collaborateur-rice rencontre un problème de performance auquel je dois immédiatement remédier" />
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <content>
+                                            <VBox class="sapUiMediumMarginTop questionBox">
+                                               
+                                                <RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+                                                    <RadioButton text="Oui" />
+                                                    <RadioButton text="Non" />   
+												</RadioButtonGroup>
+                                            </VBox>
+                                            </content>
+                                        </Panel>
+ 
+                                        <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                                            <headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="Je pense que mon(a) collaborateur-rice a des compétences difficiles à remplacer" />
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <content>
+                                            <VBox class="sapUiMediumMarginTop questionBox">
+                                               
+                                                <RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+                                                    <RadioButton text="Oui" />
+                                                    <RadioButton text="Non" />
+                                                   
+                                                </RadioButtonGroup>
+                                            </VBox>
+                                            </content>
+                                        </Panel>
+                                        <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                                            <headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="Mon(a) collaborateur-rice a atteint tous les objectifs fixés et indicateurs définis pour son poste"/>
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <content>
+                                            <VBox class="sapUiMediumMarginTop questionBox">
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Performance exceptionnelle et le potentiel élevé du collaborateur" />
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Excellence" />
+                                                <Label
+                                                class="labelQuestion"
+                                                labelFor="rbg3"
+                                                text="Impact positif sur l'équipe" />
+                                               
+                                                <RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+                                                    <RadioButton  text="Trés insatisfait(e)" />
+													<RadioButton  text="Peu insatisfait(e)" />
+													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
+													<RadioButton  text="Peu satisfait(e)" />
+													<RadioButton  text="Trés satisfait(e)" />
+                                                </RadioButtonGroup>
+                                            </VBox>
+                                            </content>
+                                        </Panel>
+                                    <Panel expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+											<headerToolbar>
+                                                <OverflowToolbar style="Clear">
+                                                    <Text class="textLabel" text="Commentaires et Suggestions"/>
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                        <content class="feedInput">
+                                                <FeedInput
+                                                    post="onPost"
+                                                    showIcon="false"
+                                                    />
+                                        </content>
+                                    </Panel>
+									<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
+											<html:button class="sendButton">Envoyer</html:button>
+											<html:button class="sendButton">Annuler</html:button>						
+										</FlexBox>
+                                    </FlexBox>
+                                </f:content>
+                            </f:SimpleForm>
+                        </VBox>
+                    </ScrollContainer>
 					
 					<ScrollContainer
 						id="evalResults"
@@ -381,14 +670,6 @@
 						vertical="true"
 						height="100%">
 						<Text text="This is the results page" />
-					</ScrollContainer>
-
-					<ScrollContainer
-						id="evalKpi"
-						horizontal="false"
-						vertical="true"
-						height="100%">
-						<Text text="This is the kpi page" />
 					</ScrollContainer>
 
 					<!--End Of Performance Pulse-->
@@ -421,15 +702,6 @@
 						<Text text="This is the Engagement page" />
 					</ScrollContainer>
 
-					<ScrollContainer
-						id="epulseKpi"
-						horizontal="false"
-						vertical="true"
-						height="100%"
-						class="sapUiContentPadding">
-						<Text text="This is the Engagement page" />
-					</ScrollContainer>	
-
 					<!--End Of Engagement Pulse-->
 
 					<!--Start Of Revue des Talents-->
@@ -442,7 +714,7 @@
 						class="sapUiContentPadding">
 						<Text text="This is the Talent page" />
 					</ScrollContainer>	
-
+					
 					<ScrollContainer
 						id="talentSeniority"
 						horizontal="false"
@@ -589,6 +861,15 @@
 
 </mvc:View>
 
+
+	<!-- <Panel expandable="true" expanded="true" stickyHeader="true" height="400px" headerText="Panel with a sticky header" width="auto" class="sapUiResponsiveMargin">
+										<content class="feedInput">
+												<FeedInput
+													post="onPost"
+													showIcon="false" 
+													/>
+										</content>
+									</Panel> -->
 
 <!-- <l:Grid class="sapUiSmallMarginTop contentText">						
 							<FeedContent
