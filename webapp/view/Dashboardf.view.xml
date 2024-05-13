@@ -7,6 +7,7 @@
 	xmlns:c="sap.ui.core"
     xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
+	xmlns:f2="sap.f"
 	xmlns:tnt="sap.tnt"
 	xmlns:t="sap.ui.table"
 	xmlns:html="http://www.w3.org/1999/xhtml"
@@ -78,7 +79,7 @@
 		</tnt:sideContent>
 
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="evalCollab">
+			<NavContainer id="pageContainer" initialPage="ressources">
 				<pages>
 					<!--Start Of Performance Pulse-->
 					<ScrollContainer
@@ -88,6 +89,275 @@
 						height="100%"
 						class="sapUiContentPadding">
 						<Text text="This is homepage" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="ressources"
+						horizontal="false"
+						vertical="true"
+						height="100%">
+						<VBox>
+							<f:SimpleForm   				
+								editable="false"
+								layout="ResponsiveGridLayout"
+								title="Address"
+								labelSpanL="4"
+								labelSpanM="4"
+								emptySpanL="0"
+								emptySpanM="0"
+								columnsL="4"
+								columnsM="4">
+									<f:toolbar>
+										<Toolbar 
+											height="60px"
+											class="toolbarInfo">
+											<Text class="titleGen" text="Ressources"></Text>
+											<ToolbarSpacer/>
+											<Text class="titleGen" text="///////////////////////"></Text>
+											<ToolbarSpacer/>
+											<Text class="titleGen" text="///////"></Text>
+										</Toolbar>
+									</f:toolbar>
+							</f:SimpleForm>
+							<f2:DynamicPage 
+									id="dynamicPageId"
+									toggleHeaderOnTitleClick="false">
+								
+								<f2:content>
+									<Table id="productsTable"
+										sticky="ColumnHeaders,HeaderToolbar"
+										inset="false"
+										growing="true"
+										class="sapFDynamicPageAlignContent"
+										width="auto">
+										<headerToolbar>
+											<OverflowToolbar>
+													<Button
+														id="BadgedButton"
+														class="sapUiTinyMarginBeginEnd addButton"
+														icon="sap-icon://add"													
+														text="Ajouter Collaborateur">		
+													</Button>
+													<Button
+														id=""
+														class="sapUiTinyMarginBeginEnd exportButton"
+														icon="sap-icon://back-to-top"													
+														text="Export">
+														
+													</Button>
+												<ToolbarSpacer/>
+												<SearchField search="onSearch" width="30.5rem"/>
+											</OverflowToolbar>
+										</headerToolbar>
+										<columns>
+											<Column>
+												<Text text="Collaborateur" />
+											</Column>
+											<Column minScreenWidth="Desktop" demandPopin="true">
+												<Text text="Type"/>
+											</Column>
+
+											<Column minScreenWidth="Desktop" demandPopin="true">
+												<Text text="Agence" />
+											</Column>
+											
+											<Column minScreenWidth="Desktop" demandPopin="true">
+												<Text text="Pôle" />
+											</Column>
+
+											<Column	hAlign="End">
+												<Text text="Etat" />
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="Maxime Cariou" />
+													<ObjectIdentifier title="Directeur" />
+													<ObjectIdentifier title="Aymax" />			
+													<ObjectIdentifier title="Direction" />	
+													<ObjectIdentifier title="En Cours" />								
+												</cells>									
+											</ColumnListItem>
+
+										</items>
+									</Table>
+								</f2:content>
+
+							</f2:DynamicPage> 
+
+						</VBox>
 					</ScrollContainer>
 	
 					<ScrollContainer
@@ -905,3 +1175,69 @@
 									value="132" />
 							</TileContent> 
 						</l:Grid> -->
+
+
+
+
+
+
+							<!-- <f:content>
+									<Table id="productsTable"
+										sticky="ColumnHeaders,HeaderToolbar"
+										inset="false"
+										growing="true"
+										items="{
+												path: 'products>/ProductCollection',
+												sorter: {
+													path: 'Name'
+												}
+											}"
+										class="sapFDynamicPageAlignContent"
+										width="auto">
+										<headerToolbar>
+											<OverflowToolbar>
+												<ToolbarSpacer/>
+												<SearchField search="onSearch" width="17.5rem"/>
+											</OverflowToolbar>
+										</headerToolbar>
+										<columns>
+											<Column>
+												<Text text="Product" />
+											</Column>
+											<Column minScreenWidth="Desktop" demandPopin="true">
+													<Text text="Quantity"/>
+												</Column>
+
+											<Column minScreenWidth="Desktop" demandPopin="true">
+												<Text text="Description" />
+											</Column>
+											<Column	hAlign="End">
+												<Text text="Price" />
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
+												<cells>
+													<ObjectIdentifier title="{products>Name}" text="{products>ProductId}" />
+													<ObjectIdentifier text="{products>Quantity}" />
+													<ObjectIdentifier text="{products>Description}" />
+													<ObjectNumber
+															number="{
+																parts:[{path:'products>Price'},{path:'products>CurrencyCode'}],
+																type: 'sap.ui.model.type.Currency',
+																formatOptions: {showMeasure: false}
+															}"
+															unit="{products>CurrencyCode}" />
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:content> -->
+
+								<!-- <f:footer>
+									<OverflowToolbar>
+										<ToolbarSpacer/>
+										<Button type="Accept" text="Accept"/>
+										<Button type="Reject" text="Reject"/>
+									</OverflowToolbar>
+								</f:footer> -->

@@ -24,8 +24,34 @@ sap.ui.define([
 			this._setToggleButtonTooltip(!Device.system.desktop);
             window.addEventListener("resize", this.onWindowResize.bind(this));
 
+            /*Ressources*/
+       /*      this.oRouter = this.getOwnerComponent().getRouter();
+			this.oModel1 = this.getOwnerComponent().getModel();
+			this.oRouter.getRoute("detail").attachPatternMatched(this._onProductMatched, this); */
+            /*End Ressources*/
 		},
-        
+            /*Ressources*/
+         /*    handleFullScreen: function () {
+                var sNextLayout = this.oModel1.getProperty("/actionButtonsInfo/midColumn/fullScreen");
+                this.oRouter.navTo("detail", {layout: sNextLayout, product: this._product});
+            },
+            handleExitFullScreen: function () {
+                var sNextLayout = this.oModel1.getProperty("/actionButtonsInfo/midColumn/exitFullScreen");
+                this.oRouter.navTo("detail", {layout: sNextLayout, product: this._product});
+            },
+            handleClose: function () {
+                var sNextLayout = this.oModel1.getProperty("/actionButtonsInfo/midColumn/closeColumn");
+                this.oRouter.navTo("master", {layout: sNextLayout});
+            },
+            _onProductMatched: function (oEvent) {
+                this._product = oEvent.getParameter("arguments").product || this._product || "0";
+                this.getView().bindElement({
+                    path: "/ProductCollection/" + this._product,
+                    model: "products"
+                });
+            }, */
+            /*End Ressources*/
+
         onWindowResize() {
             const oSideNavigation = this.byId("sideNavigation");
             const screenWidth = window.innerWidth;
@@ -79,7 +105,8 @@ sap.ui.define([
 			} else {
 				oToggleButton.setTooltip('Small Size Navigation');
 			}
-		}
+		},
+      
 
 	});
 });

@@ -119,6 +119,11 @@
           "name": "Dashboardf",
           "pattern": "Dashboardf",
           "target": "Dashboardf"
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail",
+          "target": "Detail"
         }
       ],
       "targets": {
@@ -156,6 +161,13 @@
           "clearControlAggregation": false,
           "viewId": "Dashboardf",
           "viewName": "Dashboardf"
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "flip",
+          "clearControlAggregation": false,
+          "viewId": "Detail",
+          "viewName": "Detail"
         }
       }
     },

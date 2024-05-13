@@ -93,7 +93,7 @@
   
 .sapMFlexBox
 {
-  animation: 3s fadeInUp !important;   
+  animation: 1s fadeInUp !important;   
 }
 
 .authElementsBox
@@ -673,6 +673,38 @@ a:visited
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
 
 }
+
+.addButton .sapMBtnInner 
+{
+  border: 1px solid #0A8DC5 !important;
+  color: #0A8DC5 !important;
+}
+
+.exportButton .sapMBtnInner 
+{
+  background-color: #FFCC33 !important;
+  color: white !important;
+}
+
+.exportButton .sapMBtnIcon
+{
+  color: white !important;
+}
+
+/* .textGen
+{
+  font-size: 16.5px !important;
+  font-weight: bolder !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+ 
+}
+
+.textd
+{  font-size: 8px !important;
+ font-weight: bolder !important; 
+
+} */
+
 
 .sapMRb.sapMRbHasLabel .sapMRbBLabel .sapMLabelTextWrapper
 {

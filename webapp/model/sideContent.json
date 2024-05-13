@@ -7,6 +7,11 @@
 			"key": "home"
 		},
 		{
+			"title": "Ressources",
+			"icon": "sap-icon://database",
+			"key": "ressources"
+		},
+		{
 			"title": "Performance Pulse",
 			"icon": "sap-icon://performance",
 			"expanded": true,	
@@ -100,7 +105,7 @@
 
 		{
 			"title": "Carriére",
-			"icon": "sap-icon://mileage",
+			"icon": "sap-icon://multiselect-all",
 			"expanded": true,	
 			"items": [
 				{
