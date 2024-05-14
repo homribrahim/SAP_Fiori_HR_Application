@@ -121,9 +121,9 @@
           "target": "Dashboardf"
         },
         {
-          "name": "Detail",
-          "pattern": "Detail",
-          "target": "Detail"
+          "name": "Form",
+          "pattern": "Form",
+          "target": "Form"
         }
       ],
       "targets": {
@@ -162,12 +162,12 @@
           "viewId": "Dashboardf",
           "viewName": "Dashboardf"
         },
-        "Detail": {
+        "Form": {
           "viewType": "XML",
           "transition": "flip",
           "clearControlAggregation": false,
-          "viewId": "Detail",
-          "viewName": "Detail"
+          "viewId": "Form",
+          "viewName": "Form"
         }
       }
     },
@@ -179,3 +179,4 @@
     }
   }
 }
+ 

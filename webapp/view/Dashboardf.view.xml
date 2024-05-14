@@ -11,6 +11,7 @@
 	xmlns:tnt="sap.tnt"
 	xmlns:t="sap.ui.table"
 	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.m.semantic"
 	height="100%">
 
 	<tnt:ToolPage id="toolPage">
@@ -92,273 +93,211 @@
 					</ScrollContainer>
 
 					<ScrollContainer
-						id="ressources"
-						horizontal="false"
-						vertical="true"
-						height="100%">
-						<VBox>
-							<f:SimpleForm   				
-								editable="false"
-								layout="ResponsiveGridLayout"
-								title="Address"
-								labelSpanL="4"
-								labelSpanM="4"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="4"
-								columnsM="4">
-									<f:toolbar>
-										<Toolbar 
-											height="60px"
-											class="toolbarInfo">
-											<Text class="titleGen" text="Ressources"></Text>
-											<ToolbarSpacer/>
-											<Text class="titleGen" text="///////////////////////"></Text>
-											<ToolbarSpacer/>
-											<Text class="titleGen" text="///////"></Text>
-										</Toolbar>
-									</f:toolbar>
-							</f:SimpleForm>
-							<f2:DynamicPage 
-									id="dynamicPageId"
-									toggleHeaderOnTitleClick="false">
-								
-								<f2:content>
-									<Table id="productsTable"
-										sticky="ColumnHeaders,HeaderToolbar"
-										inset="false"
-										growing="true"
-										class="sapFDynamicPageAlignContent"
-										width="auto">
-										<headerToolbar>
-											<OverflowToolbar>
-													<Button
-														id="BadgedButton"
-														class="sapUiTinyMarginBeginEnd addButton"
-														icon="sap-icon://add"													
-														text="Ajouter Collaborateur">		
-													</Button>
-													<Button
-														id=""
-														class="sapUiTinyMarginBeginEnd exportButton"
-														icon="sap-icon://back-to-top"													
-														text="Export">
-														
-													</Button>
-												<ToolbarSpacer/>
-												<SearchField search="onSearch" width="30.5rem"/>
-											</OverflowToolbar>
-										</headerToolbar>
-										<columns>
-											<Column>
-												<Text text="Collaborateur" />
-											</Column>
-											<Column minScreenWidth="Desktop" demandPopin="true">
-												<Text text="Type"/>
-											</Column>
-
-											<Column minScreenWidth="Desktop" demandPopin="true">
-												<Text text="Agence" />
-											</Column>
-											
-											<Column minScreenWidth="Desktop" demandPopin="true">
-												<Text text="Pôle" />
-											</Column>
-
-											<Column	hAlign="End">
-												<Text text="Etat" />
-											</Column>
-										</columns>
-										<items>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="Maxime Cariou" />
-													<ObjectIdentifier title="Directeur" />
-													<ObjectIdentifier title="Aymax" />			
-													<ObjectIdentifier title="Direction" />	
-													<ObjectIdentifier title="En Cours" />								
-												</cells>									
-											</ColumnListItem>
-
-										</items>
-									</Table>
-								</f2:content>
-
-							</f2:DynamicPage> 
-
-						</VBox>
-					</ScrollContainer>
+                        id="ressources"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        >
+                        <VBox>
+                            <f:SimpleForm  
+                            id="SimpleFormDisplay5"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            title="Address"
+                            labelSpanL="4"
+                            labelSpanM="4"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            columnsL="4"
+                            columnsM="4">
+                                <f:toolbar>
+                                    <Toolbar
+                                        height="60px"
+                                        class="toolbarInfo">
+                                        <Text class="titleGen" text="Ressources"></Text>
+                                        <ToolbarSpacer/>
+                                        <Text class="titleGen" text="Ensembles des Collaborateurs"></Text>
+                                        <ToolbarSpacer/>
+                                        <Text class="titleGen" text=""></Text>
+                                    </Toolbar>
+                                </f:toolbar>
+                            </f:SimpleForm>
+							<!--intro = Type + AGENCE-->
+                            <ObjectHeader
+                                id="productDetailsPanel"
+                                responsive="true"
+                                fullScreenOptimized="true"
+                                binding="{/ProductCollection/2}"
+                                icon="{ProductPicUrl}"
+                                iconAlt="{Name}"
+                                intro="{odataModel>Type} à {odataModel>Agence}" 
+                                title="{odataModel>Prenom} {odataModel>Nom}"
+                                titleActive="true"
+                                titlePress="handleTitlePress"
+                                number="{
+                                    parts:[{path:'Price'},{path:'CurrencyCode'}],
+                                    type: 'sap.ui.model.type.Currency',
+                                    formatOptions: {showMeasure: false}
+                                }"
+                                numberUnit="{CurrencyCode}"
+                                showMarkers="true"
+                                markFlagged="true"
+                                markFavorite="true"
+                                numberState="Success"
+                                backgroundDesign="Translucent"
+                                class="sapUiResponsivePadding--header" >
+                                <ObjectAttribute
+                                    title="Référence Interne"
+                                    text="{odataModel>ReferenceInterne}"/>
+                                <ObjectAttribute
+                                    title="Civilité"
+                                    text="{odataModel>Civilite}"
+                                    active="true"/>
+                                <ObjectAttribute
+                                    title="Etat"
+                                    text="{odataModel>Etat}"/>
+                                <ObjectAttribute
+                                    title="Titre"
+                                    text="{odataModel>Titre}"/>
+								<ObjectAttribute
+                                    title="Date de Démarrage"
+                                    text="{odataModel>DateDemarrage}"/>
+                            	<ObjectAttribute
+                                    title="Fonction"
+                                    text="{odataModel>Fonction}"/>
+                                <ObjectAttribute
+                                    title="Domaine"
+                                    text="{odataModel>Domaine}"/>
+                                    <ObjectAttribute
+                                    title="Expérience"
+                                    text="{odataModel>Experience}"/>
+                                    <ObjectAttribute
+                                    title="Mobilité"
+                                    text="{odataModel>Mobilite}"/>
+                                    <ObjectAttribute
+                                    title="Email"
+                                    text="{odataModel>Email}"/>
+                                    <ObjectAttribute
+                                    title="Linkedin"
+                                    text="{odataModel>EmailLinkedin}"/>
+                                    <ObjectAttribute
+                                    title="Numéro de télèphone"
+                                    text="{odataModel>NumeroTelephone}"/>
+                                    <ObjectAttribute
+                                    title="Date de naissance"
+                                    text="{odataModel>DateNaissance}"/>
+                                    <ObjectAttribute
+                                    title="Nationalité"
+                                    text="{odataModel>Nationalite}"/>
+                                    <ObjectAttribute
+                                    title="Situation Familiale"
+                                    text="{odataModel>SituationFamiliale}"/>
+                                    <ObjectAttribute
+                                    title="Numéro de Sécurité Sociale"
+                                    text="{odataModel>NumeroSecuriteSociale}"/>
+                                    <ObjectAttribute
+                                    title="Adresse"
+                                    text="{odataModel>Adresse}"/>
+                                        <ObjectAttribute
+                                    title="Code Postal"
+                                    text="{odataModel>CodePostal}"/>
+                                    <ObjectAttribute
+                                    title="Pays"
+                                    text="{odataModel>Pays}"/>
+                                    <ObjectAttribute
+                                    title="Ville"
+                                    text="{odataModel>Ville}"/>
+                                    <ObjectAttribute
+                                    title="Pôle"
+                                    text="{odataModel>Pole}"/>
+                                    <ObjectAttribute
+                                    title="Date de Création"
+                                    text="{odataModel>DateCreation}"/>
+                                    <ObjectAttribute
+                                    title="Date de Mise à jour"
+                                    text="{odataModel>DateMiseAJour}"/>
+                                    <ObjectAttribute
+                                    title="Diplômes"
+                                    text="{odataModel>Diplomes}"/>           
+                                 
+                                <statuses>
+                                    <ObjectStatus
+                                        title="Approval"
+                                        text="Pending"
+                                        state="Warning"/>
+                                </statuses>
+                            </ObjectHeader>                                
+ 
+                            <f2:DynamicPage id="dynamicPageId"
+                                    toggleHeaderOnTitleClick="false">                               
+                                <f2:content>
+                                    <Table id="collabTable"
+                                        sticky="ColumnHeaders,HeaderToolbar"
+                                        inset="false"
+                                        growing="true"
+                                        class="sapFDynamicPageAlignContent"
+                                        width="auto"
+                                        items="{
+                                            path: 'odataModel>/results',
+                                            sorter: {
+                                                path: 'Nom'
+                                            }
+                                        }">
+                                        <headerToolbar>
+                                            <OverflowToolbar>
+                                                    <Button
+                                                        id="BadgedButton"
+                                                        class="sapUiTinyMarginBeginEnd addButton"
+                                                        icon="sap-icon://add"                                                  
+                                                        text="Ajouter Collaborateur">      
+                                                    </Button>
+                                                    <Button
+                                                        id=""
+                                                        class="sapUiTinyMarginBeginEnd exportButton"
+                                                        icon="sap-icon://back-to-top"                                                  
+                                                        text="Export">
+                                                       
+                                                    </Button>
+                                                <ToolbarSpacer/>
+                                                <SearchField search="onSearch" width="30.5rem"/>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column>
+                                                <Text class="textGen" text="Collaborateur" />
+                                            </Column>
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Type"/>
+                                            </Column>
+ 
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Agence" />
+                                            </Column>
+                                           
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Pôle" />
+                                            </Column>
+ 
+                                            <Column hAlign="End">
+                                                <Text class="textGen" text="Etat" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Navigation" press="onItemSelected" vAlign="Middle">
+                                                <cells>
+                                                    <ObjectIdentifier class="textd" text="{odataModel>Nom} {odataModel>Prenom}" />
+                                                    <ObjectIdentifier class="textd" text="{odataModel>Type}" />
+                                                    <ObjectIdentifier class="textd" text="{odataModel>Agence}" />          
+                                                    <ObjectIdentifier class="textd" text="{odataModel>Pole}" />  
+                                                    <ObjectIdentifier class="textd" text="{odataModel>Etat}" />                              
+                                                </cells>                                    
+                                            </ColumnListItem>                                                                                                            
+                                        </items>
+                                    </Table>
+                                </f2:content>
+                            </f2:DynamicPage>
+           				</VBox>
+                    </ScrollContainer>
 	
 					<ScrollContainer
 						id="evalCollab"

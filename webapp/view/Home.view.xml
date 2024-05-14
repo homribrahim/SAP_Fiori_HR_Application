@@ -164,7 +164,7 @@
                         </core:layoutData>
                     </core:Icon>
                     <Text class="sapUiTinyMarginTop footText" text="Bruxelles | Belgique"></Text>          
-                    <Text class="footText" text="Avenue des arts 56, 1000 Bruxelles"></Text>   
+                    <Text class="footText" text="Avenue des arts 56, 1000 Bruxelles"></Text>
                     <Text class="footText" text="+32 2801 13 83"></Text>          
                  </VBox>
                 <VBox width="auto"> 
@@ -181,7 +181,7 @@
                     <Text class="footText" text="+20 222 90 94 47"></Text>          
                 </VBox>
             </FlexBox>
-            <Text class="sapUiLargeMarginTop sapUiLargeMarginBottom footerText" text="COPYRIGHT © | 2024 CRAFTED BY Brahim &amp; Farah | ALL RIGHTS RESERVED"></Text>
+            <Text class="sapUiLargeMarginTop sapUiLargeMarginBottom footerText" text="COPYRIGHT © | 2024 CRAFTED BY AYMAX TECHNOLOGY | ALL RIGHTS RESERVED"></Text>
         </FlexBox>
     </VBox>
     
