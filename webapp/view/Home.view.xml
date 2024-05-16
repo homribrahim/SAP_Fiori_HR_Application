@@ -33,8 +33,7 @@
 
     <VBox
         height="auto"
-        class="servicesSection"
-       
+        class="servicesSection"   
     >
         <Text  class="sectionName" text="NOS SERVICES"/>
         <Text  class="sapUiLargeMarginBottom sectionDescription" text="Une gamme de services raffinés illuminant votre parcours professionnel et éclairant votre chemin vers l'excellence."/>

@@ -8,7 +8,8 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     'sap/ui/model/Sorter',
-], function (Device, Controller, JSONModel, Popover, Button, library,Filter,FilterOperator,Sorter) {
+    'sap/ui/core/IconPool'
+], function (Device, Controller, JSONModel, Popover, Button, library,Filter,FilterOperator,Sorter,IconPool) {
     "use strict";
  
     var ButtonType = library.ButtonType,
@@ -17,7 +18,22 @@ sap.ui.define([
     return Controller.extend("brahim.project.controller.Test", {
  
         onInit: function () {
+
+            var b = [];
+            var c = {};
  
+             //SAP Business Suite Theme font family and URI
+            var B = {
+                fontFamily: "BusinessSuiteInAppSymbols",
+                fontURI: sap.ui.require.toUrl("sap/ushell/themes/base/fonts/")
+            };
+            //Registering to the icon pool
+            IconPool.registerFont(B);
+            b.push(IconPool.fontLoaded("BusinessSuiteInAppSymbols"));
+            c["BusinessSuiteInAppSymbols"] = B
+ 
+            this.getView().byId("collabDetails").setVisible(false);            
+
             var oCollabModel = this.getOwnerComponent().getModel();
             var that = this;
             console.log(oCollabModel)
@@ -114,10 +130,12 @@ sap.ui.define([
         },
         
         onItemSelected: function(oEvent) {
+
+            this.getView().byId("collabDetails").setVisible(true);            
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("odataModel");
             var sPath = oContext.getPath();
-            var oProductDetailPanel = this.byId("productDetailsPanel");
+            var oProductDetailPanel = this.byId("collabDetails");
             oProductDetailPanel.bindElement({ path: sPath, model: "odataModel" });
 
         }

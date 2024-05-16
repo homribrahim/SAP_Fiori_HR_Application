@@ -1,5 +1,6 @@
 <mvc:View
 	controllerName="brahim.project.controller.Dashboardf"
+	xmlns:ux="sap.uxap"
 	xmlns="sap.m"
     xmlns:card="sap.f.cards"
 	xmlns:mvc="sap.ui.core.mvc"
@@ -7,6 +8,8 @@
 	xmlns:c="sap.ui.core"
     xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:forms="sap.ui.layout.form"
 	xmlns:f2="sap.f"
 	xmlns:tnt="sap.tnt"
 	xmlns:t="sap.ui.table"
@@ -14,7 +17,7 @@
 	xmlns:semantic="sap.m.semantic"
 	height="100%">
 
-	<tnt:ToolPage id="toolPage">
+<tnt:ToolPage id="toolPage">
 		<tnt:header>
 			<tnt:ToolHeader>
 				<Button
@@ -32,7 +35,7 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow"/>
 					</layoutData>
 				</Image>
-				<Text text="Your Business Powered By IT !" wrapping="false" id="secondTitle">
+				<Text class="fontT" text="Your Business Powered By IT !" wrapping="false" id="secondTitle">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Disappear"/>
 					</layoutData>
@@ -99,136 +102,174 @@
                         height="100%"
                         >
                         <VBox>
-                            <f:SimpleForm  
-                            id="SimpleFormDisplay5"
-                            editable="false"
-                            layout="ResponsiveGridLayout"
-                            title="Address"
-                            labelSpanL="4"
-                            labelSpanM="4"
-                            emptySpanL="0"
-                            emptySpanM="0"
-                            columnsL="4"
-                            columnsM="4">
-                                <f:toolbar>
-                                    <Toolbar
-                                        height="60px"
-                                        class="toolbarInfo">
-                                        <Text class="titleGen" text="Ressources"></Text>
-                                        <ToolbarSpacer/>
-                                        <Text class="titleGen" text="Ensembles des Collaborateurs"></Text>
-                                        <ToolbarSpacer/>
-                                        <Text class="titleGen" text=""></Text>
-                                    </Toolbar>
-                                </f:toolbar>
-                            </f:SimpleForm>
 							<!--intro = Type + AGENCE-->
-                            <ObjectHeader
-                                id="productDetailsPanel"
-                                responsive="true"
-                                fullScreenOptimized="true"
-                                binding="{/ProductCollection/2}"
-                                icon="{ProductPicUrl}"
-                                iconAlt="{Name}"
-                                intro="{odataModel>Type} à {odataModel>Agence}" 
-                                title="{odataModel>Prenom} {odataModel>Nom}"
-                                titleActive="true"
-                                titlePress="handleTitlePress"
-                                number="{
-                                    parts:[{path:'Price'},{path:'CurrencyCode'}],
-                                    type: 'sap.ui.model.type.Currency',
-                                    formatOptions: {showMeasure: false}
-                                }"
-                                numberUnit="{CurrencyCode}"
-                                showMarkers="true"
-                                markFlagged="true"
-                                markFavorite="true"
-                                numberState="Success"
-                                backgroundDesign="Translucent"
-                                class="sapUiResponsivePadding--header" >
-                                <ObjectAttribute
-                                    title="Référence Interne"
-                                    text="{odataModel>ReferenceInterne}"/>
-                                <ObjectAttribute
-                                    title="Civilité"
-                                    text="{odataModel>Civilite}"
-                                    active="true"/>
-                                <ObjectAttribute
-                                    title="Etat"
-                                    text="{odataModel>Etat}"/>
-                                <ObjectAttribute
-                                    title="Titre"
-                                    text="{odataModel>Titre}"/>
-								<ObjectAttribute
-                                    title="Date de Démarrage"
-                                    text="{odataModel>DateDemarrage}"/>
-                            	<ObjectAttribute
-                                    title="Fonction"
-                                    text="{odataModel>Fonction}"/>
-                                <ObjectAttribute
-                                    title="Domaine"
-                                    text="{odataModel>Domaine}"/>
-                                    <ObjectAttribute
-                                    title="Expérience"
-                                    text="{odataModel>Experience}"/>
-                                    <ObjectAttribute
-                                    title="Mobilité"
-                                    text="{odataModel>Mobilite}"/>
-                                    <ObjectAttribute
-                                    title="Email"
-                                    text="{odataModel>Email}"/>
-                                    <ObjectAttribute
-                                    title="Linkedin"
-                                    text="{odataModel>EmailLinkedin}"/>
-                                    <ObjectAttribute
-                                    title="Numéro de télèphone"
-                                    text="{odataModel>NumeroTelephone}"/>
-                                    <ObjectAttribute
-                                    title="Date de naissance"
-                                    text="{odataModel>DateNaissance}"/>
-                                    <ObjectAttribute
-                                    title="Nationalité"
-                                    text="{odataModel>Nationalite}"/>
-                                    <ObjectAttribute
-                                    title="Situation Familiale"
-                                    text="{odataModel>SituationFamiliale}"/>
-                                    <ObjectAttribute
-                                    title="Numéro de Sécurité Sociale"
-                                    text="{odataModel>NumeroSecuriteSociale}"/>
-                                    <ObjectAttribute
-                                    title="Adresse"
-                                    text="{odataModel>Adresse}"/>
-                                        <ObjectAttribute
-                                    title="Code Postal"
-                                    text="{odataModel>CodePostal}"/>
-                                    <ObjectAttribute
-                                    title="Pays"
-                                    text="{odataModel>Pays}"/>
-                                    <ObjectAttribute
-                                    title="Ville"
-                                    text="{odataModel>Ville}"/>
-                                    <ObjectAttribute
-                                    title="Pôle"
-                                    text="{odataModel>Pole}"/>
-                                    <ObjectAttribute
-                                    title="Date de Création"
-                                    text="{odataModel>DateCreation}"/>
-                                    <ObjectAttribute
-                                    title="Date de Mise à jour"
-                                    text="{odataModel>DateMiseAJour}"/>
-                                    <ObjectAttribute
-                                    title="Diplômes"
-                                    text="{odataModel>Diplomes}"/>           
-                                 
-                                <statuses>
-                                    <ObjectStatus
-                                        title="Approval"
-                                        text="Pending"
-                                        state="Warning"/>
-                                </statuses>
-                            </ObjectHeader>                                
- 
+								<ux:ObjectPageLayout id="collabDetails"
+								class="collabDetails"
+								height="390px"
+									showTitleInHeaderContent="true"
+									upperCaseAnchorBar="false">
+									<ux:headerTitle>
+										<ux:ObjectPageDynamicHeaderTitle>
+											<ux:expandedHeading>
+												<m:Title text="{odataModel>Civilite} {odataModel>Prenom} {odataModel>Nom}" wrapping="true" />
+											</ux:expandedHeading>
+
+											<ux:snappedHeading>
+												<m:HBox>
+													<m:VBox>
+														<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiSmallMarginEnd" />
+													</m:VBox>
+
+													<m:VBox>
+														<m:Title text="{odataModel>Civilite} {odataModel>Prenom} {odataModel>Nom}" wrapping="true"/>
+														<m:Label text="{odataModel>Fonction} à {odataModel>Agence}"/>
+													</m:VBox>
+												</m:HBox>
+											</ux:snappedHeading>
+
+											<ux:expandedContent>
+												<m:Label text="{odataModel>Fonction} à {odataModel>Agence}"/>
+											</ux:expandedContent>
+
+											<ux:snappedTitleOnMobile>
+												<m:Title text="Object Page Header with Links, Rating Indicator, and Object Status"/>
+											</ux:snappedTitleOnMobile>
+
+											<ux:actions>
+												<m:Button text="Edit" type="Emphasized"/>
+												<m:Button text="Delete"/>
+												<m:Button text="Copy"/>
+												<m:OverflowToolbarButton icon="sap-icon://action" type="Transparent" text="Share" tooltip="action"/>
+											</ux:actions>
+										</ux:ObjectPageDynamicHeaderTitle>
+									</ux:headerTitle>
+
+									<ux:headerContent>
+										<m:FlexBox wrap="Wrap" fitContainer="true">
+											<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+													<m:Text text="REF:"/>
+													<m:Label text="{odataModel>ReferenceInterne}" class="sapUiTinyMarginEnd sapUiTinyMarginBegin" />
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+													<core:Icon src="sap-icon://home" />
+													<m:Label text=" {odataModel>Adresse}" class="sapUiTinyMarginEnd sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+													<core:Icon src="sap-icon://map" />
+													<m:Label text=" {odataModel>CodePostal} / {odataModel>Ville}" class="sapUiTinyMarginEnd sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+													<core:Icon src="sap-icon://map-fill"/>
+													<m:Label text=" {odataModel>Pays}" class="sapUiTinyMarginEnd sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://validate" />	
+													<m:Text text="SSN:" class="sapUiSmallMarginBegin"/>
+													<m:Label text="{odataModel>NumeroSecuriteSociale}"/>
+												</m:HBox>
+
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Contact Information" class="sapUiTinyMarginBottom" />
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://outgoing-call"/>
+													<m:Label text="{odataModel>NumeroTelephone}" class="sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://email"/>
+													<m:Label text="{odataModel>Email}" class="sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://account"/>
+													<m:Label text="{odataModel>EmailLinkedin}" class="sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Informations Personnelles" class="sapUiTinyMarginBottom" />
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://BusinessSuiteInAppSymbols/icon-birthday"/>
+													<m:Label text="{odataModel>DateNaissance}" class="sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://world"/>
+													<m:Label text="{odataModel>Nationalite}" class="sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+												<m:HBox class="sapUiTinyMarginBottom">
+													<core:Icon src="sap-icon://BusinessSuiteInAppSymbols/icon-icon-marital-status"/>
+													<m:Label text="{odataModel>SituationFamiliale}" class="sapUiSmallMarginBegin"/>
+												</m:HBox>
+
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+											
+
+												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+													<m:Label text="Date de Création: " class="sapUiSmallMarginEnd"/>
+													<m:Text text="{odataModel>DateCreation}"/>
+												</m:HBox>
+
+												<m:HBox renderType="Bare">
+													<m:Label text="Date de Mise à Jour:" class="sapUiSmallMarginEnd"/>
+													<m:Text text="{odataModel>DateMiseAJour}"/>
+												</m:HBox>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title  text="Profile Description" class="sapUiTinyMarginBottom" />
+												<m:Text  width="600px" 
+												text="{odataModel>Titre} , avec {odataModel>Experience} d'éxperience."/>
+												<m:Text  width="600px" 
+												text="Diplômes : {odataModel>Diplomes}"/>
+												<m:Text  width="600px" 
+												text="Domaine : {odataModel>Domaine}"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title class="sapUiTinyMarginBottom">
+													<m:Label text="Etat"/>
+												</m:Title>
+												<m:ObjectStatus text="{odataModel>Etat}" state="Success" class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Date de Démarrage" class="sapUiTinyMarginBottom" />
+												<m:ObjectStatus text="{odataModel>DateDemarrage}" icon="sap-icon://date-time" class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Ancienneté" class="sapUiTinyMarginBottom" />
+												<m:ObjectStatus text="To Be Selected" state="Error" class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
+												<m:ObjectStatus text="{odataModel>Mobilite}" class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											
+										</m:FlexBox>
+									</ux:headerContent>
+								</ux:ObjectPageLayout>
+                          
                             <f2:DynamicPage id="dynamicPageId"
+									class="dynamicPageId"
                                     toggleHeaderOnTitleClick="false">                               
                                 <f2:content>
                                     <Table id="collabTable"
@@ -1066,7 +1107,7 @@
 				</pages>
 			</NavContainer>
 		</tnt:mainContents>
-	</tnt:ToolPage>
+</tnt:ToolPage>
 
 </mvc:View>
 
