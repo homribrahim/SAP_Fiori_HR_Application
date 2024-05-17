@@ -8,8 +8,11 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     'sap/ui/model/Sorter',
-    'sap/ui/core/IconPool'
-], function (Device, Controller, JSONModel, Popover, Button, library,Filter,FilterOperator,Sorter,IconPool) {
+    'sap/ui/core/IconPool',
+    'sap/m/Input',
+    'sap/m/ColumnListItem',
+    'sap/base/util/deepExtend'
+], function (Device, Controller, JSONModel, Popover, Button, library,Filter,FilterOperator,Sorter,IconPool,Input,ColumnListItem,deepExtend) {
     "use strict";
  
     var ButtonType = library.ButtonType,
@@ -19,21 +22,26 @@ sap.ui.define([
  
         onInit: function () {
 
+            //Side Nav Loading
+
+            var oModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));
+            this.getView().setModel(oModel);
+            this._setToggleButtonTooltip(!Device.system.desktop);
+            window.addEventListener("resize", this.onWindowResize.bind(this));  
+            
             var b = [];
             var c = {};
- 
-             //SAP Business Suite Theme font family and URI
             var B = {
                 fontFamily: "BusinessSuiteInAppSymbols",
                 fontURI: sap.ui.require.toUrl("sap/ushell/themes/base/fonts/")
             };
-            //Registering to the icon pool
             IconPool.registerFont(B);
             b.push(IconPool.fontLoaded("BusinessSuiteInAppSymbols"));
             c["BusinessSuiteInAppSymbols"] = B
  
-            this.getView().byId("collabDetails").setVisible(false);            
+            //Ressources Section
 
+            this.getView().byId("collabDetails").setVisible(false);            
             var oCollabModel = this.getOwnerComponent().getModel();
             var that = this;
             console.log(oCollabModel)
@@ -48,12 +56,40 @@ sap.ui.define([
                     console.log(oError)
                 }
                 });
- 
-            var oModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));
-            this.getView().setModel(oModel);
-            this._setToggleButtonTooltip(!Device.system.desktop);
-            window.addEventListener("resize", this.onWindowResize.bind(this));  
+            
+                this.byId("saveButton").setVisible(false);
+                this.byId("cancelButton").setVisible(false);
+                this.byId("collabInfosEdit").setVisible(false);
+            
+         },
+
+        onEdit () 
+        {
+            this.byId("editButton").setVisible(false);
+			this.byId("saveButton").setVisible(true);
+			this.byId("cancelButton").setVisible(true);
+			this.byId("collabInfosEdit").setVisible(true);
+			this.byId("collabInfosDisplay").setVisible(false);
+
         },
+
+        onSave: function() {
+
+			this.byId("saveButton").setVisible(false);
+			this.byId("cancelButton").setVisible(false);
+			this.byId("editButton").setVisible(true);
+            this.byId("collabInfosEdit").setVisible(false);
+			this.byId("collabInfosDisplay").setVisible(true);
+
+		},
+ 
+		onCancel: function() {
+
+			this.byId("cancelButton").setVisible(false);
+			this.byId("saveButton").setVisible(false);
+			this.byId("editButton").setVisible(true);
+
+		},
        
         onWindowResize() {
             const oSideNavigation = this.byId("sideNavigation");
@@ -131,13 +167,44 @@ sap.ui.define([
         
         onItemSelected: function(oEvent) {
 
-            this.getView().byId("collabDetails").setVisible(true);            
+            this.getView().byId("collabDetails").setVisible(true);   
+            this.getView().byId("collabTableSection").setVisible(false);
+         
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("odataModel");
             var sPath = oContext.getPath();
             var oProductDetailPanel = this.byId("collabDetails");
             oProductDetailPanel.bindElement({ path: sPath, model: "odataModel" });
 
+        },
+
+        onSuggest: function (event) {
+			var sValue = event.getParameter("suggestValue"),
+				aFilters = [];
+			if (sValue) {
+				aFilters = [
+					new Filter([
+						new Filter("Prenom", function (sText) {
+							return (sText || "").toUpperCase().indexOf(sValue.toUpperCase()) > -1;
+						}),
+						new Filter("Name", function (sDes) {
+							return (sDes || "").toUpperCase().indexOf(sValue.toUpperCase()) > -1;
+						})
+					], false)
+				];
+			}
+
+			this.oSF.getBinding("suggestionItems").filter(aFilters);
+			this.oSF.suggest();
+		},
+
+
+        // Visibility Sections
+        
+        onBack (sectionOne,sectionTwo)
+        {
+            this.getView().byId(sectionOne).setVisible(false);
+            this.getView().byId(sectionTwo).setVisible(true);
         }
  
  

@@ -104,12 +104,13 @@
                         <VBox>
 							<!--intro = Type + AGENCE-->
 								<ux:ObjectPageLayout id="collabDetails"
-								class="collabDetails"
-								height="390px"
+									class="collabDetails"
+									height="100vh"
 									showTitleInHeaderContent="true"
 									upperCaseAnchorBar="false">
-									<ux:headerTitle>
+									<ux:headerTitle>	
 										<ux:ObjectPageDynamicHeaderTitle>
+
 											<ux:expandedHeading>
 												<m:Title text="{odataModel>Civilite} {odataModel>Prenom} {odataModel>Nom}" wrapping="true" />
 											</ux:expandedHeading>
@@ -119,7 +120,6 @@
 													<m:VBox>
 														<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiSmallMarginEnd" />
 													</m:VBox>
-
 													<m:VBox>
 														<m:Title text="{odataModel>Civilite} {odataModel>Prenom} {odataModel>Nom}" wrapping="true"/>
 														<m:Label text="{odataModel>Fonction} à {odataModel>Agence}"/>
@@ -132,115 +132,21 @@
 											</ux:expandedContent>
 
 											<ux:snappedTitleOnMobile>
-												<m:Title text="Object Page Header with Links, Rating Indicator, and Object Status"/>
+												<m:Title text="{odataModel>Civilite} {odataModel>Prenom} {odataModel>Nom}"/>
 											</ux:snappedTitleOnMobile>
 
 											<ux:actions>
-												<m:Button text="Edit" type="Emphasized"/>
-												<m:Button text="Delete"/>
-												<m:Button text="Copy"/>
-												<m:OverflowToolbarButton icon="sap-icon://action" type="Transparent" text="Share" tooltip="action"/>
+												<m:Button id="editButton" press="onEdit" text="Modifier" type="Emphasized"/>
+												<m:Button id="saveButton" press="onSave" type="Emphasized" text="Sauvegarder"/>
+												<m:Button id="cancelButton" press="onCancel" text="Annuler"/>
+												<m:OverflowToolbarButton press="onBack('collabDetails','collabTableSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
 											</ux:actions>
 										</ux:ObjectPageDynamicHeaderTitle>
 									</ux:headerTitle>
 
 									<ux:headerContent>
-										<m:FlexBox wrap="Wrap" fitContainer="true">
+										<m:FlexBox wrap="Wrap" fitContainer="true" >
 											<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
-
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
-													<m:Text text="REF:"/>
-													<m:Label text="{odataModel>ReferenceInterne}" class="sapUiTinyMarginEnd sapUiTinyMarginBegin" />
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
-													<core:Icon src="sap-icon://home" />
-													<m:Label text=" {odataModel>Adresse}" class="sapUiTinyMarginEnd sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
-													<core:Icon src="sap-icon://map" />
-													<m:Label text=" {odataModel>CodePostal} / {odataModel>Ville}" class="sapUiTinyMarginEnd sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
-													<core:Icon src="sap-icon://map-fill"/>
-													<m:Label text=" {odataModel>Pays}" class="sapUiTinyMarginEnd sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://validate" />	
-													<m:Text text="SSN:" class="sapUiSmallMarginBegin"/>
-													<m:Label text="{odataModel>NumeroSecuriteSociale}"/>
-												</m:HBox>
-
-											</m:VBox>
-
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-												<m:Title text="Contact Information" class="sapUiTinyMarginBottom" />
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://outgoing-call"/>
-													<m:Label text="{odataModel>NumeroTelephone}" class="sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://email"/>
-													<m:Label text="{odataModel>Email}" class="sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://account"/>
-													<m:Label text="{odataModel>EmailLinkedin}" class="sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-											</m:VBox>
-
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-												<m:Title text="Informations Personnelles" class="sapUiTinyMarginBottom" />
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://BusinessSuiteInAppSymbols/icon-birthday"/>
-													<m:Label text="{odataModel>DateNaissance}" class="sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://world"/>
-													<m:Label text="{odataModel>Nationalite}" class="sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-												<m:HBox class="sapUiTinyMarginBottom">
-													<core:Icon src="sap-icon://BusinessSuiteInAppSymbols/icon-icon-marital-status"/>
-													<m:Label text="{odataModel>SituationFamiliale}" class="sapUiSmallMarginBegin"/>
-												</m:HBox>
-
-											</m:VBox>
-
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-											
-
-												<m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
-													<m:Label text="Date de Création: " class="sapUiSmallMarginEnd"/>
-													<m:Text text="{odataModel>DateCreation}"/>
-												</m:HBox>
-
-												<m:HBox renderType="Bare">
-													<m:Label text="Date de Mise à Jour:" class="sapUiSmallMarginEnd"/>
-													<m:Text text="{odataModel>DateMiseAJour}"/>
-												</m:HBox>
-											</m:VBox>
-
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-												<m:Title  text="Profile Description" class="sapUiTinyMarginBottom" />
-												<m:Text  width="600px" 
-												text="{odataModel>Titre} , avec {odataModel>Experience} d'éxperience."/>
-												<m:Text  width="600px" 
-												text="Diplômes : {odataModel>Diplomes}"/>
-												<m:Text  width="600px" 
-												text="Domaine : {odataModel>Domaine}"/>
-											</m:VBox>
-
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title class="sapUiTinyMarginBottom">
 													<m:Label text="Etat"/>
@@ -261,15 +167,252 @@
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
 												<m:ObjectStatus text="{odataModel>Mobilite}" class="sapMObjectStatusLarge"/>
-											</m:VBox>
-
-											
+											</m:VBox>		
 										</m:FlexBox>
 									</ux:headerContent>
+
+									<ux:sections>
+										<ux:ObjectPageSection titleUppercase="false" title="Informations Générales">
+											<ux:subSections>
+												<ux:ObjectPageSubSection  title="Informations Personnelles" showTitle="false">
+													<ux:blocks>
+														<forms:SimpleForm 
+															id="collabInfosDisplay"				
+															class="sapUxAPObjectPageSubSectionAlignContent"
+															layout="ColumnLayout"
+															columnsM="2"
+															columnsL="3"
+															columnsXL="4">
+															<core:Title text="Informations Personnelles" />
+
+															<m:Label text="Réference Interne" />
+															<m:Text text="{odataModel>ReferenceInterne}" />
+
+															<m:Label text="Numéro de Sécurité Sociale" />
+															<m:Text text="{odataModel>NumeroSecuriteSociale}" />
+
+															<m:Label text="Date de Naissance" />
+															<m:Text text="{odataModel>DateNaissance}" />
+
+															<m:Label text="Nationalité" />
+															<m:Text text="{odataModel>Nationalite}" />
+
+															<m:Label text="Situation Familiale" />
+															<m:Text text="{odataModel>SituationFamiliale}" />
+
+															<core:Title text="Informations Professionnelles/Académiques" />
+
+															<m:Label text="Titre" />
+															<m:Text text="{odataModel>Titre}" />
+
+															<m:Label text="Expérience" />
+															<m:Text text="{odataModel>Experience}" />
+
+															<m:Label text="Domaine" />
+															<m:Text text="{odataModel>Domaine}" />
+
+															<m:Label text="Diplômes" />
+															<m:Text text="{odataModel>Diplomes}" />
+
+															<core:Title text="Informations Compte" />
+
+															<m:Label text="Date de Création" />
+															<m:Text text="{odataModel>DateCreation}"/>
+
+															<m:Label text="Date de Mise à Jour" />
+															<m:Text text="{odataModel>DateMiseAJour}"/>
+		
+														</forms:SimpleForm>
+
+														<forms:SimpleForm
+															id="collabInfosEdit"				
+															class="sapUxAPObjectPageSubSectionAlignContent"
+															layout="ColumnLayout"
+															columnsM="2"
+															columnsL="3"
+															columnsXL="4">
+															<f:content>
+																<Label text="Réference Interne" />
+																<Input value="{odataModel>ReferenceInterne}" />
+
+																<Label text="Numéro de Sécurité Sociale" />
+																<Input value="{odataModel>NumeroSecuriteSociale}" />
+
+																<Label text="Date de Naissance" />
+																<Input value="{odataModel>DateNaissance}" />
+
+																<Label text="Nationalité" />
+																<Input value="{odataModel>Nationalite}" />
+
+																<Label text="Situation Familiale" />
+																<Input value="{odataModel>SituationFamiliale}" />
+
+																<core:Title text="Informations Professionnelles/Académiques" />
+
+																<Label text="Titre" />
+																<Input value="{odataModel>Titre}" />
+
+																<Label text="Expérience" />
+																<Input value="{odataModel>Experience}" />
+
+																<Label text="Domaine" />
+																<Input value="{odataModel>Domaine}" />
+
+																<Label text="Diplômes" />
+																<Input value="{odataModel>Diplomes}" />
+
+																<core:Title text="Informations Compte" />
+
+																<Label text="Date de Création" />
+																<Input value="{odataModel>DateCreation}"/>
+
+																<Label text="Date de Mise à Jour" />
+																<Input value="{odataModel>DateMiseAJour}"/>
+
+															</f:content>
+														</forms:SimpleForm>
+													</ux:blocks>
+												</ux:ObjectPageSubSection>
+
+
+
+
+												<ux:ObjectPageSubSection title="Coordonnées" showTitle="false">
+													<ux:blocks>
+
+													<forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+															layout="ColumnLayout"
+															columnsM="2"
+															columnsL="3"
+															columnsXL="4">
+															<core:Title text="Numéro de Télèphone" />
+
+															<m:Label text="Mobile"/>
+															<m:Text text="{odataModel>NumeroTelephone}" />
+
+															<m:Label text="Fixe" />
+															<m:Text text="Non spécifié" />
+
+															<core:Title text="Comptes" />
+
+															<m:Label text="Email" />
+															<m:Text text="{odataModel>Email}" />
+
+															<m:Label text="LinkedIn"/>
+															<m:Text text="{odataModel>EmailLinkedin}" />
+
+															<core:Title text="Adresses" />
+
+															<m:Label text="Pays" />
+															<m:Text text="{odataModel>Pays}" />
+
+															<m:Label text="Ville" />
+															<m:Text text="{odataModel>Ville}" />
+
+															<m:Label text="Adresse" />
+															<m:Text text="{odataModel>Adresse}" />
+
+															<m:Label text="Code Postal" />
+															<m:Text text="{odataModel>CodePostal}" />
+
+														</forms:SimpleForm>
+														
+													</ux:blocks>
+												</ux:ObjectPageSubSection>
+											</ux:subSections>
+										</ux:ObjectPageSection>
+
+										<ux:ObjectPageSection titleUppercase="false" title="Auto Evaluation">
+											<ux:subSections>
+												<ux:ObjectPageSubSection title="Auto Evaluation">
+													<ux:blocks>
+														<m:Table class="sapUxAPObjectPageSubSectionAlignContent" width="auto">
+															<m:headerToolbar>
+																<m:OverflowToolbar>	
+																	<m:ToolbarSpacer />
+																	<m:SearchField width="17.5rem" />
+																	<m:OverflowToolbarButton tooltip="Sort"
+																		text="Sort"
+																		icon="sap-icon://sort" />
+																	<m:OverflowToolbarButton tooltip="Filter"
+																		text="Filter"
+																		icon="sap-icon://filter" />
+																	<m:OverflowToolbarButton tooltip="Group"
+																		text="Group"
+																		icon="sap-icon://group-2" />
+																	<m:OverflowToolbarButton tooltip="Settings"
+																		text="Settings"
+																		icon="sap-icon://action-settings" />
+																</m:OverflowToolbar>
+															</m:headerToolbar>
+
+															<m:columns>
+																<m:Column>
+																	<m:Text text="Numéro" />
+																</m:Column>
+																<m:Column minScreenWidth="Tablet" demandPopin="true">
+																	<m:Text text="Company" />
+																</m:Column>
+																<m:Column minScreenWidth="Tablet" demandPopin="true">
+																	<m:Text text="Contact Person" />
+																</m:Column>
+																<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																	<m:Text text="Posting Date" />
+																</m:Column>
+																<m:Column hAlign="End">
+																	<m:Text text="Amount (Local Currency)" />
+																</m:Column>
+															</m:columns>
+
+															<m:items>
+																<m:ColumnListItem>
+																	<m:Text text="10223882001820" />
+																	<m:Text text="Jologa" />
+																	<m:Text text="Denise Smith" />
+																	<m:Text text="11/15/19" />
+																	<m:Text text="12,897.00 EUR" />
+																</m:ColumnListItem>
+																<m:ColumnListItem>
+																	<m:Text text="10223882001820" />
+																	<m:Text text="Jologa" />
+																	<m:Text text="Denise Smith" />
+																	<m:Text text="11/15/19" />
+																	<m:Text text="12,897.00 EUR" />
+																</m:ColumnListItem>
+																<m:ColumnListItem>
+																	<m:Text text="10223882001820" />
+																	<m:Text text="Jologa" />
+																	<m:Text text="Denise Smith" />
+																	<m:Text text="11/15/19" />
+																	<m:Text text="12,897.00 EUR" />
+																</m:ColumnListItem>
+																<m:ColumnListItem>
+																	<m:Text text="10223882001820" />
+																	<m:Text text="Jologa" />
+																	<m:Text text="Denise Smith" />
+																	<m:Text text="11/15/19" />
+																	<m:Text text="12,897.00 EUR" />
+																</m:ColumnListItem>
+																<m:ColumnListItem>
+																	<m:Text text="10223882001820" />
+																	<m:Text text="Jologa" />
+																	<m:Text text="Denise Smith" />
+																	<m:Text text="11/15/19" />
+																	<m:Text text="12,897.00 EUR" />
+																</m:ColumnListItem>
+															</m:items>
+														</m:Table>
+													</ux:blocks>
+												</ux:ObjectPageSubSection>
+											</ux:subSections>
+										</ux:ObjectPageSection>
+									</ux:sections>
 								</ux:ObjectPageLayout>
+
+							<!--Collab Table SECTION-->
                           
-                            <f2:DynamicPage id="dynamicPageId"
-									class="dynamicPageId"
+                            <f2:DynamicPage id="collabTableSection"
+									class="collabTableSection"
                                     toggleHeaderOnTitleClick="false">                               
                                 <f2:content>
                                     <Table id="collabTable"
@@ -289,7 +432,7 @@
                                                     <Button
                                                         id="BadgedButton"
                                                         class="sapUiTinyMarginBeginEnd addButton"
-                                                        icon="sap-icon://add"                                                  
+                                                        icon="sap-icon://add"    
                                                         text="Ajouter Collaborateur">      
                                                     </Button>
                                                     <Button
@@ -300,7 +443,22 @@
                                                        
                                                     </Button>
                                                 <ToolbarSpacer/>
-                                                <SearchField search="onSearch" width="30.5rem"/>
+                                                <SearchField 
+													id="searchField"
+													search="onSearch" 
+													width="30.5rem"
+													suggest=".onSuggest" 	
+													enableSuggestions="true"
+													suggestionItems="{
+														path: 'odataModel>/results',
+														sorter: { path: '{odataModel>Nom} ' }
+													}"
+													>
+												 	<suggestionItems>
+														<SuggestionItem text="{odataModel>Nom}" key="{odataModel>Nom}"/>
+													</suggestionItems>  
+				           					 	</SearchField>
+
                                             </OverflowToolbar>
                                         </headerToolbar>
                                         <columns>
@@ -351,24 +509,13 @@
 							id="SimpleFormDisplay480"
 							editable="false"
 							layout="ResponsiveGridLayout"
-							title="Address"
+							title="Auto Evaluation Collaborateur"
 							labelSpanL="4"
 							labelSpanM="4"
 							emptySpanL="0"
 							emptySpanM="0"
 							columnsL="4"
 							columnsM="4">
-								<f:toolbar>
-									<Toolbar 
-										height="60px"
-										class="toolbarInfo">
-										<Text class="titleGen" text="Performance Pulse"></Text>
-										<ToolbarSpacer/>
-										<Text class="titleGen" text="Auto-évaluations des Performances"></Text>
-										<ToolbarSpacer/>
-										<Text class="titleGen" text="Q1 - 2024"></Text>
-									</Toolbar>
-								</f:toolbar>	
 								<f:content>		
 									<FlexBox direction="Column">	
 										<FlexBox class="sapUiMediumMarginTop" direction="Row" >
@@ -614,8 +761,6 @@
 											<html:button class="sendButton">Envoyer</html:button>
 											<html:button class="sendButton">Annuler</html:button>						
 										</FlexBox>
-										
-								
 									</FlexBox>
 								</f:content>
 							</f:SimpleForm>
@@ -636,24 +781,13 @@
                             id="SimpleFormDisplay"
                             editable="false"
                             layout="ResponsiveGridLayout"
-                            title="Address"
+                            title="Evaluation Manager"
                             labelSpanL="4"
                             labelSpanM="4"
                             emptySpanL="0"
                             emptySpanM="0"
                             columnsL="4"
-                            columnsM="4">
-                                <f:toolbar>
-                                    <Toolbar
-                                        height="60px"
-                                        class="toolbarInfo">
-                                        <Text class="titleGen" text="Performance Pulse"></Text>
-                                        <ToolbarSpacer/>
-                                        <Text class="titleGen" text="Evaluation des performances"></Text>
-                                        <ToolbarSpacer/>
-                                        <Text class="titleGen" text="Q1 - 2024"></Text>
-                                    </Toolbar>
-                                </f:toolbar>    
+                            columnsM="4">  
                                 <f:content>    
                                     <FlexBox direction="Column">    
                                         <FlexBox class="sapUiMediumMarginTop" direction="Row" >
@@ -1111,113 +1245,3 @@
 
 </mvc:View>
 
-
-	<!-- <Panel expandable="true" expanded="true" stickyHeader="true" height="400px" headerText="Panel with a sticky header" width="auto" class="sapUiResponsiveMargin">
-										<content class="feedInput">
-												<FeedInput
-													post="onPost"
-													showIcon="false" 
-													/>
-										</content>
-									</Panel> -->
-
-<!-- <l:Grid class="sapUiSmallMarginTop contentText">						
-							<FeedContent
-								contentText="Fatma Abidi"
-								subheader="Nom et Prénom" 
-								class="sapUiSmallMargin"
-									>								
-							</FeedContent>
-							<FeedContent
-								contentText="Aymax Technology"
-								subheader="Agence" 
-								class="sapUiSmallMargin">
-							</FeedContent>
-							<FeedContent								
-								contentText="SAP Technique"
-								subheader="Pôle" 
-								class="sapUiSmallMargin">
-							</FeedContent>
-							<FeedContent
-								contentText="Sabrine Ben Zid"
-								subheader="Manager" 
-								class="sapUiSmallMargin">
-							</FeedContent>
-							<TileContent footer="Agence" class="sapUiSmallMargin">
-								<NumericContent value="3"
-									icon="sap-icon://travel-expense" />
-							</TileContent>
-							<TileContent footer="Pôle" class="sapUiSmallMargin">
-								<NumericContent value="9" icon="sap-icon://locked" />
-							</TileContent>
-							<TileContent footer="Manager" class="sapUiSmallMargin">
-								<FeedContent
-									value="132" />
-							</TileContent> 
-						</l:Grid> -->
-
-
-
-
-
-
-							<!-- <f:content>
-									<Table id="productsTable"
-										sticky="ColumnHeaders,HeaderToolbar"
-										inset="false"
-										growing="true"
-										items="{
-												path: 'products>/ProductCollection',
-												sorter: {
-													path: 'Name'
-												}
-											}"
-										class="sapFDynamicPageAlignContent"
-										width="auto">
-										<headerToolbar>
-											<OverflowToolbar>
-												<ToolbarSpacer/>
-												<SearchField search="onSearch" width="17.5rem"/>
-											</OverflowToolbar>
-										</headerToolbar>
-										<columns>
-											<Column>
-												<Text text="Product" />
-											</Column>
-											<Column minScreenWidth="Desktop" demandPopin="true">
-													<Text text="Quantity"/>
-												</Column>
-
-											<Column minScreenWidth="Desktop" demandPopin="true">
-												<Text text="Description" />
-											</Column>
-											<Column	hAlign="End">
-												<Text text="Price" />
-											</Column>
-										</columns>
-										<items>
-											<ColumnListItem type="Navigation" press="onListItemPress" vAlign="Middle">
-												<cells>
-													<ObjectIdentifier title="{products>Name}" text="{products>ProductId}" />
-													<ObjectIdentifier text="{products>Quantity}" />
-													<ObjectIdentifier text="{products>Description}" />
-													<ObjectNumber
-															number="{
-																parts:[{path:'products>Price'},{path:'products>CurrencyCode'}],
-																type: 'sap.ui.model.type.Currency',
-																formatOptions: {showMeasure: false}
-															}"
-															unit="{products>CurrencyCode}" />
-												</cells>
-											</ColumnListItem>
-										</items>
-									</Table>
-								</f:content> -->
-
-								<!-- <f:footer>
-									<OverflowToolbar>
-										<ToolbarSpacer/>
-										<Button type="Accept" text="Accept"/>
-										<Button type="Reject" text="Reject"/>
-									</OverflowToolbar>
-								</f:footer> -->
