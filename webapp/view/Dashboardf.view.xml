@@ -137,8 +137,15 @@
 
 											<ux:actions>
 												<m:Button id="editButton" press="onEdit" text="Modifier" type="Emphasized"/>
-												<m:Button id="saveButton" press="onSave" type="Emphasized" text="Sauvegarder"/>
-												<m:Button id="cancelButton" press="onCancel" text="Annuler"/>
+												<m:Button 
+													id="saveButton"
+													press="onApproveDialogPress"
+													type="Emphasized"
+													text="Sauvegarder"
+													ariaHasPopup="Dialog"/>
+
+
+												<!-- <m:Button id="cancelButton" press="onCancel" text="Annuler"/> -->
 												<m:OverflowToolbarButton press="onBack('collabDetails','collabTableSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
 											</ux:actions>
 										</ux:ObjectPageDynamicHeaderTitle>
@@ -232,6 +239,8 @@
 															columnsL="3"
 															columnsXL="4">
 															<f:content>
+																<core:Title text="Informations Personnelles" />
+																
 																<Label text="Réference Interne" />
 																<Input value="{odataModel>ReferenceInterne}" />
 
@@ -274,13 +283,12 @@
 													</ux:blocks>
 												</ux:ObjectPageSubSection>
 
-
-
-
 												<ux:ObjectPageSubSection title="Coordonnées" showTitle="false">
 													<ux:blocks>
 
-													<forms:SimpleForm class="sapUxAPObjectPageSubSectionAlignContent"
+													<forms:SimpleForm 
+															id="collabCoordDisplay"
+															class="sapUxAPObjectPageSubSectionAlignContent"
 															layout="ColumnLayout"
 															columnsM="2"
 															columnsL="3"
@@ -314,6 +322,45 @@
 
 															<m:Label text="Code Postal" />
 															<m:Text text="{odataModel>CodePostal}" />
+
+														</forms:SimpleForm>
+
+														<forms:SimpleForm 
+															id="collabCoordEdit"
+															class="sapUxAPObjectPageSubSectionAlignContent"
+															layout="ColumnLayout"
+															columnsM="2"
+															columnsL="3"
+															columnsXL="4">
+															<core:Title text="Numéro de Télèphone" />
+
+															<Label text="Mobile"/>
+															<Input value="{odataModel>NumeroTelephone}" />
+
+															<Label text="Fixe" />
+															<Input value="Non spécifié" />
+
+															<core:Title text="Comptes" />
+
+															<Label text="Email" />
+															<Input value="{odataModel>Email}" />
+
+															<Label text="LinkedIn"/>
+															<Input value="{odataModel>EmailLinkedin}" />
+
+															<core:Title text="Adresses" />
+
+															<Label text="Pays" />
+															<Input value="{odataModel>Pays}" />
+
+															<Label text="Ville" />
+															<Input value="{odataModel>Ville}" />
+
+															<Label text="Adresse" />
+															<Input value="{odataModel>Adresse}" />
+
+															<Label text="Code Postal" />
+															<Input value="{odataModel>CodePostal}" />
 
 														</forms:SimpleForm>
 														
@@ -410,7 +457,11 @@
 								</ux:ObjectPageLayout>
 
 							<!--Collab Table SECTION-->
-                          
+							<FlexBox id="busyLoader" class="busyLoader" justifyContent="Center">
+								<l:VerticalLayout class="sapUiContentPadding" width="100%">
+									<BusyIndicator text="... Chargement des Données" class="sapUiTinyMarginBottom" />
+								</l:VerticalLayout>
+							</FlexBox>
                             <f2:DynamicPage id="collabTableSection"
 									class="collabTableSection"
                                     toggleHeaderOnTitleClick="false">                               
@@ -433,14 +484,14 @@
                                                         id="BadgedButton"
                                                         class="sapUiTinyMarginBeginEnd addButton"
                                                         icon="sap-icon://add"    
-                                                        text="Ajouter Collaborateur">      
+                                                        text="Ajouter Collaborateur"										
+														press="onBack('collabTableSection','addCollabSection')">      
                                                     </Button>
                                                     <Button
                                                         id=""
                                                         class="sapUiTinyMarginBeginEnd exportButton"
                                                         icon="sap-icon://back-to-top"                                                  
                                                         text="Export">
-                                                       
                                                     </Button>
                                                 <ToolbarSpacer/>
                                                 <SearchField 
@@ -495,6 +546,249 @@
                                     </Table>
                                 </f2:content>
                             </f2:DynamicPage>
+
+							<!--Add Collab SECTION-->
+							<VBox id="addCollabSection">
+								<VBox class="sapUiSmallMargin" >
+									<f:SimpleForm
+										editable="true"
+										layout="ColumnLayout"
+										columnsM="2"
+										columnsL="2"
+										columnsXL="2">
+										 <f:toolbar>
+											<Toolbar id="TB1">
+												<Title id="Title1" text="Informations Générales"/>
+												<ToolbarSpacer />
+												<core:Icon
+														src="sap-icon://decline"
+														class="size1"
+														color="#0265D9"
+														press="onBack('addCollabSection','collabTableSection')">
+														<core:layoutData>
+															<FlexItemData growFactor="1" />
+														</core:layoutData>
+												</core:Icon>
+											</Toolbar>
+										</f:toolbar>
+										<f:content>
+											<core:Title text="Informations" />
+											<Label text="Réference Interne" />
+											<Input required="true" id="comp" placeholder="COMPxxxx" change="onChange"/>
+											<Label text="Nom" />
+											<Input required="true" id="nom_collab" placeholder="Nom du collaborateur" change="onChange" />
+											<Label text="Prénom" />
+											<Input required="true" id="prenom_collab" placeholder="Prénom du collaborateur" change="onChange" />
+											<Label text="Adresse" />
+											<Input placeholder="Adresse" id="adresse_collab" value="{adresse}">
+											</Input>
+										
+											<Label text="Code Postal/Ville" />
+											<Input placeholder="Code Postal" id="code_postal" >
+												<layoutData>
+													<f:ColumnElementData cellsSmall="3" cellsLarge="2" />
+												</layoutData>
+											</Input>
+											<Input placeholder="Ville" id="ville_collab" value="bizerte" />
+	
+											<Label text="Pays" />
+											<Select id="pays_collab" selectedKey="Tunisie">
+												<items>                                            
+													<core:Item text=".." key="a"/>
+												</items>
+											</Select>
+											<core:Title text="Contact" />
+											<Label text="E-mail" />
+											<Input
+												id="email_collab"
+												placeholder="Entrez une Adresse Email valide"
+												required="true"
+											/>
+											<Label text="Profil Linkedin" />
+											<Input
+												id="linkedin_collab" 
+												placeholder="URL Linkedin" />
+	
+												<!--Add code country phone number please -->
+											<!-- <Label text="Numéro De Téléphone" />
+											<Input 
+												id="codephone_collab"
+												required="true"
+												placeholder="+(xxx)" 
+												value="{phone/number}">
+												<layoutData>
+													<f:ColumnElementData cellsSmall="3" cellsLarge="2" />
+												</layoutData>
+											</Input>     -->                                                            
+											<Input
+												id="phone_collab" 
+												placeholder="Numéro de Téléphone" 
+												>
+											</Input>                                                                                                                    
+										</f:content>
+									</f:SimpleForm>
+								</VBox>
+								<VBox class="sapUiSmallMargin" >
+									<f:SimpleForm id="SimpleFormChangeColumn_twoGroups234"
+										editable="true"
+										layout="ColumnLayout"
+										columnsM="2"
+										columnsL="2"
+										columnsXL="2">
+										 <f:toolbar>
+											<Toolbar id="TB">
+												<Title id="IP" text="Informations Personnelles"/>                                                                  
+											</Toolbar>
+										</f:toolbar>
+										<f:content>
+											<core:Title text="" />
+											<Label text="Civilité" />
+											<Select id="civilite_collab" >
+												<items>
+													<core:Item text="Mme." key="femme"/>
+													<core:Item text="M." key="homme"/>	
+												</items>
+											</Select>
+										
+											<Label text="Date De Naissance" labelFor="DP1"/>
+												<DatePicker
+													id="naissance_collab"
+													placeholder="Entrez la Date de Naissance"
+													change="handleChange"
+													class="sapUiSmallMarginBottom"/>
+										
+											<Label text="Nationalité" />
+											<Select id="nationalite_collab" selectedKey="Tunisienne">
+												<items>                            
+													<core:Item text=".." key="aa"/>
+												</items>
+											</Select>
+											<Label text="Situation Familiale" />
+											<Select id="situation_familiale" selectedKey="Célibataire">
+												<items>
+													<core:Item text="Marié()" key="EMarié"/>
+													<core:Item text="Célibataire" key="celib"/>
+													<core:Item text="Autre" key="autre"/>
+												</items>
+											</Select>
+											<core:Title text="" />
+											<Label text="Date de Démarrage" />
+												<DatePicker
+													id="date_demarrage"
+													placeholder="Entrez la Date de démarrage"
+													change="handleChange"
+													class="sapUiSmallMarginBottom"/>
+											<Label text="Responsable Manager" />
+											<Select id="responsable_manager" selectedKey="M4785">
+												<items>
+													<core:Item text=".." key="."/>
+												
+												</items>
+											</Select>
+											<Label text="Responsable RH" />
+											<Select id="responsable_rh" selectedKey="R4785" >
+												<items>
+													<core:Item text=".." key="."/>
+												
+												</items>
+											</Select>
+										
+											<Label text="Numéro Sécurité Sociale" />
+											<Input placeholder="NSS" id="nss"/>
+										</f:content>
+									</f:SimpleForm>
+								</VBox>
+							
+								<VBox class="sapUiSmallMargin">
+									<f:SimpleForm editable="true"
+										layout="ColumnLayout"
+										title="Informations Professionnelles/Académiques"
+										columnsM="2"
+										columnsL="2"
+										columnsXL="2">
+										<f:content>
+											<core:Title text="Professionnelles" />
+											<Label text="Rôle" />
+											<Select id="role_collab" selectedKey="{role}">
+												<items>
+													<core:Item text="Collaborateur" key="t"/>
+													<core:Item text="Manager" key="t"/>
+													<core:Item text="RH" key="t"/>                              
+												</items>
+											</Select>
+											<Label text="Type" />
+											<Select id="type_collab" selectedKey="Technique">
+												<items>
+													<core:Item text=".." key="t"/>                                  
+												</items>
+											</Select>
+											<Label text="Fonction" />
+											<Input id="fonction_collab" placeholder="Entrez la fonction du collaborateur" >
+											</Input>
+											<Label text="Titre" />
+											<Input id="titre_collab" required="true" placeholder="Entrez le titre du collaborateur" change="onChange" >
+											</Input>
+											<Label text="Etat" />
+											<Select id="etat_collab" selectedKey="{etat}">
+												<items>
+													<core:Item text="En cours" key="en cours"/>
+													<core:Item text="Intercontrat" key="intercontrat"/>
+													<core:Item text="Sortie" key="Sortie"/>
+												</items>
+											</Select>
+											<Label text="Pôle" />
+											<Select id="pole_collab" selectedKey="Digital">
+												<items>
+													<core:Item text=".." key=""/>		
+												</items>
+											</Select>
+											<Label text="Agence" />
+											<Select id="agence_collab" selectedKey="{agence}">
+												<items>
+													<core:Item text="AYMAX CONSULTING" key="AYMAX TECHNOLOGY"/>
+													<core:Item text="AYMAX TECHNOLOGY" key="AYMAX TECHNOLOGY"/>
+													<core:Item text="AYMAX EGYPTE" key="AYMAX EGYPTE"/>
+												</items>
+											</Select>
+											<Label text="Expérience" />
+											<Input id="xp_collab" required="true" placeholder="Entrez l'expérience en mois"/>
+											<Label text="Mobilité" />
+											<Select id="mobilite_collab" selectedKey="{mobilite}">
+												<items>
+													<core:Item text="France" key="fr"/>
+													<core:Item text="Egypte" key="Eg"/>
+													<core:Item text="Tunisie" key="Tn"/>
+													<core:Item text="Non" key="nn"/>							
+												</items>
+											</Select>
+	
+											<core:Title text="Académiques"/>
+											<Label text="Domaine" />
+											<Select id="domaine_collab" selectedKey="Informatique">
+												<items>
+													<core:Item text=".." key="."/>								
+												</items>
+											</Select>                  
+											<Label id="TextAreaLabel" text="Diplômes" />
+												<TextArea
+													id="diplome_collab"
+													placeholder="Diplôme(s)"
+													change="handleChange"
+													showExceededText="true"
+													rows="4"
+													ariaLabelledBy="TextAreaLabel"/>									
+										</f:content>
+											<Button type="Accept"
+													text="Accept"
+													press="onCreateCollab"
+													>
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Button>
+									</f:SimpleForm>
+								</VBox>						
+							</VBox>
            				</VBox>
                     </ScrollContainer>
 	

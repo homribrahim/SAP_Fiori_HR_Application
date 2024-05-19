@@ -9,14 +9,17 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     'sap/ui/model/Sorter',
     'sap/ui/core/IconPool',
-    'sap/m/Input',
-    'sap/m/ColumnListItem',
-    'sap/base/util/deepExtend'
-], function (Device, Controller, JSONModel, Popover, Button, library,Filter,FilterOperator,Sorter,IconPool,Input,ColumnListItem,deepExtend) {
+    "sap/m/Dialog",
+    "sap/m/Text",
+    "sap/m/MessageToast"
+
+], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast) {
     "use strict";
  
-    var ButtonType = library.ButtonType,
-        PlacementType = library.PlacementType;
+    var ButtonType = mobileLibrary.ButtonType,
+        PlacementType = mobileLibrary.PlacementType;
+
+    var DialogType = mobileLibrary.DialogType;
  
     return Controller.extend("brahim.project.controller.Test", {
  
@@ -56,41 +59,107 @@ sap.ui.define([
                     console.log(oError)
                 }
                 });
-            
                 this.byId("saveButton").setVisible(false);
-                this.byId("cancelButton").setVisible(false);
                 this.byId("collabInfosEdit").setVisible(false);
+                this.byId("collabCoordEdit").setVisible(false);
+                this.byId("collabTableSection").setVisible(false);
+                this.byId("addCollabSection").setVisible(false);
+
+                var busyLoader = this.byId("busyLoader");
+                var collabTableSection = this.byId("collabTableSection");
             
+                setTimeout(function() {
+                    busyLoader.setVisible(false);
+                    collabTableSection.setVisible(true)
+                }, 4000);
+
+                var oViewModel = new JSONModel({
+
+                    Idcollab: "",
+                    ReferenceInterne: "",
+                    Civilite: "",
+                    Nom: "",
+                    Prenom: "",
+                    Type: "",
+                    Etat: "",
+                    Titre: "",
+                    Domaine: "",
+                    Experience: "",
+                    Mobilite: "",
+                    Email: "",
+                    EmailLinkedin: "",
+                    NumeroTelephone: "",
+                    DateNaissance: "",
+                    Nationalite: "",
+                    SituationFamiliale: "",
+                    NumeroSecuriteSociale: "",
+                    Adresse: "",
+                    CodePostal: "",
+                    Ville: "",
+                    Pays: "",
+                    Pole: "",
+                    Agence: "",
+                    DateCreation: "",
+                    DateMiseAJour: "",
+                    Diplomes: "",
+                    DateDemarrage: "",
+                    Fonction: "",
+                    IdManager: "",
+                    IdRh: "",
+                    Role: "",
+                    Login: "",
+                    MotDePasse: ""
+                
+                })
+                this.getView().setModel(oViewModel, "pageModel");
+
          },
+
+     
 
         onEdit () 
         {
             this.byId("editButton").setVisible(false);
 			this.byId("saveButton").setVisible(true);
-			this.byId("cancelButton").setVisible(true);
 			this.byId("collabInfosEdit").setVisible(true);
+            this.byId("collabCoordEdit").setVisible(true);
 			this.byId("collabInfosDisplay").setVisible(false);
-
+            this.byId("collabCoordDisplay").setVisible(false);
         },
 
-        onSave: function() {
+        onApproveDialogPress: function () {
+			if (!this.oApproveDialog) {
+				this.oApproveDialog = new Dialog({
+					type: DialogType.Message,
+					title: "Confirm",
+					content: new Text({ text: "Confirmez-vous le mise à jour de ce profil ?" }),
+					beginButton: new Button({
+						type: ButtonType.Emphasized,
+						text: "Confirmer",
+						press: function () {
+                            this.byId("collabInfosDisplay").setVisible(true);
+                            this.byId("collabCoordDisplay").setVisible(true);
+                            this.byId("saveButton").setVisible(false);
+                            this.byId("editButton").setVisible(true);
+                            this.byId("collabInfosEdit").setVisible(false);
+                            this.byId("collabCoordEdit").setVisible(false);
+							MessageToast.show("Profil mis à jour !");
+							this.oApproveDialog.close();
+                            
+						}.bind(this)
+					}),
+					endButton: new Button({
+						text: "Annuler",
+						press: function () {
+							this.oApproveDialog.close();
+						}.bind(this)
+					})
+				});
+			}
 
-			this.byId("saveButton").setVisible(false);
-			this.byId("cancelButton").setVisible(false);
-			this.byId("editButton").setVisible(true);
-            this.byId("collabInfosEdit").setVisible(false);
-			this.byId("collabInfosDisplay").setVisible(true);
-
+			this.oApproveDialog.open();
 		},
  
-		onCancel: function() {
-
-			this.byId("cancelButton").setVisible(false);
-			this.byId("saveButton").setVisible(false);
-			this.byId("editButton").setVisible(true);
-
-		},
-       
         onWindowResize() {
             const oSideNavigation = this.byId("sideNavigation");
             const screenWidth = window.innerWidth;
@@ -198,6 +267,87 @@ sap.ui.define([
 			this.oSF.suggest();
 		},
 
+        onCreateCollab () 
+        {
+            
+            var ReferenceInterne = this.byId("comp").getValue();
+            var Civilite = this.byId("civilite_collab").getSelectedItem().getText();   
+            var Nom = this.byId("nom_collab").getValue();
+            var Prenom = this.byId("prenom_collab").getValue();
+            var Type = this.byId("type_collab").getSelectedItem().getText();;
+            var Etat = this.byId("etat_collab").getSelectedItem().getText();;
+            var Titre = this.byId("titre_collab").getValue();
+            var Domaine = this.byId("domaine_collab").getSelectedItem().getText();;
+            var Experience = this.byId("xp_collab").getValue();
+            var Mobilite = this.byId("mobilite_collab").getSelectedItem().getText();;
+            var Email = this.byId("email_collab").getValue();
+            var EmailLinkedin = this.byId("linkedin_collab").getValue();
+            var NumeroTelephone = this.byId("phone_collab").getValue();
+            var DateNaissance = this.byId("naissance_collab").getValue();
+            var Nationalite = this.byId("nationalite_collab").getSelectedItem().getText();
+            var SituationFamiliale = this.byId("situation_familiale").getSelectedItem().getText();
+            var NumeroSecuriteSociale = this.byId("nss").getValue();
+            var Adresse = this.byId("adresse_collab").getValue();
+            var CodePostal = this.byId("code_postal").getValue();
+            var Ville = this.byId("ville_collab").getValue();
+            var Pays = this.byId("pays_collab").getSelectedItem().getText();
+            var Pole = this.byId("pole_collab").getSelectedItem().getText();
+            var Agence = this.byId("agence_collab").getSelectedItem().getText();
+            var Diplomes = this.byId("diplome_collab").getValue();
+            var DateDemarrage = this.byId("date_demarrage").getValue();
+            var Fonction = this.byId("fonction_collab").getValue();
+            var IdManager = this.byId("responsable_manager").getSelectedItem().getText();
+            var IdRh = this.byId("responsable_rh").getSelectedItem().getText();
+            var Role = this.byId("role_collab").getSelectedItem().getText();
+
+            var collabData = {}
+                collabData.Idcollab = "10800"
+                collabData.ReferenceInterne = ReferenceInterne
+                collabData.Civilite = Civilite  
+                collabData.Nom = Nom
+                collabData.Prenom = Prenom
+                collabData.Type = Type
+                collabData.Etat = Etat
+                collabData.Titre = Titre
+                collabData.Domaine = Domaine
+                collabData.Experience = Experience
+                collabData.Mobilite = Mobilite
+                collabData.Email = Email
+                collabData.EmailLinkedin = EmailLinkedin
+                collabData.NumeroTelephone = NumeroTelephone
+                collabData.DateNaissance = DateNaissance
+                collabData.Nationalite = Nationalite
+                collabData.SituationFamiliale = SituationFamiliale
+                collabData.NumeroSecuriteSociale = NumeroSecuriteSociale
+                collabData.Adresse = Adresse
+                collabData.CodePostal = CodePostal
+                collabData.Ville = Ville
+                collabData.Pays = Pays
+                collabData.Pole = Pole
+                collabData.Agence = Agence
+                collabData.DateCreation = "21-01-2022",
+                collabData.DateMiseAJour = "21-01-2023"
+                collabData.Diplomes = Diplomes
+                collabData.DateDemarrage = DateDemarrage
+                collabData.Fonction = Fonction
+                collabData.IdManager = IdManager
+                collabData.IdRh = IdRh
+                collabData.Role = Role
+                collabData.Login = "COLLAB458"
+                collabData.MotDePasse = "abcde256"  
+            console.log(collabData)
+
+           /*  var oModelCol = this.getView().getModel()
+
+            oModelCol.create("/ZCOLLAB_ENTSet",collabData, {
+                success: function(){
+                    console.log("Collaborator ADDED Succssfully !")
+                },
+                error: function(oError){
+                    console.log(oError)
+                }
+                }); */
+        },
 
         // Visibility Sections
         
