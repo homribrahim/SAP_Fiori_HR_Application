@@ -137,13 +137,13 @@
 
 											<ux:actions>
 												<m:Button id="editButton" press="onEdit" text="Modifier" type="Emphasized"/>
+												<m:Button id="deleteButton" press="onDelete" text="Supprimer le Compte" type="Reject"/>
 												<m:Button 
 													id="saveButton"
 													press="onApproveDialogPress"
 													type="Emphasized"
 													text="Sauvegarder"
 													ariaHasPopup="Dialog"/>
-
 
 												<!-- <m:Button id="cancelButton" press="onCancel" text="Annuler"/> -->
 												<m:OverflowToolbarButton press="onBack('collabDetails','collabTableSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
@@ -152,7 +152,7 @@
 									</ux:headerTitle>
 
 									<ux:headerContent>
-										<m:FlexBox wrap="Wrap" fitContainer="true" >
+										<m:FlexBox  id="headerInfoDisplay"  wrap="Wrap" fitContainer="true" >
 											<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title class="sapUiTinyMarginBottom">
@@ -174,6 +174,38 @@
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
 												<m:ObjectStatus text="{odataModel>Mobilite}" class="sapMObjectStatusLarge"/>
+											</m:VBox>		
+										</m:FlexBox>
+									</ux:headerContent>
+
+									<ux:headerContent>
+										<m:FlexBox id="headerInfoEdit" wrap="Wrap" fitContainer="true" >
+											<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title class="sapUiTinyMarginBottom">
+													<m:Label text="Etat"/>
+												</m:Title>
+<!-- 												<m:ObjectStatus text="{odataModel>Etat}" state="Success" class="sapMObjectStatusLarge"/> -->	
+													<Input value="{odataModel>Etat}" />
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Date de Démarrage" class="sapUiTinyMarginBottom" />
+<!-- 												<m:ObjectStatus text="{odataModel>DateDemarrage}" icon="sap-icon://date-time" class="sapMObjectStatusLarge"/>
+ -->										
+													<Input value="{odataModel>DateDemarrage}" />
+ 													</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Ancienneté" class="sapUiTinyMarginBottom" />
+												<!-- <m:ObjectStatus text="To Be Selected" state="Error" class="sapMObjectStatusLarge"/> -->
+													<Input value="To Be Selected" />
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
+												<!-- <m:ObjectStatus text="{odataModel>Mobilite}" class="sapMObjectStatusLarge"/> -->
+												<Input value="{odataModel>Mobilite}" />
 											</m:VBox>		
 										</m:FlexBox>
 									</ux:headerContent>
@@ -473,10 +505,8 @@
                                         class="sapFDynamicPageAlignContent"
                                         width="auto"
                                         items="{
-                                            path: 'odataModel>/results',
-                                            sorter: {
-                                                path: 'Nom'
-                                            }
+                                            path: 'odataModel>/results'
+                                          
                                         }">
                                         <headerToolbar>
                                             <OverflowToolbar>
@@ -494,21 +524,37 @@
                                                         text="Export">
                                                     </Button>
                                                 <ToolbarSpacer/>
-                                                <SearchField 
-													id="searchField"
-													search="onSearch" 
-													width="30.5rem"
-													suggest=".onSuggest" 	
-													enableSuggestions="true"
-													suggestionItems="{
-														path: 'odataModel>/results',
-														sorter: { path: '{odataModel>Nom} ' }
+                                              <!--   <SearchField 
+														placeholder="Search for Business Unit" 
+														enableSuggestions="true" 
+														search=".onSearch" 
+														suggest=".onSuggest"								
+														id="searchField"
+														suggestionItems="{
+															path: 'odataModel>/results',
+															sorter: { path: '{odataModel>Nom} ' }
 													}"
 													>
-												 	<suggestionItems>
+													<suggestionItems>
+														<SuggestionItem text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Nom}"/>
+													</suggestionItems> 
+													<suggestionItems>
 														<SuggestionItem text="{odataModel>Nom}" key="{odataModel>Nom}"/>
-													</suggestionItems>  
-				           					 	</SearchField>
+													</suggestionItems>
+				           					 	</SearchField> -->
+												<SearchField
+													id="searchField"
+													width="50%"
+													placeholder="Search for..."
+													enableSuggestions="true"
+													search=".onSearch"
+													suggest=".onSuggest"
+													suggestionItems="{
+														path: 'odataModel>/results',
+														sorter: { path: '{odataModel>Nom}' }
+													}">
+													<SuggestionItem text="{odataModel>Nom}" description="{path:'{odataModel>Nom}'} {path:'{odataModel>Prenom}'}" key="{odataModel>Nom}" />
+												</SearchField>
 
                                             </OverflowToolbar>
                                         </headerToolbar>
@@ -559,16 +605,10 @@
 										 <f:toolbar>
 											<Toolbar id="TB1">
 												<Title id="Title1" text="Informations Générales"/>
-												<ToolbarSpacer />
-												<core:Icon
-														src="sap-icon://decline"
-														class="size1"
-														color="#0265D9"
-														press="onBack('addCollabSection','collabTableSection')">
-														<core:layoutData>
-															<FlexItemData growFactor="1" />
-														</core:layoutData>
-												</core:Icon>
+												<ToolbarSpacer />				
+												<m:Button press="onCreateCollab" text="Envoyer" type="Emphasized"/>
+												<m:OverflowToolbarButton press="onBack('addCollabSection','collabTableSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
+											
 											</Toolbar>
 										</f:toolbar>
 										<f:content>
@@ -580,7 +620,7 @@
 											<Label text="Prénom" />
 											<Input required="true" id="prenom_collab" placeholder="Prénom du collaborateur" change="onChange" />
 											<Label text="Adresse" />
-											<Input placeholder="Adresse" id="adresse_collab" value="{adresse}">
+											<Input placeholder="Adresse" id="adresse_collab">
 											</Input>
 										
 											<Label text="Code Postal/Ville" />
@@ -589,14 +629,13 @@
 													<f:ColumnElementData cellsSmall="3" cellsLarge="2" />
 												</layoutData>
 											</Input>
-											<Input placeholder="Ville" id="ville_collab" value="bizerte" />
+											<Input placeholder="Ville" id="ville_collab"  />
 	
 											<Label text="Pays" />
-											<Select id="pays_collab" selectedKey="Tunisie">
-												<items>                                            
-													<core:Item text=".." key="a"/>
-												</items>
+											 <Select id="pays_collab" items="{ path: 'appData>/Countries'}">
+												<core:Item key="{appData>code}" text="{appData>name}" />
 											</Select>
+	
 											<core:Title text="Contact" />
 											<Label text="E-mail" />
 											<Input
@@ -604,22 +643,20 @@
 												placeholder="Entrez une Adresse Email valide"
 												required="true"
 											/>
+
 											<Label text="Profil Linkedin" />
 											<Input
 												id="linkedin_collab" 
 												placeholder="URL Linkedin" />
 	
-												<!--Add code country phone number please -->
-											<!-- <Label text="Numéro De Téléphone" />
-											<Input 
-												id="codephone_collab"
-												required="true"
-												placeholder="+(xxx)" 
-												value="{phone/number}">
-												<layoutData>
-													<f:ColumnElementData cellsSmall="3" cellsLarge="2" />
-												</layoutData>
-											</Input>     -->                                                            
+										<!--Add code country phone number please -->
+											<Label text="Code Télèphone" />
+											<Select 
+											 	id="codephone_collab"
+												items="{ path: 'appData>/Countries'}" >
+												<core:Item key="{appData>code}" text="{appData>dial_code}" />
+											</Select>
+										                                                        
 											<Input
 												id="phone_collab" 
 												placeholder="Numéro de Téléphone" 
@@ -650,19 +687,26 @@
 												</items>
 											</Select>
 										
-											<Label text="Date De Naissance" labelFor="DP1"/>
-												<DatePicker
+											<Label text="Date De Naissance"/>
+												 <DatePicker
 													id="naissance_collab"
 													placeholder="Entrez la Date de Naissance"
+													value="{      
+														'path':'/DateNaissance',             
+														'type':'sap.ui.model.type.Date',
+														'formatOptions': {
+															'pattern': 'yyyy/MM/dd'
+														}
+													}"
 													change="handleChange"
 													class="sapUiSmallMarginBottom"/>
 										
-											<Label text="Nationalité" />
-											<Select id="nationalite_collab" selectedKey="Tunisienne">
-												<items>                            
-													<core:Item text=".." key="aa"/>
-												</items>
+											<Label text="Nationalité"/>
+											<Select id="nationalite_collab" items="{ path: 'appData>/Countries'}">
+												<core:Item key="{appData>code}" text="{appData>nationalite_feminin}" />
 											</Select>
+
+											
 											<Label text="Situation Familiale" />
 											<Select id="situation_familiale" selectedKey="Célibataire">
 												<items>
@@ -672,23 +716,55 @@
 												</items>
 											</Select>
 											<core:Title text="" />
-											<Label text="Date de Démarrage" />
-												<DatePicker
-													id="date_demarrage"
-													placeholder="Entrez la Date de démarrage"
-													change="handleChange"
-													class="sapUiSmallMarginBottom"/>
+
+											<Label text="Date De Démarrage" />
+                                            <DatePicker
+                                                id="date_demarrage"
+												placeholder="Entrez la Date de Démarrage"
+                                                value="{        
+													'path':'/DateDemarrage',              
+                                                    'type':'sap.ui.model.type.Date',
+                                                    'formatOptions': {
+                                                        'pattern': 'yyyy/MM/dd'
+                                                    }
+                                                }"
+                                                change="handleChange"
+                                                class="sapUiSmallMarginBottom"/>
+
+											
 											<Label text="Responsable Manager" />
-											<Select id="responsable_manager" selectedKey="M4785">
+											<Select id="responsable_manager"
+											 items=
+											 "{ 
+												path: 'odataModel>/results',
+												filters: [{
+													path: 'Role',
+													operator: 'EQ',
+													value1: 'manager'
+												}]				
+												}"
+												
+												>
 												<items>
-													<core:Item text=".." key="."/>
+													<core:Item text="{odataModel>Nom} {odataModel>Prenom}" />
 												
 												</items>
 											</Select>
 											<Label text="Responsable RH" />
-											<Select id="responsable_rh" selectedKey="R4785" >
+											<Select 
+												id="responsable_rh"
+												 items=
+													"{ 
+														path: 'odataModel>/results',
+														filters: [{
+															path: 'Role',
+															operator: 'EQ',
+															value1: 'rh'
+														}]				
+														}"
+													>
 												<items>
-													<core:Item text=".." key="."/>
+													<core:Item text="{odataModel>Nom} {odataModel>Prenom}"/>
 												
 												</items>
 											</Select>
@@ -709,17 +785,43 @@
 										<f:content>
 											<core:Title text="Professionnelles" />
 											<Label text="Rôle" />
-											<Select id="role_collab" selectedKey="{role}">
+											<Select id="role_collab">
 												<items>
-													<core:Item text="Collaborateur" key="t"/>
-													<core:Item text="Manager" key="t"/>
-													<core:Item text="RH" key="t"/>                              
+													<core:Item text="Collaborateur" />
+													<core:Item text="Manager" />
+													<core:Item text="RH" />                              
 												</items>
 											</Select>
 											<Label text="Type" />
-											<Select id="type_collab" selectedKey="Technique">
-												<items>
-													<core:Item text=".." key="t"/>                                  
+											<Select id="type_collab">
+												 <items>
+													<core:Item text="Directeur" />
+													<core:Item text="Consultant Interne" />
+													<core:Item text="Manager" />
+													<core:Item text="Responsable Commercial" />
+													<core:Item text="Sales" />
+													<core:Item text="Office Manager" />
+													<core:Item text="Assistant" />
+													<core:Item text="Comptabilité" />
+													<core:Item text="Chef de Projet" />
+													<core:Item text="Manager des Opérations Internes" />
+													<core:Item text="Team Lead" />
+													<core:Item text="Responsable de recrutement" />
+													<core:Item text="Tech Lead" />
+													<core:Item text="Responsable Communication" />
+													<core:Item text="PMO" />
+													<core:Item text="Responsable RH" />
+													<core:Item text="Chargé de Communication" />
+													<core:Item text="Stagiaire" />
+													<core:Item text="Chargée RH" />
+													<core:Item text="Chargé de recrutement" />
+													<core:Item text="Ingénieur d'affaires" />
+													<core:Item text="Contrat d'apprentissage" />
+													<core:Item text="Assistant direction" />
+													<core:Item text="Responsable Formation" />
+													<core:Item text="Ressource Manager" />
+													<core:Item text="Stagiaire PFE" />
+												                                  
 												</items>
 											</Select>
 											<Label text="Fonction" />
@@ -729,7 +831,7 @@
 											<Input id="titre_collab" required="true" placeholder="Entrez le titre du collaborateur" change="onChange" >
 											</Input>
 											<Label text="Etat" />
-											<Select id="etat_collab" selectedKey="{etat}">
+											<Select id="etat_collab">
 												<items>
 													<core:Item text="En cours" key="en cours"/>
 													<core:Item text="Intercontrat" key="intercontrat"/>
@@ -737,13 +839,22 @@
 												</items>
 											</Select>
 											<Label text="Pôle" />
-											<Select id="pole_collab" selectedKey="Digital">
+											<Select id="pole_collab" >
 												<items>
-													<core:Item text=".." key=""/>		
+													<core:Item text="DIRECTION" />
+														<core:Item text="SAP FONCTIONNEL" />
+														<core:Item text="SAP TECHNIQUE" />
+														<core:Item text="DIGITAL" />
+														<core:Item text="COMMERCIAL" />
+														<core:Item text="ADMINISTRATIF et FINANCIER" />
+														<core:Item text="PMO" />
+														<core:Item text="OPERATION" />
+														<core:Item text="SAP BASIS" />
+														<core:Item text="RESSOURCE HUMAINE" />		
 												</items>
 											</Select>
 											<Label text="Agence" />
-											<Select id="agence_collab" selectedKey="{agence}">
+											<Select id="agence_collab">
 												<items>
 													<core:Item text="AYMAX CONSULTING" key="AYMAX TECHNOLOGY"/>
 													<core:Item text="AYMAX TECHNOLOGY" key="AYMAX TECHNOLOGY"/>
@@ -753,21 +864,44 @@
 											<Label text="Expérience" />
 											<Input id="xp_collab" required="true" placeholder="Entrez l'expérience en mois"/>
 											<Label text="Mobilité" />
-											<Select id="mobilite_collab" selectedKey="{mobilite}">
+											<Select id="mobilite_collab">
 												<items>
-													<core:Item text="France" key="fr"/>
-													<core:Item text="Egypte" key="Eg"/>
-													<core:Item text="Tunisie" key="Tn"/>
-													<core:Item text="Non" key="nn"/>							
+													<core:Item text="France" />
+													<core:Item text="Egypte" />
+													<core:Item text="Tunisie" />
+													<core:Item text="Non" />							
 												</items>
 											</Select>
 	
 											<core:Title text="Académiques"/>
 											<Label text="Domaine" />
-											<Select id="domaine_collab" selectedKey="Informatique">
+											<Select id="domaine_collab" >
 												<items>
-													<core:Item text=".." key="."/>								
-												</items>
+													<core:Item text="Non spécifié" />
+													<core:Item text="Génie industriel" />
+													<core:Item text="Autre" />
+													<core:Item text="Informatique" />
+													<core:Item text="Commerce électronique" />
+													<core:Item text="Management" />
+													<core:Item text="Logistic et supply chain" />
+													<core:Item text="Commerce" />
+													<core:Item text="Finance" />
+													<core:Item text="Economie et Gestion" />
+													<core:Item text="Logiciel embarqué" />
+													<core:Item text="Administration des entreprises" />
+													<core:Item text="Communication" />
+													<core:Item text="Comptabilité" />
+													<core:Item text="Marketing" />
+													<core:Item text="Gestion des ressources humaines" />
+													<core:Item text="Electromécanique" />
+													<core:Item text="Génie mécanique" />
+													<core:Item text="English business" />
+													<core:Item text="Commerce international" />
+													<core:Item text="Télécommunication" />
+													<core:Item text="Système d'information" />
+													<core:Item text="Système d'information de gestion" />
+													<core:Item text="Business intelligence" />
+													<core:Item text="Génie des systèmes industriels et logistique" />												</items>
 											</Select>                  
 											<Label id="TextAreaLabel" text="Diplômes" />
 												<TextArea
@@ -780,7 +914,7 @@
 										</f:content>
 											<Button type="Accept"
 													text="Accept"
-													press="onCreateCollab"
+													press="onON"
 													>
 												<layoutData>
 													<FlexItemData growFactor="1" />
@@ -1155,12 +1289,6 @@
 													<core:Item class="itemCollab" key="idCollab" text="Nour Khemiri" />
 													<core:Item class="itemCollab" key="idCollab" text="Manel Saket" />			
 												</items>
-												<!-- <dependents>
-													<Button id="button1" text="Fatma Abidi" press="onButtonPress" />
-													<Button id="button2" text="Wissem Chagtmi" press="onButtonPress" />
-													<Button id="button3" text="Elyes Baccour" press="onButtonPress" />
-
-												</dependents> -->
 											</ActionSelect>
 
 

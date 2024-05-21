@@ -1,0 +1,1312 @@
+{
+    "Countries": [
+
+        {
+            "name": "Allemagne",
+            "dial_code": "+49",
+            "code": "DE",
+            "nationalite_feminin": "Allemande"
+        },
+        {
+            "name": "Afrique du Sud",
+            "dial_code": "+27",
+            "code": "ZA",
+            "nationalite_feminin": "Sud-africaine"
+        },
+         {
+             "name": "Albanie",
+             "dial_code": "+355",
+             "code": "AL",
+             "nationalite_feminin": "Albanaise"
+         },
+         
+         {
+             "name": "Algérie",
+             "dial_code": "+213",
+             "code": "DZ",
+             "nationalite_feminin": "Algérienne"
+         },
+         {
+             "name": "Andorre",
+             "dial_code": "+376",
+             "code": "AD",
+             "nationalite_feminin": "Andorrane"
+         },
+         {
+             "name": "Angola",
+             "dial_code": "+244",
+             "code": "AO",
+             "nationalite_feminin": "Angolaise"
+         },
+         {
+             "name": "Anguilla",
+             "dial_code": "+1264",
+             "code": "AI",
+             "nationalite_feminin": "Anguillaise"
+         },
+         {
+             "name": "Antarctique",
+             "dial_code": "+672",
+             "code": "AQ",
+             "nationalite_feminin": "Antarctique"
+         },
+         {
+             "name": "Antigua-et-Barbuda",
+             "dial_code": "+1268",
+             "code": "AG",
+             "nationalite_feminin": "Antiguayenne"
+         },
+         {
+             "name": "Argentine",
+             "dial_code": "+54",
+             "code": "AR",
+             "nationalite_feminin": "Argentine"
+         },
+         {
+             "name": "Arménie",
+             "dial_code": "+374",
+             "code": "AM",
+             "nationalite_feminin": "Arménienne"
+         },
+         {
+             "name": "Aruba",
+             "dial_code": "+297",
+             "code": "AW",
+             "nationalite_feminin": "Arubaise"
+         },
+         {
+             "name": "Australie",
+             "dial_code": "+61",
+             "code": "AU",
+             "nationalite_feminin": "Australienne"
+         },
+         {
+             "name": "Autriche",
+             "dial_code": "+43",
+             "code": "AT",
+             "nationalite_feminin": "Autrichienne"
+         },
+         {
+             "name": "Azerbaïdjan",
+             "dial_code": "+994",
+             "code": "AZ",
+             "nationalite_feminin": "Azerbaïdjanaise"
+         },
+         {
+            "name": "Arabie Saoudite",
+            "dial_code": "+966",
+            "code": "SA",
+            "nationalite_feminin": "Saoudienne"
+        },
+         {
+             "name": "Bahamas",
+             "dial_code": "+1242",
+             "code": "BS",
+             "nationalite_feminin": "Bahamienne"
+         },
+         {
+             "name": "Bahreïn",
+             "dial_code": "+973",
+             "code": "BH",
+             "nationalite_feminin": "Bahreïnienne"
+         },
+         {
+             "name": "Bangladesh",
+             "dial_code": "+880",
+             "code": "BD",
+             "nationalite_feminin": "Bangladaise"
+         },
+         {
+             "name": "Barbade",
+             "dial_code": "+1246",
+             "code": "BB",
+             "nationalite_feminin": "Barbadienne"
+         },
+         {
+             "name": "Bélarus",
+             "dial_code": "+375",
+             "code": "BY",
+             "nationalite_feminin": "Bélarussienne"
+         },
+         {
+             "name": "Belgique",
+             "dial_code": "+32",
+             "code": "BE",
+             "nationalite_feminin": "Belge"
+         },
+         {
+             "name": "Belize",
+             "dial_code": "+501",
+             "code": "BZ",
+             "nationalite_feminin": "Bélizienne"
+         },
+         {
+             "name": "Bénin",
+             "dial_code": "+229",
+             "code": "BJ",
+             "nationalite_feminin": "Béninoise"
+         },
+         {
+             "name": "Bermudes",
+             "dial_code": "+1441",
+             "code": "BM",
+             "nationalite_feminin": "Bermudienne"
+         },
+         {
+             "name": "Bhoutan",
+             "dial_code": "+975",
+             "code": "BT",
+             "nationalite_feminin": "Bhoutanaise"
+         },
+         {
+             "name": "Bolivie",
+             "dial_code": "+591",
+             "code": "BO",
+             "nationalite_feminin": "Bolivienne"
+         },
+         {
+             "name": "Bosnie-Herzégovine",
+             "dial_code": "+387",
+             "code": "BA",
+             "nationalite_feminin": "Bosnienne"
+         },
+         {
+             "name": "Botswana",
+             "dial_code": "+267",
+             "code": "BW",
+             "nationalite_feminin": "Botswanaise"
+         },
+         {
+             "name": "Brésil",
+             "dial_code": "+55",
+             "code": "BR",
+             "nationalite_feminin": "Brésilienne"
+         },
+         {
+             "name": "Brunei",
+             "dial_code": "+673",
+             "code": "BN",
+             "nationalite_feminin": "Brunéienne"
+         },
+         {
+             "name": "Bulgarie",
+             "dial_code": "+359",
+             "code": "BG",
+             "nationalite_feminin": "Bulgare"
+         },
+         {
+             "name": "Burkina Faso",
+             "dial_code": "+226",
+             "code": "BF",
+             "nationalite_feminin": "Burkinabè"
+         },
+         {
+             "name": "Burundi",
+             "dial_code": "+257",
+             "code": "BI",
+             "nationalite_feminin": "Burundaise"
+         },
+         {
+             "name": "Cambodge",
+             "dial_code": "+855",
+             "code": "KH",
+             "nationalite_feminin": "Cambodgienne"
+         },
+         {
+             "name": "Cameroun",
+             "dial_code": "+237",
+             "code": "CM",
+             "nationalite_feminin": "Camerounaise"
+         },
+         {
+             "name": "Canada",
+             "dial_code": "+1",
+             "code": "CA",
+             "nationalite_feminin": "Canadienne"
+         },
+         {
+             "name": "Cap-Vert",
+             "dial_code": "+238",
+             "code": "CV",
+             "nationalite_feminin": "Cap-verdienne"
+         },
+          
+         {
+             "name": "Chili",
+             "dial_code": "+56",
+             "code": "CL",
+             "nationalite_feminin": "Chilienne"
+         },
+         {
+             "name": "Chine",
+             "dial_code": "+86",
+             "code": "CN",
+             "nationalite_feminin": "Chinoise"
+         },
+    
+         {
+             "name": "Colombie",
+             "dial_code": "+57",
+             "code": "CO",
+             "nationalite_feminin": "Colombienne"
+         },
+         {
+             "name": "Comores",
+             "dial_code": "+269",
+             "code": "KM",
+             "nationalite_feminin": "Comorienne"
+         },
+         {
+             "name": "Congo",
+             "dial_code": "+242",
+             "code": "CG",
+             "nationalite_feminin": "Congolaise"
+         },
+         {
+             "name": "Congo",
+             "dial_code": "+243",
+             "code": "CD",
+             "nationalite_feminin": "Congolaise"
+         },
+         {
+             "name": "Costa Rica",
+             "dial_code": "+506",
+             "code": "CR",
+             "nationalite_feminin": "Costaricienne"
+         },
+         {
+             "name": "Côte d'Ivoire",
+             "dial_code": "+225",
+             "code": "CI",
+             "nationalite_feminin": "Ivoirienne"
+         },
+         {
+            "name": "Corée du Nord",
+            "dial_code": "+850",
+            "code": "KP",
+            "nationalite_feminin": "Nord-coréenne"
+        },
+        {
+            "name": "Corée du Sud",
+            "dial_code": "+82",
+            "code": "KR",
+            "nationalite_feminin": "Sud-coréenne"
+        },
+         {
+             "name": "Croatie",
+             "dial_code": "+385",
+             "code": "HR",
+             "nationalite_feminin": "Croate"
+         },
+         {
+             "name": "Cuba",
+             "dial_code": "+53",
+             "code": "CU",
+             "nationalite_feminin": "Cubaine"
+         },
+         {
+             "name": "Curaçao",
+             "dial_code": "+599",
+             "code": "CW",
+             "nationalite_feminin": "Curaçaolaise"
+         },
+         {
+             "name": "Chypre",
+             "dial_code": "+357",
+             "code": "CY",
+             "nationalite_feminin": "Chypriote"
+         },
+        
+         {
+             "name": "Danemark",
+             "dial_code": "+45",
+             "code": "DK",
+             "nationalite_feminin": "Danoise"
+         },
+         {
+             "name": "Djibouti",
+             "dial_code": "+253",
+             "code": "DJ",
+             "nationalite_feminin": "Djiboutienne"
+         },
+         {
+            "name": "Émirats arabes unis",
+            "dial_code": "+971",
+            "code": "AE",
+            "nationalite_feminin": "Émirienne"
+        },
+        {
+            "name": "États-Unis",
+            "dial_code": "+1",
+            "code": "US",
+            "nationalite_feminin": "Américaine"
+        },
+         {
+            "name": "Espagne",
+            "dial_code": "+34",
+            "code": "ES",
+            "nationalite_feminin": "Espagnole"
+        },
+        {
+            "name": "Eswatini",
+            "dial_code": "+268",
+            "code": "SZ",
+            "nationalite_feminin": "Swazie"
+        },
+         {
+             "name": "Équateur",
+             "dial_code": "+593",
+             "code": "EC",
+             "nationalite_feminin": "Équatorienne"
+         },
+         {
+             "name": "Égypte",
+             "dial_code": "+20",
+             "code": "EG",
+             "nationalite_feminin": "Égyptienne"
+         },
+         {
+             "name": "El Salvador",
+             "dial_code": "+503",
+             "code": "SV",
+             "nationalite_feminin": "Salvadorienne"
+         },
+         {
+             "name": "Guinée équatoriale",
+             "dial_code": "+240",
+             "code": "GQ",
+             "nationalite_feminin": "Équato-guinéenne"
+         },
+         {
+             "name": "Érythrée",
+             "dial_code": "+291",
+             "code": "ER",
+             "nationalite_feminin": "Érythréenne"
+         },
+         {
+             "name": "Estonie",
+             "dial_code": "+372",
+             "code": "EE",
+             "nationalite_feminin": "Estonienne"
+         },
+         {
+             "name": "Éthiopie",
+             "dial_code": "+251",
+             "code": "ET",
+             "nationalite_feminin": "Éthiopienne"
+         },
+    
+         {
+             "name": "Fidji",
+             "dial_code": "+679",
+             "code": "FJ",
+             "nationalite_feminin": "Fidjienne"
+         },
+         {
+             "name": "Finlande",
+             "dial_code": "+358",
+             "code": "FI",
+             "nationalite_feminin": "Finlandaise"
+         },
+         {
+             "name": "France",
+             "dial_code": "+33",
+             "code": "FR",
+             "nationalite_feminin": "Française"
+         },
+
+         {
+             "name": "Gabon",
+             "dial_code": "+241",
+             "code": "GA",
+             "nationalite_feminin": "Gabonaise"
+         },
+         {
+             "name": "Gambie",
+             "dial_code": "+220",
+             "code": "GM",
+             "nationalite_feminin": "Gambienne"
+         },
+         {
+             "name": "Géorgie",
+             "dial_code": "+995",
+             "code": "GE",
+             "nationalite_feminin": "Géorgienne"
+         },
+        
+         {
+             "name": "Ghana",
+             "dial_code": "+233",
+             "code": "GH",
+             "nationalite_feminin": "Ghanéenne"
+         },
+         {
+             "name": "Gibraltar",
+             "dial_code": "+350",
+             "code": "GI",
+             "nationalite_feminin": "Gibraltarienne"
+         },
+         {
+             "name": "Grèce",
+             "dial_code": "+30",
+             "code": "GR",
+             "nationalite_feminin": "Grecque"
+         },
+         {
+             "name": "Groenland",
+             "dial_code": "+299",
+             "code": "GL",
+             "nationalite_feminin": "Groenlandaise"
+         },
+         {
+             "name": "Grenade",
+             "dial_code": "+1473",
+             "code": "GD",
+             "nationalite_feminin": "Grenadienne"
+         },
+         {
+             "name": "Guadeloupe",
+             "dial_code": "+590",
+             "code": "GP",
+             "nationalite_feminin": "Guadeloupéenne"
+         },
+         {
+             "name": "Guam",
+             "dial_code": "+1671",
+             "code": "GU",
+             "nationalite_feminin": "Guamienne"
+         },
+         {
+             "name": "Guatemala",
+             "dial_code": "+502",
+             "code": "GT",
+             "nationalite_feminin": "Guatémaltèque"
+         },
+         {
+             "name": "Guinée",
+             "dial_code": "+224",
+             "code": "GN",
+             "nationalite_feminin": "Guinéenne"
+         },
+         {
+             "name": "Guinée-Bissau",
+             "dial_code": "+245",
+             "code": "GW",
+             "nationalite_feminin": "Bissau-guinéenne"
+         },
+         {
+             "name": "Guyane",
+             "dial_code": "+592",
+             "code": "GY",
+             "nationalite_feminin": "Guyanienne"
+         },
+         {
+             "name": "Guyane française",
+             "dial_code": "+594",
+             "code": "GF",
+             "nationalite_feminin": "Guyanienne"
+         },
+         {
+             "name": "Haïti",
+             "dial_code": "+509",
+             "code": "HT",
+             "nationalite_feminin": "Haïtienne"
+         },
+         {
+             "name": "Honduras",
+             "dial_code": "+504",
+             "code": "HN",
+             "nationalite_feminin": "Hondurienne"
+         },
+         {
+             "name": "Hong Kong",
+             "dial_code": "+852",
+             "code": "HK",
+             "nationalite_feminin": "Hongkongaise"
+         },
+         {
+             "name": "Hongrie",
+             "dial_code": "+36",
+             "code": "HU",
+             "nationalite_feminin": "Hongroise"
+         },
+         {
+             "name": "Islande",
+             "dial_code": "+354",
+             "code": "IS",
+             "nationalite_feminin": "Islandaise"
+         },
+         {
+             "name": "Inde",
+             "dial_code": "+91",
+             "code": "IN",
+             "nationalite_feminin": "Indienne"
+         },
+         {
+             "name": "Indonésie",
+             "dial_code": "+62",
+             "code": "ID",
+             "nationalite_feminin": "Indonésienne"
+         },
+         {
+             "name": "Iran",
+             "dial_code": "+98",
+             "code": "IR",
+             "nationalite_feminin": "Iranienne"
+         },
+         {
+             "name": "Irak",
+             "dial_code": "+964",
+             "code": "IQ",
+             "nationalite_feminin": "Irakienne"
+         },
+         {
+             "name": "Irlande",
+             "dial_code": "+353",
+             "code": "IE",
+             "nationalite_feminin": "Irlandaise"
+         },
+         {
+             "name": "Île de Man",
+             "dial_code": "+44",
+             "code": "IM",
+             "nationalite_feminin": "Manxoise"
+         },
+         {
+             "name": "Italie",
+             "dial_code": "+39",
+             "code": "IT",
+             "nationalite_feminin": "Italienne"
+         },
+         {
+             "name": "Jamaïque",
+             "dial_code": "+1876",
+             "code": "JM",
+             "nationalite_feminin": "Jamaïcaine"
+         },
+         {
+             "name": "Japon",
+             "dial_code": "+81",
+             "code": "JP",
+             "nationalite_feminin": "Japonaise"
+         },
+         {
+             "name": "Jordanie",
+             "dial_code": "+962",
+             "code": "JO",
+             "nationalite_feminin": "Jordanienne"
+         },
+         {
+             "name": "Kazakhstan",
+             "dial_code": "+7",
+             "code": "KZ",
+             "nationalite_feminin": "Kazakhstanaise"
+         },
+         {
+             "name": "Kenya",
+             "dial_code": "+254",
+             "code": "KE",
+             "nationalite_feminin": "Kényane"
+         },
+         {
+             "name": "Kiribati",
+             "dial_code": "+686",
+             "code": "KI",
+             "nationalite_feminin": "Kiribatienne"
+         },
+        
+         {
+             "name": "Koweït",
+             "dial_code": "+965",
+             "code": "KW",
+             "nationalite_feminin": "Koweïtienne"
+         },
+         {
+             "name": "Kirghizistan",
+             "dial_code": "+996",
+             "code": "KG",
+             "nationalite_feminin": "Kirghize"
+         },
+         {
+             "name": "Laos",
+             "dial_code": "+856",
+             "code": "LA",
+             "nationalite_feminin": "Laotienne"
+         },
+         {
+             "name": "Lettonie",
+             "dial_code": "+371",
+             "code": "LV",
+             "nationalite_feminin": "Lettone"
+         },
+         {
+             "name": "Liban",
+             "dial_code": "+961",
+             "code": "LB",
+             "nationalite_feminin": "Libanaise"
+         },
+         {
+             "name": "Lesotho",
+             "dial_code": "+266",
+             "code": "LS",
+             "nationalite_feminin": "Lesothane"
+         },
+         {
+             "name": "Libéria",
+             "dial_code": "+231",
+             "code": "LR",
+             "nationalite_feminin": "Libérienne"
+         },
+         {
+             "name": "Libye",
+             "dial_code": "+218",
+             "code": "LY",
+             "nationalite_feminin": "Libyenne"
+         },
+         {
+             "name": "Liechtenstein",
+             "dial_code": "+423",
+             "code": "LI",
+             "nationalite_feminin": "Liechtensteinoise"
+         },
+         {
+             "name": "Lituanie",
+             "dial_code": "+370",
+             "code": "LT",
+             "nationalite_feminin": "Lituanienne"
+         },
+         {
+             "name": "Luxembourg",
+             "dial_code": "+352",
+             "code": "LU",
+             "nationalite_feminin": "Luxembourgeoise"
+         },
+         {
+             "name": "Macao",
+             "dial_code": "+853",
+             "code": "MO",
+             "nationalite_feminin": "Macanaise"
+         },
+         {
+             "name": "Macédoine",
+             "dial_code": "+389",
+             "code": "MK",
+             "nationalite_feminin": "Macédonienne"
+         },
+         {
+             "name": "Madagascar",
+             "dial_code": "+261",
+             "code": "MG",
+             "nationalite_feminin": "Malgache"
+         },
+         {
+             "name": "Malawi",
+             "dial_code": "+265",
+             "code": "MW",
+             "nationalite_feminin": "Malawienne"
+         },
+         {
+             "name": "Malaisie",
+             "dial_code": "+60",
+             "code": "MY",
+             "nationalite_feminin": "Malaisienne"
+         },
+         {
+             "name": "Maldives",
+             "dial_code": "+960",
+             "code": "MV",
+             "nationalite_feminin": "Maldivienne"
+         },
+         {
+             "name": "Mali",
+             "dial_code": "+223",
+             "code": "ML",
+             "nationalite_feminin": "Malienne"
+         },
+         {
+             "name": "Malte",
+             "dial_code": "+356",
+             "code": "MT",
+             "nationalite_feminin": "Maltaise"
+         },
+         {
+             "name": "Martinique",
+             "dial_code": "+596",
+             "code": "MQ",
+             "nationalite_feminin": "Martiniquaise"
+         },
+         {
+             "name": "Mauritanie",
+             "dial_code": "+222",
+             "code": "MR",
+             "nationalite_feminin": "Mauritanienne"
+         },
+         {
+             "name": "Maurice",
+             "dial_code": "+230",
+             "code": "MU",
+             "nationalite_feminin": "Mauricienne"
+         },
+         {
+             "name": "Mayotte",
+             "dial_code": "+262",
+             "code": "YT",
+             "nationalite_feminin": "Mahoraise"
+         },
+         {
+             "name": "Mexique",
+             "dial_code": "+52",
+             "code": "MX",
+             "nationalite_feminin": "Mexicaine"
+         },
+         {
+             "name": "Micronésie",
+             "dial_code": "+691",
+             "code": "FM",
+             "nationalite_feminin": "Micronésienne"
+         },
+         {
+             "name": "Moldavie",
+             "dial_code": "+373",
+             "code": "MD",
+             "nationalite_feminin": "Moldave"
+         },
+         {
+             "name": "Monaco",
+             "dial_code": "+377",
+             "code": "MC",
+             "nationalite_feminin": "Monégasque"
+         },
+         {
+             "name": "Mongolie",
+             "dial_code": "+976",
+             "code": "MN",
+             "nationalite_feminin": "Mongole"
+         },
+         {
+             "name": "Monténégro",
+             "dial_code": "+382",
+             "code": "ME",
+             "nationalite_feminin": "Monténégrine"
+         },
+         {
+             "name": "Montserrat",
+             "dial_code": "+1664",
+             "code": "MS",
+             "nationalite_feminin": "Montserratienne"
+         },
+         {
+             "name": "Maroc",
+             "dial_code": "+212",
+             "code": "MA",
+             "nationalite_feminin": "Marocaine"
+         },
+         {
+             "name": "Mozambique",
+             "dial_code": "+258",
+             "code": "MZ",
+             "nationalite_feminin": "Mozambicaine"
+         },
+         {
+             "name": "Myanmar",
+             "dial_code": "+95",
+             "code": "MM",
+             "nationalite_feminin": "Birmane"
+         },
+         {
+             "name": "Namibie",
+             "dial_code": "+264",
+             "code": "NA",
+             "nationalite_feminin": "Namibienne"
+         },
+         {
+             "name": "Nauru",
+             "dial_code": "+674",
+             "code": "NR",
+             "nationalite_feminin": "Nauruane"
+         },
+         {
+             "name": "Népal",
+             "dial_code": "+977",
+             "code": "NP",
+             "nationalite_feminin": "Népalaise"
+         },
+         {
+             "name": "Pays-Bas",
+             "dial_code": "+31",
+             "code": "NL",
+             "nationalite_feminin": "Néerlandaise"
+         },
+         {
+             "name": "Nouvelle-Calédonie",
+             "dial_code": "+687",
+             "code": "NC",
+             "nationalite_feminin": "Néo-calédonienne"
+         },
+         {
+             "name": "Nouvelle-Zélande",
+             "dial_code": "+64",
+             "code": "NZ",
+             "nationalite_feminin": "Néo-zélandaise"
+         },
+         {
+             "name": "Nicaragua",
+             "dial_code": "+505",
+             "code": "NI",
+             "nationalite_feminin": "Nicaraguayenne"
+         },
+         {
+             "name": "Niger",
+             "dial_code": "+227",
+             "code": "NE",
+             "nationalite_feminin": "Nigérienne"
+         },
+         {
+             "name": "Nigéria",
+             "dial_code": "+234",
+             "code": "NG",
+             "nationalite_feminin": "Nigériane"
+         },
+         {
+             "name": "Niue",
+             "dial_code": "+683",
+             "code": "NU",
+             "nationalite_feminin": "Niuéenne"
+         },
+       
+         {
+             "name": "Norvège",
+             "dial_code": "+47",
+             "code": "NO",
+             "nationalite_feminin": "Norvégienne"
+         },
+         {
+            "name": "Ouzbékistan",
+            "dial_code": "+998",
+            "code": "UZ",
+            "nationalite_feminin": "Ouzbèke"
+        },
+         {
+            "name": "Oman",
+            "dial_code": "+968",
+            "code": "OM",
+            "nationalite_feminin": "Omanaise"
+        },
+        {
+            "name": "Ouganda",
+            "dial_code": "+256",
+            "code": "UG",
+            "nationalite_feminin": "Ougandaise"
+        },
+         {
+             "name": "Pakistan",
+             "dial_code": "+92",
+             "code": "PK",
+             "nationalite_feminin": "Pakistanaise"
+         },
+         {
+             "name": "Palau",
+             "dial_code": "+680",
+             "code": "PW",
+             "nationalite_feminin": "Palauane"
+         },
+         {
+             "name": "Palestine",
+             "dial_code": "+970",
+             "code": "PS",
+             "nationalite_feminin": "Palestinienne"
+         },
+         {
+             "name": "Panama",
+             "dial_code": "+507",
+             "code": "PA",
+             "nationalite_feminin": "Panaméenne"
+         },
+         {
+             "name": "Papouasie-Nouvelle-Guinée",
+             "dial_code": "+675",
+             "code": "PG",
+             "nationalite_feminin": "Papouane-néo-guinéenne"
+         },
+         {
+             "name": "Paraguay",
+             "dial_code": "+595",
+             "code": "PY",
+             "nationalite_feminin": "Paraguayenne"
+         },
+         {
+             "name": "Pérou",
+             "dial_code": "+51",
+             "code": "PE",
+             "nationalite_feminin": "Péruvienne"
+         },
+         {
+             "name": "Philippines",
+             "dial_code": "+63",
+             "code": "PH",
+             "nationalite_feminin": "Philippine"
+         },
+         {
+             "name": "Pitcairn",
+             "dial_code": "+872",
+             "code": "PN",
+             "nationalite_feminin": "Pitcairnaise"
+         },
+         {
+             "name": "Pologne",
+             "dial_code": "+48",
+             "code": "PL",
+             "nationalite_feminin": "Polonaise"
+         },
+         {
+             "name": "Portugal",
+             "dial_code": "+351",
+             "code": "PT",
+             "nationalite_feminin": "Portugaise"
+         },
+         {
+             "name": "Porto Rico",
+             "dial_code": "+1",
+             "code": "PR",
+             "nationalite_feminin": "Portoricaine"
+         },
+         {
+             "name": "Qatar",
+             "dial_code": "+974",
+             "code": "QA",
+             "nationalite_feminin": "Qatarienne"
+         },
+         {
+             "name": "Roumanie",
+             "dial_code": "+40",
+             "code": "RO",
+             "nationalite_feminin": "Roumaine"
+         },
+         {
+             "name": "Russie",
+             "dial_code": "+7",
+             "code": "RU",
+             "nationalite_feminin": "Russe"
+         },
+         {
+            "name": "République tchèque",
+            "dial_code": "+420",
+            "code": "CZ",
+            "nationalite_feminin": "Tchèque"
+        },
+        {
+            "name": "République dominicaine",
+            "dial_code": "+1",
+            "code": "DO",
+            "nationalite_feminin": "Dominicaine"
+        },
+        {
+            "name": "Royaume-Uni",
+            "dial_code": "+44",
+            "code": "GB",
+            "nationalite_feminin": "Britannique"
+        },
+         {
+            "name": "Rwanda",
+            "dial_code": "+250",
+            "code": "RW",
+            "nationalite_feminin": "Rwandaise"
+        },
+        {
+            "name": "Saint-Barthélemy",
+            "dial_code": "+590",
+            "code": "BL",
+            "nationalite_feminin": "Saint-Barthélemyenne"
+        },
+        {
+            "name": "Sainte-Hélène",
+            "dial_code": "+290",
+            "code": "SH",
+            "nationalite_feminin": "Sainte-Hélènienne"
+        },
+        {
+            "name": "Saint-Christophe-et-Niévès",
+            "dial_code": "+1869",
+            "code": "KN",
+            "nationalite_feminin": "Saint-Kittsienne-et-Nevisienne"
+        },
+        {
+            "name": "Sainte-Lucie",
+            "dial_code": "+1758",
+            "code": "LC",
+            "nationalite_feminin": "Sainte-Lucienne"
+        },
+        {
+            "name": "Saint-Martin",
+            "dial_code": "+590",
+            "code": "MF",
+            "nationalite_feminin": "Saint-Martinoise"
+        },
+        {
+            "name": "Saint-Pierre-et-Miquelon",
+            "dial_code": "+508",
+            "code": "PM",
+            "nationalite_feminin": "Saint-Pierraise-et-Miquelonnaise"
+        },
+        {
+            "name": "Saint-Vincent-et-les-Grenadines",
+            "dial_code": "+1784",
+            "code": "VC",
+            "nationalite_feminin": "Saint-Vincentaise-et-Grenadine"
+        },
+        {
+            "name": "Samoa",
+            "dial_code": "+685",
+            "code": "WS",
+            "nationalite_feminin": "Samoane"
+        },
+        {
+            "name": "Saint-Marin",
+            "dial_code": "+378",
+            "code": "SM",
+            "nationalite_feminin": "Saint-Marinaise"
+        },
+        {
+            "name": "Sao Tomé-et-Principe",
+            "dial_code": "+239",
+            "code": "ST",
+            "nationalite_feminin": "Santoméenne"
+        },
+       
+        {
+            "name": "Sénégal",
+            "dial_code": "+221",
+            "code": "SN",
+            "nationalite_feminin": "Sénégalaise"
+        },
+        {
+            "name": "Serbie",
+            "dial_code": "+381",
+            "code": "RS",
+            "nationalite_feminin": "Serbe"
+        },
+        {
+            "name": "Seychelles",
+            "dial_code": "+248",
+            "code": "SC",
+            "nationalite_feminin": "Seychelloise"
+        },
+        {
+            "name": "Sierra Leone",
+            "dial_code": "+232",
+            "code": "SL",
+            "nationalite_feminin": "Sierraléonaise"
+        },
+        {
+            "name": "Singapour",
+            "dial_code": "+65",
+            "code": "SG",
+            "nationalite_feminin": "Singapourienne"
+        },
+        {
+            "name": "Slovaquie",
+            "dial_code": "+421",
+            "code": "SK",
+            "nationalite_feminin": "Slovaque"
+        },
+        {
+            "name": "Slovénie",
+            "dial_code": "+386",
+            "code": "SI",
+            "nationalite_feminin": "Slovène"
+        },
+        {
+            "name": "Somalie",
+            "dial_code": "+252",
+            "code": "SO",
+            "nationalite_feminin": "Somalienne"
+        },
+      
+        {
+            "name": "Soudan du Sud",
+            "dial_code": "+211",
+            "code": "SS",
+            "nationalite_feminin": "Sud-soudanaise"
+        },
+        
+        {
+            "name": "Sri Lanka",
+            "dial_code": "+94",
+            "code": "LK",
+            "nationalite_feminin": "Sri-lankaise"
+        },
+        {
+            "name": "Soudan",
+            "dial_code": "+249",
+            "code": "SD",
+            "nationalite_feminin": "Soudanaise"
+        },
+        {
+            "name": "Suriname",
+            "dial_code": "+597",
+            "code": "SR",
+            "nationalite_feminin": "Surinamaise"
+        },
+        {
+            "name": "Svalbard et Jan Mayen",
+            "dial_code": "+47",
+            "code": "SJ",
+            "nationalite_feminin": "Svalbarde"
+        },
+       
+        {
+            "name": "Suède",
+            "dial_code": "+46",
+            "code": "SE",
+            "nationalite_feminin": "Suédoise"
+        },
+        {
+            "name": "Suisse",
+            "dial_code": "+41",
+            "code": "CH",
+            "nationalite_feminin": "Suisse"
+        },
+        {
+            "name": "Syrie",
+            "dial_code": "+963",
+            "code": "SY",
+            "nationalite_feminin": "Syrienne"
+        },
+        {
+            "name": "Taïwan",
+            "dial_code": "+886",
+            "code": "TW",
+            "nationalite_feminin": "Taïwanaise"
+        },
+        {
+            "name": "Tadjikistan",
+            "dial_code": "+992",
+            "code": "TJ",
+            "nationalite_feminin": "Tadjike"
+        },
+        {
+            "name": "Tanzanie",
+            "dial_code": "+255",
+            "code": "TZ",
+            "nationalite_feminin": "Tanzanienne"
+        },
+        {
+            "name": "Thaïlande",
+            "dial_code": "+66",
+            "code": "TH",
+            "nationalite_feminin": "Thaïlandaise"
+        },
+        {
+            "name": "Timor-Leste",
+            "dial_code": "+670",
+            "code": "TL",
+            "nationalite_feminin": "Timoraise"
+        },
+        {
+            "name": "Togo",
+            "dial_code": "+228",
+            "code": "TG",
+            "nationalite_feminin": "Togolaise"
+        },
+        {
+            "name": "Tokelau",
+            "dial_code": "+690",
+            "code": "TK",
+            "nationalite_feminin": "Tokelauane"
+        },
+        {
+            "name": "Tonga",
+            "dial_code": "+676",
+            "code": "TO",
+            "nationalite_feminin": "Tonguienne"
+        },
+        {
+            "name": "Trinité-et-Tobago",
+            "dial_code": "+1868",
+            "code": "TT",
+            "nationalite_feminin": "Trinidadienne"
+        },
+        {
+            "name": "Tchad",
+            "dial_code": "+235",
+            "code": "TD",
+            "nationalite_feminin": "Tchadienne"
+        },
+        {
+            "name": "Tunisie",
+            "dial_code": "+216",
+            "code": "TN",
+            "nationalite_feminin": "Tunisienne"
+        },
+        {
+            "name": "Turquie",
+            "dial_code": "+90",
+            "code": "TR",
+            "nationalite_feminin": "Turque"
+        },
+        {
+            "name": "Turkménistan",
+            "dial_code": "+993",
+            "code": "TM",
+            "nationalite_feminin": "Turkmène"
+        },
+        {
+            "name": "Tuvalu",
+            "dial_code": "+688",
+            "code": "TV",
+            "nationalite_feminin": "Tuvaluane"
+        },
+     
+        {
+            "name": "Ukraine",
+            "dial_code": "+380",
+            "code": "UA",
+            "nationalite_feminin": "Ukrainienne"
+        },
+        {
+            "name": "Uruguay",
+            "dial_code": "+598",
+            "code": "UY",
+            "nationalite_feminin": "Uruguayenne"
+        },
+     
+    
+        {
+            "name": "Vanuatu",
+            "dial_code": "+678",
+            "code": "VU",
+            "nationalite_feminin": "Vanuataise"
+        },
+        {
+            "name": "Venezuela",
+            "dial_code": "+58",
+            "code": "VE",
+            "nationalite_feminin": "Vénézuélienne"
+        },
+        {
+            "name": "Vietnam",
+            "dial_code": "+84",
+            "code": "VN",
+            "nationalite_feminin": "Vietnamienne"
+        },
+
+        {
+            "name": "Yémen",
+            "dial_code": "+967",
+            "code": "YE",
+            "nationalite_feminin": "Yéménite"
+        },
+        {
+            "name": "Zambie",
+            "dial_code": "+260",
+            "code": "ZM",
+            "nationalite_feminin": "Zambienne"
+        },
+        {
+            "name": "Zimbabwe",
+            "dial_code": "+263",
+            "code": "ZW",
+            "nationalite_feminin": "Zimbabwéenne"
+        }
+    ]
+}
