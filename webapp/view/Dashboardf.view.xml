@@ -695,7 +695,7 @@
 														'path':'/DateNaissance',             
 														'type':'sap.ui.model.type.Date',
 														'formatOptions': {
-															'pattern': 'yyyy/MM/dd'
+															'pattern': 'dd/MM/yyyy'
 														}
 													}"
 													change="handleChange"
@@ -725,7 +725,7 @@
 													'path':'/DateDemarrage',              
                                                     'type':'sap.ui.model.type.Date',
                                                     'formatOptions': {
-                                                        'pattern': 'yyyy/MM/dd'
+                                                        'pattern': 'yyyy-MM-dd'
                                                     }
                                                 }"
                                                 change="handleChange"
@@ -742,14 +742,13 @@
 													operator: 'EQ',
 													value1: 'manager'
 												}]				
-												}"
-												
+												}"			
 												>
 												<items>
-													<core:Item text="{odataModel>Nom} {odataModel>Prenom}" />
-												
+													<core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}" />											
 												</items>
 											</Select>
+
 											<Label text="Responsable RH" />
 											<Select 
 												id="responsable_rh"
@@ -764,7 +763,7 @@
 														}"
 													>
 												<items>
-													<core:Item text="{odataModel>Nom} {odataModel>Prenom}"/>
+													<core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>IdRh}"/>
 												
 												</items>
 											</Select>
@@ -820,8 +819,7 @@
 													<core:Item text="Assistant direction" />
 													<core:Item text="Responsable Formation" />
 													<core:Item text="Ressource Manager" />
-													<core:Item text="Stagiaire PFE" />
-												                                  
+													<core:Item text="Stagiaire PFE" />										                                  
 												</items>
 											</Select>
 											<Label text="Fonction" />
@@ -912,14 +910,14 @@
 													rows="4"
 													ariaLabelledBy="TextAreaLabel"/>									
 										</f:content>
-											<Button type="Accept"
+											<!-- <Button type="Accept"
 													text="Accept"
-													press="onON"
+													press="onOn"
 													>
 												<layoutData>
 													<FlexItemData growFactor="1" />
 												</layoutData>
-											</Button>
+											</Button> -->
 									</f:SimpleForm>
 								</VBox>						
 							</VBox>

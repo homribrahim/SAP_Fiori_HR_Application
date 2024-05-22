@@ -60,8 +60,12 @@ sap.ui.define([
                 success: function(data){
                     var xModel = new JSONModel(data);
                     that.getView().setModel(xModel,"odataModel");
+
+                    console.log(data)
                     var x = data.results.length;
-                    that.getView().getModel().setProperty("/xValue", x);
+                    
+                    var xValueModel = new JSONModel({ xValue: x });
+                    that.getView().setModel(xValueModel, "xValueModel");
                     
                 },
                 error: function(oError){
@@ -218,8 +222,16 @@ sap.ui.define([
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("odataModel");
             var sPath = oContext.getPath();
+
+           
             var oProductDetailPanel = this.byId("collabDetails");
+            
             oProductDetailPanel.bindElement({ path: sPath, model: "odataModel" });
+            /* console.log(oProductDetailPanel) */
+            
+            var currentIdCollab = new JSONModel({ currentIdCollab: (this.getView().getModel("odataModel").getProperty(sPath)).Idcollab });
+            this.getView().setModel(currentIdCollab, "currentIdCollabModel");
+            
         },
 
         onSuggest: function (oEvent) {
@@ -241,18 +253,63 @@ sap.ui.define([
 
         this.oSF.getBinding("suggestionItems").filter(aFilters);
         this.oSF.suggest();
+    
 		},
 
-        onOn () {
-            // Access xValue from the model and display it
-            var xValue = this.getView().getModel().getProperty("/xValue");
-            console.log("Value of x in onOn(): " + xValue);
-            // You can now use xValue as needed in this function
+        getLogin :function (DD,CV,PL,AG,IDC)
+        {
+            //DD : date démarrage
+            //CV : civilité
+            //PL : pole
+            //AG : agence
+            //IDC : idcollab
+
+            //Date Demarrage
+            const lastTwoDigits = (DD.substr(2,2));
+            
+            //Civilite
+            if (CV == 'Mme.') 
+               var civiliteCollab = 'F'
+            else if (CV == 'M.')
+               var civiliteCollab = 'H'
+
+            //Pole
+            if (PL == 'ADMINISTRATIF et FINANCIER')
+               var poleCollab = 'A'
+            else if ( PL == 'SAP BASIS' )
+                var poleCollab = 'B'
+            else if (PL == 'COMMERCIAL')
+                var poleCollab = 'C'
+            else if (PL == 'DIGITAL')
+                var poleCollab = 'D'
+            else if (PL == 'DIRECTION') 
+                var poleCollab = 'Dir'
+            else if (PL == 'OPERATION')
+                var poleCollab = 'O'
+            else if (PL == 'PMO')
+                var poleCollab = 'P'
+            else if (PL == 'RESSOURCE HUMAINE')
+                var poleCollab = 'R'
+            else if (PL == 'SAP FONCTIONNEL')
+                var poleCollab = 'F'
+            else if (PL == 'SAP TECHNIQUE')
+                var poleCollab = 'T'
+
+            //Agence
+            if (AG == 'AYMAX EGYPTE')
+               var agenceCollab = 'A'
+            else if (AG == 'AYMAX CONSULTING')
+                var agenceCollab = 'B'
+            else if (AG == 'AYMAX TECHNOLOGY')
+                var agenceCollab = 'T'
+            
+            return lastTwoDigits+civiliteCollab+poleCollab+agenceCollab+IDC
+              
         },
 
         onCreateCollab () 
         {
-            
+            var xValue = this.getView().getModel("xValueModel").getProperty("/xValue");
             
             var oDateFormat = DateFormat.getDateInstance({
                 pattern: "dd/MM/yyyy HH:mm" 
@@ -263,6 +320,7 @@ sap.ui.define([
 
             console.log(sFormattedDate)
 
+            var IdCollab = (xValue +1);
             var ReferenceInterne = this.byId("comp").getValue();
             var Civilite = this.byId("civilite_collab").getSelectedItem().getText();   
             var Nom = this.byId("nom_collab").getValue();
@@ -290,14 +348,15 @@ sap.ui.define([
             var Diplomes = this.byId("diplome_collab").getValue();
             var DateDemarrage = this.byId("date_demarrage").getValue();
             var Fonction = this.byId("fonction_collab").getValue();
-            var IdManager = this.byId("responsable_manager").getSelectedItem().getText();
-            var IdRh = this.byId("responsable_rh").getSelectedItem().getText();
+            var IdManager = this.byId("responsable_manager").getSelectedItem().getKey();
+            var IdRh = this.byId("responsable_rh").getSelectedItem().getKey();
             var Role = this.byId("role_collab").getSelectedItem().getText();
+            var Login = this.getLogin(DateDemarrage,Civilite,Pole,Agence,IdCollab.toString())
 
             var NumeroTelephone = code_pays + NumTel ;
 
             var collabData = {}
-                collabData.Idcollab = "14000"
+                collabData.Idcollab = IdCollab.toString()
                 collabData.ReferenceInterne = ReferenceInterne
                 collabData.Civilite = Civilite  
                 collabData.Nom = Nom
@@ -329,8 +388,8 @@ sap.ui.define([
                 collabData.IdManager = IdManager
                 collabData.IdRh = IdRh
                 collabData.Role = Role
-                collabData.Login = "COLLAB458"
-                collabData.MotDePasse = "abcde256"  
+                collabData.Login = Login
+                collabData.MotDePasse = "INIT"+IdCollab.toString()
 
             console.log(collabData)
 
@@ -362,10 +421,23 @@ sap.ui.define([
 						press: function () {
                             this.byId("collabDetails").setVisible(false);                
                             this.byId("collabTableSection").setVisible(true);
+                            var currentIdCollab = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdCollab");
+                            var oDeleteModel = this.getOwnerComponent().getModel();
+    
+                            oDeleteModel.remove("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + currentIdCollab + "')",
+                            {         
+                                success:function()
+                                {
+                                    console.log("User Deleted Successfuly !")
+                                    MessageToast.show("Compte Supprimé !");
+							        this.oApproveDialog.close();
+                                },
+                                error:function(oError)
+                                {
+                                    console.log(oError)
+                                }
+                            }) 
 
-							MessageToast.show("Compte Supprimé !");
-							this.oApproveDialog.close();
-                            
 						}.bind(this)
 					}),
 					endButton: new Button({
