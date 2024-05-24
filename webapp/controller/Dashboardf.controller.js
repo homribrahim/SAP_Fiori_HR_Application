@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/Device",
+    "sap/ui/Device",    
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/m/Popover",
@@ -194,11 +194,24 @@ sap.ui.define([
                     currentIdCollab: (this.getView().getModel("odataModel").getProperty(sPath)).Idcollab ,
                     currentDateCreation : (this.getView().getModel("odataModel").getProperty(sPath)).DateCreation,
                     currentLogin : (this.getView().getModel("odataModel").getProperty(sPath)).Login,
-                    currentPassword : (this.getView().getModel("odataModel").getProperty(sPath)).MotDePasse
-                
+                    currentPassword : (this.getView().getModel("odataModel").getProperty(sPath)).MotDePasse,
+                    currentState : (this.getView().getModel("odataModel").getProperty(sPath)).Etat     
                 });
 
-            this.getView().setModel(currentIdCollab, "currentIdCollabModel");            
+            this.getView().setModel(currentIdCollab, "currentIdCollabModel"); 
+
+            //Formatter For Profile State
+            
+            /*  var currentState = this.getView().getModel("currentIdCollabModel").getProperty("/currentState");
+                var etat = this.byId("etat")
+
+                if (currentState=="En Cours")
+                    etat.setState("Success")
+                else if (currentState=="Intercontrat")
+                    etat.setState("Warning")
+                else if (currentState=="Sortie")
+                    etat.setState("Error") */
+            
         },
 
         onSuggest: function (oEvent) {
@@ -300,7 +313,7 @@ sap.ui.define([
             var Mobilite = this.byId("mobilite_collab").getSelectedItem().getText();
             var Email = this.byId("email_collab").getValue();
             var EmailLinkedin = this.byId("linkedin_collab").getValue();
-            var code_pays = this.byId("codephone_collab").getSelectedItem().getText();
+            var code_pays = this.byId("codephone_collab").getText();
             var NumTel = this.byId("phone_collab").getValue();
             var DateNaissance = this.byId("naissance_collab").getValue();
             var Nationalite = this.byId("nationalite_collab").getSelectedItem().getText();
@@ -404,36 +417,36 @@ sap.ui.define([
                             console.log(sFormattedDate)
                 
                             var IdCollab = (xValue +1);
-                            var ReferenceInterne = this.byId("comp").getValue();
-                            var Civilite = this.byId("civilite_collab").getSelectedItem().getText();   
-                            var Nom = this.byId("nom_collab").getValue();
-                            var Prenom = this.byId("prenom_collab").getValue();
-                            var Type = this.byId("type_collab").getSelectedItem().getText();
-                            var Etat = this.byId("etat_collab").getSelectedItem().getText();
-                            var Titre = this.byId("titre_collab").getValue();
-                            var Domaine = this.byId("domaine_collab").getSelectedItem().getText();
-                            var Experience = this.byId("xp_collab").getValue();
-                            var Mobilite = this.byId("mobilite_collab").getSelectedItem().getText();
-                            var Email = this.byId("email_collab").getValue();
-                            var EmailLinkedin = this.byId("linkedin_collab").getValue();
-                            var code_pays = this.byId("codephone_collab").getSelectedItem().getText();
-                            var NumTel = this.byId("phone_collab").getValue();
-                            var DateNaissance = this.byId("naissance_collab").getValue();
-                            var Nationalite = this.byId("nationalite_collab").getSelectedItem().getText();
-                            var SituationFamiliale = this.byId("situation_familiale").getSelectedItem().getText();
-                            var NumeroSecuriteSociale = this.byId("nss").getValue();
-                            var Adresse = this.byId("adresse_collab").getValue();
-                            var CodePostal = this.byId("code_postal").getValue();
-                            var Ville = this.byId("ville_collab").getValue();
-                            var Pays = this.byId("pays_collab").getSelectedItem().getText();
-                            var Pole = this.byId("pole_collab").getSelectedItem().getText();
-                            var Agence = this.byId("agence_collab").getSelectedItem().getText();
-                            var Diplomes = this.byId("diplome_collab").getValue();
-                            var DateDemarrage = this.byId("date_demarrage").getValue();
-                            var Fonction = this.byId("fonction_collab").getValue();
-                            var IdManager = this.byId("responsable_manager").getSelectedItem().getKey();
-                            var IdRh = this.byId("responsable_rh").getSelectedItem().getKey();
-                            var Role = this.byId("role_collab").getSelectedItem().getText();
+                            var ReferenceInterne = this.byId("comp_edit").getValue();
+                            var Civilite = this.byId("civilite_collab_edit").getSelectedItem().getText();   
+                            var Nom = this.byId("nom_collab_edit").getValue();
+                            var Prenom = this.byId("prenom_collab_edit").getValue();
+                            var Type = this.byId("type_collab_edit").getSelectedItem().getText();
+                            var Etat = this.byId("etat_collab_edit").getSelectedItem().getText();
+                            var Titre = this.byId("titre_collab_edit").getValue();
+                            var Domaine = this.byId("domaine_collab_edit").getSelectedItem().getText();
+                            var Experience = this.byId("xp_collab_edit").getValue();
+                            var Mobilite = this.byId("mobilite_collab_edit").getSelectedItem().getText();
+                            var Email = this.byId("email_collab_edit").getValue();
+                            var EmailLinkedin = this.byId("linkedin_collab_edit").getValue();
+                            var code_pays = this.byId("codephone_collab_edit").getSelectedItem().getText();
+                            var NumTel = this.byId("phone_collab_edit").getValue();
+                            var DateNaissance = this.byId("naissance_collab_edit").getValue();
+                            var Nationalite = this.byId("nationalite_collab_edit").getSelectedItem().getText();
+                            var SituationFamiliale = this.byId("situation_familiale_edit").getSelectedItem().getText();
+                            var NumeroSecuriteSociale = this.byId("nss_edit").getValue();
+                            var Adresse = this.byId("adresse_collab_edit").getValue();
+                            var CodePostal = this.byId("code_postal_edit").getValue();
+                            var Ville = this.byId("ville_collab_edit").getValue();
+                            var Pays = this.byId("pays_collab_edit").getSelectedItem().getText();
+                            var Pole = this.byId("pole_collab_edit").getSelectedItem().getText();
+                            var Agence = this.byId("agence_collab_edit").getSelectedItem().getText();
+                            var Diplomes = this.byId("diplome_collab_edit").getValue();
+                            var DateDemarrage = this.byId("date_demarrage_edit").getValue();
+                            var Fonction = this.byId("fonction_collab_edit").getValue();
+                            var IdManager = this.byId("responsable_manager_edit").getSelectedItem().getKey();
+                            var IdRh = this.byId("responsable_rh_edit").getSelectedItem().getKey();
+                            var Role = this.byId("role_collab_edit").getSelectedItem().getText();
                             var Login = this.getLogin(DateDemarrage,Civilite,Pole,Agence,IdCollab.toString())
                 
                             var NumeroTelephone = code_pays + NumTel ;
@@ -545,6 +558,7 @@ sap.ui.define([
                     var sSelectedKey = countryData.dial_code;
                 }
             }
+            
             
             this.byId("codephone_collab").setText(sSelectedKey)
 

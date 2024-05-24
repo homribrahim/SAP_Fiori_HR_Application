@@ -158,7 +158,7 @@
 												<m:Title class="sapUiTinyMarginBottom">
 													<m:Label text="Etat"/>
 												</m:Title>
-												<m:ObjectStatus text="{odataModel>Etat}" state="Success" class="sapMObjectStatusLarge"/>
+												<m:ObjectStatus id="etat" text="{odataModel>Etat}" state="Success" class="sapMObjectStatusLarge"/>
 											</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
@@ -186,26 +186,26 @@
 													<m:Label text="Etat"/>
 												</m:Title>
 <!-- 												<m:ObjectStatus text="{odataModel>Etat}" state="Success" class="sapMObjectStatusLarge"/> -->	
-													<Input value="{odataModel>Etat}" />
+													<Input id="etat_collab_edit" value="{odataModel>Etat}" />
 											</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Date de Démarrage" class="sapUiTinyMarginBottom" />
 <!-- 												<m:ObjectStatus text="{odataModel>DateDemarrage}" icon="sap-icon://date-time" class="sapMObjectStatusLarge"/>
  -->										
-													<Input value="{odataModel>DateDemarrage}" />
+													<Input id="date_demarrage_edit" value="{odataModel>DateDemarrage}" />
  													</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Ancienneté" class="sapUiTinyMarginBottom" />
 												<!-- <m:ObjectStatus text="To Be Selected" state="Error" class="sapMObjectStatusLarge"/> -->
-													<Input value="To Be Selected" />
+													<Input enabled="false" value="To Be Selected" />
 											</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
 												<!-- <m:ObjectStatus text="{odataModel>Mobilite}" class="sapMObjectStatusLarge"/> -->
-												<Input value="{odataModel>Mobilite}" />
+												<Input id="mobilite_collab_edit" value="{odataModel>Mobilite}" />
 											</m:VBox>		
 										</m:FlexBox>
 									</ux:headerContent>
@@ -274,41 +274,41 @@
 																<core:Title text="Informations Personnelles" />
 																
 																<Label text="Réference Interne" />
-																<Input value="{odataModel>ReferenceInterne}" />
+																<Input id="comp_edit" value="{odataModel>ReferenceInterne}" />
 
 																<Label text="Numéro de Sécurité Sociale" />
-																<Input value="{odataModel>NumeroSecuriteSociale}" />
+																<Input id="nss_edit" value="{odataModel>NumeroSecuriteSociale}" />
 
 																<Label text="Date de Naissance" />
-																<Input value="{odataModel>DateNaissance}" />
+																<Input id="naissance_collab_edit" value="{odataModel>DateNaissance}" />
 
 																<Label text="Nationalité" />
-																<Input value="{odataModel>Nationalite}" />
+																<Input id="nationalite_collab_edit" value="{odataModel>Nationalite}" />
 
 																<Label text="Situation Familiale" />
-																<Input value="{odataModel>SituationFamiliale}" />
+																<Input id="situation_familiale_edit" value="{odataModel>SituationFamiliale}" />
 
 																<core:Title text="Informations Professionnelles/Académiques" />
 
 																<Label text="Titre" />
-																<Input value="{odataModel>Titre}" />
+																<Input id="titre_collab_edit" value="{odataModel>Titre}" />
 
 																<Label text="Expérience" />
-																<Input value="{odataModel>Experience}" />
+																<Input id="xp_collab_edit" value="{odataModel>Experience}" />
 
 																<Label text="Domaine" />
-																<Input value="{odataModel>Domaine}" />
+																<Input id="domaine_collab_edit" value="{odataModel>Domaine}" />
 
 																<Label text="Diplômes" />
-																<Input value="{odataModel>Diplomes}" />
+																<Input id="diplome_collab_edit" value="{odataModel>Diplomes}" />
 
 																<core:Title text="Informations Compte" />
 
 																<Label text="Date de Création" />
-																<Input value="{odataModel>DateCreation}"/>
+																<Input enabled="false" value="{odataModel>DateCreation}"/>
 
 																<Label text="Date de Mise à Jour" />
-																<Input value="{odataModel>DateMiseAJour}"/>
+																<Input enabled="false" value="{odataModel>DateMiseAJour}"/>
 
 															</f:content>
 														</forms:SimpleForm>
@@ -367,7 +367,7 @@
 															<core:Title text="Numéro de Télèphone" />
 
 															<Label text="Mobile"/>
-															<Input value="{odataModel>NumeroTelephone}" />
+															<Input id="phone_collab_edit" value="{odataModel>NumeroTelephone}" />
 
 															<Label text="Fixe" />
 															<Input value="Non spécifié" />
@@ -375,24 +375,24 @@
 															<core:Title text="Comptes" />
 
 															<Label text="Email" />
-															<Input value="{odataModel>Email}" />
+															<Input id="email_collab_edit" value="{odataModel>Email}" />
 
 															<Label text="LinkedIn"/>
-															<Input value="{odataModel>EmailLinkedin}" />
+															<Input id="linkedin_collab_edit" value="{odataModel>EmailLinkedin}" />
 
 															<core:Title text="Adresses" />
 
 															<Label text="Pays" />
-															<Input value="{odataModel>Pays}" />
+															<Input id="pays_collab_edit" value="{odataModel>Pays}" />
 
 															<Label text="Ville" />
-															<Input value="{odataModel>Ville}" />
+															<Input id="ville_collab_edit" value="{odataModel>Ville}" />
 
 															<Label text="Adresse" />
-															<Input value="{odataModel>Adresse}" />
+															<Input id="adresse_collab_edit" value="{odataModel>Adresse}" />
 
 															<Label text="Code Postal" />
-															<Input value="{odataModel>CodePostal}" />
+															<Input id="code_postal_edit" value="{odataModel>CodePostal}" />
 
 														</forms:SimpleForm>
 														
@@ -660,7 +660,6 @@
 											<Select 
 												enabled="false"
 											 	>
-												
 												<core:Item id="codephone_collab" text="" />
 											</Select>
 										                                                        
@@ -906,7 +905,8 @@
 													<core:Item text="Système d'information" />
 													<core:Item text="Système d'information de gestion" />
 													<core:Item text="Business intelligence" />
-													<core:Item text="Génie des systèmes industriels et logistique" />												</items>
+													<core:Item text="Génie des systèmes industriels et logistique" />	
+												</items>
 											</Select>                  
 											<Label id="TextAreaLabel" text="Diplômes" />
 												<TextArea
