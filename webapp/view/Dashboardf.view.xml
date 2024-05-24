@@ -632,7 +632,13 @@
 											<Input placeholder="Ville" id="ville_collab"  />
 	
 											<Label text="Pays" />
-											 <Select id="pays_collab" items="{ path: 'appData>/Countries'}">
+											<Select 
+												change="onCountryChange"	
+												id="pays_collab" 
+												items="{ path: 'appData>/Countries'}"	
+																						
+											 
+											>
 												<core:Item key="{appData>code}" text="{appData>name}" />
 											</Select>
 	
@@ -652,9 +658,10 @@
 										<!--Add code country phone number please -->
 											<Label text="Code Télèphone" />
 											<Select 
-											 	id="codephone_collab"
-												items="{ path: 'appData>/Countries'}" >
-												<core:Item key="{appData>code}" text="{appData>dial_code}" />
+												enabled="false"
+											 	>
+												
+												<core:Item id="codephone_collab" text="" />
 											</Select>
 										                                                        
 											<Input
@@ -680,7 +687,7 @@
 										<f:content>
 											<core:Title text="" />
 											<Label text="Civilité" />
-											<Select id="civilite_collab" >
+											<Select id="civilite_collab">
 												<items>
 													<core:Item text="Mme." key="femme"/>
 													<core:Item text="M." key="homme"/>	

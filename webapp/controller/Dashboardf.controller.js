@@ -92,8 +92,7 @@ sap.ui.define([
                     collabTableSection.setVisible(true)
                 }, 4000);
 
-                this.oSF = this.byId("searchField");
-
+                this.oSF = this.byId("searchField");           
          },
 
         onEdit () 
@@ -108,41 +107,7 @@ sap.ui.define([
             this.byId("headerInfoEdit").setVisible(true);
         },
 
-        onApproveDialogPress: function () {
-			if (!this.oApproveDialog) {
-				this.oApproveDialog = new Dialog({
-					type: DialogType.Message,
-					title: "Mise à jour du Compte",
-					content: new Text({ text: "Confirmez-vous la mise à jour de ce profil ?" }),
-					beginButton: new Button({
-						type: ButtonType.Emphasized,
-						text: "Confirmer",
-						press: function () {
-                            this.byId("collabInfosDisplay").setVisible(true);
-                            this.byId("collabCoordDisplay").setVisible(true);
-                            this.byId("headerInfoDisplay").setVisible(true);
-                            this.byId("saveButton").setVisible(false);
-                            this.byId("editButton").setVisible(true);
-                            this.byId("collabInfosEdit").setVisible(false);
-                            this.byId("collabCoordEdit").setVisible(false);
-                            this.byId("headerInfoEdit").setVisible(false);
-							MessageToast.show("Profil mis à jour !");
-							this.oApproveDialog.close();
-                            
-						}.bind(this)
-					}),
-					endButton: new Button({
-						text: "Annuler",
-						press: function () {
-							this.oApproveDialog.close();
-						}.bind(this)
-					})
-				});
-			}
-
-			this.oApproveDialog.open();
-		},
- 
+      
         onWindowResize() {
             const oSideNavigation = this.byId("sideNavigation");
             const screenWidth = window.innerWidth;
@@ -222,16 +187,18 @@ sap.ui.define([
             var oSelectedItem = oEvent.getSource();
             var oContext = oSelectedItem.getBindingContext("odataModel");
             var sPath = oContext.getPath();
-
-           
             var oProductDetailPanel = this.byId("collabDetails");
-            
             oProductDetailPanel.bindElement({ path: sPath, model: "odataModel" });
-            /* console.log(oProductDetailPanel) */
-            
-            var currentIdCollab = new JSONModel({ currentIdCollab: (this.getView().getModel("odataModel").getProperty(sPath)).Idcollab });
-            this.getView().setModel(currentIdCollab, "currentIdCollabModel");
-            
+            /* console.log(oProductDetailPanel) */     
+            var currentIdCollab = new JSONModel({ 
+                    currentIdCollab: (this.getView().getModel("odataModel").getProperty(sPath)).Idcollab ,
+                    currentDateCreation : (this.getView().getModel("odataModel").getProperty(sPath)).DateCreation,
+                    currentLogin : (this.getView().getModel("odataModel").getProperty(sPath)).Login,
+                    currentPassword : (this.getView().getModel("odataModel").getProperty(sPath)).MotDePasse
+                
+                });
+
+            this.getView().setModel(currentIdCollab, "currentIdCollabModel");            
         },
 
         onSuggest: function (oEvent) {
@@ -405,9 +372,126 @@ sap.ui.define([
                     console.log(oError)
                 }
                 });
-
-                
+     
         },
+
+        onApproveDialogPress: function () {
+			if (!this.oApproveDialog) {
+				this.oApproveDialog = new Dialog({
+					type: DialogType.Message,
+					title: "Mise à jour du Compte",
+					content: new Text({ text: "Confirmez-vous la mise à jour de ce profil ?" }),
+					beginButton: new Button({
+						type: ButtonType.Emphasized,
+						text: "Confirmer",
+						press: function () {
+                            this.byId("collabInfosDisplay").setVisible(true);
+                            this.byId("collabCoordDisplay").setVisible(true);
+                            this.byId("headerInfoDisplay").setVisible(true);
+                            this.byId("saveButton").setVisible(false);
+                            this.byId("editButton").setVisible(true);
+                            this.byId("collabInfosEdit").setVisible(false);
+                            this.byId("collabCoordEdit").setVisible(false);
+                            this.byId("headerInfoEdit").setVisible(false);
+/* 
+                            var oDateFormat = DateFormat.getDateInstance({
+                                pattern: "dd/MM/yyyy HH:mm" 
+                            });
+                
+                            var oDate = new Date();
+                            var sFormattedDate = oDateFormat.format(oDate);
+                
+                            console.log(sFormattedDate)
+                
+                            var IdCollab = (xValue +1);
+                            var ReferenceInterne = this.byId("comp").getValue();
+                            var Civilite = this.byId("civilite_collab").getSelectedItem().getText();   
+                            var Nom = this.byId("nom_collab").getValue();
+                            var Prenom = this.byId("prenom_collab").getValue();
+                            var Type = this.byId("type_collab").getSelectedItem().getText();
+                            var Etat = this.byId("etat_collab").getSelectedItem().getText();
+                            var Titre = this.byId("titre_collab").getValue();
+                            var Domaine = this.byId("domaine_collab").getSelectedItem().getText();
+                            var Experience = this.byId("xp_collab").getValue();
+                            var Mobilite = this.byId("mobilite_collab").getSelectedItem().getText();
+                            var Email = this.byId("email_collab").getValue();
+                            var EmailLinkedin = this.byId("linkedin_collab").getValue();
+                            var code_pays = this.byId("codephone_collab").getSelectedItem().getText();
+                            var NumTel = this.byId("phone_collab").getValue();
+                            var DateNaissance = this.byId("naissance_collab").getValue();
+                            var Nationalite = this.byId("nationalite_collab").getSelectedItem().getText();
+                            var SituationFamiliale = this.byId("situation_familiale").getSelectedItem().getText();
+                            var NumeroSecuriteSociale = this.byId("nss").getValue();
+                            var Adresse = this.byId("adresse_collab").getValue();
+                            var CodePostal = this.byId("code_postal").getValue();
+                            var Ville = this.byId("ville_collab").getValue();
+                            var Pays = this.byId("pays_collab").getSelectedItem().getText();
+                            var Pole = this.byId("pole_collab").getSelectedItem().getText();
+                            var Agence = this.byId("agence_collab").getSelectedItem().getText();
+                            var Diplomes = this.byId("diplome_collab").getValue();
+                            var DateDemarrage = this.byId("date_demarrage").getValue();
+                            var Fonction = this.byId("fonction_collab").getValue();
+                            var IdManager = this.byId("responsable_manager").getSelectedItem().getKey();
+                            var IdRh = this.byId("responsable_rh").getSelectedItem().getKey();
+                            var Role = this.byId("role_collab").getSelectedItem().getText();
+                            var Login = this.getLogin(DateDemarrage,Civilite,Pole,Agence,IdCollab.toString())
+                
+                            var NumeroTelephone = code_pays + NumTel ;
+                
+                            var collabData = {}
+                                collabData.Idcollab = IdCollab.toString()
+                                collabData.ReferenceInterne = ReferenceInterne
+                                collabData.Civilite = Civilite  
+                                collabData.Nom = Nom
+                                collabData.Prenom = Prenom
+                                collabData.Type = Type
+                                collabData.Etat = Etat
+                                collabData.Titre = Titre
+                                collabData.Domaine = Domaine
+                                collabData.Experience = Experience
+                                collabData.Mobilite = Mobilite
+                                collabData.Email = Email
+                                collabData.EmailLinkedin = EmailLinkedin
+                                collabData.NumeroTelephone = NumeroTelephone
+                                collabData.DateNaissance = DateNaissance
+                                collabData.Nationalite = Nationalite
+                                collabData.SituationFamiliale = SituationFamiliale
+                                collabData.NumeroSecuriteSociale = NumeroSecuriteSociale
+                                collabData.Adresse = Adresse
+                                collabData.CodePostal = CodePostal
+                                collabData.Ville = Ville
+                                collabData.Pays = Pays
+                                collabData.Pole = Pole
+                                collabData.Agence = Agence
+                                collabData.DateCreation = sFormattedDate
+                                collabData.DateMiseAJour = sFormattedDate
+                                collabData.Diplomes = Diplomes
+                                collabData.DateDemarrage = DateDemarrage
+                                collabData.Fonction = Fonction
+                                collabData.IdManager = IdManager
+                                collabData.IdRh = IdRh
+                                collabData.Role = Role
+                                collabData.Login = Login
+                                collabData.MotDePasse = "INIT"+IdCollab.toString()
+                 */
+
+							MessageToast.show("Profil mis à jour !");
+							this.oApproveDialog.close();
+                            
+						}.bind(this)
+					}),
+					endButton: new Button({
+						text: "Annuler",
+						press: function () {
+							this.oApproveDialog.close();
+						}.bind(this)
+					})
+				});
+			}
+
+			this.oApproveDialog.open();
+		},
+ 
 
         onDelete :function () {
 			if (!this.oApproveDialog) {
@@ -452,8 +536,23 @@ sap.ui.define([
 			this.oApproveDialog.open();
         },
 
-        // Visibility Sections
-        
+        onCountryChange: function (oEvent) {
+
+            const selectedItem = oEvent.getParameter("selectedItem").getKey();
+            var oModel = this.getView().getModel("appData").getProperty("/Countries");
+            for (const countryData of Object.values(oModel)) {
+                if (countryData.code === selectedItem) {
+                    var sSelectedKey = countryData.dial_code;
+                }
+            }
+            
+            this.byId("codephone_collab").setText(sSelectedKey)
+
+
+        },
+
+        // Visibility Sections       
+
         onBack (sectionOne,sectionTwo)
         {
             this.getView().byId(sectionOne).setVisible(false);
