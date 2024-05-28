@@ -12,11 +12,13 @@ sap.ui.define([
     "sap/m/Dialog",
     "sap/m/Text",
     "sap/m/MessageToast",
-    "sap/ui/core/format/DateFormat"
+    "sap/ui/core/format/DateFormat",
+	'sap/ui/export/Spreadsheet'
 
-], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat) {
+], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,Spreadsheet) {
     "use strict";
  
+
     var ButtonType = mobileLibrary.ButtonType,
         PlacementType = mobileLibrary.PlacementType;
 
@@ -26,6 +28,9 @@ sap.ui.define([
  
         onInit: function () {
 
+
+/*             this.getOwnerComponent().getRouter().getRoute("DashboardF").attachPatternMatched(this.onRouteMatched,this);
+ */
             //Side Nav Loading
 
             var oSideContentModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));       
@@ -95,9 +100,37 @@ sap.ui.define([
                 this.oSF = this.byId("searchField");           
          },
 
+       /*  onRouteMatched :function (oEvent)
+        {
+            var role = oEvent.getParameter("arguments").role;
+            
+            if (role == "RH")
+                {
+                    //LOGIC RH
+                }
+            if (role == "Manager")
+                {
+                    //LOGIC RH
+                }
+            if (role == "Collaborateur")
+                {
+                    this.byId('home').setVisible(false)
+                    this.byId('ressources').setVisible(false)
+                    this.byId('evalManager').setVisible(false)
+                    this.byId('evalResults').setVisible(false)
+                    this.byId('evalGrille').setVisible(false)
+                    this.byId('epulseResults').setVisible(false)
+                    this.byId('epulseAction').setVisible(false)
+
+
+
+                }
+        }, */
+
         onEdit () 
         {
             this.byId("editButton").setVisible(false);
+            this.byId("deleteButton").setVisible(false);
 			this.byId("saveButton").setVisible(true);
 			this.byId("collabInfosEdit").setVisible(true);
             this.byId("collabCoordEdit").setVisible(true);
@@ -192,10 +225,20 @@ sap.ui.define([
             /* console.log(oProductDetailPanel) */     
             var currentIdCollab = new JSONModel({ 
                     currentIdCollab: (this.getView().getModel("odataModel").getProperty(sPath)).Idcollab ,
+                    currentCivilite: (this.getView().getModel("odataModel").getProperty(sPath)).Civilite ,
+                    currentNom: (this.getView().getModel("odataModel").getProperty(sPath)).Nom ,
+                    currentPrenom: (this.getView().getModel("odataModel").getProperty(sPath)).Prenom ,
+                    currentType: (this.getView().getModel("odataModel").getProperty(sPath)).Type ,
+                    currentPole: (this.getView().getModel("odataModel").getProperty(sPath)).Pole ,
+                    currentFonction: (this.getView().getModel("odataModel").getProperty(sPath)).Fonction ,
+                    currentAgence : (this.getView().getModel("odataModel").getProperty(sPath)).Agence ,
                     currentDateCreation : (this.getView().getModel("odataModel").getProperty(sPath)).DateCreation,
+                    currentIdManager : (this.getView().getModel("odataModel").getProperty(sPath)).IdManager,
+                    currentIdRh : (this.getView().getModel("odataModel").getProperty(sPath)).IdRh,
                     currentLogin : (this.getView().getModel("odataModel").getProperty(sPath)).Login,
                     currentPassword : (this.getView().getModel("odataModel").getProperty(sPath)).MotDePasse,
-                    currentState : (this.getView().getModel("odataModel").getProperty(sPath)).Etat     
+                    currentRole :  (this.getView().getModel("odataModel").getProperty(sPath)).Role,
+                    currentState : (this.getView().getModel("odataModel").getProperty(sPath)).Etat,     
                 });
 
             this.getView().setModel(currentIdCollab, "currentIdCollabModel"); 
@@ -406,7 +449,21 @@ sap.ui.define([
                             this.byId("collabInfosEdit").setVisible(false);
                             this.byId("collabCoordEdit").setVisible(false);
                             this.byId("headerInfoEdit").setVisible(false);
-/* 
+                            var currentIdCollab = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdCollab");
+                            var currentCivilite = this.getView().getModel("currentIdCollabModel").getProperty("/currentCivilite");
+                            var currentNom = this.getView().getModel("currentIdCollabModel").getProperty("/currentNom");
+                            var currentPrenom = this.getView().getModel("currentIdCollabModel").getProperty("/currentPrenom");
+                            var currentType = this.getView().getModel("currentIdCollabModel").getProperty("/currentType");
+                            var currentPole = this.getView().getModel("currentIdCollabModel").getProperty("/currentPole");
+                            var currentFonction = this.getView().getModel("currentIdCollabModel").getProperty("/currentFonction");
+                            var currentDateCreation = this.getView().getModel("currentIdCollabModel").getProperty("/currentDateCreation");
+                            var currentAgence = this.getView().getModel("currentIdCollabModel").getProperty("/currentAgence");
+                            var currentIdManager = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdManager");
+                            var currentIdRh = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdRh");
+                            var currentLogin = this.getView().getModel("currentIdCollabModel").getProperty("/currentLogin");
+                            var currentPassword = this.getView().getModel("currentIdCollabModel").getProperty("/currentPassword");
+                            var currentRole = this.getView().getModel("currentIdCollabModel").getProperty("/currentRole");
+
                             var oDateFormat = DateFormat.getDateInstance({
                                 pattern: "dd/MM/yyyy HH:mm" 
                             });
@@ -416,48 +473,33 @@ sap.ui.define([
                 
                             console.log(sFormattedDate)
                 
-                            var IdCollab = (xValue +1);
                             var ReferenceInterne = this.byId("comp_edit").getValue();
-                            var Civilite = this.byId("civilite_collab_edit").getSelectedItem().getText();   
-                            var Nom = this.byId("nom_collab_edit").getValue();
-                            var Prenom = this.byId("prenom_collab_edit").getValue();
-                            var Type = this.byId("type_collab_edit").getSelectedItem().getText();
-                            var Etat = this.byId("etat_collab_edit").getSelectedItem().getText();
+                            var Etat = this.byId("etat_collab_edit").getValue();
                             var Titre = this.byId("titre_collab_edit").getValue();
-                            var Domaine = this.byId("domaine_collab_edit").getSelectedItem().getText();
+                            var Domaine = this.byId("domaine_collab_edit").getValue();
                             var Experience = this.byId("xp_collab_edit").getValue();
-                            var Mobilite = this.byId("mobilite_collab_edit").getSelectedItem().getText();
+                            var Mobilite = this.byId("mobilite_collab_edit").getValue();
                             var Email = this.byId("email_collab_edit").getValue();
-                            var EmailLinkedin = this.byId("linkedin_collab_edit").getValue();
-                            var code_pays = this.byId("codephone_collab_edit").getSelectedItem().getText();
+                            var EmailLinkedin = this.byId("linkedin_collab_edit").getValue();                           
                             var NumTel = this.byId("phone_collab_edit").getValue();
                             var DateNaissance = this.byId("naissance_collab_edit").getValue();
-                            var Nationalite = this.byId("nationalite_collab_edit").getSelectedItem().getText();
-                            var SituationFamiliale = this.byId("situation_familiale_edit").getSelectedItem().getText();
+                            var Nationalite = this.byId("nationalite_collab_edit").getValue();
+                            var SituationFamiliale = this.byId("situation_familiale_edit").getValue();
                             var NumeroSecuriteSociale = this.byId("nss_edit").getValue();
                             var Adresse = this.byId("adresse_collab_edit").getValue();
                             var CodePostal = this.byId("code_postal_edit").getValue();
                             var Ville = this.byId("ville_collab_edit").getValue();
-                            var Pays = this.byId("pays_collab_edit").getSelectedItem().getText();
-                            var Pole = this.byId("pole_collab_edit").getSelectedItem().getText();
-                            var Agence = this.byId("agence_collab_edit").getSelectedItem().getText();
+                            var Pays = this.byId("pays_collab_edit").getValue();
                             var Diplomes = this.byId("diplome_collab_edit").getValue();
                             var DateDemarrage = this.byId("date_demarrage_edit").getValue();
-                            var Fonction = this.byId("fonction_collab_edit").getValue();
-                            var IdManager = this.byId("responsable_manager_edit").getSelectedItem().getKey();
-                            var IdRh = this.byId("responsable_rh_edit").getSelectedItem().getKey();
-                            var Role = this.byId("role_collab_edit").getSelectedItem().getText();
-                            var Login = this.getLogin(DateDemarrage,Civilite,Pole,Agence,IdCollab.toString())
-                
-                            var NumeroTelephone = code_pays + NumTel ;
-                
+                                  
                             var collabData = {}
-                                collabData.Idcollab = IdCollab.toString()
+                                collabData.Idcollab = currentIdCollab
                                 collabData.ReferenceInterne = ReferenceInterne
-                                collabData.Civilite = Civilite  
-                                collabData.Nom = Nom
-                                collabData.Prenom = Prenom
-                                collabData.Type = Type
+                                collabData.Civilite = currentCivilite  
+                                collabData.Nom = currentNom
+                                collabData.Prenom = currentPrenom
+                                collabData.Type = currentType
                                 collabData.Etat = Etat
                                 collabData.Titre = Titre
                                 collabData.Domaine = Domaine
@@ -465,7 +507,7 @@ sap.ui.define([
                                 collabData.Mobilite = Mobilite
                                 collabData.Email = Email
                                 collabData.EmailLinkedin = EmailLinkedin
-                                collabData.NumeroTelephone = NumeroTelephone
+                                collabData.NumeroTelephone = NumTel
                                 collabData.DateNaissance = DateNaissance
                                 collabData.Nationalite = Nationalite
                                 collabData.SituationFamiliale = SituationFamiliale
@@ -474,25 +516,40 @@ sap.ui.define([
                                 collabData.CodePostal = CodePostal
                                 collabData.Ville = Ville
                                 collabData.Pays = Pays
-                                collabData.Pole = Pole
-                                collabData.Agence = Agence
-                                collabData.DateCreation = sFormattedDate
+                                collabData.Pole = currentPole
+                                collabData.Agence = currentAgence
+                                collabData.DateCreation = currentDateCreation //current
                                 collabData.DateMiseAJour = sFormattedDate
                                 collabData.Diplomes = Diplomes
                                 collabData.DateDemarrage = DateDemarrage
-                                collabData.Fonction = Fonction
-                                collabData.IdManager = IdManager
-                                collabData.IdRh = IdRh
-                                collabData.Role = Role
-                                collabData.Login = Login
-                                collabData.MotDePasse = "INIT"+IdCollab.toString()
-                 */
+                                collabData.Fonction = currentFonction
+                                collabData.IdManager = currentIdManager
+                                collabData.IdRh = currentIdRh
+                                collabData.Role = currentRole
+                                collabData.Login = currentLogin
+                                collabData.MotDePasse = currentPassword
 
-							MessageToast.show("Profil mis à jour !");
-							this.oApproveDialog.close();
-                            
-						}.bind(this)
+                            console.log(collabData)
+                      
+
+                    var oUpdateModel = this.getOwnerComponent().getModel();
+                
+                    oUpdateModel.update("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + currentIdCollab + "')",collabData,
+                    {         
+                        success:function()
+                        {
+                            this.oApproveDialog.close();
+                            console.log("User Updated Successfuly !")
+                            MessageToast.show("Profil mis à jour !");
+                            this.byId("deleteButton").setVisible(true);
+                        },
+                        error:function(oError)
+                        {
+                            console.log(oError)
+                        }
+                    })}.bind(this)
 					}),
+
 					endButton: new Button({
 						text: "Annuler",
 						press: function () {
@@ -525,7 +582,7 @@ sap.ui.define([
                             {         
                                 success:function()
                                 {
-                                    console.log("User Deleted Successfuly !")
+                                    console.log("User Deleted Successfully !")
                                     MessageToast.show("Compte Supprimé !");
 							        this.oApproveDialog.close();
                                 },
@@ -559,11 +616,79 @@ sap.ui.define([
                 }
             }
             
-            
             this.byId("codephone_collab").setText(sSelectedKey)
-
-
         },
+
+
+        // Export Section
+
+        /* createColumnConfig: function() {
+			return [
+				{
+					label: 'User ID',
+					property: 'UserID',
+					type: EdmType.Number,
+					scale: 0
+				},
+				{
+					label: 'Collaborateur',
+                    property: ['Nom', 'Prenom'],
+					width: '25'
+				},
+				{
+					label: 'Type',
+					property: 'Type',
+					width: '25'
+				},
+                {
+					label: 'Agence',
+					property: 'Agence',
+					width: '25'
+				},
+                {
+					label: 'Pole',
+					property: 'Pole',
+					width: '25'
+				},
+                {
+					label: 'Etat',
+					property: 'Etat',
+					width: '25'
+				},
+				 {
+					label: 'Salary',
+					property: 'Salary',
+					type: EdmType.Currency,
+					unitProperty: 'Currency',
+					width: '18'
+				}, 
+				{
+					label: 'Active',
+					property: 'Active',
+					type: EdmType.String
+				} ];
+		}, */
+
+    /*      onExport: function() {
+                var aCols, oBinding, oSettings, oSheet, oTable;
+
+                oTable = this.byId('collabTable');
+                oBinding = oTable.getBinding('items');
+                aCols = this.createColumnConfig();
+
+                oSettings = {
+                    workbook: { columns: aCols },
+                    dataSource: oBinding
+                };
+
+                oSheet = new Spreadsheet(oSettings);
+                oSheet.build()
+                    .then(function() {
+                        MessageToast.show('Spreadsheet export has finished');
+                    }).finally(function() {
+                        oSheet.destroy();
+                    });
+            }, */
 
         // Visibility Sections       
 
@@ -572,7 +697,6 @@ sap.ui.define([
             this.getView().byId(sectionOne).setVisible(false);
             this.getView().byId(sectionTwo).setVisible(true);
         }
- 
- 
+
     });
 });
