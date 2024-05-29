@@ -843,3 +843,98 @@
 								</f2:content>
 
 							</f2:DynamicPage> 
+
+
+							// Side Content JSON 
+
+							{
+								"title": "Revue des Talents",
+								"icon": "sap-icon://favorite",
+								"expanded": true,	
+								"items": [
+									{
+										"title": "9 Box Grid",
+										"key": "talentGrid"
+									},
+									{
+										"title": "Niveau de Sénorité",
+										"key": "talentSeniority"
+									},
+									{
+										"title": "Risque de Départ",
+										"key": "talentDeparture"
+									},
+									{
+										"title": "Risque de Mobilité",
+										"key": "talentMobility"
+									},
+									{
+										"title": "Plan de Succession",
+										"key": "talentSuccession"
+									}
+								]
+							},
+					
+							{
+								"title": "Matrice de Compétences",
+								"icon": "sap-icon://grid",
+								"expanded": true,	
+								"items": [
+									{
+										"title": "Evaluations des Compétences",
+										"key": "gridEval"
+									},
+									{
+										"title": "Consolidation Des Résultats",
+										"key": "gridResults"
+									},
+									{
+										"title": "Niveau de Sénorité",
+										"key": "gridSeniority"
+									}
+								]
+							},
+					
+							{
+								"title": "Carriére",
+								"icon": "sap-icon://multiselect-all",
+								"expanded": true,	
+								"items": [
+									{
+										"title": "Formation et Développement",
+										"key": "carrDev"
+									},
+									{
+										"title": "Promotions et Récompenses",
+										"key": "carrPromo"
+									},
+									{
+										"title": "Bilan de Carriére",
+										"key": "carrReport"
+									}
+								]
+							},
+					
+							{
+								"title": "My Moment",
+								"icon": "sap-icon://ai",
+								"expanded": true,	
+								"items": [
+									{
+										"title": "Evènements et Activités",
+										"key": "momEvent"
+									},
+									{
+										"title": "Défis Amicaux",
+										"key": "momChallenge"
+									},
+									{
+										"title": "Programmes de Bien-être",
+										"key": "momWell"
+									},
+									{
+										"title": "Feedbacks et Suggestions",
+										"key": "momFeed"
+									}
+								]
+							}

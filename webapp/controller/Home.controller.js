@@ -26,6 +26,10 @@ sap.ui.define([
                     }
                     });
             },
+            onClick: function ()
+            {
+                    console.log("JHef")
+            },
             onConnect: function ()
             {
                 window.open("https://app.ouickly.fr/","_blank")

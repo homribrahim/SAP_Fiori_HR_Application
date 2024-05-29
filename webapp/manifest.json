@@ -119,7 +119,7 @@
         },
         {
           "name": "Dashboardf",
-          "pattern": "Dashboardf",
+          "pattern": "Dashboardf/{id}",
           "target": "Dashboardf"
         },
         {

@@ -5,46 +5,48 @@
 		{
 			"title": "Home",
 			"icon": "sap-icon://home",
-			"key": "home"
-		
+			"key": "home",
+			"visible":false
 		},
 		
 		{
 			"title": "My Profile",
-			"icon": "sap-icon://customer",
-			"key": "profile"
-		
+			"icon": "sap-icon://home",
+			"key": "profile",
+			"visible":false
 		},
 		{
 			"title": "Ressources",
 			"icon": "sap-icon://database",
-			"key": "ressources"
+			"key": "ressources",
+			"visible":false
 
 		},
 		{
 			"title": "Performance Pulse",
 			"icon": "sap-icon://performance",
-			"expanded": true,
+			"expanded": true,	
+			"visible":false,
 			"items": [
 				{
-					"title": "Fixation Des Objectifs",
-					"key": "objCollab"
-				},
-				{
 					"title": "Auto Evaluation Collaborateur",
-					"key": "evalCollab"
+					"key": "evalCollab",
+					"visible":false
 				},
 				{
 					"title": "Evaluation Manager",
-					"key": "evalManager"
+					"key": "evalManager",
+					"visible":false
 				},
 				{
 					"title": "Consolidation Des Résultats",
-					"key": "evalResults"
+					"key": "evalResults",
+					"visible":false
 				},
 				{
 					"title": "Grille D'évaluation",
-					"key": "evalGrille"
+					"key": "evalGrille",
+					"visible":false
 				}
 				
 			]
@@ -53,18 +55,22 @@
 			"title": "Engagement Pulse",
 			"icon": "sap-icon://curriculum",
 			"expanded": true,
+			"visible":false,	
 			"items": [
 				{
 					"title": "Questionnaire Engagement Pulse",
-					"key": "epulseQuest"
+					"key": "epulseQuest",
+					"visible":false
 				},
 				{
 					"title": "Consolidation Des Résultats",
-					"key": "epulseResults"
+					"key": "epulseResults",
+					"visible":false
 				},
 				{
 					"title": "Plan D'action",
-					"key": "epulseAction"
+					"key": "epulseAction",
+					"visible":false
 				}
 			]
 		}

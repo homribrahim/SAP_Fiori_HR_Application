@@ -13,9 +13,11 @@ sap.ui.define([
     "sap/m/Text",
     "sap/m/MessageToast",
     "sap/ui/core/format/DateFormat",
-	'sap/ui/export/Spreadsheet'
+	'sap/ui/export/Spreadsheet',
+    "sap/ui/core/routing/HashChanger",
 
-], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,Spreadsheet) {
+
+], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,Spreadsheet,HashChanger) {
     "use strict";
  
 
@@ -24,14 +26,78 @@ sap.ui.define([
 
     var DialogType = mobileLibrary.DialogType;
  
-    return Controller.extend("brahim.project.controller.Test", {
+    return Controller.extend("brahim.project.controller.Dashboardf", {
  
         onInit: function () {
 
+            sap.ui.controller("brahim.project.controller.Authentification").getVariable();
+            
 
-/*             this.getOwnerComponent().getRouter().getRoute("DashboardF").attachPatternMatched(this.onRouteMatched,this);
- */
+            var roleValue =""
+           /*  that=this;
+
+            this.getOwnerComponent().getRouter().getRoute("Dashboardf").attachPatternMatched(this._onRouteMatched,this);
+            var roleValue = that.getView().getModel("roleValueModel").getProperty("/roleValue")
+            console.log(roleValue) */
+            var sId = this._getIdFromHash();
+            console.log("Extracted ID: " + sId);
+
+            var oUserModel = this.getOwnerComponent().getModel();
+            var that = this;
+            
+            /* that.getView().byId("sideNavigationRH").setVisible(false)
+            that.getView().byId("sideNavigationCollab").setVisible(false) */
+
+
+            oUserModel.read("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + sId.toString() + "')", {
+            
+                success: function(data)
+                {           
+                    var role = data.Role;
+                    var roleValueModel = new JSONModel({ roleValue: role });
+                    that.getView().setModel(roleValueModel, "roleValueModel");
+                   
+                    roleValue = that.getView().getModel("roleValueModel").getProperty("/roleValue")
+
+                    if (roleValue=="collaborateur")
+                    {
+                        var listItem = that.getView().byId("navigationList")
+                        console.log(listItem)
+                        listItem.getItems()[2].setVisible(false)
+                        listItem.getItems()[3].getItems()[1].setVisible(false)
+                        listItem.getItems()[3].getItems()[2].setVisible(false)
+                        listItem.getItems()[3].getItems()[3].setVisible(false)
+                        listItem.getItems()[4].getItems()[1].setVisible(false)
+                        listItem.getItems()[4].getItems()[2].setVisible(false)
+
+                        
+
+                        
+                           /*  // Get the nested items
+                            var nestedItems = listItem.getItems();
+            
+                            nestedItems.forEach(function(subItem) {
+                                var subItemText = subItem.getText();
+                                console.log("Sub Item text:", subItemText);
+                            }) */
+                        
+                        
+                       /*  that.getView().byId("profile").setVisible(true)
+                        that.getView().byId("evalCollab").setVisible(true)
+                        that.getView().byId("epulseQuest").setVisible(true) */
+                    
+                    console.log(roleValue)
+                    }
+                },
+                error: function(oError){
+                    console.log(oError);
+                }
+                });
+                
+               
+
             //Side Nav Loading
+
 
             var oSideContentModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));       
             this.getView().setModel(oSideContentModel);
@@ -55,13 +121,11 @@ sap.ui.define([
             //Ressources Section
     
             var oCollabModel = this.getOwnerComponent().getModel();
-            var that = this;
-            /* console.log(oCollabModel) */
+            var that = this; 
+                console.log(oCollabModel)
            
             oCollabModel.read("/ZCOLLAB_ENTSet", {
-              /*   filters: [
-                    new sap.ui.model.Filter("Role", sap.ui.model.FilterOperator.EQ, "manager")
-                ],  */
+             
                 success: function(data){
                     var xModel = new JSONModel(data);
                     that.getView().setModel(xModel,"odataModel");
@@ -87,45 +151,55 @@ sap.ui.define([
                 this.byId("headerInfoDisplay").setVisible(true);
                 this.byId("headerInfoEdit").setVisible(false);
 
-
                 var busyLoader = this.byId("busyLoader");
                 var collabTableSection = this.byId("collabTableSection");
-                
             
                 setTimeout(function() {
                     busyLoader.setVisible(false);
                     collabTableSection.setVisible(true)
                 }, 4000);
 
-                this.oSF = this.byId("searchField");           
+                this.oSF = this.byId("searchField");    
          },
 
-       /*  onRouteMatched :function (oEvent)
-        {
-            var role = oEvent.getParameter("arguments").role;
+         onDisconnect ()
+         {
             
-            if (role == "RH")
-                {
-                    //LOGIC RH
-                }
-            if (role == "Manager")
-                {
-                    //LOGIC RH
-                }
-            if (role == "Collaborateur")
-                {
-                    this.byId('home').setVisible(false)
-                    this.byId('ressources').setVisible(false)
-                    this.byId('evalManager').setVisible(false)
-                    this.byId('evalResults').setVisible(false)
-                    this.byId('evalGrille').setVisible(false)
-                    this.byId('epulseResults').setVisible(false)
-                    this.byId('epulseAction').setVisible(false)
+            this.getOwnerComponent().getRouter().navTo("Authentification")
+ 
+         },
 
+        _getIdFromHash: function() {
+            var oHashChanger = HashChanger.getInstance();
+            var sHash = oHashChanger.getHash();
+            var aHashParts = sHash.split("/");
+      
+            // Assuming the ID is the last part of the hash
+            var sId = aHashParts[aHashParts.length - 1];
+            return sId;
+          }
+          ,
+        
 
-
-                }
-        }, */
+         /* if (data.Role==="RH")
+                    {
+                        that.getView().byId("navigationRH").setVisible(true)
+                        that.getView().byId("navigationCOLLAB").setVisible(false)
+                        that.getView().byId("navigationMANAGER").setVisible(false)   
+                         
+                    }
+                    else if (data.Role==="collaborateur")
+                    {
+                        that.getView().byId("navigationRH").setVisible(true)
+                        that.getView().byId("navigationCOLLAB").setVisible(false)
+                        that.getView().byId("navigationMANAGER").setVisible(false)           
+                    }
+                    else if (data.Role==="Manager")
+                    {
+                        that.getView().byId("navigationRH").setVisible(true)
+                        that.getView().byId("navigationCOLLAB").setVisible(false)
+                        that.getView().byId("navigationMANAGER").setVisible(false)      
+                    } */
 
         onEdit () 
         {
@@ -215,6 +289,7 @@ sap.ui.define([
         },
         
         onItemSelected: function(oEvent) {
+           
             this.getView().byId("collabDetails").setVisible(true);   
             this.getView().byId("collabTableSection").setVisible(false);
             var oSelectedItem = oEvent.getSource();

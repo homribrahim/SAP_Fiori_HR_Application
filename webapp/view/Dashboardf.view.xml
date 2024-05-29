@@ -51,16 +51,39 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
 				</Button>
+				<Button text="Déconnexion" type="Transparent" press="onDisconnect"></Button>
 			</tnt:ToolHeader>
 		</tnt:header>
-			<tnt:sideContent>
+		<tnt:sideContent>
 			<tnt:SideNavigation
 				width="340px"
 				id="sideNavigation"
 				expanded="true"
 				selectedKey="{/selectedKey}"
 				itemSelect=".onItemSelect">
-				<tnt:NavigationList items="{path: '/navigation'}">
+				<tnt:NavigationList	
+					id="navigationList"
+					items="{path: '/navigation'}"			  
+				 >
+					<tnt:NavigationListItem
+						id="listItem"
+						text="{title}"
+						icon="{icon}"
+						enabled="{enabled}"
+						expanded="{expanded}"
+						items="{items}"
+						key="{key}">
+						<tnt:NavigationListItem
+							id="listSubItem"
+							text="{title}"
+							key="{key}"
+							enabled="{enabled}" />
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<!-- <tnt:NavigationList	
+					id="navigationListCOLLAB"
+					items="{path: '/navigationCOLLAB'}"			  
+				 >
 					<tnt:NavigationListItem
 						text="{title}"
 						icon="{icon}"
@@ -74,16 +97,29 @@
 							enabled="{enabled}" />
 					</tnt:NavigationListItem>
 				</tnt:NavigationList>
-				<tnt:fixedItem>
-					<tnt:NavigationList items="{path: '/fixedNavigation'}">
-						<tnt:NavigationListItem text="{title}" icon="{icon}" />
-					</tnt:NavigationList>
-				</tnt:fixedItem>
+				<tnt:NavigationList	
+					id="navigationListManager"
+					items="{path: '/navigationMANAGER'}"			  
+				 >
+					<tnt:NavigationListItem
+						text="{title}"
+						icon="{icon}"
+						enabled="{enabled}"
+						expanded="{expanded}"
+						items="{items}"
+						key="{key}">
+						<tnt:NavigationListItem
+							text="{title}"
+							key="{key}"
+							enabled="{enabled}" />
+					</tnt:NavigationListItem>
+				</tnt:NavigationList> -->
+				
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="ressources">
+			<NavContainer id="pageContainer" initialPage="home">
 				<pages>
 					<!--Start Of Performance Pulse-->
 					<ScrollContainer
@@ -93,6 +129,15 @@
 						height="100%"
 						class="sapUiContentPadding">
 						<Text text="This is homepage" />
+					</ScrollContainer>
+
+					<ScrollContainer
+						id="profile"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<Text text="This is My Profile" />
 					</ScrollContainer>
 
 					<ScrollContainer
@@ -932,6 +977,15 @@
                     </ScrollContainer>
 
 					<!--Start Of Performance Pulse-->
+
+					<ScrollContainer
+						id="objCollab"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						>
+						<Text text="This is the Fixation des Objectifs" />
+					</ScrollContainer>
 				
 					<ScrollContainer
 						id="evalCollab"
