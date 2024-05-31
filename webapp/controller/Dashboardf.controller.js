@@ -15,9 +15,11 @@ sap.ui.define([
     "sap/ui/core/format/DateFormat",
 	'sap/ui/export/Spreadsheet',
     "sap/ui/core/routing/HashChanger",
+    "sap/ui/core/routing/History",
+    "sap/ui/core/UIComponent"
 
 
-], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,Spreadsheet,HashChanger) {
+], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,Spreadsheet,HashChanger,History,UIComponent) {
     "use strict";
  
 
@@ -29,31 +31,30 @@ sap.ui.define([
     return Controller.extend("brahim.project.controller.Dashboardf", {
  
         onInit: function () {
-
-            sap.ui.controller("brahim.project.controller.Authentification").getVariable();
+            
+            if(!localStorage.getItem("userData"))
+                {   
+                    location.reload();
+                    this.getOwnerComponent().getRouter().navTo("Authentification")
+                    this.getOwnerComponent().getRouter().getRoute().stop()
+                } 
             
 
-            var roleValue =""
-           /*  that=this;
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function () {
+                window.history.go(1);
+            };
 
-            this.getOwnerComponent().getRouter().getRoute("Dashboardf").attachPatternMatched(this._onRouteMatched,this);
-            var roleValue = that.getView().getModel("roleValueModel").getProperty("/roleValue")
-            console.log(roleValue) */
-            var sId = this._getIdFromHash();
-            console.log("Extracted ID: " + sId);
+            var storedData = localStorage.getItem("userData");
 
-            var oUserModel = this.getOwnerComponent().getModel();
-            var that = this;
-            
-            /* that.getView().byId("sideNavigationRH").setVisible(false)
-            that.getView().byId("sideNavigationCollab").setVisible(false) */
+            if (storedData) {
+                var userData = JSON.parse(storedData);
+                console.log("Data retrieved from localStorage:", userData);
+                var oUserModel = new JSONModel(userData);
+                this.getView().setModel(oUserModel, "oUserdataModel");
+                
 
-
-            oUserModel.read("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + sId.toString() + "')", {
-            
-                success: function(data)
-                {           
-                    var role = data.Role;
+                   /*  var role = data.Role;
                     var roleValueModel = new JSONModel({ roleValue: role });
                     that.getView().setModel(roleValueModel, "roleValueModel");
                    
@@ -69,35 +70,8 @@ sap.ui.define([
                         listItem.getItems()[3].getItems()[3].setVisible(false)
                         listItem.getItems()[4].getItems()[1].setVisible(false)
                         listItem.getItems()[4].getItems()[2].setVisible(false)
-
-                        
-
-                        
-                           /*  // Get the nested items
-                            var nestedItems = listItem.getItems();
-            
-                            nestedItems.forEach(function(subItem) {
-                                var subItemText = subItem.getText();
-                                console.log("Sub Item text:", subItemText);
-                            }) */
-                        
-                        
-                       /*  that.getView().byId("profile").setVisible(true)
-                        that.getView().byId("evalCollab").setVisible(true)
-                        that.getView().byId("epulseQuest").setVisible(true) */
-                    
                     console.log(roleValue)
-                    }
-                },
-                error: function(oError){
-                    console.log(oError);
-                }
-                });
-                
-               
-
-            //Side Nav Loading
-
+                    } */
 
             var oSideContentModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));       
             this.getView().setModel(oSideContentModel);
@@ -122,7 +96,7 @@ sap.ui.define([
     
             var oCollabModel = this.getOwnerComponent().getModel();
             var that = this; 
-                console.log(oCollabModel)
+            console.log(oCollabModel)
            
             oCollabModel.read("/ZCOLLAB_ENTSet", {
              
@@ -160,46 +134,18 @@ sap.ui.define([
                 }, 4000);
 
                 this.oSF = this.byId("searchField");    
-         },
+         }},
 
          onDisconnect ()
          {
             
-            this.getOwnerComponent().getRouter().navTo("Authentification")
+            localStorage.removeItem("userData");
+
+            // Navigate to the authentication page
+            var oRouter = UIComponent.getRouterFor(this);
+            oRouter.navTo("Authentification", {}, true); 
  
          },
-
-        _getIdFromHash: function() {
-            var oHashChanger = HashChanger.getInstance();
-            var sHash = oHashChanger.getHash();
-            var aHashParts = sHash.split("/");
-      
-            // Assuming the ID is the last part of the hash
-            var sId = aHashParts[aHashParts.length - 1];
-            return sId;
-          }
-          ,
-        
-
-         /* if (data.Role==="RH")
-                    {
-                        that.getView().byId("navigationRH").setVisible(true)
-                        that.getView().byId("navigationCOLLAB").setVisible(false)
-                        that.getView().byId("navigationMANAGER").setVisible(false)   
-                         
-                    }
-                    else if (data.Role==="collaborateur")
-                    {
-                        that.getView().byId("navigationRH").setVisible(true)
-                        that.getView().byId("navigationCOLLAB").setVisible(false)
-                        that.getView().byId("navigationMANAGER").setVisible(false)           
-                    }
-                    else if (data.Role==="Manager")
-                    {
-                        that.getView().byId("navigationRH").setVisible(true)
-                        that.getView().byId("navigationCOLLAB").setVisible(false)
-                        that.getView().byId("navigationMANAGER").setVisible(false)      
-                    } */
 
         onEdit () 
         {
