@@ -32,55 +32,79 @@ sap.ui.define([
  
         onInit: function () {
             
-            if(!localStorage.getItem("userData"))
+            var that = this;
+            this.oSF = this.byId("searchField");   
+
+            
+            /* if(!localStorage.getItem("userData"))
                 {   
                     location.reload();
                     this.getOwnerComponent().getRouter().navTo("Authentification")
                     this.getOwnerComponent().getRouter().getRoute().stop()
-                } 
+                }  */
             
 
-            window.history.pushState(null, null, window.location.href);
+           /*  window.history.pushState(null, null, window.location.href);
             window.onpopstate = function () {
                 window.history.go(1);
-            };
+            }; */
 
             var storedData = localStorage.getItem("userData");
 
             if (storedData) {
                 var userData = JSON.parse(storedData);
-                console.log("Data retrieved from localStorage:", userData);
                 var oUserModel = new JSONModel(userData);
                 this.getView().setModel(oUserModel, "oUserdataModel");
+                var role = userData.Role;
+                var idCollaborateur = userData.Idcollab
+                console.log(idCollaborateur)
+                var idCollabModel = new JSONModel({ idCollaborateur: idCollaborateur });
+                that.getView().setModel(idCollabModel, "idCollabModel");
+
+            }
                 
+            var listItem = this.getView().byId("navigationList");
 
-                   /*  var role = data.Role;
-                    var roleValueModel = new JSONModel({ roleValue: role });
-                    that.getView().setModel(roleValueModel, "roleValueModel");
-                   
-                    roleValue = that.getView().getModel("roleValueModel").getProperty("/roleValue")
-
-                    if (roleValue=="collaborateur")
+            // Attach event listener for when the items are rendered
+            listItem.addEventDelegate({
+                onAfterRendering: function() {
+                    console.log(listItem);
+                    console.log(listItem.getItems());
+                    if (role == "collaborateur")
                     {
-                        var listItem = that.getView().byId("navigationList")
-                        console.log(listItem)
                         listItem.getItems()[2].setVisible(false)
-                        listItem.getItems()[3].getItems()[1].setVisible(false)
                         listItem.getItems()[3].getItems()[2].setVisible(false)
                         listItem.getItems()[3].getItems()[3].setVisible(false)
                         listItem.getItems()[4].getItems()[1].setVisible(false)
                         listItem.getItems()[4].getItems()[2].setVisible(false)
-                    console.log(roleValue)
-                    } */
+                    }
+                    else if  (role == "manager")
+                    {   
+                        listItem.getItems()[2].setVisible(false)           
+                    }
+
+                }
+            });
+
+           /*  
+            var roleValueModel = new JSONModel({ roleValue: role });
+            that.getView().setModel(roleValueModel, "roleValueModel");
+            roleValue = that.getView().getModel("roleValueModel").getProperty("/roleValue") */
+
+            /*Loading SideContent JSON*/
 
             var oSideContentModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));       
             this.getView().setModel(oSideContentModel);
             this._setToggleButtonTooltip(!Device.system.desktop);
             window.addEventListener("resize", this.onWindowResize.bind(this));  
 
+
+            /* Loading Countries JSON */
             var oCountryModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/pays.json"));
             oCountryModel.setSizeLimit(1300);
             this.getView().setModel(oCountryModel,"appData");
+
+            /*Loading Fonts*/
             
             var b = [];
             var c = {};
@@ -103,10 +127,8 @@ sap.ui.define([
                 success: function(data){
                     var xModel = new JSONModel(data);
                     that.getView().setModel(xModel,"odataModel");
-
                     console.log(data)
                     var x = data.results.length;
-                    
                     var xValueModel = new JSONModel({ xValue: x });
                     that.getView().setModel(xValueModel, "xValueModel");
                     
@@ -115,6 +137,11 @@ sap.ui.define([
                     console.log(oError);
                 }
                 });
+
+            /*Auto Evaluation COLLAB Section*/
+            
+
+               /* VISIBILITY */
 
                 this.getView().byId("collabDetails").setVisible(false);   
                 this.byId("saveButton").setVisible(false);
@@ -133,14 +160,130 @@ sap.ui.define([
                     collabTableSection.setVisible(true)
                 }, 4000);
 
-                this.oSF = this.byId("searchField");    
-         }},
+            
+            },
 
+        getIDEval ()
+        {
+            var idCollabConn = this.getView().getModel("idCollabModel").getProperty("/idCollaborateur");
+            var result = '';
+            var characters = '0123456789';
+         
+            
+            for (var i = 0; i < 10; i++) {
+                result += characters.charAt(Math.floor(Math.random() * 10));
+            }
+            
+            var IDEVAL= "EVAL" + idCollabConn + result;            
+            return IDEVAL
+   
+
+        },
+
+        onSendAutoEval () 
+        {
+            var answersTab = []
+            var month = new Date().getMonth() // getMonth() returns 0-11 (January is 0, December is 11)
+            var year = new Date().getFullYear()
+
+            var now = new Date();
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            if (month <= 2) {
+                var period = "Q1"; // January to March
+            } else if (month <= 5) {
+                var period = "Q2"; // April to June
+            } else if (month <= 8) {
+                var period = "Q3"; // July to September
+            } else {
+                var period = "Q4"; // October to December
+            }
+
+            for (var i = 1; i <= 5; i++) {
+
+                var oRadioButtonGroup = this.getView().byId("radioQuestions" + i);;
+                var indice = oRadioButtonGroup.getSelectedIndex()   
+                answersTab.push(indice+1)
+            }           
+
+            var oCommentAnswer = this.getView().byId("comment").getValue();
+            answersTab.push(oCommentAnswer)
+            console.log(answersTab) 
+
+    
+            var IDEVAL = this.getIDEval()
+            var Trimestre = period + "-" + year
+/*             var startAutoEval = this.onStartAutoEval()
+ */         var endAutoEval = hours + ":" + minutes + ":" + seconds;
+            var iDCollabConn = this.getView().getModel("idCollabModel").getProperty("/idCollaborateur")
+            var startAutoEval = this.getView().getModel("startAutoEvalModel").getProperty("/startAutoEval");
+
+
+            var autoEvalData = {
+                IdAutoeval : IDEVAL,
+                HDebut : startAutoEval,
+                HFin : endAutoEval,
+                Trimestre : Trimestre,
+                Question1 : answersTab[0].toString(),
+                Question2 : answersTab[1].toString(),
+                Question3 : answersTab[2].toString(),
+                Question4 : answersTab[3].toString(),
+                Question5 : answersTab[4].toString(),
+                Commentaire : answersTab[5].toString(),
+                Idcollab : iDCollabConn
+            }
+
+            console.table(autoEvalData)
+            
+            var oAutoEvalModel = this.getOwnerComponent().getModel();
+           
+            oAutoEvalModel.create("/ZAUTOEVAL_ENTSet",autoEvalData, {
+                success: function(){
+                    console.log("Auto Eval Added Successfully !")
+                    MessageToast.show("Auto Eval Ajouté !");
+
+                },
+                error: function(oError){
+                    console.log(oError)
+                }
+                });
+
+        },
+
+        onStartAutoEval ()
+        {   
+
+
+            this.getView().byId("radioQuestions1").setEnabled(true)
+            this.getView().byId("radioQuestions2").setEnabled(true)
+            this.getView().byId("radioQuestions3").setEnabled(true)
+            this.getView().byId("radioQuestions4").setEnabled(true)
+            this.getView().byId("radioQuestions5").setEnabled(true)
+            this.getView().byId("comment").setEnabled(true)
+
+            var now = new Date();
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var seconds = String(now.getSeconds()).padStart(2, '0');
+            var startAutoEval = hours + ":" + minutes + ":" + seconds;
+
+            var startAutoEvalModel = new JSONModel({ startAutoEval: startAutoEval });
+            this.getView().setModel(startAutoEvalModel, "startAutoEvalModel");
+
+
+            console.log(startAutoEval)
+
+          
+            
+        },                   
+        
+        
          onDisconnect ()
          {
             
             localStorage.removeItem("userData");
-
             // Navigate to the authentication page
             var oRouter = UIComponent.getRouterFor(this);
             oRouter.navTo("Authentification", {}, true); 
@@ -354,7 +497,6 @@ sap.ui.define([
         onCreateCollab () 
         {
             var xValue = this.getView().getModel("xValueModel").getProperty("/xValue");
-            
             var oDateFormat = DateFormat.getDateInstance({
                 pattern: "dd/MM/yyyy HH:mm" 
             });

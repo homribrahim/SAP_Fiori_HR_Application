@@ -32,14 +32,14 @@ sap.ui.define([
  
         onInit: function () {
             
-            if(!localStorage.getItem("userData"))
+         /*    if(!localStorage.getItem("userData"))
                 {   
                     /* location.reload(); */
                   /*   var x = true
                     localStorage.setItem(x) */
-                    this.getOwnerComponent().getRouter().navTo("Authentification")
-                    this.getOwnerComponent().getRouter().getRoute().stop()
-                } 
+                   /*  this.getOwnerComponent().getRouter().navTo("Authentification") */
+                    /* this.getOwnerComponent().getRouter().getRoute().stop() */
+                /* }  * */
            
             window.history.pushState(null, null, window.location.href);
             window.onpopstate = function () {
@@ -125,7 +125,8 @@ sap.ui.define([
 
                 var busyLoader = this.byId("busyLoader");
                 var collabTableSection = this.byId("collabTableSection");
-            
+                window.location.reload();
+
                 setTimeout(function() {
                     busyLoader.setVisible(false);
                     collabTableSection.setVisible(true)
@@ -142,6 +143,8 @@ sap.ui.define([
             // Navigate to the authentication page
             var oRouter = UIComponent.getRouterFor(this);
             oRouter.navTo("Authentification", {}, true); 
+            /* window.location.reload(); */
+     
  
          },
 

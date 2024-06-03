@@ -63,7 +63,8 @@
 				itemSelect=".onItemSelect">
 				<tnt:NavigationList	
 					id="navigationList"
-					items="{path: '/navigation'}"			  
+					items="{path: '/navigation'}"
+					width="340px"			  
 				 >
 					<tnt:NavigationListItem
 						id="listItem"
@@ -794,7 +795,7 @@
 													value1: 'manager'
 												}]				
 												}"			
-												>
+												> 
 												<items>
 													<core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}" />											
 												</items>
@@ -1020,7 +1021,7 @@
 											<GenericTile 
 											width="95%"
 											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-											header="Fatma Abidi" 
+											header="{oUserdataModel>/Prenom} {oUserdataModel>/Nom}" 
 											subheader="Collaborateur">
 												<layoutData>
 													<FlexItemData growFactor="1" />
@@ -1033,7 +1034,7 @@
 											<GenericTile 
 											width="95%"
 											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
-											header="Aymax Technology" 
+											header="{oUserdataModel>/Agence}" 
 											subheader="Agence">		
 												<layoutData>
 													<FlexItemData growFactor="1" />
@@ -1046,7 +1047,7 @@
 											<GenericTile 
 											width="95%"
 											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
-											header="SAP Technique" 
+											header="{oUserdataModel>/Pole}" 
 											subheader="Pôle">	
 												<layoutData>
 													<FlexItemData growFactor="1" />
@@ -1058,8 +1059,8 @@
 
 											<GenericTile 
 											width="95%"
-											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
-											header="Sabrine Ben Zid" 
+											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 											
+											header="{oLoginModel>/Nom} {oLoginModel>/Prenom}" 
 											subheader="Manager">	
 												<layoutData>
 													<FlexItemData growFactor="1" />
@@ -1073,9 +1074,11 @@
 										<FlexBox class="sapUiMediumMarginTop" direction="Row" >
 											<Label class="labelNumber" text="2"></Label>
 											<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'auto-évaluations"></Text>
+											<Button icon="sap-icon://fob-watch" text="Lancer" press="onStartAutoEval"></Button>
+
 										</FlexBox>
 
-										<Panel expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+										<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
 													<Text class="textLabel" text="Atteinte des objectifs organisationnels"/>
@@ -1095,7 +1098,7 @@
 												class="labelQuestion"
 												labelFor="rbg3"
 												text="Présence , Assiduité et Ponctualité (aux rendez-vous, réunions., abs, retard, pauses…)" />
-												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+												<RadioButtonGroup enabled="false" id="radioQuestions1" columns="5" class="sapUiSmallMarginTop radioQuestions">
 													<RadioButton  text="Trés insatisfait(e)" />
 													<RadioButton  text="Peu insatisfait(e)" />
 													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
@@ -1106,7 +1109,7 @@
 											</content>
 										</Panel>
  
-										<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+										<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
 													<Text class="textLabel" text="Atteinte des Objectifs Professionnels"/>
@@ -1130,7 +1133,7 @@
 												class="labelQuestion"
 												labelFor="rbg3"
 												text="Identification des dysfonctionnements et proposition de solutions optimisées (coûts, délais, résultats)" />
-												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+												<RadioButtonGroup enabled="false" id="radioQuestions2" columns="5" class="sapUiSmallMarginTop radioQuestions">
 													<RadioButton  text="Trés insatisfait(e)" />
 													<RadioButton  text="Peu insatisfait(e)" />
 													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
@@ -1141,7 +1144,7 @@
 											</content>
 										</Panel>
  
-    									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+    									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
 													<Text class="textLabel" text="Communication" />
@@ -1161,7 +1164,7 @@
 												class="labelQuestion"
 												labelFor="rbg3"
 												text="Qualité de la communication orale et écrite" />
-												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+												<RadioButtonGroup enabled="false" id="radioQuestions3" columns="5" class="sapUiSmallMarginTop radioQuestions">
 													<RadioButton  text="Trés insatisfait(e)" />
 													<RadioButton  text="Peu insatisfait(e)" />
 													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
@@ -1172,7 +1175,7 @@
 											</content>
 										</Panel>
  
-    									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+    									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
 													<Text class="textLabel" text="Intégration au sein de l'équipe" />
@@ -1192,7 +1195,7 @@
 												class="labelQuestion"
 												labelFor="rbg3"
 												text="Autonomie et prise d’initiative" />
-												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+												<RadioButtonGroup enabled="false" id="radioQuestions4" columns="5" class="sapUiSmallMarginTop radioQuestions">
 													<RadioButton  text="Trés insatisfait(e)" />
 													<RadioButton  text="Peu insatisfait(e)" />
 													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
@@ -1203,7 +1206,7 @@
 											</content>
 										</Panel>
  
-    									<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+    									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
 													<Text class="textLabel" text="Implication au sein de Aymax" />
@@ -1223,7 +1226,7 @@
 												class="labelQuestion"
 												labelFor="rbg3"
 												text="Respect des règles générales de AYMAX" />
-												<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
+												<RadioButtonGroup enabled="false" id="radioQuestions5" columns="5" class="sapUiSmallMarginTop radioQuestions">
 													<RadioButton  text="Trés insatisfait(e)" />
 													<RadioButton  text="Peu insatisfait(e)" />
 													<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
@@ -1233,23 +1236,24 @@
 											</VBox>
 											</content>
 										</Panel>
-										<Panel expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+										<Panel expanded="true" expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
 												<headerToolbar>
 													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Commentaires et Suggestions"/>
+														<Text  class="textLabel" text="Commentaires et Suggestions"/>
 													</OverflowToolbar>
 												</headerToolbar>
 											<content class="feedInput">
 													<FeedInput
-														post="onPost"
+														enabled="false"
+														id="comment"
 														showIcon="false"
 														/>
 											</content>
 										</Panel>
-										<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
-											<html:button class="sendButton">Envoyer</html:button>
-											<html:button class="sendButton">Annuler</html:button>						
-										</FlexBox>
+									<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
+                            			<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="10rem" text="Envoyer" press="onSendAutoEval"></Button>
+<!-- 										<Button text="Annuler" class="sendButton"></Button>
+ --> 									</FlexBox>
 									</FlexBox>
 								</f:content>
 							</f:SimpleForm>
@@ -1357,7 +1361,7 @@
                                             <Label class="labelNumber" text="3"></Label>
                                             <Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'évaluations"></Text>
                                         </FlexBox>
- 
+
                                         <Panel expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
                                             <headerToolbar>
                                                 <OverflowToolbar style="Clear">

@@ -41,11 +41,8 @@
 				{
 					"title": "Consolidation Des Résultats",
 					"key": "evalResults"
-				},
-				{
-					"title": "Grille D'évaluation",
-					"key": "evalGrille"
 				}
+				
 				
 			]
 		},

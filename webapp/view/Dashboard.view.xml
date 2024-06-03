@@ -1020,7 +1020,7 @@
 											<GenericTile 
 											width="95%"
 											class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-											header="Fatma Abidi" 
+											header="{oUserdataModel>/Prenom} {oUserdataModel>/Nom}" 
 											subheader="Collaborateur">
 												<layoutData>
 													<FlexItemData growFactor="1" />

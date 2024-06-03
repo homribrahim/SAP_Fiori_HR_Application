@@ -15,22 +15,20 @@ sap.ui.define([
 
         return Controller.extend("brahim.project.controller.Authentification", {
             onInit: function () {
+
                 
-                if(localStorage.getItem("userData"))
+               /*  if(localStorage.getItem("userData"))
                 {
-                    /* var x = true */
-                    /* localStorage.setItem(x) */
                     this.getOwnerComponent().getRouter().navTo("Dashboard")
-                    this.getOwnerComponent().getRouter().getRoute().stop()
-                }
-               
+                    /* this.getOwnerComponent().getRouter().getRoute().stop()   */
+               /*  }  */
 
-                window.history.forward();
-
+/*                 window.history.forward();
+ */
                 var oLoginModel = this.getOwnerComponent().getModel();
                 var that = this;
                 /* console.log(oCollabModel) */
-               
+                     
                 oLoginModel.read("/ZCOLLAB_ENTSet", {
                   /*   filters: [
                         new sap.ui.model.Filter("Role", sap.ui.model.FilterOperator.EQ, "manager")
@@ -76,7 +74,11 @@ sap.ui.define([
                                     console.log(oError);
                                 }
                                 });
-                            this.getOwnerComponent().getRouter().navTo("Dashboard")                     
+                                  
+                            this.getOwnerComponent().getRouter().navTo("Dashboardf")   
+                            
+
+                                         
                         }                   
                     }
                 }    
