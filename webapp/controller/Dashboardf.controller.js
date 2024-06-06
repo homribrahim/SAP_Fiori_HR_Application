@@ -13,13 +13,16 @@ sap.ui.define([
     "sap/m/Text",
     "sap/m/MessageToast",
     "sap/ui/core/format/DateFormat",
-	'sap/ui/export/Spreadsheet',
-    "sap/ui/core/routing/HashChanger",
-    "sap/ui/core/routing/History",
-    "sap/ui/core/UIComponent"
+    "sap/ui/core/UIComponent",
+    "sap/ui/core/library",
+    "sap/m/Image",
+    "sap/m/HBox",
+    "sap/m/VBox",
+    "../utils/myFormatter"
 
 
-], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,Spreadsheet,HashChanger,History,UIComponent) {
+
+], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,UIComponent,coreLibrary,Image,HBox,VBox,myFormatter) {
     "use strict";
  
 
@@ -27,8 +30,11 @@ sap.ui.define([
         PlacementType = mobileLibrary.PlacementType;
 
     var DialogType = mobileLibrary.DialogType;
+    var ValueState = coreLibrary.ValueState;
  
     return Controller.extend("brahim.project.controller.Dashboardf", {
+
+        stateFormatter :myFormatter ,
  
         onInit: function () {
             
@@ -50,10 +56,15 @@ sap.ui.define([
             }; */
 
             var storedData = localStorage.getItem("userData");
+           
 
             if (storedData) {
                 var userData = JSON.parse(storedData);
                 var oUserModel = new JSONModel(userData);
+                var ManagerId =userData.IdManager
+                var RhId =userData.IdRh
+                
+                console.log(ManagerId)
                 this.getView().setModel(oUserModel, "oUserdataModel");
                 var role = userData.Role;
                 var idCollaborateur = userData.Idcollab
@@ -62,6 +73,64 @@ sap.ui.define([
                 that.getView().setModel(idCollabModel, "idCollabModel");
 
             }
+
+                //Mes Infos RH
+                this.getAnciennete(userData.DateDemarrage,"ancienneteProfile")
+
+
+               //Ressources Section
+    
+               var oCollabModel = this.getOwnerComponent().getModel();
+               
+               console.log(oCollabModel)
+              
+               oCollabModel.read("/ZCOLLAB_ENTSet", {
+                
+                   success: function(data){
+                       var xModel = new JSONModel(data);
+                       that.getView().setModel(xModel,"odataModel");
+                       for (let collabData of Object.values(data.results))
+                       {    
+                        if (collabData.Idcollab == ManagerId)
+                        {
+                            var Manager = collabData.Prenom + " " + collabData.Nom;
+                            
+                        }
+                        if (collabData.Idcollab == RhId)
+                        {
+                            var ResponsableRh = collabData.Prenom + " " + collabData.Nom;
+                        }
+   
+                       }
+                     /*   for (let collabData of Object.values(data.results))
+                       {    
+                       
+   
+                       } */
+                       var currentData = oUserModel.getData();
+                        currentData.Manager = Manager;
+                        currentData.ResponsableRh = ResponsableRh;
+                        oUserModel.setData(currentData);
+
+                    /*  for (const collabData of Object.values(data.results)) {
+                        if (collabData.IdCollab === "108") {
+                         
+                           
+                        }
+                    } */
+                    /* var usersWithAge30 = data.results.filter(I==="108")
+                    console.log(usersWithAge30)
+                        */
+                      
+                       var x = data.results.length;
+                       var xValueModel = new JSONModel({ xValue: x });
+                       that.getView().setModel(xValueModel, "xValueModel");
+                       
+                   },
+                   error: function(oError){
+                       console.log(oError);
+                   }
+                   });
                 
             var listItem = this.getView().byId("navigationList");
 
@@ -116,27 +185,7 @@ sap.ui.define([
             b.push(IconPool.fontLoaded("BusinessSuiteInAppSymbols"));
             c["BusinessSuiteInAppSymbols"] = B
  
-            //Ressources Section
-    
-            var oCollabModel = this.getOwnerComponent().getModel();
-            var that = this; 
-            console.log(oCollabModel)
-           
-            oCollabModel.read("/ZCOLLAB_ENTSet", {
-             
-                success: function(data){
-                    var xModel = new JSONModel(data);
-                    that.getView().setModel(xModel,"odataModel");
-                    console.log(data)
-                    var x = data.results.length;
-                    var xValueModel = new JSONModel({ xValue: x });
-                    that.getView().setModel(xValueModel, "xValueModel");
-                    
-                },
-                error: function(oError){
-                    console.log(oError);
-                }
-                });
+         
 
             /*Auto Evaluation COLLAB Section*/
             
@@ -151,6 +200,9 @@ sap.ui.define([
                 this.byId("addCollabSection").setVisible(false);
                 this.byId("headerInfoDisplay").setVisible(true);
                 this.byId("headerInfoEdit").setVisible(false);
+                this.byId("noAutoEval").setVisible(false);
+
+                
 
                 var busyLoader = this.byId("busyLoader");
                 var collabTableSection = this.byId("collabTableSection");
@@ -236,26 +288,86 @@ sap.ui.define([
             }
 
             console.table(autoEvalData)
-            
+            var that =this
             var oAutoEvalModel = this.getOwnerComponent().getModel();
            
             oAutoEvalModel.create("/ZAUTOEVAL_ENTSet",autoEvalData, {
                 success: function(){
-                    console.log("Auto Eval Added Successfully !")
-                    MessageToast.show("Auto Eval Ajouté !");
+                    console.log("Auto Eval Added Successfully !")  
 
-                },
+                    that.byId("noAutoEval").setVisible(true);
+                    that.byId("SimpleFormDisplayEvalCollab").setVisible(false);
+            
+                },  
+                
                 error: function(oError){
                     console.log(oError)
                 }
                 });
 
+            this.onSuccessMessageDialogPress()
         },
+
+        onSuccessMessageDialogPress: function () {
+			if (!this.oSuccessMessageDialog) {
+				this.oSuccessMessageDialog = new Dialog({
+					type: DialogType.Message,
+					title: "Success",
+					state: ValueState.Success,
+                    contentWidth:"1000px",
+                    content: [
+                      
+                        new HBox({
+                            items: [
+
+                                new VBox(
+                                    {   
+                                        justifyContent: "Center",
+                                
+                                        items : [
+                                            new Text({
+                                                text: "Votre réponse a été envoyée Nous vous remercions pour le temps que vous avez consacré à votre auto-évaluation.",
+                                                textAlign:"Center",
+                                                class:"textAutoEval"
+                                            }),
+                                            new Text({
+                                                text: "✅Votre manager reviendra vers vous dans les prochains jours pour finaliser le processus d'entretien d'évaluation des performances par un échange de vive voix.",
+                                                textAlign:"Center",
+                                                class:"textAutoEval"
+                                            }),
+                                            new Text({
+                                                text: "🌟Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter,🚀Excellente journée.",
+                                                textAlign:"Center",
+                                                class:"textAutoEval"
+                                            })
+                                        ]
+                                    }
+                                ),
+                                                                       
+                                new Image({
+                                    src: "../utils/images/astronaut.png",
+                                    width: "400px"
+                                })
+                            ],
+                            
+                            justifyContent: "Center"
+                        })],
+                                   
+					beginButton: new Button({
+						type: ButtonType.Emphasized,
+						text: "OK",
+						press: function () {
+							this.oSuccessMessageDialog.close();
+						}.bind(this)
+					})
+				});
+			}
+
+			this.oSuccessMessageDialog.open();
+		},
 
         onStartAutoEval ()
         {   
-
-
             this.getView().byId("radioQuestions1").setEnabled(true)
             this.getView().byId("radioQuestions2").setEnabled(true)
             this.getView().byId("radioQuestions3").setEnabled(true)
@@ -272,10 +384,7 @@ sap.ui.define([
             var startAutoEvalModel = new JSONModel({ startAutoEval: startAutoEval });
             this.getView().setModel(startAutoEvalModel, "startAutoEvalModel");
 
-
             console.log(startAutoEval)
-
-          
             
         },                   
         
@@ -403,9 +512,17 @@ sap.ui.define([
                     currentPassword : (this.getView().getModel("odataModel").getProperty(sPath)).MotDePasse,
                     currentRole :  (this.getView().getModel("odataModel").getProperty(sPath)).Role,
                     currentState : (this.getView().getModel("odataModel").getProperty(sPath)).Etat,     
+                    currentStartDate : (this.getView().getModel("odataModel").getProperty(sPath)).DateDemarrage
                 });
 
             this.getView().setModel(currentIdCollab, "currentIdCollabModel"); 
+            var currentStartDate = this.getView().getModel("currentIdCollabModel").getProperty("/currentStartDate");
+            this.getAnciennete(currentStartDate,"anciennete")
+
+           
+           /*  this.byId("ancienneteProfile").setText(anciennete) */
+
+            
 
             //Formatter For Profile State
             
@@ -419,6 +536,30 @@ sap.ui.define([
                 else if (currentState=="Sortie")
                     etat.setState("Error") */
             
+        },
+
+        getAnciennete (currentStartDate,ancienneteId)
+        {
+           
+            
+            var oDateFormat = DateFormat.getDateInstance({
+                pattern: "yyyy-MM-dd" });
+            var oDate = new Date();
+            var sFormattedDate = oDateFormat.format(oDate);          
+            const date1 = new Date(currentStartDate);
+            const date2 = new Date(sFormattedDate);
+                     
+/*          let diffDays = date2.getDay() - date1.getDay(); */        
+            let yearsDiff = date2.getFullYear() - date1.getFullYear();
+            let monthsDiff = date2.getMonth() - date1.getMonth();          
+            if (monthsDiff < 0) {
+                yearsDiff--;
+                monthsDiff += 12; }                              
+     
+            var anciennete = yearsDiff + " an(s) et " + monthsDiff + " mois"
+           
+            this.byId(ancienneteId).setText(anciennete)
+
         },
 
         onSuggest: function (oEvent) {

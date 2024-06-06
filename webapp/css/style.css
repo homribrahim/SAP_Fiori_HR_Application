@@ -706,6 +706,28 @@ a:visited
   margin-top: 30% !important;
 }
 
+  .noEvalText 
+  {
+    font-size:1.9rem;
+    color:#010b3a;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-weight: 600;
+  }
+
+  .noEvalSubText
+  {
+    font-size:1.2rem;
+    color:#010b3a;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  }
+
+.textAutoEval
+{
+  font-size:4rem !important;
+  color:#010b3a;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+
 /* .sapUiBody
 {
   padding: 100px !important;
