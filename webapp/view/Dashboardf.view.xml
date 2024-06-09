@@ -129,17 +129,51 @@
 						vertical="true"
 						height="100%"
 						class="sapUiContentPadding">
-						<Text text="This is homepage" />
+
+						 <HBox class="infoPanel">
+								<Image src="../utils/images/astroInfo.png" width="200px" />
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Maximo Your Magical Guide"/>
+								</html:div>
+						</HBox>
+
+
+				<!-- <html:div class="main">
+					<html:div class="up">
+						<html:button class="card1">
+						<html:img src="../utils/images/aymax.png" height="35px" width="150px"/>
+						</html:button>
+						<html:button class="card5">
+							<html:img src="../utils/images/aymaxWhite.png" height="150px"/>
+						</html:button>
+						<html:button class="card2">
+							<html:img src="../utils/aymaxWhite.png" height="150px"/>
+						</html:button>
+					</html:div>
+					<html:div class="down">
+						<html:button class="card3">
+							<html:img src="../utils/aymaxWhite.png" height="150px"/>
+						</html:button>
+						<html:button class="card6">
+							<html:img src="../utils/aymaxWhite.png" height="150px"/>
+						</html:button>
+						<html:button class="card4">
+							<html:img src="../utils/aymaxWhite.png" height="150px"/>
+						</html:button>
+					</html:div>
+				</html:div> -->
+
+
+						<!-- <Text text="This is homepage" /> -->
 					</ScrollContainer>
 
 					<ScrollContainer
-						id="profile"
-						horizontal="false"
-						vertical="true"
-						height="100%"
-						class="sapUiContentPadding">
-					
-					<ux:ObjectPageLayout
+                        id="profile"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding">
+                              <ux:ObjectPageLayout
                                     id="collabmyprofile"
                                     class="collabProfile"
                                     height="88vh"
@@ -149,8 +183,8 @@
                                         <ux:ObjectPageDynamicHeaderTitle>
  
                                             <ux:expandedHeading>
-											
                                                 <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}" wrapping="true" />
+                                               
                                             </ux:expandedHeading>
  
                                             <ux:snappedHeading>
@@ -159,7 +193,6 @@
                                                         <m:Avatar src="./test-resources/sap/uxap/images/mageID_275314.png" class="sapUiSmallMarginEnd" />
                                                     </m:VBox>
                                                     <m:VBox>
-													
                                                         <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}" wrapping="true"/>
                                                         <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>
                                                     </m:VBox>
@@ -167,8 +200,11 @@
                                             </ux:snappedHeading>
                                    
                                      <ux:expandedContent>
-									   				
+                                                <!-- <m:VBox>
+                                                <m:Avatar src="./test-resources/sap/uxap/images/mageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
+                                                </m:VBox> -->
                                                 <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>
+                                               
                                             </ux:expandedContent>
  
                                             <ux:snappedTitleOnMobile>
@@ -180,6 +216,7 @@
  
                                      <ux:headerContent>
                                         <m:FlexBox id="headerMyprofileDisplay" wrap="Wrap" fitContainer="true" >
+                                           
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Etat" class="sapUiTinyMarginBottom"/>            
                                                
@@ -201,24 +238,22 @@
  
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Ancienneté" class="sapUiTinyMarginBottom" />
-                                                <m:ObjectStatus id="ancienneteProfile" text="" class="sapMObjectStatusLarge"/>    
+                                                <m:ObjectStatus id="ancienneteProfile" icon="sap-icon://end-user-experience-monitoring" text="" class="sapMObjectStatusLarge ddate"/>  
                                             </m:VBox>
  
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
-                                                <m:ObjectStatus text="{oUserdataModel>/Mobilite}" class="sapMObjectStatusLarge"/>
+                                                <m:ObjectStatus text="{oUserdataModel>/Mobilite}" icon="sap-icon://suitcase" class="sapMObjectStatusLarge ddate"/>
                                             </m:VBox>
-
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Responsable Manager" class="sapUiTinyMarginBottom" />
-                                                <m:ObjectStatus text="{oUserdataModel>/Manager}" class="sapMObjectStatusLarge"/>
+                                                <m:ObjectStatus text="{oUserdataModel>/Manager}" icon="sap-icon://manager" class="sapMObjectStatusLarge ddate"/>
                                             </m:VBox>
-											
-											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Responsable RH" class="sapUiTinyMarginBottom" />
-                                                <m:ObjectStatus text="{oUserdataModel>/ResponsableRh}" class="sapMObjectStatusLarge"/>
-                                            </m:VBox>
-											      
+                                                <m:ObjectStatus text="{oUserdataModel>/ResponsableRh}" icon="sap-icon://employee-lookup" class="sapMObjectStatusLarge ddate"/>
+                                            </m:VBox>  
+                                                           
                                         </m:FlexBox>
                                     </ux:headerContent>
  
@@ -234,7 +269,7 @@
                                                             columnsM="2"
                                                             columnsL="3"
                                                             columnsXL="4">
-                                                             <core:Title text="Informations Personnelles" />
+                                                             <core:Title class="inp" icon="sap-icon://employee" text="Informations Personnelles" />
  
                                                             <m:Label text="Réference Interne" />
                                                             <m:Text text="{oUserdataModel>/ReferenceInterne}" />
@@ -251,11 +286,12 @@
                                                             <m:Label text="Situation Familiale" />
                                                             <m:Text text="{oUserdataModel>/SituationFamiliale}" />
  
-                                                            <core:Title text="Informations Professionnelles/Académiques" />
+                                                            <core:Title icon="sap-icon://building" text="Informations Professionnelles" />
  
                                                             <m:Label text="Titre" />
                                                             <m:Text text="{oUserdataModel>/Titre}" />
- 
+                                                            <m:Label text="Pôle" />
+                                                            <m:Text text="{oUserdataModel>/Pole}" />
                                                             <m:Label text="Expérience" />
                                                             <m:Text text="{oUserdataModel>/Experience}" />
  
@@ -265,7 +301,7 @@
                                                             <m:Label text="Diplômes" />
                                                             <m:Text text="{oUserdataModel>/Diplomes}" />
  
-                                                            <core:Title text="Informations Compte" />
+                                                            <core:Title icon="sap-icon://add-employee" text="Informations du Compte" />
  
                                                             <m:Label text="Date de Création" />
                                                             <m:Text text="{oUserdataModel>/DateCreation}"/>
@@ -289,22 +325,22 @@
                                                             columnsM="2"
                                                             columnsL="3"
                                                             columnsXL="4">
-                                                            <core:Title text="Numéro de Télèphone" />
+                                                            <core:Title icon="sap-icon://call" text="Numéro de Télèphone" />
  
                                                             <m:Label text="Mobile"/>
                                                             <m:Text text="{oUserdataModel>/NumeroTelephone}" />                                
  
-                                                            <core:Title text="Comptes" />
+                                                            <core:Title icon="sap-icon://customer-and-contacts" text="Comptes" />
  
                                                             <m:Label text="Email" />
-                                                            <m:Link class='link'  text="{oUserdataModel>/Email}" href="{oUserdataModel>/Email}"/>
+                                                            <m:Link class='link' text="{oUserdataModel>/Email}" href="{oUserdataModel>/Email}"/>
  
                                                             <m:Label text="LinkedIn"/>
                                                             <m:Link class='link' text="{oUserdataModel>/EmailLinkedin}"                      
                                                            
                                                              />
  
-                                                            <core:Title text="Adresses" />
+                                                            <core:Title icon="sap-icon://addresses"  text="Adresses" />
  
                                                             <m:Label text="Pays" />
                                                             <m:Text text="{oUserdataModel>/Pays}" />
@@ -327,7 +363,7 @@
  
                                          <ux:ObjectPageSection titleUppercase="false" title="Auto Evaluation">
                                             <ux:subSections>
-                                                <ux:ObjectPageSubSection id="autoevalsection" title="Auto Evaluation">
+                                                <ux:ObjectPageSubSection id="autoevalsection" title="Mes Auto Evaluations">
                                                     <ux:blocks>
                                                         <m:Table class="sapUxAPObjectPageSubSectionAlignContent" width="auto">
                                                             <m:headerToolbar>
@@ -349,22 +385,19 @@
  
                                                             <m:columns>
                                                                 <m:Column>
-                                                                    <m:Text text="Numéro" />
+                                                                    <m:Text text="Numéro Auto Eval" />
                                                                 </m:Column>
                                                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                                     <m:Text text="Trimestre" />
                                                                 </m:Column>
                                                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
-                                                                    <m:Text text="Responsable RH" />
+                                                                    <m:Text text="Date Auto Eval" />
                                                                 </m:Column>
                                                                 <m:Column  minScreenWidth="Tablet" demandPopin="true">
-                                                                    <m:Text text="Date Auto Eval" />
+                                                                    <m:Text text="Question 1" />
                                                                 </m:Column>
                                                                 <m:Column hAlign="End">
                                                                     <m:Text text="Etat Auto Eval" />
-                                                                </m:Column>
-                                                                <m:Column hAlign="End">
-                                                                    <m:Text text="" />
                                                                 </m:Column>
                                                             </m:columns>
  
@@ -372,10 +405,9 @@
                                                                 <m:ColumnListItem>
                                                                     <m:Text text="10223882001820" />
                                                                     <m:Text text="Jologa" />
-                                                                    <m:Text text="{odataModel>Nom}" />
+                                                                    <m:Text text="Denise Smith" />
                                                                     <m:Text text="11/15/19" />
                                                                     <m:Text text="12,897.00 EUR" />
-                                                                    <Button icon="sap-icon://delete" press="onItemSelected"></Button>
                                                                 </m:ColumnListItem>
                                                                 <m:ColumnListItem>
                                                                     <m:Text text="10223882001820" />
@@ -383,7 +415,6 @@
                                                                     <m:Text text="Denise Smith" />
                                                                     <m:Text text="11/15/19" />
                                                                     <m:Text text="12,897.00 EUR" />
-                                                                    <Button icon="sap-icon://delete" press="onItemSelected"></Button>
                                                                 </m:ColumnListItem>
                                                                 <m:ColumnListItem>
                                                                     <m:Text text="10223882001820" />
@@ -391,7 +422,6 @@
                                                                     <m:Text text="Denise Smith" />
                                                                     <m:Text text="11/15/19" />
                                                                     <m:Text text="12,897.00 EUR" />
-                                                                    <Button icon="sap-icon://delete" press="onItemSelected"></Button>
                                                                 </m:ColumnListItem>
                                                                 <m:ColumnListItem>
                                                                     <m:Text text="10223882001820" />
@@ -399,7 +429,6 @@
                                                                     <m:Text text="Denise Smith" />
                                                                     <m:Text text="11/15/19" />
                                                                     <m:Text text="12,897.00 EUR" />
-                                                                    <Button icon="sap-icon://delete" press="onItemSelected"></Button>
                                                                 </m:ColumnListItem>
                                                                 <m:ColumnListItem>
                                                                     <m:Text text="10223882001820" />
@@ -407,7 +436,6 @@
                                                                     <m:Text text="Denise Smith" />
                                                                     <m:Text text="11/15/19" />
                                                                     <m:Text text="12,897.00 EUR" />
-                                                                    <Button icon="sap-icon://delete" press="onItemSelected"></Button>
                                                                 </m:ColumnListItem>
                                                             </m:items>
                                                         </m:Table>
@@ -416,12 +444,8 @@
                                             </ux:subSections>
                                         </ux:ObjectPageSection>
                                     </ux:sections>
-                              </ux:ObjectPageLayout>        
-						<!-- <Text text="This is My Profile" /> -->
-
-
-
-					</ScrollContainer>
+                              </ux:ObjectPageLayout>                    
+                    </ScrollContainer>
 
 					<ScrollContainer
                         id="ressources"
@@ -1294,33 +1318,70 @@
 						height="100%"
 						>
 						<VBox>
-							<f:SimpleForm   
-							id="SimpleFormDisplayEvalCollab"
-							editable="false"
-							layout="ResponsiveGridLayout"
-							title="Auto Evaluation Collaborateur"
-							labelSpanL="4"
-							labelSpanM="4"
-							emptySpanL="0"
-							emptySpanM="0"
-							columnsL="4"
-							columnsM="4">
-							
-								<f:content>	
-									<FlexBox direction="Column">	
-<!-- 										<Button icon="sap-icon://fob-watch" text="Lancer" press="onStartAutoEval"></Button>
- -->										
-										<!-- <html:button class="sendButton">Lancer</html:button> -->		
-										<FlexBox class="sapUiMediumMarginTop" direction="Row" >
-											<!-- <Label class="labelNumber" text="2"></Label> -->
-											<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'auto-évaluations"></Text>
+						
+								<ux:ObjectPageLayout
+									id="evaluationCollab"
+									class="collabProfile"
+									height="88vh"
+									showTitleInHeaderContent="true"
+									upperCaseAnchorBar="false"
+								>
+                                    <ux:headerTitle>    
+                                        <ux:ObjectPageDynamicHeaderTitle>
+                                            <ux:expandedHeading>
+												<HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                               		<m:Title class="customMargin" text="Questionnaire D'auto évaluation" wrapping="true" />
+												</HBox>
+                                            </ux:expandedHeading>
+ 
+                                            <ux:snappedHeading>
+                                                <m:HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                                    <m:VBox>											
+                                                        <m:Title class="customMargin"  text="Questionnaire D'auto évaluation" wrapping="true"/>
+                                                    </m:VBox>
+                                                </m:HBox>
+                                            </ux:snappedHeading>
+                                   
+                                     		<ux:expandedContent>
+									   				
+                                                <m:Label text="Plongez dans les profondeurs de votre être, et révélez la richesse de votre parcours !"/>
+                                            </ux:expandedContent>
+ 
+                                            <ux:snappedTitleOnMobile>
+                                                <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}"/>
+                                            </ux:snappedTitleOnMobile>
+                       
+                                        </ux:ObjectPageDynamicHeaderTitle>
+                                    </ux:headerTitle>
+                                    <ux:headerContent>
+										<Button class="sapUiTinyMarginBottom" width="12rem" icon="sap-icon://fob-watch" text="Lancer L'auto évaluation" press="onStartAutoEval"></Button>	
+                                    </ux:headerContent>
 
-										</FlexBox>
-
+									<ux:ObjectPageSection class="hetEsm" titleUppercase="false">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection id="questAutoEval">
+                                                    <ux:blocks>
+                                        <FlexBox direction="Column">		
 										<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Text class="textLabel" text="Atteinte des objectifs organisationnels"/>
+													<Text class="Textlabel" text="Atteinte des objectifs organisationnels"/>
 												</OverflowToolbar>
 											</headerToolbar>
        										<content>
@@ -1351,7 +1412,7 @@
 										<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Text class="textLabel" text="Atteinte des Objectifs Professionnels"/>
+													<Text class="Textlabel" text="Atteinte des Objectifs Professionnels"/>
 												</OverflowToolbar>
 											</headerToolbar>
 											<content>
@@ -1386,7 +1447,7 @@
     									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Text class="textLabel" text="Communication" />
+													<Text class="Textlabel" text="Communication" />
 												</OverflowToolbar>
 											</headerToolbar>
        										<content>
@@ -1417,7 +1478,7 @@
     									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Text class="textLabel" text="Intégration au sein de l'équipe" />
+													<Text class="Textlabel" text="Intégration au sein de l'équipe" />
 												</OverflowToolbar>
 											</headerToolbar>
         									<content>
@@ -1448,7 +1509,7 @@
     									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
-													<Text class="textLabel" text="Implication au sein de Aymax" />
+													<Text class="Textlabel" text="Implication au sein de Aymax" />
 												</OverflowToolbar>
 											</headerToolbar>
         									<content>
@@ -1478,7 +1539,7 @@
 										<Panel expanded="true" expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
 												<headerToolbar>
 													<OverflowToolbar style="Clear">
-														<Text  class="textLabel" text="Commentaires et Suggestions"/>
+														<Text  class="Textlabel" text="Commentaires et Suggestions"/>
 													</OverflowToolbar>
 												</headerToolbar>
 											<content class="feedInput">
@@ -1491,12 +1552,13 @@
 										</Panel>
 									<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
                             			<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="10rem" text="Envoyer" press="onSendAutoEval"></Button>
-<!-- 										<Button text="Annuler" class="sendButton"></Button>
- --> 									</FlexBox>
+  								    </FlexBox>
 									</FlexBox>
-								</f:content>
-							</f:SimpleForm>
-
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                    </ux:ObjectPageSection>
+								</ux:ObjectPageLayout>
 							<FlexBox id="noAutoEval" justifyContent="Center" alignItems="Center" direction="Column" height="75vh">
 								<Image src="../utils/images/astro.png" width="220px"/>
 								<html:br></html:br>
@@ -1507,11 +1569,8 @@
 								<html:br></html:br>	
 								<Text text="Revenir à la page d'accueil ?" class="sapUiTinyMarginBottom noEvalSubText" />
 							</FlexBox>
-
            				</VBox> 
 					</ScrollContainer>
-
-
 
 					<ScrollContainer
                         id="evalManager"
@@ -1519,262 +1578,263 @@
                         vertical="true"
                         height="100%"
                         >
- 
+
                         <VBox>
-                            <f:SimpleForm  
-                            id="SimpleFormDisplay"
-                            editable="false"
-                            layout="ResponsiveGridLayout"
-                            title="Evaluation Manager"
-                            labelSpanL="4"
-                            labelSpanM="4"
-                            emptySpanL="0"
-                            emptySpanM="0"
-                            columnsL="4"
-                            columnsM="4">  
-									<f:content>    
-										<FlexBox direction="Column">    
-											<FlexBox class="sapUiMediumMarginTop" direction="Row" >
-												<Label class="labelNumber" text="1"></Label>
-												<Text class="sapUiTinyMarginTop textInf" text="Informations Personnelles"></Text>
-											</FlexBox>
-											<FlexBox
-												class="sapUiTinyMarginTop sapUiSmallMarginLeft flexInfo"
-												direction="Row"
-												justifyContent="Center"
-												alignItems="Center"
-											>
-												<GenericTile
-												width="95%"
-												class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-												header="Sabrine Ben Zid"
-												subheader="Manager">
-													<layoutData>
+							<HBox class="infoPanel1" id="infoPanel1" >
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Pour initier l'évaluation de votre complice, Cliquez sur le bouton, là-haut, Lancer l'évaluation."/>
+								</html:div>
+							</HBox>
+
+							<HBox class="infoPanel2" id="infoPanel2">
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Bravo ! Ne vous reste maintenant que de choisir le nom de votre complice."/>
+								</html:div>
+							</HBox>
+                          <ux:ObjectPageLayout
+									id="evaluationManager"
+									class="collabProfile"
+									height="88vh"
+									showTitleInHeaderContent="true"
+									upperCaseAnchorBar="false"
+								>
+                                    <ux:headerTitle>    
+                                        <ux:ObjectPageDynamicHeaderTitle>
+                                            <ux:expandedHeading>
+												<HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
 														<FlexItemData growFactor="1" />
-													</layoutData>
-												<TileContent>
-														<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://employee" />
-												</TileContent>
-												</GenericTile>
-	
-												<GenericTile
-												width="95%"
-												class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-												header="Aymax Technology"
-												subheader="Agence">    
-													<layoutData>
+													</core:layoutData>
+												</core:Icon>
+                                               		<m:Title class="customMargin" text="Questionnaire D'évaluation" wrapping="true" />
+												</HBox>
+                                            </ux:expandedHeading>
+ 
+                                            <ux:snappedHeading>
+                                                <m:HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
 														<FlexItemData growFactor="1" />
-													</layoutData>
-												<TileContent>
-														<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://building" />
-												</TileContent>      
-												</GenericTile>      
-	
-												<GenericTile
-												width="95%"
-												class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-												header="SAP Technique"
-												subheader="Pôle">  
-													<layoutData>
-														<FlexItemData growFactor="1" />
-													</layoutData>  
-												<TileContent>
-														<ImageContent class="sapUiSmallMarginTop size1" src="sap-icon://org-chart" />
-												</TileContent>      
-												</GenericTile>      
+													</core:layoutData>
+												</core:Icon>
+                                                    <m:VBox>											
+                                                        <m:Title class="customMargin"  text="Questionnaire D'évaluation" wrapping="true"/>
+                                                    </m:VBox>
+                                                </m:HBox>
+                                            </ux:snappedHeading>
+                                   
+                                     		<ux:expandedContent>
+									   				
+                                                <m:Label text="Cultiver la croissance et tracer le chemin vers l'excellence pour votre équipe !"/>
+                                            </ux:expandedContent>
+ 
+                                            <ux:snappedTitleOnMobile>
+                                                <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}"/>
+                                            </ux:snappedTitleOnMobile>
+                       
+                                        </ux:ObjectPageDynamicHeaderTitle>
+                                    </ux:headerTitle>
+                                    <ux:headerContent>
+										<Button class="sapUiTinyMarginBottom" width="12rem" icon="sap-icon://fob-watch" text="Lancer L'évaluation" press="onStartEval"></Button>	
+                                    </ux:headerContent>
+
+									<ux:ObjectPageSection class="hetEsm" titleUppercase="false">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection id="questEval">
+                                                    <ux:blocks>
+
+														<FlexBox direction="Column">
+															<FlexBox direction="Row" alignItems="Center" justifyContent="Center">
+															<m:Title class="evalTitle" text="Je voulais évaluer le collaborateur" wrapping="true" />
 											
-												
-											</FlexBox>
-
+																<Select 	
+																	class="selectCollab"
+																	id="collabSelect"
+																	enabled="false"
+																	items="{ path: 'oUserdataModel>/collabManagerList'}"
+																>
+																	<core:Item key="{oUserdataModel>IdCollab}" text="{oUserdataModel>Collab}" />
+																
+																</Select>
+															</FlexBox>
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je compte toujours sur mon(a) collaborateur-rice pour obtenir des résultats exceptionnels"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Dépendance et confiance" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Collaboration et synergie" />
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest1" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="1" />
+																		<RadioButton  text="2" />
+																		<RadioButton  text="3" />
+																		<RadioButton  text="4" />
+																		<RadioButton  text="5" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
 				
-											<FlexBox class="sapUiMediumMarginTop" direction="Row" >
-												<Label class="labelNumber" text="2"></Label>
-												<Text class="sapUiTinyMarginTop textInf" text="Choix du Collaborateur"></Text>
-											</FlexBox>
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je choisis de travailler avec mon(a) collaborateur-rice dans la mesure du possible"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Meilleure communication et collaboration" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Motivation et soutien" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Apprentissage et développement" />
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest2" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="1" />
+																		<RadioButton text="2" />
+																		<RadioButton text="3" />
+																		<RadioButton text="4" />
+																		<RadioButton text="5" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="J’accorderais une promotion à mon(a) collaborateur-rice aujourd’hui si je le pouvais" />
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest3" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="Oui" />
+																		<RadioButton text="Non" />
+																	
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je pense que mon(a) collaborateur-rice rencontre un problème de performance auquel je dois immédiatement remédier" />
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest4" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="Oui" />
+																		<RadioButton text="Non" />
+																	
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je pense que mon(a) collaborateur-rice a des compétences difficiles à remplacer" />
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest5" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="Oui" />
+																		<RadioButton text="Non" />
+																	
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
 
-												<ActionSelect
-													id="select"
-													class="sapUiMediumMarginTop sapUiLargeMarginLeft selectCollab"
-													buttons="button1 button2 button3"
-													text="Choisir Collaboratuer">
-													<items>
-														<core:Item class="itemCollab" text="Collaborateur" />
-														<core:Item class="itemCollab" key="idCollab" text="Fatma Abidi" />
-														<core:Item class="itemCollab" key="idCollab" text="Wissem Chagtmi" />
-														<core:Item class="itemCollab" key="idCollab" text="Elyes Baccour" />
-														<core:Item class="itemCollab" key="idCollab" text="Nour Khemiri" />
-														<core:Item class="itemCollab" key="idCollab" text="Manel Saket" />			
-													</items>
-												</ActionSelect>
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Mon(a) collaborateur-rice a atteint tous les objectifs fixés et indicateurs définis pour son poste"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Performance exceptionnelle" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Potentiel élevé du collaborateur" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Impact positif sur l'équipe" />
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest6" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="1" />
+																		<RadioButton text="2" />
+																		<RadioButton text="3" />
+																		<RadioButton text="4" />
+																		<RadioButton text="5" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
 
-
-											<FlexBox class="sapUiMediumMarginTop" direction="Row" >
-												<Label class="labelNumber" text="3"></Label>
-												<Text class="sapUiTinyMarginTop textInf" text="Questionnaire d'évaluations"></Text>
-											</FlexBox>
-
-											<Panel expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Je compte toujours sur mon(a) collaborateur-rice pour obtenir des résultats exceptionnels"/>
-													</OverflowToolbar>
-												</headerToolbar>
-												<content>
-												<VBox class="sapUiMediumMarginTop questionBox">
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Dépendance et confiance" />
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Collaboration et synergie" />
-												
-													<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-														<RadioButton  text="Trés insatisfait(e)" />
-														<RadioButton  text="Peu insatisfait(e)" />
-														<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
-														<RadioButton  text="Peu satisfait(e)" />
-														<RadioButton  text="Trés satisfait(e)" />
-													</RadioButtonGroup>
-												</VBox>
-												</content>
-											</Panel>
-	
-											<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Je choisis de travailler avec mon(a) collaborateur-rice dans la mesure du possible"/>
-													</OverflowToolbar>
-												</headerToolbar>
-												<content>
-												<VBox class="sapUiMediumMarginTop questionBox">
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Meilleure communication et collaboration" />
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Motivation et soutien" />
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Apprentissage et développement" />
-												
-													<RadioButtonGroup columns="5" class="sapUiSmallMarginTop radioQuestions">
-														<RadioButton  text="Trés insatisfait(e)" />
-														<RadioButton  text="Peu insatisfait(e)" />
-														<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
-														<RadioButton  text="Peu satisfait(e)" />
-														<RadioButton  text="Trés satisfait(e)" />
-													</RadioButtonGroup>
-												</VBox>
-												</content>
-											</Panel>
-	
-											<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="J’accorderais une promotion à mon(a) collaborateur-rice aujourd’hui si je le pouvais" />
-													</OverflowToolbar>
-												</headerToolbar>
-												<content>
-												<VBox class="sapUiMediumMarginTop questionBox">
-												
-													<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-														<RadioButton text="Oui" />
-														<RadioButton text="Non" />         
-													</RadioButtonGroup>
-												</VBox>
-												</content>
-											</Panel>
-	
-											<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Je pense que mon(a) collaborateur-rice rencontre un problème de performance auquel je dois immédiatement remédier" />
-													</OverflowToolbar>
-												</headerToolbar>
-												<content>
-												<VBox class="sapUiMediumMarginTop questionBox">
-												
-													<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-														<RadioButton text="Oui" />
-														<RadioButton text="Non" />   
-													</RadioButtonGroup>
-												</VBox>
-												</content>
-											</Panel>
-	
-											<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Je pense que mon(a) collaborateur-rice a des compétences difficiles à remplacer" />
-													</OverflowToolbar>
-												</headerToolbar>
-												<content>
-												<VBox class="sapUiMediumMarginTop questionBox">
-												
-													<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-														<RadioButton text="Oui" />
-														<RadioButton text="Non" />
-													
-													</RadioButtonGroup>
-												</VBox>
-												</content>
-											</Panel>
-											<Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Mon(a) collaborateur-rice a atteint tous les objectifs fixés et indicateurs définis pour son poste"/>
-													</OverflowToolbar>
-												</headerToolbar>
-												<content>
-												<VBox class="sapUiMediumMarginTop questionBox">
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Performance exceptionnelle et le potentiel élevé du collaborateur" />
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Excellence" />
-													<Label
-													class="labelQuestion"
-													labelFor="rbg3"
-													text="Impact positif sur l'équipe" />
-												
-													<RadioButtonGroup  columns="5" class="sapUiSmallMarginTop radioQuestions">
-														<RadioButton  text="Trés insatisfait(e)" />
-														<RadioButton  text="Peu insatisfait(e)" />
-														<RadioButton  text="Ni satisfait(e) ni insatisfait(e)" />
-														<RadioButton  text="Peu satisfait(e)" />
-														<RadioButton  text="Trés satisfait(e)" />
-													</RadioButtonGroup>
-												</VBox>
-												</content>
-											</Panel>
-										<Panel expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
-												<headerToolbar>
-													<OverflowToolbar style="Clear">
-														<Text class="textLabel" text="Commentaires et Suggestions"/>
-													</OverflowToolbar>
-												</headerToolbar>
-											<content class="feedInput">
-													<FeedInput
-														post="onPost"
-														showIcon="false"
-														/>
-											</content>
-										</Panel>
-										<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
-												<html:button class="sendButton">Envoyer</html:button>
-												<html:button class="sendButton">Annuler</html:button>						
-											</FlexBox>
-										</FlexBox>
-									</f:content>
-                            </f:SimpleForm>
+															<Panel expanded="true" expandable="true"  stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Commentaires et Conclusion générale"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content class="feedInput">
+																	<FeedInput
+																		enabled="false"
+																		id="commentEval"
+																		showIcon="true"
+																		/>
+																</content>
+															</Panel>
+															<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
+																<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="10rem" text="Envoyer" press="onSendEval"></Button>
+															</FlexBox>
+														</FlexBox>
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                    </ux:ObjectPageSection>
+								</ux:ObjectPageLayout>
                         </VBox>
                     </ScrollContainer>
 					
