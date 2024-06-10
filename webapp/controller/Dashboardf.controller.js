@@ -56,12 +56,18 @@ sap.ui.define([
             }; */
 
             var storedData = localStorage.getItem("userData");
-           
 
             if (storedData) {
                 var userData = JSON.parse(storedData);
                 var oUserModel = new JSONModel(userData);
                 var idCollaborateur = userData.Idcollab
+                var nomCollab = userData.Nom
+                var prenomCollab = userData.Prenom 
+                var emailCollab = userData.Email
+                var agenceCollab = userData.Agence
+                var poleCOllab = userData.Pole 
+                var etatCollab = userData.Etat
+                var posteCollab = userData.Fonction
                 var ManagerId =userData.IdManager
                 var RhId =userData.IdRh
                 var role = userData.Role;
@@ -70,7 +76,17 @@ sap.ui.define([
                 console.log(idCollaborateur)
 
                 this.getView().setModel(oUserModel, "oUserdataModel");
-                var idCollabModel = new JSONModel({ idCollaborateur: idCollaborateur });
+                var idCollabModel = new JSONModel({ 
+                    idCollaborateur: idCollaborateur,
+                    nomCollab : nomCollab,
+                    prenomCollab:prenomCollab,
+                    emailCollab:emailCollab,
+                    agenceCollab:agenceCollab,
+                    poleCOllab:poleCOllab,
+                    etatCollab:etatCollab,
+                    posteCollab:posteCollab
+                
+                });
                 that.getView().setModel(idCollabModel, "idCollabModel");
 
             }
@@ -84,8 +100,6 @@ sap.ui.define([
                var oCollabModel = this.getOwnerComponent().getModel();
                var collabManagerList = []
            
-               
-               
                console.log(oCollabModel)
               
                oCollabModel.read("/ZCOLLAB_ENTSet", {
@@ -98,7 +112,7 @@ sap.ui.define([
                         if (collabData.Idcollab == ManagerId)
                         {
                             var Manager = collabData.Prenom + " " + collabData.Nom;
-                            
+                        
                         }
                         if (collabData.Idcollab == RhId)
                         {
@@ -115,6 +129,11 @@ sap.ui.define([
                         }
    
                        }
+
+                       var Data = idCollabModel.getData();
+                       Data.Manager = Manager;
+                       idCollabModel.setData(Data);
+                       
                        console.log(collabManagerList)
                        
                      /*   for (let collabData of Object.values(data.results))
@@ -214,6 +233,55 @@ sap.ui.define([
             b.push(IconPool.fontLoaded("BusinessSuiteInAppSymbols"));
             c["BusinessSuiteInAppSymbols"] = B
 
+
+            /*Consolidataion Des Résultats*/
+
+            var oAutoEvalModel = this.getOwnerComponent().getModel();
+
+            oAutoEvalModel.read("/ZAUTOEVAL_ENTSet", {
+                
+                success: function(data){
+                    console.log(data)  
+                },
+                error: function(oError){
+                    console.log(oError);
+                }
+                });
+               /*  oDeleteModel.remove("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + currentIdCollab + "')", */
+
+            var oAutoEvalCollabModel = this.getOwnerComponent().getModel();
+
+            console.log(idCollaborateur)
+
+/*             ?$filter=Idcollab eq '" + idCollaborateur + "')"
+ */          
+            oAutoEvalCollabModel.read("/ZAUTOEVAL_ENTSet", {
+
+                filters: [new sap.ui.model.Filter("Idcollab", sap.ui.model.FilterOperator.EQ, idCollaborateur)],
+                
+                success: function(data){
+                    var oAutoEvalCollabModel = new JSONModel(data);
+                    that.getView().setModel(oAutoEvalCollabModel,"oAutoEvalCollabModel");
+                    console.log(data)  
+                },
+                error: function(oError){
+                    console.log(oError);
+                }
+                });
+
+            var oEvalModel = this.getOwnerComponent().getModel();
+
+            oEvalModel.read("/ZEVAL_ENTSet", {
+                
+                success: function(data){
+                    console.log(data)  
+                },
+                error: function(oError){
+                    console.log(oError);
+                }
+                });
+            
+
             /*Auto Evaluation COLLAB Section*/
                /* VISIBILITY */
 
@@ -283,18 +351,33 @@ sap.ui.define([
             var oCommentAnswer = this.getView().byId("comment").getValue();
             answersTab.push(oCommentAnswer)
             console.log(answersTab) 
-
-    
+            
             var IDEVAL = this.getIDEval("AUTOEVAL")
             var Trimestre = period + "-" + year
             var endAutoEval = hours + ":" + minutes + ":" + seconds;
             var iDCollabConn = this.getView().getModel("idCollabModel").getProperty("/idCollaborateur")
+            var Nom = this.getView().getModel("idCollabModel").getProperty("/nomCollab")
+            var Prenom = this.getView().getModel("idCollabModel").getProperty("/prenomCollab")
+            var Email = this.getView().getModel("idCollabModel").getProperty("/emailCollab")
+            var Agence = this.getView().getModel("idCollabModel").getProperty("/agenceCollab")
+            var Pole = this.getView().getModel("idCollabModel").getProperty("/poleCOllab")
+            var Etat = this.getView().getModel("idCollabModel").getProperty("/etatCollab")
+            var Poste = this.getView().getModel("idCollabModel").getProperty("/posteCollab")
+            var Manager = this.getView().getModel("idCollabModel").getProperty("/Manager")
             var startAutoEval = this.getView().getModel("startAutoEvalModel").getProperty("/startAutoEval");
             var autoEvalData = {
                 IdAutoeval : IDEVAL,
+                Nom : Nom,
+                Email : Email,
                 HDebut : startAutoEval,
+                Prenom : Prenom,
+                Agence : Agence,
                 HFin : endAutoEval,
+                Pole : Pole,
                 Trimestre : Trimestre,
+                Manager : Manager, 
+                Etat : Etat,
+                Poste : Poste,
                 Question1 : answersTab[0].toString(),
                 Question2 : answersTab[1].toString(),
                 Question3 : answersTab[2].toString(),
@@ -361,7 +444,7 @@ sap.ui.define([
                                     }
                                 ),
                                                                        
-                                new Image({
+                                new Image({ 
                                     src: "../utils/images/astronaut.png",
                                     width: "400px"
                                 })
@@ -403,6 +486,12 @@ sap.ui.define([
             console.log(startAutoEval)
             
         },        
+
+        onDisappearInfoPanel2 ()
+        {
+            this.getView().byId("infoPanel2").setVisible(false)
+
+        },
         
         onStartEval ()
         {
@@ -415,10 +504,8 @@ sap.ui.define([
             this.getView().byId("radioQuest5").setEnabled(true)
             this.getView().byId("radioQuest6").setEnabled(true)
             this.getView().byId("commentEval").setEnabled(true)
-
             this.getView().byId("infoPanel1").setVisible(false)
             this.getView().byId("infoPanel2").setVisible(true)
-
 
             var now = new Date();
             var hours = String(now.getHours()).padStart(2, '0');
@@ -430,7 +517,7 @@ sap.ui.define([
 
             console.log(startEval)
         },
-
+        
         onSendEval () 
         {
          
@@ -501,14 +588,24 @@ sap.ui.define([
             var iDCollabConn = this.getView().getModel("idCollabModel").getProperty("/idCollaborateur")
             var startAutoEval = this.getView().getModel("startEvalModel").getProperty("/startEval");
             var NoteGlobale =  parseFloat((sum / 6).toFixed(2))
-            var Idcollab = this.byId("collabSelect").getSelectedItem().getKey();
+            var Nom = this.getView().getModel("idCollabModel").getProperty("/nomCollab")
+            var Prenom = this.getView().getModel("idCollabModel").getProperty("/prenomCollab")
+            var Email = this.getView().getModel("idCollabModel").getProperty("/emailCollab")
+            var Agence = this.getView().getModel("idCollabModel").getProperty("/agenceCollab")
+            var Pole = this.getView().getModel("idCollabModel").getProperty("/poleCOllab")
+            var Idcollab = this.byId("collabSelect").getSelectedItem().getKey()
+            var Collaborateur = this.byId("collabSelect").getSelectedItem().getText()
             var EvalData = {
-            
-                Idmanager:iDCollabConn,
                 IdEval : IDEVAL,
+                Nom : Nom,
                 HDebut : startAutoEval,
+                Prenom : Prenom,
+                Email : Email,
+                Collaborateur:Collaborateur,
                 HFin : endAutoEval,
+                Agence : Agence,
                 Trimestre : Trimestre,
+                Pole: Pole,
                 Question1 : answersTab[0].toString(),
                 Question2 : answersTab[1].toString(),
                 Question3 : answersTab[2].toString(),//Si oui 5 , sinon 3
@@ -516,12 +613,12 @@ sap.ui.define([
                 Question5 : answersTab[4].toString(),//Si oui 5 , sinon 3
                 Question6 : answersTab[5].toString(),
                 Commentaire : answersTab[6].toString(),
-                NoteGlobale : NoteGlobale,
+                NoteGlobale : NoteGlobale.toString(),
+                Idmanager:iDCollabConn,
                 Idcollab : Idcollab
             }
 
             console.table(EvalData)
-            var that =this
             var oEvalModel = this.getOwnerComponent().getModel();
            
             oEvalModel.create("/ZEVAL_ENTSet",EvalData, {

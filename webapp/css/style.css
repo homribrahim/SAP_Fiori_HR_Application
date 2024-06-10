@@ -765,7 +765,7 @@
 }
 
 .ddate .sapMObjStatusIcon {
-  color: #D0A832 !important;
+  color: #FFCC33 !important;
 }
 
 .main {
@@ -961,8 +961,8 @@
   .infoPanel
   {
     position: absolute;
-    top:50%;
-    left:50%;
+    top:40%;
+    left:35%;
     z-index:99;
     animation: 4s UpDown infinite !important;
 
@@ -1064,6 +1064,25 @@
   color: #1470dc !important;
   text-decoration: none;
 }
+
+/*Results Section*/
+
+
+.sapMComboBoxBase
+{
+  height: 40px !important;
+}
+
+.pageHeader
+{
+  height: 150px !important;
+}
+
+
+
+
+
+
 /*End Of Dashboardf View Section*/
  
 /*Form View Section*/

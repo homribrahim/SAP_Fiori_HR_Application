@@ -11,10 +11,12 @@
 	xmlns:m="sap.m"
 	xmlns:forms="sap.ui.layout.form"
 	xmlns:f2="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
 	xmlns:tnt="sap.tnt"
 	xmlns:t="sap.ui.table"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:semantic="sap.m.semantic"
+	xmlns:svm="sap.ui.comp.smartvariants"
 	height="100%">
 
 <tnt:ToolPage id="toolPage">
@@ -130,15 +132,15 @@
 						height="100%"
 						class="sapUiContentPadding">
 
-						 <HBox class="infoPanel">
+						<!--  <HBox class="infoPanel">
 								<Image src="../utils/images/astroInfo.png" width="200px" />
 								<html:div class="thought">
-									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Maximo Your Magical Guide"/>
+									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Aymaxo Your Magical Guide"/>
 								</html:div>
-						</HBox>
+						</HBox> -->
 
 
-				<!-- <html:div class="main">
+				<html:div class="main">
 					<html:div class="up">
 						<html:button class="card1">
 						<html:img src="../utils/images/aymax.png" height="35px" width="150px"/>
@@ -161,7 +163,7 @@
 							<html:img src="../utils/aymaxWhite.png" height="150px"/>
 						</html:button>
 					</html:div>
-				</html:div> -->
+				</html:div>
 
 
 						<!-- <Text text="This is homepage" /> -->
@@ -243,7 +245,7 @@
  
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
-                                                <m:ObjectStatus text="{oUserdataModel>/Mobilite}" icon="sap-icon://suitcase" class="sapMObjectStatusLarge ddate"/>
+                                                <m:ObjectStatus text="{oUserdataModel>/Mobilite}" icon="sap-icon://globe" class="sapMObjectStatusLarge ddate"/>
                                             </m:VBox>
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Responsable Manager" class="sapUiTinyMarginBottom" />
@@ -365,7 +367,13 @@
                                             <ux:subSections>
                                                 <ux:ObjectPageSubSection id="autoevalsection" title="Mes Auto Evaluations">
                                                     <ux:blocks>
-                                                        <m:Table class="sapUxAPObjectPageSubSectionAlignContent" width="auto">
+                                                        <m:Table class="sapUxAPObjectPageSubSectionAlignContent" 
+														width="auto"
+														 items="{
+															path: 'oAutoEvalCollabModel>/results'
+														
+														}"
+														>
                                                             <m:headerToolbar>
                                                                 <m:OverflowToolbar>
                                                                     <m:ToolbarSpacer />
@@ -403,36 +411,8 @@
  
                                                             <m:items>
                                                                 <m:ColumnListItem>
-                                                                    <m:Text text="10223882001820" />
-                                                                    <m:Text text="Jologa" />
-                                                                    <m:Text text="Denise Smith" />
-                                                                    <m:Text text="11/15/19" />
-                                                                    <m:Text text="12,897.00 EUR" />
-                                                                </m:ColumnListItem>
-                                                                <m:ColumnListItem>
-                                                                    <m:Text text="10223882001820" />
-                                                                    <m:Text text="Jologa" />
-                                                                    <m:Text text="Denise Smith" />
-                                                                    <m:Text text="11/15/19" />
-                                                                    <m:Text text="12,897.00 EUR" />
-                                                                </m:ColumnListItem>
-                                                                <m:ColumnListItem>
-                                                                    <m:Text text="10223882001820" />
-                                                                    <m:Text text="Jologa" />
-                                                                    <m:Text text="Denise Smith" />
-                                                                    <m:Text text="11/15/19" />
-                                                                    <m:Text text="12,897.00 EUR" />
-                                                                </m:ColumnListItem>
-                                                                <m:ColumnListItem>
-                                                                    <m:Text text="10223882001820" />
-                                                                    <m:Text text="Jologa" />
-                                                                    <m:Text text="Denise Smith" />
-                                                                    <m:Text text="11/15/19" />
-                                                                    <m:Text text="12,897.00 EUR" />
-                                                                </m:ColumnListItem>
-                                                                <m:ColumnListItem>
-                                                                    <m:Text text="10223882001820" />
-                                                                    <m:Text text="Jologa" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>IdAutoeval}" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>Trimestre}" />
                                                                     <m:Text text="Denise Smith" />
                                                                     <m:Text text="11/15/19" />
                                                                     <m:Text text="12,897.00 EUR" />
@@ -1505,7 +1485,7 @@
 											</VBox>
 											</content>
 										</Panel>
- 
+
     									<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 											<headerToolbar>
 												<OverflowToolbar style="Clear">
@@ -1658,6 +1638,7 @@
 											
 																<Select 	
 																	class="selectCollab"
+																	change="onDisappearInfoPanel2"
 																	id="collabSelect"
 																	enabled="false"
 																	items="{ path: 'oUserdataModel>/collabManagerList'}"
@@ -1842,8 +1823,105 @@
 						id="evalResults"
 						horizontal="false"
 						vertical="true"
-						height="100%">
-						<Text text="This is the results page" />
+						height="300%">
+						<f2:DynamicPage headerExpanded="false">
+									<f2:title>
+									<f2:DynamicPageTitle>
+										<f2:heading>
+											<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+										</f2:heading>
+										<f2:expandedContent>
+											<Label id="expandedLabel" text="No filters active" />
+										</f2:expandedContent>
+										<f2:snappedContent>
+											<Label id="snappedLabel" text="No filters active" />
+										</f2:snappedContent>
+									</f2:DynamicPageTitle>
+								</f2:title>
+								<f2:header>
+									<f2:DynamicPageHeader class="pageHeader">
+										<f2:content>
+											<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+												<fb:filterGroupItems>
+													<fb:FilterGroupItem name="Name" label="Name" groupName="Group1" visibleInFilterBar="true">
+														<fb:control>
+															<MultiComboBox
+																name="Name"
+																
+																items="{
+																	path: '/ProductNames',
+																	templateShareable: true
+																}"
+															>
+																<core:Item key="{key}" text="{name}"/>
+															</MultiComboBox>
+														</fb:control>
+													</fb:FilterGroupItem>
+													<fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+														<fb:control>
+															<MultiComboBox
+																name="Category"
+																selectionChange=".onSelectionChange"
+																items="{
+																	path: '/ProductCategories',
+																	templateShareable: true
+																}"
+															>
+																<core:Item key="{key}" text="{name}"/>
+															</MultiComboBox>
+														</fb:control>
+													</fb:FilterGroupItem>
+													<fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
+														<fb:control>
+															<MultiComboBox
+																name="SupplierName"
+																selectionChange=".onSelectionChange"
+																items="{
+																	path: '/ProductSuppliers',
+																	templateShareable: true
+																}"
+															>
+																<core:Item key="{key}" text="{name}"/>
+															</MultiComboBox>
+														</fb:control>
+													</fb:FilterGroupItem>
+												</fb:filterGroupItems>
+											</fb:FilterBar>
+										</f2:content>
+									</f2:DynamicPageHeader>
+								</f2:header>
+								<f2:content>
+										<Table
+											
+										>
+											<columns>
+												<Column minScreenWidth="Tablet" demandPopin="true">
+													<Text class="textGen" text="ID"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true">
+													<Text class="textGen" text="Collaborateur"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true">
+													<Text class="textGen" text="Manager"/>
+												</Column>
+												 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                                                <Text class="textGen" text="Détails" />
+                                            </Column>
+											</columns>
+
+											<items>
+												<ColumnListItem vAlign="Middle">
+													<cells>
+														<ObjectIdentifier title="Beyna" text="Seyna" />
+														<Text text="Hello" />
+														<Text text="Heilla" />
+														<Text text="Voir Détails">
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+								</f2:content>
+						</f2:DynamicPage>
 					</ScrollContainer>
 
 					<ScrollContainer
