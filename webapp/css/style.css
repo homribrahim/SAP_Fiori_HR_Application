@@ -970,13 +970,13 @@
   .infoPanel1
   {
     position: absolute;
-    top:15%;
-    left:10%;
+    top:13%;
+    left:7%;
     z-index:99;
     animation: 4s UpDown infinite !important;
 
   }
-  .infoPanel2
+  .infoPanel2,.infoPanel3
   {
     position: absolute;
     top:30%;
@@ -990,22 +990,7 @@
   {
     z-index: 999 !important;
   }
-  
- /*  .arrowAstro
-  {
-    display:flex;
-    margin-left:-450px;
-    margin-top: -5px;
-    position:relative;
-    align-items:center;
-    justify-content:center;
-    -moz-transform: scale(-1, -1);
-    -o-transform: scale(-1, -1);
-    -webkit-transform: scale(-1, -1);
-    transform: scale(-1, -1);
-  }
-   */
-  
+
   .infoPanelText
   {
     font-size:17px;

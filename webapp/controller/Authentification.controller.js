@@ -16,12 +16,12 @@ sap.ui.define([
         return Controller.extend("brahim.project.controller.Authentification", {
             onInit: function () {
 
-                
-               /*  if(localStorage.getItem("userData"))
+              /*   
+                if(localStorage.getItem("userData"))
                 {
-                    this.getOwnerComponent().getRouter().navTo("Dashboard")
-                    /* this.getOwnerComponent().getRouter().getRoute().stop()   */
-               /*  }  */
+                    this.getOwnerComponent().getRouter().navTo("Dashboardf")
+                   this.getOwnerComponent().getRouter().getRoute().stop()   
+                }  */
 
 /*                 window.history.forward();
  */
@@ -74,14 +74,15 @@ sap.ui.define([
                                     console.log(oError);
                                 }
                                 });
-                                  
-                            this.getOwnerComponent().getRouter().navTo("Dashboardf")   
                             
-
-                                         
+                            
+                            this.getOwnerComponent().getRouter().navTo("Dashboardf")  
+                           
+ 
                         }                   
                     }
-                }    
+                }  
+               
             } ,
         });
     });

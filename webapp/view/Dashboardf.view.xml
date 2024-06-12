@@ -132,15 +132,17 @@
 						height="100%"
 						class="sapUiContentPadding">
 
-						<!--  <HBox class="infoPanel">
+						 <HBox class="infoPanel">
 								<Image src="../utils/images/astroInfo.png" width="200px" />
+<!-- 								<Image class="rocketImg" src="../utils/images/rocket.png" width="100px" />
+ -->
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Aymaxo Your Magical Guide"/>
 								</html:div>
-						</HBox> -->
+						</HBox>
 
 
-				<html:div class="main">
+		<!-- 		<html:div class="main">
 					<html:div class="up">
 						<html:button class="card1">
 						<html:img src="../utils/images/aymax.png" height="35px" width="150px"/>
@@ -163,7 +165,7 @@
 							<html:img src="../utils/aymaxWhite.png" height="150px"/>
 						</html:button>
 					</html:div>
-				</html:div>
+				</html:div> -->
 
 
 						<!-- <Text text="This is homepage" /> -->
@@ -390,8 +392,8 @@
                                                                    
                                                                 </m:OverflowToolbar>
                                                             </m:headerToolbar>
- 
-                                                            <m:columns>
+                                                  
+															<m:columns>
                                                                 <m:Column>
                                                                     <m:Text text="Numéro Auto Eval" />
                                                                 </m:Column>
@@ -399,13 +401,25 @@
                                                                     <m:Text text="Trimestre" />
                                                                 </m:Column>
                                                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
-                                                                    <m:Text text="Date Auto Eval" />
+                                                                    <m:Text  text="Date Auto Eval" />
                                                                 </m:Column>
                                                                 <m:Column  minScreenWidth="Tablet" demandPopin="true">
                                                                     <m:Text text="Question 1" />
                                                                 </m:Column>
-                                                                <m:Column hAlign="End">
-                                                                    <m:Text text="Etat Auto Eval" />
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 2" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 3" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 4" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 5" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Commentaire" />
                                                                 </m:Column>
                                                             </m:columns>
  
@@ -413,11 +427,16 @@
                                                                 <m:ColumnListItem>
                                                                     <m:Text text="{oAutoEvalCollabModel>IdAutoeval}" />
                                                                     <m:Text text="{oAutoEvalCollabModel>Trimestre}" />
-                                                                    <m:Text text="Denise Smith" />
-                                                                    <m:Text text="11/15/19" />
-                                                                    <m:Text text="12,897.00 EUR" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>DateA}" />                                            
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question1}" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question2}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question3}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question4}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question5}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Commentaire}"/>
                                                                 </m:ColumnListItem>
                                                             </m:items>
+
                                                         </m:Table>
                                                     </ux:blocks>
                                                 </ux:ObjectPageSubSection>
@@ -935,6 +954,70 @@
                                                     <ObjectIdentifier class="textd" text="{odataModel>Agence}" />          
                                                     <ObjectIdentifier class="textd" text="{odataModel>Pole}" />  
                                                     <ObjectIdentifier class="textd" text="{odataModel>Etat}" />                              
+                                                </cells>                                    
+                                            </ColumnListItem>                                                                                                            
+                                        </items>
+                                    </Table>
+
+									<Table id="collabTableManager"
+                                        sticky="ColumnHeaders,HeaderToolbar"
+                                        inset="false"
+                                        growing="true"
+                                        class="sapFDynamicPageAlignContent"
+                                        width="auto"
+                                        items="{
+                                            path: 'oCollabManModel>/results'
+                                          
+                                        }">
+                                        <headerToolbar>
+                                            <OverflowToolbar>
+                                                   
+                                                   
+                                                <ToolbarSpacer/>
+                                             
+												<SearchField
+													id="searchFieldManager"
+													width="50%"
+													placeholder="Search for..."
+													enableSuggestions="true"
+													search=".onSearch"
+													suggest=".onSuggest"
+													suggestionItems="{
+														path: 'oCollabManModel>/results',
+														sorter: { path: '{oCollabManModel>Nom}' }
+													}">
+													<SuggestionItem text="{oCollabManModel>Nom}" description="{path:'{oCollabManModel>Nom}'} {path:'{oCollabManModel>Prenom}'}" key="{oCollabManModel>Nom}" />
+												</SearchField>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column>
+                                                <Text class="textGen" text="Collaborateur" />
+                                            </Column>
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Type"/>
+                                            </Column>
+ 
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Agence" />
+                                            </Column>
+                                           
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Pôle" />
+                                            </Column>
+ 
+                                            <Column hAlign="End">
+                                                <Text class="textGen" text="Etat" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Navigation" press="onItemSelected" vAlign="Middle">
+                                                <cells>
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Nom} {oCollabManModel>Prenom}" />
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Type}" />
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Agence}" />          
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Pole}" />  
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Etat}" />                              
                                                 </cells>                                    
                                             </ColumnListItem>                                                                                                            
                                         </items>
@@ -1569,8 +1652,17 @@
 
 							<HBox class="infoPanel2" id="infoPanel2">
 								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+<!-- 								<Image class="rocketImg" src="../utils/images/rocket.png" width="200px" />
+ -->								
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Bravo ! Ne vous reste maintenant que de choisir le nom de votre complice."/>
+								</html:div>
+							</HBox>
+
+							<HBox class="infoPanel3" id="infoPanel3">
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Vous avez déja évalué ce collaborateur pour le trimestre {quarterNow>/quarter}."/>
 								</html:div>
 							</HBox>
                           <ux:ObjectPageLayout

@@ -10,6 +10,8 @@ sap.ui.define([
 function (UIComponent, Device, models) {
 	"use strict";
 
+	window.hasPageReloaded = window.hasPageReloaded || false;
+
 	return UIComponent.extend("brahim.project.Component", {
 		metadata: {
 			manifest: "json"

@@ -18,11 +18,10 @@ sap.ui.define([
     "sap/m/Image",
     "sap/m/HBox",
     "sap/m/VBox",
-    "../utils/myFormatter"
+    "../utils/myFormatter",
+    "sap/ui/core/Item"
 
-
-
-], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,UIComponent,coreLibrary,Image,HBox,VBox,myFormatter) {
+], function (Device, Controller, JSONModel, Popover, Button, mobileLibrary,Filter,FilterOperator,Sorter,IconPool,Dialog,Text,MessageToast,DateFormat,UIComponent,coreLibrary,Image,HBox,VBox,myFormatter,Item) {
     "use strict";
  
 
@@ -31,18 +30,30 @@ sap.ui.define([
 
     var DialogType = mobileLibrary.DialogType;
     var ValueState = coreLibrary.ValueState;
+    const date = new Date();
+    const month = date.getMonth();
+    var year = new Date().getFullYear()
+    var quarter = "Q"+ String(Math.floor(month / 3) + 1) + "-" + String(year)
  
     return Controller.extend("brahim.project.controller.Dashboardf", {
 
         stateFormatter :myFormatter ,
- 
+
         onInit: function () {
-            
+  
+        /*     if (!window.hasPageReloaded) {
+                window.hasPageReloaded = true;
+                window.location.reload();
+            } */
+
+          
+
             var that = this;
             this.oSF = this.byId("searchField");   
+            this.oSFM = this.byId("searchFieldManager")
 
             
-            /* if(!localStorage.getItem("userData"))
+          /*   if(!localStorage.getItem("userData"))
                 {   
                     location.reload();
                     this.getOwnerComponent().getRouter().navTo("Authentification")
@@ -50,10 +61,10 @@ sap.ui.define([
                 }  */
             
 
-           /*  window.history.pushState(null, null, window.location.href);
+            window.history.pushState(null, null, window.location.href);
             window.onpopstate = function () {
                 window.history.go(1);
-            }; */
+            };
 
             var storedData = localStorage.getItem("userData");
 
@@ -156,20 +167,8 @@ sap.ui.define([
                         currentData.ResponsableRh = ResponsableRh;
                         oUserModel.setData(currentData);
                        }
-                       
-
-                        console.log(oUserModel)
-
-                    /*  for (const collabData of Object.values(data.results)) {
-                        if (collabData.IdCollab === "108") {
-                         
-                           
-                        }
-                    } */
-                    /* var usersWithAge30 = data.results.filter(I==="108")
-                    console.log(usersWithAge30)
-                        */
-                      
+                    
+                       console.log(oUserModel)  
                        var x = data.results.length;
                        var xValueModel = new JSONModel({ xValue: x });
                        that.getView().setModel(xValueModel, "xValueModel");
@@ -179,9 +178,36 @@ sap.ui.define([
                        console.log(oError);
                    }
                    });
+
+
+
+                   var oCollabManagerModel = this.getOwnerComponent().getModel();
+               
+                   console.log(oCollabModel)
+                  
+                   oCollabManagerModel.read("/ZCOLLAB_ENTSet", {
+
+                    filters: [new sap.ui.model.Filter("IdManager", sap.ui.model.FilterOperator.EQ, idCollaborateur)],
+
+                       success: function(data)
+                       {
+                            var oCollabManModel = new JSONModel(data);
+                            that.getView().setModel(oCollabManModel,"oCollabManModel");
+                            console.log(data);
+                       },               
+                       error: function(oError)
+                       {
+                            console.log(oError);
+                       }
+                })
+
+
+
+
+
                 
             var listItem = this.getView().byId("navigationList");
-
+            
             // Attach event listener for when the items are rendered
             listItem.addEventDelegate({
                 onAfterRendering: function() {
@@ -197,16 +223,24 @@ sap.ui.define([
                     }
                     else if  (role == "manager")
                     {   
-                        listItem.getItems()[2].setVisible(false)           
+                        console.log('Manager')
+                        that.getView().byId("collabTableManager").setVisible(true) 
+                        that.getView().byId("collabTable").setVisible(false)
+
                     }
+                    else if  (role == "RH")
+                    {   
+                        console.log('RH')
+                        that.getView().byId("collabTable").setVisible(true)
+                        that.getView().byId("collabTableManager").setVisible(false) 
+
+
+                    } 
+
+
 
                 }
             });
-
-           /*  
-            var roleValueModel = new JSONModel({ roleValue: role });
-            that.getView().setModel(roleValueModel, "roleValueModel");
-            roleValue = that.getView().getModel("roleValueModel").getProperty("/roleValue") */
 
             /*Loading SideContent JSON*/
 
@@ -247,22 +281,30 @@ sap.ui.define([
                     console.log(oError);
                 }
                 });
-               /*  oDeleteModel.remove("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + currentIdCollab + "')", */
 
             var oAutoEvalCollabModel = this.getOwnerComponent().getModel();
 
             console.log(idCollaborateur)
-
-/*             ?$filter=Idcollab eq '" + idCollaborateur + "')"
- */          
+          
             oAutoEvalCollabModel.read("/ZAUTOEVAL_ENTSet", {
 
                 filters: [new sap.ui.model.Filter("Idcollab", sap.ui.model.FilterOperator.EQ, idCollaborateur)],
                 
                 success: function(data){
-                    var oAutoEvalCollabModel = new JSONModel(data);
+                    var oAutoEvalCollabModel = new JSONModel(data);         
                     that.getView().setModel(oAutoEvalCollabModel,"oAutoEvalCollabModel");
-                    console.log(data)  
+                    if (data)
+                    {
+                        
+                        console.log(data)
+                    if ( data.results.find(obj => obj.Trimestre === quarter) )
+                        {
+                            that.byId("noAutoEval").setVisible(true);
+                            that.byId("evaluationCollab").setVisible(false);
+                            console.log("Hello Darkness")
+                        }
+                    }
+                     
                 },
                 error: function(oError){
                     console.log(oError);
@@ -280,9 +322,13 @@ sap.ui.define([
                     console.log(oError);
                 }
                 });
+
+
+           
             
 
             /*Auto Evaluation COLLAB Section*/
+
                /* VISIBILITY */
 
                 this.getView().byId("collabDetails").setVisible(false);   
@@ -294,7 +340,12 @@ sap.ui.define([
                 this.byId("headerInfoDisplay").setVisible(true);
                 this.byId("headerInfoEdit").setVisible(false);
                 this.byId("noAutoEval").setVisible(false);
-                this.byId("infoPanel2").setVisible(false)
+                this.byId("infoPanel2").setVisible(false);
+                this.byId("infoPanel3").setVisible(false);
+                this.getView().byId("collabTable").setVisible(false)
+
+
+
                 
                 var busyLoader = this.byId("busyLoader");
                 var collabTableSection = this.byId("collabTableSection");
@@ -302,9 +353,7 @@ sap.ui.define([
                 setTimeout(function() {
                     busyLoader.setVisible(false);
                     collabTableSection.setVisible(true)
-                }, 4000);
-
-            
+                }, 4000);            
             },
 
         getIDEval (mode)
@@ -320,6 +369,22 @@ sap.ui.define([
             var IDEVAL= mode + idCollabConn + result;            
             return IDEVAL
         },
+
+        getEvalDate: function() {
+            var now = new Date();
+            var day = String(now.getDate())
+            var month = String(now.toLocaleString('default', { month: 'long' }));
+            var year = String(now.getFullYear())
+         
+           return (day  + " " + month + " " + year)
+ 
+           
+ 
+           /*  var dateAutoEvalModel = new JSONModel({ dateAutoEval: dateAutoEval });
+            this.getView().setModel(dateAutoEvalModel, "dateAutoEvalModel"); */
+ 
+        },
+ 
 
         onSendAutoEval () 
         {
@@ -365,10 +430,12 @@ sap.ui.define([
             var Poste = this.getView().getModel("idCollabModel").getProperty("/posteCollab")
             var Manager = this.getView().getModel("idCollabModel").getProperty("/Manager")
             var startAutoEval = this.getView().getModel("startAutoEvalModel").getProperty("/startAutoEval");
+            var dateAutoEval = this.getEvalDate()
             var autoEvalData = {
                 IdAutoeval : IDEVAL,
                 Nom : Nom,
                 Email : Email,
+                DateA : dateAutoEval,
                 HDebut : startAutoEval,
                 Prenom : Prenom,
                 Agence : Agence,
@@ -394,6 +461,7 @@ sap.ui.define([
             oAutoEvalModel.create("/ZAUTOEVAL_ENTSet",autoEvalData, {
                 success: function(){
                     console.log("Auto Eval Added Successfully !")  
+                    
 
                     that.byId("noAutoEval").setVisible(true);
                     that.byId("evaluationCollab").setVisible(false);
@@ -405,10 +473,10 @@ sap.ui.define([
                 }
                 });
 
-            this.onSuccessMessageDialogPress()
+            this.onSuccessMessageDialogPress("Votre réponse a été envoyée. Nous vous remercions pour le temps que vous avez consacré à votre auto-évaluation ✅Votre manager reviendra vers vous dans les prochains jours pour finaliser le processus d'entretien d'évaluation des performances par un échange de vive voix 🌟🚀Excellente journée.")
         },
 
-        onSuccessMessageDialogPress: function () {
+        onSuccessMessageDialogPress: function (SUCCESSDESC) {
 			if (!this.oSuccessMessageDialog) {
 				this.oSuccessMessageDialog = new Dialog({
 					type: DialogType.Message,
@@ -423,23 +491,11 @@ sap.ui.define([
                                 new VBox(
                                     {   
                                         justifyContent: "Center",
-                                
                                         items : [
                                             new Text({
-                                                text: "Votre réponse a été envoyée Nous vous remercions pour le temps que vous avez consacré à votre auto-évaluation.",
-                                                textAlign:"Center",
-                                               
-                                            }),
-                                            new Text({
-                                                text: "✅Votre manager reviendra vers vous dans les prochains jours pour finaliser le processus d'entretien d'évaluation des performances par un échange de vive voix.",
-                                                textAlign:"Center",
-                                              
-                                            }),
-                                            new Text({
-                                                text: "🌟Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter,🚀Excellente journée.",
-                                                textAlign:"Center",
-                                           
-                                            })
+                                                text: SUCCESSDESC,
+                                                textAlign: "Center",                                      
+                                            }),                                        
                                         ]
                                     }
                                 ),
@@ -454,16 +510,19 @@ sap.ui.define([
                         })],
                                    
 					beginButton: new Button({
-						type: ButtonType.Emphasized,
+						type: ButtonType.Success,
 						text: "OK",
 						press: function () {
 							this.oSuccessMessageDialog.close();
+                            window.location.reload();
 						}.bind(this)
 					})
 				});
 			}
 
 			this.oSuccessMessageDialog.open();
+
+
 		},
 
         onStartAutoEval ()
@@ -476,6 +535,14 @@ sap.ui.define([
             this.getView().byId("comment").setEnabled(true)
 
             var now = new Date();
+            var day = String(now.getDate())
+            var month = String(now.toLocaleString('default', { month: 'long' }));
+            var year = String(now.getFullYear())
+                console.log(day  + " " + month + " " + year)
+
+
+
+
             var hours = String(now.getHours()).padStart(2, '0');
             var minutes = String(now.getMinutes()).padStart(2, '0');
             var seconds = String(now.getSeconds()).padStart(2, '0');
@@ -489,8 +556,64 @@ sap.ui.define([
 
         onDisappearInfoPanel2 ()
         {
-            this.getView().byId("infoPanel2").setVisible(false)
+            var that=this
+            this.getView().byId("radioQuest1").setEnabled(true)
+            this.getView().byId("radioQuest2").setEnabled(true)
+            this.getView().byId("radioQuest3").setEnabled(true)
+            this.getView().byId("radioQuest4").setEnabled(true)
+            this.getView().byId("radioQuest5").setEnabled(true)
+            this.getView().byId("radioQuest6").setEnabled(true)
+            this.getView().byId("commentEval").setEnabled(true)
+            this.getView().byId("infoPanel3").setVisible(false)
 
+            var quarterNow = new JSONModel({quarter : quarter});         
+            this.getView().setModel(quarterNow,"quarterNow");            
+            this.getView().byId("infoPanel2").setVisible(false)
+            var Collab = this.byId("collabSelect").getSelectedItem().getKey()
+            var idCollaborateur = this.getView().getModel("idCollabModel").getProperty("/idCollaborateur")
+            console.log(Collab)
+            var oEvalCollabModel = this.getOwnerComponent().getModel();
+
+            oEvalCollabModel.read("/ZEVAL_ENTSet", {
+
+                filters: [new sap.ui.model.Filter("Idmanager", sap.ui.model.FilterOperator.EQ, idCollaborateur)],
+        
+                success: function(data){    
+                    if (data)
+                    {   
+                        
+                    if ( data.results.find((obj => obj.Trimestre === quarter) && (obj => obj.Idcollab === Collab)) )
+                        {
+                            that.getView().byId("radioQuest1").setEnabled(false)
+                            that.getView().byId("radioQuest2").setEnabled(false)
+                            that.getView().byId("radioQuest3").setEnabled(false)
+                            that.getView().byId("radioQuest4").setEnabled(false)
+                            that.getView().byId("radioQuest5").setEnabled(false)
+                            that.getView().byId("radioQuest6").setEnabled(false)
+                            that.getView().byId("commentEval").setEnabled(false)            
+                            that.getView().byId("infoPanel3").setVisible(true)
+
+                            setTimeout(function() {
+                                $( that.getView().byId("infoPanel3").getDomRef()).animate({
+                                    opacity: 0,
+                                    top: "-=50" 
+                                },"slow", function() {
+                                    that.getView().byId("infoPanel3").setVisible(false);
+                                });
+
+                            }, 5000);
+                        }
+                    }
+                },
+                error: function(oError){
+                    console.log(oError);
+                }
+                });
+
+           
+
+/*             
+ */
         },
         
         onStartEval ()
@@ -504,7 +627,13 @@ sap.ui.define([
             this.getView().byId("radioQuest5").setEnabled(true)
             this.getView().byId("radioQuest6").setEnabled(true)
             this.getView().byId("commentEval").setEnabled(true)
-            this.getView().byId("infoPanel1").setVisible(false)
+/*             this.getView().byId("infoPanel1").setVisible(false)
+ */            $( this.getView().byId("infoPanel1").getDomRef()).animate({
+                opacity: 0,
+                top: "-=50" 
+            },"slow", function() {
+                that.getView().byId("infoPanel1").setVisible(false);
+            });
             this.getView().byId("infoPanel2").setVisible(true)
 
             var now = new Date();
@@ -595,10 +724,12 @@ sap.ui.define([
             var Pole = this.getView().getModel("idCollabModel").getProperty("/poleCOllab")
             var Idcollab = this.byId("collabSelect").getSelectedItem().getKey()
             var Collaborateur = this.byId("collabSelect").getSelectedItem().getText()
+            var dateEval = this.getEvalDate()
             var EvalData = {
                 IdEval : IDEVAL,
                 Nom : Nom,
                 HDebut : startAutoEval,
+                Datee : dateEval,
                 Prenom : Prenom,
                 Email : Email,
                 Collaborateur:Collaborateur,
@@ -609,7 +740,7 @@ sap.ui.define([
                 Question1 : answersTab[0].toString(),
                 Question2 : answersTab[1].toString(),
                 Question3 : answersTab[2].toString(),//Si oui 5 , sinon 3
-                Question4 : answersTab[3].toString(),//Si oui 1 , sinon 3
+                Question4 : answersTab[3].toString(),//Si oui 1 , sinon 3   
                 Question5 : answersTab[4].toString(),//Si oui 5 , sinon 3
                 Question6 : answersTab[5].toString(),
                 Commentaire : answersTab[6].toString(),
@@ -635,15 +766,19 @@ sap.ui.define([
                 }
                 });
 
-/*             this.onSuccessMessageDialogPress() 
- */        },
+            this.onSuccessMessageDialogPress("Votre réponse a été envoyée.Nous vous remercions pour le temps que vous avez consacré à l'évaluation de performance pulse de votre collaborateur ✅L'équipe RH et votre ressource Manager reviendront vers vous pour partager les résultats d'évaluation des performances trimestrielles de votre équipe par un échange de vive voix et de clôturer l'exercice🌟Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀Excellente journée.") 
+        },
     
          onDisconnect ()
          {     
             localStorage.removeItem("userData");
+
             // Navigate to the authentication page
             var oRouter = UIComponent.getRouterFor(this);
             oRouter.navTo("Authentification", {}, true); 
+            window.location.reload();
+
+
          },
 
         onEdit () 
@@ -819,7 +954,11 @@ sap.ui.define([
             }
 
         this.oSF.getBinding("suggestionItems").filter(aFilters);
+        this.oSFM.getBinding("suggestionItems").filter(aFilters);
         this.oSF.suggest();
+        this.oSFM.suggest();
+
+        
     
 		},
 
