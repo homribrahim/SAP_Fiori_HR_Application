@@ -224,15 +224,14 @@ sap.ui.define([
                     else if  (role == "manager")
                     {   
                         console.log('Manager')
-                        that.getView().byId("collabTableManager").setVisible(true) 
-                        that.getView().byId("collabTable").setVisible(false)
+/*                         that.getView().byId("collabTableManager").setVisible(true) 
+ */                        that.getView().byId("collabTable").setVisible(true)
 
                     }
                     else if  (role == "RH")
                     {   
                         console.log('RH')
                         that.getView().byId("collabTable").setVisible(true)
-                        that.getView().byId("collabTableManager").setVisible(false) 
 
 
                     } 
@@ -275,7 +274,9 @@ sap.ui.define([
             oAutoEvalModel.read("/ZAUTOEVAL_ENTSet", {
                 
                 success: function(data){
-                    console.log(data)  
+                    var oAutoEvalModel = new JSONModel(data)
+                    that.getView().setModel(oAutoEvalModel,"oAutoEvalModel")
+                    console.log(oAutoEvalModel)  
                 },
                 error: function(oError){
                     console.log(oError);
@@ -316,7 +317,10 @@ sap.ui.define([
             oEvalModel.read("/ZEVAL_ENTSet", {
                 
                 success: function(data){
-                    console.log(data)  
+                    
+                    var oEvalModel = new JSONModel(data)
+                    that.getView().setModel(oEvalModel,"oEvalModel")
+                    console.log(oEvalModel)  
                 },
                 error: function(oError){
                     console.log(oError);
@@ -342,7 +346,9 @@ sap.ui.define([
                 this.byId("noAutoEval").setVisible(false);
                 this.byId("infoPanel2").setVisible(false);
                 this.byId("infoPanel3").setVisible(false);
-                this.getView().byId("collabTable").setVisible(false)
+                this.getView().byId("collabEvalDetails").setVisible(false);   
+
+                
 
 
 
@@ -871,9 +877,8 @@ sap.ui.define([
             var oContext = oSelectedItem.getBindingContext("odataModel");
             var sPath = oContext.getPath();
             console.log(sPath)
-            var oProductDetailPanel = this.byId("collabDetails");
-            oProductDetailPanel.bindElement({ path: sPath, model: "odataModel" });
-            /* console.log(oProductDetailPanel) */     
+            var oCollabDetailPanel = this.byId("collabDetails");
+            oCollabDetailPanel.bindElement({ path: sPath, model: "odataModel" });
             var currentIdCollab = new JSONModel({ 
                     currentIdCollab: (this.getView().getModel("odataModel").getProperty(sPath)).Idcollab ,
                     currentCivilite: (this.getView().getModel("odataModel").getProperty(sPath)).Civilite ,
@@ -896,24 +901,65 @@ sap.ui.define([
             this.getView().setModel(currentIdCollab, "currentIdCollabModel"); 
             var currentStartDate = this.getView().getModel("currentIdCollabModel").getProperty("/currentStartDate");
             this.getAnciennete(currentStartDate,"anciennete")
+        
+        },
 
-           
-           /*  this.byId("ancienneteProfile").setText(anciennete) */
+        onEvalSelect : function(oEvent) {
+            this.getView().byId("collabEvalDetails").setVisible(true);   
+            this.getView().byId("collabEvalSection").setVisible(false);
+            var oSelectedItem = oEvent.getSource();
+            var oContext = oSelectedItem.getBindingContext("oEvalModel");
+            var sPath = oContext.getPath();
+            console.log(sPath)
+            var oCollabDetailPanel = this.byId("collabEvalDetails");
+            oCollabDetailPanel.bindElement({ path: sPath, model: "oEvalModel" });
 
+            console.log(this.getView().getModel("oEvalModel").getProperty(sPath))
+
+
+            var currentEval = new JSONModel({ 
+                currentId: (this.getView().getModel("oEvalModel").getProperty(sPath)).Idcollab})
+
+            this.getView().setModel(currentEval, "currentEval"); 
+
+            var oAutoEvalModel = this.getView().getModel("oAutoEvalModel")
+            console.log(oAutoEvalModel)
+            console.log(oAutoEvalModel.oData.results)
+            var currentIdEval = this.getView().getModel("currentEval").getProperty("/currentId");
+            var collabAutoEvalObj = {}
+            var i=-1
+            var SPathAE = ""
+
+            console.log(this.getView().getModel("oEvalModel").getProperty(sPath))                      
+
+            for (let collabData of Object.values(oAutoEvalModel.oData.results))
+            { 
+                i = i+1
+                if (currentIdEval == collabData.Idcollab)
+                {
+                    collabAutoEvalObj =collabData
+                    break;
+                }
+            }
+         
+            console.log(collabAutoEvalObj)
+            console.log(i)
+        
             
+            if (Object.keys(collabAutoEvalObj).length >0)
+            {
+                this.getView().byId("autoEvalDetailsSection").setVisible(true);
 
-            //Formatter For Profile State
-            
-            /*  var currentState = this.getView().getModel("currentIdCollabModel").getProperty("/currentState");
-                var etat = this.byId("etat")
+                SPathAE = "/results/"+String(i)
+                oCollabDetailPanel.bindElement({ path: SPathAE, model: "oAutoEvalModel" });
+            }
+            else
+            {
+              this.getView().byId("autoEvalDetailsSection").setVisible(false);
 
-                if (currentState=="En Cours")
-                    etat.setState("Success")
-                else if (currentState=="Intercontrat")
-                    etat.setState("Warning")
-                else if (currentState=="Sortie")
-                    etat.setState("Error") */
-            
+                console.log("No Auto Eval")
+            } 
+
         },
 
         getAnciennete (currentStartDate,ancienneteId)

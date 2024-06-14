@@ -134,38 +134,14 @@
 
 						 <HBox class="infoPanel">
 								<Image src="../utils/images/astroInfo.png" width="200px" />
-<!-- 								<Image class="rocketImg" src="../utils/images/rocket.png" width="100px" />
- -->
+
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Aymaxo Your Magical Guide"/>
 								</html:div>
 						</HBox>
 
 
-		<!-- 		<html:div class="main">
-					<html:div class="up">
-						<html:button class="card1">
-						<html:img src="../utils/images/aymax.png" height="35px" width="150px"/>
-						</html:button>
-						<html:button class="card5">
-							<html:img src="../utils/images/aymaxWhite.png" height="150px"/>
-						</html:button>
-						<html:button class="card2">
-							<html:img src="../utils/aymaxWhite.png" height="150px"/>
-						</html:button>
-					</html:div>
-					<html:div class="down">
-						<html:button class="card3">
-							<html:img src="../utils/aymaxWhite.png" height="150px"/>
-						</html:button>
-						<html:button class="card6">
-							<html:img src="../utils/aymaxWhite.png" height="150px"/>
-						</html:button>
-						<html:button class="card4">
-							<html:img src="../utils/aymaxWhite.png" height="150px"/>
-						</html:button>
-					</html:div>
-				</html:div> -->
+		
 
 
 						<!-- <Text text="This is homepage" /> -->
@@ -545,26 +521,21 @@
 												<m:Title class="sapUiTinyMarginBottom">
 													<m:Label text="Etat"/>
 												</m:Title>
-<!-- 												<m:ObjectStatus text="{odataModel>Etat}" state="Success" class="sapMObjectStatusLarge"/> -->	
 													<Input id="etat_collab_edit" value="{odataModel>Etat}" />
 											</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-												<m:Title text="Date de Démarrage" class="sapUiTinyMarginBottom" />
-<!-- 												<m:ObjectStatus text="{odataModel>DateDemarrage}" icon="sap-icon://date-time" class="sapMObjectStatusLarge"/>
- -->										
-													<Input id="date_demarrage_edit" value="{odataModel>DateDemarrage}" />
- 													</m:VBox>
+												<m:Title text="Date de Démarrage" class="sapUiTinyMarginBottom" />									
+												<Input id="date_demarrage_edit" value="{odataModel>DateDemarrage}" />
+ 											</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Ancienneté" class="sapUiTinyMarginBottom" />
-												<!-- <m:ObjectStatus text="To Be Selected" state="Error" class="sapMObjectStatusLarge"/> -->
-													<Input enabled="false" value="To Be Selected" />
+												<Input enabled="false" value="To Be Selected" />
 											</m:VBox>
 
 											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
 												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
-												<!-- <m:ObjectStatus text="{odataModel>Mobilite}" class="sapMObjectStatusLarge"/> -->
 												<Input id="mobilite_collab_edit" value="{odataModel>Mobilite}" />
 											</m:VBox>		
 										</m:FlexBox>
@@ -892,24 +863,6 @@
                                                         text="Export">
                                                     </Button>
                                                 <ToolbarSpacer/>
-                                              <!--   <SearchField 
-														placeholder="Search for Business Unit" 
-														enableSuggestions="true" 
-														search=".onSearch" 
-														suggest=".onSuggest"								
-														id="searchField"
-														suggestionItems="{
-															path: 'odataModel>/results',
-															sorter: { path: '{odataModel>Nom} ' }
-													}"
-													>
-													<suggestionItems>
-														<SuggestionItem text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Nom}"/>
-													</suggestionItems> 
-													<suggestionItems>
-														<SuggestionItem text="{odataModel>Nom}" key="{odataModel>Nom}"/>
-													</suggestionItems>
-				           					 	</SearchField> -->
 												<SearchField
 													id="searchField"
 													width="50%"
@@ -958,7 +911,7 @@
                                             </ColumnListItem>                                                                                                            
                                         </items>
                                     </Table>
-
+<!-- 
 									<Table id="collabTableManager"
                                         sticky="ColumnHeaders,HeaderToolbar"
                                         inset="false"
@@ -971,8 +924,7 @@
                                         }">
                                         <headerToolbar>
                                             <OverflowToolbar>
-                                                   
-                                                   
+                                                                                                      
                                                 <ToolbarSpacer/>
                                              
 												<SearchField
@@ -1021,7 +973,7 @@
                                                 </cells>                                    
                                             </ColumnListItem>                                                                                                            
                                         </items>
-                                    </Table>
+                                    </Table> -->
                                 </f2:content>
                             </f2:DynamicPage>
 
@@ -1651,9 +1603,7 @@
 							</HBox>
 
 							<HBox class="infoPanel2" id="infoPanel2">
-								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
-<!-- 								<Image class="rocketImg" src="../utils/images/rocket.png" width="200px" />
- -->								
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />								
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Bravo ! Ne vous reste maintenant que de choisir le nom de votre complice."/>
 								</html:div>
@@ -1911,23 +1861,21 @@
                         </VBox>
                     </ScrollContainer>
 					
+					<!-- Consolidation des Résultats -->
 					<ScrollContainer
 						id="evalResults"
 						horizontal="false"
 						vertical="true"
-						height="300%">
-						<f2:DynamicPage headerExpanded="false">
-									<f2:title>
+						height="100%">
+						<f2:DynamicPage id="collabEvalSection" headerExpanded="false">
+								<f2:title>
 									<f2:DynamicPageTitle>
 										<f2:heading>
-											<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+											<Text
+												class="textGen" 
+												text="Show Filters"/>
 										</f2:heading>
-										<f2:expandedContent>
-											<Label id="expandedLabel" text="No filters active" />
-										</f2:expandedContent>
-										<f2:snappedContent>
-											<Label id="snappedLabel" text="No filters active" />
-										</f2:snappedContent>
+									
 									</f2:DynamicPageTitle>
 								</f2:title>
 								<f2:header>
@@ -1935,45 +1883,48 @@
 										<f2:content>
 											<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
 												<fb:filterGroupItems>
-													<fb:FilterGroupItem name="Name" label="Name" groupName="Group1" visibleInFilterBar="true">
+												
+													<fb:FilterGroupItem name="Manager" label="Manager" groupName="Group1" visibleInFilterBar="true">
 														<fb:control>
 															<MultiComboBox
-																name="Name"
-																
+																name="Manager"
+																placeholder="Choisir un manager"
+																selectionChange=".onSelectionChange"
 																items="{
-																	path: '/ProductNames',
+																	path: 'oEvalModel>/results',
 																	templateShareable: true
 																}"
 															>
-																<core:Item key="{key}" text="{name}"/>
+																<core:Item key="{key}" text="{oEvalModel>Prenom} {oEvalModel>Nom}"/>
 															</MultiComboBox>
 														</fb:control>
 													</fb:FilterGroupItem>
-													<fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+														<fb:FilterGroupItem name="Collaborateur" label="Collaborateur" groupName="Group1" visibleInFilterBar="true">
 														<fb:control>
 															<MultiComboBox
-																name="Category"
-																selectionChange=".onSelectionChange"
+																name="Collaborateur"
+																placeholder="Choisir un collaborateur"
 																items="{
-																	path: '/ProductCategories',
+																	path: 'oEvalModel>/results',
 																	templateShareable: true
 																}"
 															>
-																<core:Item key="{key}" text="{name}"/>
+																<core:Item key="{key}" text="{oEvalModel>Collaborateur}"/>
 															</MultiComboBox>
 														</fb:control>
 													</fb:FilterGroupItem>
-													<fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
+													<fb:FilterGroupItem name="Trimestre" label="Trimestre" groupName="Group1" visibleInFilterBar="true">
 														<fb:control>
 															<MultiComboBox
-																name="SupplierName"
+																name="Trimestre"
+																placeholder="Choisir une trimestre"
 																selectionChange=".onSelectionChange"
 																items="{
-																	path: '/ProductSuppliers',
+																	path: 'oEvalModel>/results',
 																	templateShareable: true
 																}"
 															>
-																<core:Item key="{key}" text="{name}"/>
+																<core:Item key="{key}" text="{oEvalModel>Trimestre}"/>
 															</MultiComboBox>
 														</fb:control>
 													</fb:FilterGroupItem>
@@ -1983,37 +1934,277 @@
 									</f2:DynamicPageHeader>
 								</f2:header>
 								<f2:content>
-										<Table
-											
+										<Table	
+
+										   items="{
+                                            path: 'oEvalModel>/results'
+                                          
+                                        }"	
+												
 										>
 											<columns>
 												<Column minScreenWidth="Tablet" demandPopin="true">
-													<Text class="textGen" text="ID"/>
+													<Text class="textGen" text="Numéro Eval"/>
 												</Column>
-												<Column minScreenWidth="Tablet" demandPopin="true">
-													<Text class="textGen" text="Collaborateur"/>
-												</Column>
+											
 												<Column minScreenWidth="Tablet" demandPopin="true">
 													<Text class="textGen" text="Manager"/>
 												</Column>
-												 <Column minScreenWidth="Tablet" demandPopin="true" hAlign="End">
-                                                <Text class="textGen" text="Détails" />
-                                            </Column>
+													<Column minScreenWidth="Tablet" demandPopin="true">
+													<Text class="textGen" text="Collaborateur"/>
+												</Column>
+												<Column minScreenWidth="Tablet" demandPopin="true">
+													<Text class="textGen" text="Trimestre"/>
+												</Column>
+												<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+													<Text class="textGen" text="Détails"/>					
+												</Column>
+
 											</columns>
 
 											<items>
-												<ColumnListItem vAlign="Middle">
+												<ColumnListItem type="Navigation" vAlign="Middle" press="onEvalSelect">
 													<cells>
-														<ObjectIdentifier title="Beyna" text="Seyna" />
-														<Text text="Hello" />
-														<Text text="Heilla" />
-														<Text text="Voir Détails">
+														<ObjectIdentifier text="{oEvalModel>IdEval}" />
+														<Text text="{oEvalModel>Prenom} {oEvalModel>Nom}" />
+														<Text text="{oEvalModel>Collaborateur}" />
+														<Text text="{oEvalModel>Trimestre}" />
+													
 													</cells>
 												</ColumnListItem>
 											</items>
 										</Table>
 								</f2:content>
 						</f2:DynamicPage>
+
+						<ux:ObjectPageLayout id="collabEvalDetails"
+									class="collabEvalDetails"
+									height="100vh"
+									showTitleInHeaderContent="true"
+									upperCaseAnchorBar="false">
+									<ux:headerTitle>	
+										<ux:ObjectPageDynamicHeaderTitle>
+
+											<ux:expandedHeading>
+												<m:Title text="{oEvalModel>Collaborateur}" wrapping="true" />
+											</ux:expandedHeading>
+
+											<ux:snappedHeading>
+												<m:HBox>
+													<m:VBox>
+														<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiSmallMarginEnd" />
+													</m:VBox>
+													<m:VBox>
+														<m:Title text="Mimi ben " wrapping="true"/>
+														<m:Label text="Mimi "/>
+													</m:VBox>
+												</m:HBox>
+											</ux:snappedHeading>
+
+											<ux:expandedContent>
+												<m:Label text="Mim"/>
+											</ux:expandedContent>
+
+											<ux:snappedTitleOnMobile>
+												<m:Title text="Mi"/>
+											</ux:snappedTitleOnMobile>
+
+											<ux:actions>
+												<m:OverflowToolbarButton press="onBack('collabEvalDetails','collabEvalSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
+											</ux:actions>
+										</ux:ObjectPageDynamicHeaderTitle>
+									</ux:headerTitle>
+
+									<ux:headerContent>
+										<m:FlexBox  wrap="Wrap" fitContainer="true" >
+											<m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title class="sapUiTinyMarginBottom" text="Etat"/>											
+												<m:ObjectStatus 
+												 	text="Hello"
+                                                    class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Pole" class="sapUiTinyMarginBottom" />
+												<m:ObjectStatus text="Hhaha" icon="sap-icon://date-time" class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Agence" class="sapUiTinyMarginBottom" />
+												<m:ObjectStatus text="Hhaha"  class="sapMObjectStatusLarge"/>
+											</m:VBox>
+
+											<m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+												<m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
+												<m:ObjectStatus text="Hhaha" class="sapMObjectStatusLarge"/>
+											</m:VBox>	
+
+
+										</m:FlexBox>
+									</ux:headerContent>
+
+									<ux:sections>
+							
+   										<ux:ObjectPageSection titleUppercase="false" title="Evaluation">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection title="Evaluation">
+                                                    <ux:blocks>
+                                                        <m:Table class="sapUxAPObjectPageSubSectionAlignContent" 
+														width="auto"
+														>
+                                                            <m:headerToolbar>
+                                                                <m:OverflowToolbar>
+                                                                    <m:ToolbarSpacer />
+                                                                    <m:SearchField width="17.5rem" />
+                                                                    <m:OverflowToolbarButton tooltip="Sort"
+                                                                        text="Sort"
+                                                                        icon="sap-icon://sort" />
+                                                                    <m:OverflowToolbarButton tooltip="Filter"
+                                                                        text="Filter"
+                                                                        icon="sap-icon://filter" />
+                                                                    <m:OverflowToolbarButton tooltip="Group"
+                                                                        text="Group"
+                                                                        icon="sap-icon://group-2" />
+                                                                   
+                                                                </m:OverflowToolbar>
+                                                            </m:headerToolbar>
+                                                  
+															<m:columns>
+                                                                <m:Column>
+                                                                    <m:Text text="Numéro Eval" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Trimestre" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text  text="Date Eval" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 1" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 2" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 3" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 4" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 5" />
+                                                                </m:Column>
+																<m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 6" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Commentaire" />
+                                                                </m:Column>
+																<m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Note Globale" />
+                                                                </m:Column>
+                                                            </m:columns>
+ 
+                                                            <m:items>
+                                                                <m:ColumnListItem>
+                                                                    <m:Text text="{oEvalModel>IdEval}" />
+                                                                    <m:Text text="{oEvalModel>Trimestre}" />
+                                                                    <m:Text text="{oEvalModel>Datee}" />                                            
+                                                                    <m:Text text="{oEvalModel>Question1}" />
+                                                                    <m:Text text="{oEvalModel>Question2}"/>
+                                                                    <m:Text text="{oEvalModel>Question3}"/>
+                                                                    <m:Text text="{oEvalModel>Question4}"/>
+                                                                    <m:Text text="{oEvalModel>Question5}"/>
+								                                    <m:Text text="{oEvalModel>Question6}"/>
+                                                                    <m:Text text="{oEvalModel>Commentaire}"/>
+																	<m:Text text="{oEvalModel>NoteGlobale}"/>
+                                                                </m:ColumnListItem>
+                                                            </m:items>
+                                                        </m:Table>
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                        </ux:ObjectPageSection>
+
+										<ux:ObjectPageSection titleUppercase="false" title="Consolidation de l'auto évaluation">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection id="autoEvalDetailsSection" title="Consolidation l'auto valuation">
+                                                    <ux:blocks>
+                                                        <m:Table class="sapUxAPObjectPageSubSectionAlignContent" 
+														width="auto"
+														
+														>
+                                                            <m:headerToolbar>
+                                                                <m:OverflowToolbar>
+                                                                    <m:ToolbarSpacer />
+                                                                    <m:SearchField width="17.5rem" />
+                                                                    <m:OverflowToolbarButton tooltip="Sort"
+                                                                        text="Sort"
+                                                                        icon="sap-icon://sort" />
+                                                                    <m:OverflowToolbarButton tooltip="Filter"
+                                                                        text="Filter"
+                                                                        icon="sap-icon://filter" />
+                                                                    <m:OverflowToolbarButton tooltip="Group"
+                                                                        text="Group"
+                                                                        icon="sap-icon://group-2" />
+                                                                   
+                                                                </m:OverflowToolbar>
+                                                            </m:headerToolbar>
+                                                  
+															<m:columns>
+                                                                <m:Column>
+                                                                    <m:Text text="Numéro Auto Eval" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Trimestre" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text  text="Date Auto Eval" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 1" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 2" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 3" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 4" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 5" />
+                                                                </m:Column>
+															
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Commentaire" />
+                                                                </m:Column>
+                                                            </m:columns>
+ 
+                                                            <m:items>
+                                                                <m:ColumnListItem>
+                                                                    <m:Text text="{oAutoEvalModel>IdAutoeval}" />
+                                                                    <m:Text text="{oAutoEvalModel>Trimestre}" />
+                                                                    <m:Text text="{oAutoEvalModel>DateA}" />                                            
+                                                                    <m:Text text="{oAutoEvalModel>Question1}" />
+                                                                    <m:Text text="{oAutoEvalModel>Question2}"/>
+                                                                    <m:Text text="{oAutoEvalModel>Question3}"/>
+                                                                    <m:Text text="{oAutoEvalModel>Question4}"/>
+                                                                    <m:Text text="{oAutoEvalModel>Question5}"/>
+                                                                    <m:Text text="{oAutoEvalModel>Commentaire}"/>
+                                                                </m:ColumnListItem>
+                                                            </m:items>
+                                                        </m:Table>
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                        </ux:ObjectPageSection>
+
+										
+									</ux:sections>
+								</ux:ObjectPageLayout>
 					</ScrollContainer>
 
 					<ScrollContainer
