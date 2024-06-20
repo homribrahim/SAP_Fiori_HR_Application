@@ -25,6 +25,8 @@ sap.ui.define([
 
 /*                 window.history.forward();
  */
+             
+
                 var oLoginModel = this.getOwnerComponent().getModel();
                 var that = this;
                 /* console.log(oCollabModel) */

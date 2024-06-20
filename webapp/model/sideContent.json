@@ -58,10 +58,6 @@
 				{
 					"title": "Consolidation Des Résultats",
 					"key": "epulseResults"
-				},
-				{
-					"title": "Plan D'action",
-					"key": "epulseAction"
 				}
 			]
 		}

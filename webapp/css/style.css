@@ -85,13 +85,43 @@
     transform: translateY(-15%);
   }
 }
- 
 
+@keyframes loaderAnim {
+	0% {
+	
+		transform: rotate(0) ;
+	}
+
+  50% {
+		
+		transform: rotate(-540deg);
+	}
+
+  75% {
+		
+		transform: rotate(540deg);
+	}
+
+	100% {
+		
+		transform: rotate(0);
+	}
+}
  
 
 /*End Of Animations Section*/
  
 /*Common Elements*/
+
+ 
+.imgLogo
+{ 
+  position: absolute;
+  top: 45%;  
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  animation: loaderAnim 2s ease-in-out 0s 2 normal forwards !important;
+}
 
 .sapMInput
 {
@@ -601,6 +631,26 @@
  
 /*Dashboardf View Section*/
  
+
+.sapSampleRevealGridWrapper {
+	position: relative;
+	pointer-events: none;
+}
+
+.sapSampleRevealGridItem {
+	border: 0.0625rem dashed rgb(255, 0, 255);
+	pointer-events: none;
+}
+
+.sapSampleRevealGridOverlay {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	pointer-events: none;
+}
+
 .toolbarInfo
 {
   background-color: #010b3a !important;
@@ -1063,6 +1113,42 @@
   height: 150px !important;
 }
 
+.textConsolidation
+{
+  font-size: 40px !important;
+}
+
+.consolidationText {
+ 
+  font-size: 45px !important;
+  font-weight: bolder !important;
+  margin-top: 4px;
+ 
+ 
+}
+ 
+.iconheader .sapUiIcon {
+  margin-top: 9px;
+  font-size: 30px;
+  width: 30px;    
+  height: 30px;    
+}
+ 
+ 
+.iH .sapUiIcon {
+ 
+  font-size: 34px;
+  width: 34px;    
+  height: 34px;    
+}
+ 
+.iH .sapMObjStatusIcon {
+  color: #5D36FF !important;
+  margin-top: 6px;
+  margin-left: 4px;
+ 
+}
+ 
 
 
 

@@ -145,7 +145,7 @@
         },
         "Authentification": {
           "viewType": "XML",
-          "transition": "fade",
+          "transition": "flip",
           "clearControlAggregation": false,
           "viewId": "Authentification",
           "viewName": "Authentification"

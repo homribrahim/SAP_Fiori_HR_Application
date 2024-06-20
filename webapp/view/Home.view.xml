@@ -21,7 +21,7 @@
        
         <FlexBox class="homeButtons" direction="Row" alignItems="Start">
             <html:button class="discoverButton">Decouvrir</html:button>
-            <html:a href="#/Authentification/" target="_blank">
+            <html:a href="#/Authentification/">
                 <html:button class="learn-more">
                             <html:span class="circle" aria-hidden="true">
                                 <html:span class="icon arrow"></html:span>

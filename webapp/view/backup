@@ -2012,3 +2012,69 @@
 												/>
 									</content>
 								</Panel>
+
+
+								-----------
+								<!-- 
+									<Table id="collabTableManager"
+                                        sticky="ColumnHeaders,HeaderToolbar"
+                                        inset="false"
+                                        growing="true"
+                                        class="sapFDynamicPageAlignContent"
+                                        width="auto"
+                                        items="{
+                                            path: 'oCollabManModel>/results'
+                                          
+                                        }">
+                                        <headerToolbar>
+                                            <OverflowToolbar>
+                                                                                                      
+                                                <ToolbarSpacer/>
+                                             
+												<SearchField
+													id="searchFieldManager"
+													width="50%"
+													placeholder="Search for..."
+													enableSuggestions="true"
+													search=".onSearch"
+													suggest=".onSuggest"
+													suggestionItems="{
+														path: 'oCollabManModel>/results',
+														sorter: { path: '{oCollabManModel>Nom}' }
+													}">
+													<SuggestionItem text="{oCollabManModel>Nom}" description="{path:'{oCollabManModel>Nom}'} {path:'{oCollabManModel>Prenom}'}" key="{oCollabManModel>Nom}" />
+												</SearchField>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column>
+                                                <Text class="textGen" text="Collaborateur" />
+                                            </Column>
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Type"/>
+                                            </Column>
+ 
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Agence" />
+                                            </Column>
+                                           
+                                            <Column minScreenWidth="Desktop" demandPopin="true">
+                                                <Text class="textGen" text="Pôle" />
+                                            </Column>
+ 
+                                            <Column hAlign="End">
+                                                <Text class="textGen" text="Etat" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem type="Navigation" press="onItemSelected" vAlign="Middle">
+                                                <cells>
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Nom} {oCollabManModel>Prenom}" />
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Type}" />
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Agence}" />          
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Pole}" />  
+                                                    <ObjectIdentifier class="textd" text="{oCollabManModel>Etat}" />                              
+                                                </cells>                                    
+                                            </ColumnListItem>                                                                                                            
+                                        </items>
+                                    </Table> -->
