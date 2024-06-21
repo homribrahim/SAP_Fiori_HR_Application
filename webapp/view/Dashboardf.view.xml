@@ -107,7 +107,18 @@
 						vertical="true"
 						height="100%"
 						class="sapUiContentPadding">
-						<HBox>
+						<HBox 
+							>
+							
+							<!-- 	<Image 
+									class="astro"
+									ariaDetails="detailsActiveImage" src="../utils/images/as.jpg"
+									decorative="false"
+									/> -->
+				
+						
+						</HBox>
+					<!-- 	<HBox>
 							<Panel headerText="Group 1" height="100%">
 								<layoutData>
 									<FlexItemData baseSize="50%" />
@@ -183,8 +194,8 @@
 									</w:Card>
 								</f2:GridContainer>
 							</Panel>
-						</HBox>
-
+						</HBox> -->
+<!-- 
 						<HBox>
 							<Panel headerText="Group 3" height="100%">
 								<layoutData>
@@ -257,7 +268,7 @@
 									</w:Card>
 								</f2:GridContainer>
 							</Panel>
-						</HBox>
+						</HBox> -->
 
 						<!-- <HBox class="infoPanel">
 								<Image src="../utils/images/astroInfo.png" width="200px" />
@@ -280,18 +291,16 @@
                         vertical="true"
                         height="100%"
                         class="sapUiContentPadding">
-                              <ux:ObjectPageLayout
-                                    id="collabmyprofile"
-                                    class="collabProfile"
-                                    height="88vh"
-                                    showTitleInHeaderContent="true"
-                                    upperCaseAnchorBar="false">
+                            <ux:ObjectPageLayout
+                                id="collabmyprofile"
+                                class="collabProfile"
+                                height="88vh"
+                                showTitleInHeaderContent="true"
+                                upperCaseAnchorBar="false">
                                     <ux:headerTitle>    
                                         <ux:ObjectPageDynamicHeaderTitle>
- 
                                             <ux:expandedHeading>
                                                 <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}" wrapping="true" />
-                                               
                                             </ux:expandedHeading>
  
                                             <ux:snappedHeading>
@@ -306,12 +315,8 @@
                                                 </m:HBox>
                                             </ux:snappedHeading>
                                    
-                                     <ux:expandedContent>
-                                                <!-- <m:VBox>
-                                                <m:Avatar src="./test-resources/sap/uxap/images/mageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
-                                                </m:VBox> -->
-                                                <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>
-                                               
+                                     		<ux:expandedContent>
+                                                <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>                                              
                                             </ux:expandedContent>
  
                                             <ux:snappedTitleOnMobile>
@@ -320,8 +325,9 @@
                        
                                         </ux:ObjectPageDynamicHeaderTitle>
                                     </ux:headerTitle>
- 
-                                     <ux:headerContent>
+
+
+                                    <ux:headerContent class="headerTitle">
                                         <m:FlexBox id="headerMyprofileDisplay" wrap="Wrap" fitContainer="true" >
                                            
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
@@ -1640,6 +1646,8 @@
 								<Text text="d'auto évaluations pour le moment." class="sapUiTinyMarginBottom noEvalText" />
 								<html:br></html:br>	
 								<Text text="Revenir à la page d'accueil ?" class="sapUiTinyMarginBottom noEvalSubText" />
+								<Link text="Accueil" press="onPageReload"/>
+
 							</FlexBox>
            				</VBox> 
 					</ScrollContainer>
@@ -2092,18 +2100,6 @@
                                         </ux:ObjectPageDynamicHeaderTitle>
                                     </ux:headerTitle>
  
-                                    <ux:headerContent>
-                                        <!-- <m:FlexBox  wrap="Wrap" fitContainer="true" >
-                                            <m:Avatar src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiMediumMarginEnd sapUiSmallMarginBottom" displaySize="L"/>
-                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-                                                <m:Title class="sapUiTinyMarginBottom" text="Etat"/>                                            
-                                                <m:ObjectStatus
-                                                    text="Hello"
-                                                    class="sapMObjectStatusLarge"/>
-                                            </m:VBox>
-                                        </m:FlexBox> -->
-                                    </ux:headerContent>
- 
                                     <ux:sections>
                            
                                         <ux:ObjectPageSection titleUppercase="false" title="Evaluation">
@@ -2217,8 +2213,6 @@
                                                         <m:Table class="sapUxAPObjectPageSubSectionAlignContent"
                                                         width="auto"                
                                                         >
-                                                           
-                                                 
                                                             <m:columns>
                                                                 <m:Column>
                                                                     <m:Text text="Numéro Auto Eval" />
@@ -2306,9 +2300,7 @@
                                                     </ux:blocks>
                                                 </ux:ObjectPageSubSection>
                                             </ux:subSections>
-                                        </ux:ObjectPageSection>
- 
-                                       
+                                        </ux:ObjectPageSection>               
                                     </ux:sections>
                                 </ux:ObjectPageLayout>
                     </ScrollContainer>
@@ -2391,24 +2383,6 @@
                                                 <ux:ObjectPageSubSection id="questEngagementPulse">
                                                     <ux:blocks>
 														<FlexBox direction="Column">		
-															<!-- <Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
-																<headerToolbar>
-																	<OverflowToolbar style="Clear">
-																		<Text class="Textlabel" text="Êtes-vous un Manager ?"/>
-																	</OverflowToolbar>
-																</headerToolbar>
-																<content>
-																<VBox class="sapUiMediumMarginTop questionBox">
-																
-																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions1" columns="5" class="sapUiSmallMarginTop radioQuestions">
-																		<RadioButton  text="Oui" />
-																		<RadioButton  text="Non" />
-																
-																	</RadioButtonGroup>
-																</VBox>
-																</content>
-															</Panel> -->
-														
 															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
 																<headerToolbar>
 																	<OverflowToolbar style="Clear">
@@ -2416,12 +2390,10 @@
 																	</OverflowToolbar>
 																</headerToolbar>
 																<content>
-																<VBox class="sapUiMediumMarginTop questionBox">
-																
+																<VBox class="sapUiMediumMarginTop questionBox">															
 																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions2" columns="5" class="sapUiSmallMarginTop radioQuestions">
 																		<RadioButton  text="Oui" />
 																		<RadioButton  text="Non" />
-																
 																	</RadioButtonGroup>
 																</VBox>
 																</content>
@@ -2697,7 +2669,8 @@
 									<html:br></html:br>	
 									<Text text="de questionnaire d'engagement pulse pour le moment." class="sapUiTinyMarginBottom noEvalText" />
 									<html:br></html:br>	
-									<Text text="Revenir à la page d'accueil ?" press="onPageReload" class="sapUiTinyMarginBottom noEvalSubText" />
+									<Text text="Revenir à la page d'accueil ?"  class="sapUiTinyMarginBottom noEvalSubText" />
+									<Link text="Accueil" press="onPageReload"/>
 								</FlexBox>
 							
            					</VBox> 
@@ -2709,7 +2682,298 @@
 						vertical="true"
 						height="100%"
 						class="sapUiContentPadding">
-						<Text text="This is the Engagement page" />
+						<f2:DynamicPage id="collabEngPulseSection" headerExpanded="false">
+                                <f2:title>
+                                    <f2:DynamicPageTitle>
+                                        <f2:heading>
+                                        <VBox>
+                                            <HBox>
+                                                <core:Icon
+                                                    src="sap-icon://activity-items"
+                                                    class="size2"
+                                                    color="#010b3a" >
+                                                    <core:layoutData>
+                                                        <FlexItemData growFactor="1" />
+                                                    </core:layoutData>
+                                                </core:Icon>
+                                                    <m:Title class="customMargin" text="Consolidation des Résultats" wrapping="true" />
+                                                   
+                                                </HBox>
+                                                <HBox class="sapUiTinyMarginBegin sapUiSmallMarginTop">
+                                                 <m:Label text="Afficher les filtres"/>
+                                                 </HBox>
+                                                 </VBox>
+ 
+                                               
+                                        </f2:heading>
+                                   
+                                    </f2:DynamicPageTitle>
+                                </f2:title>
+                                <f2:header>
+                                    <f2:DynamicPageHeader class="pageHeader">
+                                        <f2:content>
+                                            <fb:FilterBar id="filterbar2" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+                                                <fb:filterGroupItems>
+                                                        <fb:FilterGroupItem name="Collaborateur" label="Collaborateur" groupName="Group1" visibleInFilterBar="true">
+                                                        <fb:control>
+                                                            <MultiComboBox
+                                                                name="Collaborateur"
+                                                                placeholder="Choisir un collaborateur"
+                                                                items="{
+                                                                    path: 'oEngPulseModel>/results',
+                                                                    templateShareable: true
+                                                                }"
+                                                            >
+                                                                <core:Item key="{key}" text="{oEngPulseModel>Collaborateur}"/>
+                                                            </MultiComboBox>
+                                                        </fb:control>
+                                                    </fb:FilterGroupItem>
+                                                    <fb:FilterGroupItem name="Semestre" label="Semestre" groupName="Group1" visibleInFilterBar="true">
+                                                        <fb:control>
+                                                            <MultiComboBox
+                                                                name="Semestre"
+                                                                placeholder="Choisir une semestre"
+                                                                selectionChange=".onSelectionChange"
+                                                                items="{
+                                                                    path: 'oEngPulseModel>/results',
+                                                                    templateShareable: true
+                                                                }"
+                                                            >
+                                                                <core:Item key="{key}" text="{oEngPulseModel>Semestre}"/>
+                                                            </MultiComboBox>
+                                                        </fb:control>
+                                                    </fb:FilterGroupItem>
+                                                </fb:filterGroupItems>
+                                            </fb:FilterBar>
+                                        </f2:content>
+                                    </f2:DynamicPageHeader>
+                                </f2:header>
+                                <f2:content>
+                                        <Table  
+ 
+                                           items="{
+                                            	path: 'oEngPulseModel>/results'
+                                         
+                                        }"  
+                                               
+                                        >
+                                            <columns>
+                                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <Text class="textGen" text="Numéro Engagement Pulse"/>
+                                                </Column>
+      
+                                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <Text class="textGen" text="Collaborateur"/>
+                                                </Column>
+                                                <Column minScreenWidth="Tablet" demandPopin="true">
+                                                    <Text class="textGen" text="Semestre"/>
+                                                </Column>
+                                                <Column hAlign="End" minScreenWidth="Tablet" demandPopin="true">
+                                                    <Text class="textGen" text="Détails"/>                  
+                                                </Column>
+ 
+                                            </columns>
+ 
+                                            <items>
+                                                <ColumnListItem type="Navigation" vAlign="Middle" press="onEngPulseSelect">
+                                                    <cells>
+                                                        <ObjectIdentifier text="{oEngPulseModel>IdEngpulse}" />
+                                                        <Text text="{oEngPulseModel>Prenom} {oEngPulseModel>Nom}" />
+                                                        <Text text="{oEngPulseModel>Semestre}" />
+                                                   
+                                                    </cells>
+                                                </ColumnListItem>
+                                            </items>
+                                        </Table>
+                                </f2:content>
+                        </f2:DynamicPage>
+
+						<ux:ObjectPageLayout id="collabEngPulseDetails"
+                                    class="collabEngPulseDetails"
+                                    height="100vh"
+                                    showTitleInHeaderContent="true"
+                                    upperCaseAnchorBar="false">
+                                    <ux:headerTitle>    
+                                        <ux:ObjectPageDynamicHeaderTitle>
+                                            <ux:expandedHeading>
+												<m:HBox>
+													<m:Title class="consolidationText" text="{oEngPulseModel>Prenom} {oEngPulseModel>Nom}" wrapping="true" />
+													<m:ObjectMarker width="100px" type="Favorite" class="sapUiSmallMarginBegin iconheader"/>            
+													<m:ObjectStatus type="Emphasized" icon="sap-icon://employee-approvals" class="sapUiSmallMarginBegin sapUiSmallMarginTop iconheader iH"  />
+												</m:HBox>
+                                            </ux:expandedHeading>
+ 
+                                            <ux:snappedHeading>
+                                                <m:HBox>                     
+                                                    <m:VBox>
+                                                        <m:Title text="{oEngPulseModel>Prenom} {oEngPulseModel>Nom}" wrapping="true"/>                                
+                                                        <m:Label text="{oEngPulseModel>Role}"/>
+                                                    </m:VBox>                                              
+                                                </m:HBox>
+                                            </ux:snappedHeading>
+ 
+                                            <ux:expandedContent>
+                                                <m:Label text="{oEngPulseModel>Role}"/>
+                                            </ux:expandedContent>
+ 
+                                            <ux:actions>
+                                                <m:OverflowToolbarButton press="onBack('collabEngPulseDetails','collabEngPulseSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
+                                            </ux:actions>
+                                        </ux:ObjectPageDynamicHeaderTitle>
+                                    </ux:headerTitle>
+ 
+                                    <ux:sections>
+                           
+                                        <ux:ObjectPageSection titleUppercase="false" title="Engagement Pulse">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection title="Engagement Pulse">
+                                                    <ux:blocks>
+														<VBox>
+															<m:Table class="sapUxAPObjectPageSubSectionAlignContent"
+																width="auto">
+															
+																<m:columns class="sapUiMediumMarginLeft">
+																	<m:Column>
+																		<m:Text text="Numéro Engagement Pulse" />
+																	</m:Column>
+
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Agence" />
+																	</m:Column>
+
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Pôle" />
+																	</m:Column>
+
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Heure de début" />
+																	</m:Column>
+
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Heure de fin" />
+																	</m:Column>
+																	
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Semestre" />
+																	</m:Column>
+
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text  text="Date Engagement Pulse" />
+																	</m:Column>
+																
+																</m:columns>
+	
+																<m:items>
+																	<m:ColumnListItem>
+																		<m:Text text="{oEngPulseModel>IdEngpulse}" />
+																		<m:Text text="{oEngPulseModel>Agence}" />
+																		<m:Text text="{oEngPulseModel>Pole}" />
+																		<m:Text text="{oEngPulseModel>HDebut}" />
+																		<m:Text text="{oEngPulseModel>HFin}" />						
+																		<m:Text text="{oEngPulseModel>Semestre}" />
+																		<m:Text text="{oEngPulseModel>DateEp}" />                                            
+																	
+																	</m:ColumnListItem>
+																</m:items>
+															</m:Table>
+	
+															<m:Table class="sapUxAPObjectPageSubSectionAlignContent sapUiMediumMarginTop"
+														
+																width="auto">
+															
+																<m:columns>
+																
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 1" tooltip="Êtes-vous un Manager ?" />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 2" tooltip="Aymax est votre première expérience professionnelle ?"  />
+																	</m:Column>
+																	<m:Column minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 3" tooltip="Durée de votre expérience chez Aymax ?"/>
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 4" tooltip="Sur une échelle de 0 à 10, quelle est la probabilité que vous recommandiez AYMAX à un ami ou à un confrère ?" />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 5" tooltip="Pourquoi avez-vous donné cette note ? " />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 6" tooltip="Quels sont les aspects d’AYMAX qui vous rendent plus ou moins susceptibles de la recommander ?" />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 7" tooltip="Qu'est-ce que nous pourrions faire pour améliorer votre expérience en tant qu'employé ?" />
+																	</m:Column>                                
+																	<m:Column minScreenWidth="Tablet" tooltip="Je suis enthousiasmé(e) par la mission de mon entreprise." demandPopin="true">
+																		<m:Text text="Question 8" />
+																	</m:Column>
+																	<m:Column minScreenWidth="Tablet" tooltip="Au travail, je sais parfaitement ce que l’on attend de moi." demandPopin="true">
+																		<m:Text text="Question 9" />
+																	</m:Column>
+																</m:columns>
+	
+																<m:items>
+																	<m:ColumnListItem>                                        
+																		<m:Text text="{oEngPulseModel>Question1}" />
+																		<m:Text text="{oEngPulseModel>Question2}"/>
+																		<m:Text text="{oEngPulseModel>Question3}"/>
+																		<m:Text text="{oEngPulseModel>Question4}"/>
+																		<m:Text text="{oEngPulseModel>Question5}"/>
+																		<m:Text text="{oEngPulseModel>Question6}"/>
+																		<m:Text text="{oEngPulseModel>Question7}"/>
+																		<m:Text text="{oEngPulseModel>Question8}"/>
+																		<m:Text text="{oEngPulseModel>Question9}"/>
+																	</m:ColumnListItem>
+																</m:items>
+															</m:Table>
+
+															<m:Table class="sapUxAPObjectPageSubSectionAlignContent sapUiMediumMarginTop"
+														
+																width="auto">
+															
+																<m:columns>
+																
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 10" tooltip="Dans mon équipe, je suis entouré(e) de personnes qui partagent mes valeurs. " />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 11" tooltip="J’ai l’opportunité de pouvoir utiliser mes points forts tous les jours au travail. "  />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 12" tooltip="Mes collègues me soutiennent. " />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 13" tooltip="Je sais que je serai reconnu(e) pour la qualité de mon travail. " />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 14" tooltip="Je suis confiant(e) en l’avenir de mon entreprise. " />
+																	</m:Column>
+																	<m:Column  minScreenWidth="Tablet" demandPopin="true">
+																		<m:Text text="Question 15" tooltip="Au travail, je suis toujours encouragé(e) à progresser. " />
+																	</m:Column>                                
+													
+														
+																</m:columns>
+	
+																<m:items>
+																	<m:ColumnListItem>                                        
+																		<m:Text text="{oEngPulseModel>Question9}" />
+																		<m:Text text="{oEngPulseModel>Question10}"/>
+																		<m:Text text="{oEngPulseModel>Question11}"/>
+																		<m:Text text="{oEngPulseModel>Question12}"/>
+																		<m:Text text="{oEngPulseModel>Question13}"/>
+																		<m:Text text="{oEngPulseModel>Question14}"/>
+																		<m:Text text="{oEngPulseModel>Question15}"/>
+																	</m:ColumnListItem>
+																</m:items>
+															</m:Table>
+														</VBox>                                    
+                                            		</ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                        </ux:ObjectPageSection>
+									</ux:sections>
+						</ux:ObjectPageLayout>
 					</ScrollContainer>
 
 					<ScrollContainer

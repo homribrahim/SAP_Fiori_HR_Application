@@ -3,7 +3,7 @@
 	"navigation":
 	[
 		{
-			"title": "Home",
+			"title": "Accueil",
 			"icon": "sap-icon://home",
 			"key": "home"
 		

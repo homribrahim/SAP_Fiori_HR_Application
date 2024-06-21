@@ -122,12 +122,15 @@ sap.ui.define([
                var collabManagerList = []
            
                console.log(oCollabModel)
+
+               var arrayIdString = []
               
                oCollabModel.read("/ZCOLLAB_ENTSet", {
                 
                    success: function(data){
                        var xModel = new JSONModel(data);
                        that.getView().setModel(xModel,"odataModel");
+
                        for (let collabData of Object.values(data.results))
                        {    
                         if (collabData.Idcollab == ManagerId)
@@ -157,11 +160,7 @@ sap.ui.define([
                        
                        console.log(collabManagerList)
                        
-                     /*   for (let collabData of Object.values(data.results))
-                       {    
-                       
-   
-                       } */
+                    
                        if (collabManagerList.length != 0)
                        {
                         var currentData = oUserModel.getData();
@@ -177,10 +176,15 @@ sap.ui.define([
                         currentData.ResponsableRh = ResponsableRh;
                         oUserModel.setData(currentData);
                        }
-                    
-                       console.log(oUserModel)  
-                       var x = data.results.length;
-                       var xValueModel = new JSONModel({ xValue: x });
+
+                       for (let collabData of Object.values(data.results))
+                       { 
+                            arrayIdString.push(collabData.Idcollab)
+                       } 
+
+                       var arrayIdNumber = arrayIdString.map((i) => Number(i));
+                       const maxId = Math.max(...arrayIdNumber)
+                       var xValueModel = new JSONModel({ xValue: maxId });
                        that.getView().setModel(xValueModel, "xValueModel");
                        
                    },
@@ -189,12 +193,9 @@ sap.ui.define([
                    }
                    });
 
-
-
-                   var oCollabManagerModel = this.getOwnerComponent().getModel();
-               
+                   var oCollabManagerModel = this.getOwnerComponent().getModel();       
                    console.log(oCollabModel)
-                  
+            
                    oCollabManagerModel.read("/ZCOLLAB_ENTSet", {
 
                     filters: [new sap.ui.model.Filter("IdManager", sap.ui.model.FilterOperator.EQ, idCollaborateur)],
@@ -337,15 +338,33 @@ sap.ui.define([
                 }
                 });
 
-            var oEngPulseModel = this.getOwnerComponent().getModel();
+            
+                var oEngPulseModel = this.getOwnerComponent().getModel();
           
-            oEngPulseModel.read("/ZENGPULSE_ENTSet", {
+                oEngPulseModel.read("/ZENGPULSE_ENTSet", {
+    
+                    success: function(data){
+                        var oEngPulseModel = new JSONModel(data);         
+                        that.getView().setModel(oEngPulseModel,"oEngPulseModel");
+                       
+                         
+                    },
+                    error: function(oError){
+                        console.log(oError);
+                    }
+                    });
+
+
+
+            var oEngPulseCollabModel = this.getOwnerComponent().getModel();
+          
+            oEngPulseCollabModel.read("/ZENGPULSE_ENTSet", {
 
                 filters: [new sap.ui.model.Filter("Idcollab", sap.ui.model.FilterOperator.EQ, idCollaborateur)],
                 
                 success: function(data){
-                    var oEngPulseModel = new JSONModel(data);         
-                    that.getView().setModel(oEngPulseModel,"oEngPulseModel");
+                    var oEngPulseCollabModel = new JSONModel(data);         
+                    that.getView().setModel(oEngPulseCollabModel,"oEngPulseCollabModel");
                     if (data)
                     {
                         console.log(data)   
@@ -383,12 +402,9 @@ sap.ui.define([
                 this.byId("infoPanel2").setVisible(false);
                 this.byId("infoPanel3").setVisible(false);
                 this.getView().byId("collabEvalDetails").setVisible(false);   
+                this.getView().byId("collabEngPulseDetails").setVisible(false);   
+                this.byId("noEngPulse").setVisible(false);
 
-                
-
-
-
-                
                 var busyLoader = this.byId("busyLoader");
                 var collabTableSection = this.byId("collabTableSection");
             
@@ -1164,9 +1180,6 @@ sap.ui.define([
             var oCollabDetailPanel = this.byId("collabEvalDetails");
             oCollabDetailPanel.bindElement({ path: sPath, model: "oEvalModel" });
 
-            console.log(this.getView().getModel("oEvalModel").getProperty(sPath))
-
-
             var currentEval = new JSONModel({ 
                 currentId: (this.getView().getModel("oEvalModel").getProperty(sPath)).Idcollab})
 
@@ -1209,6 +1222,18 @@ sap.ui.define([
                 console.log("No Auto Eval")
             } 
 
+        },
+
+        onEngPulseSelect : function(oEvent) 
+        {
+            this.getView().byId("collabEngPulseDetails").setVisible(true);   
+            this.getView().byId("collabEngPulseSection").setVisible(false);
+            var oSelectedItem = oEvent.getSource();
+            var oContext = oSelectedItem.getBindingContext("oEngPulseModel");
+            var sPath = oContext.getPath();
+            console.log(sPath)
+            var oCollabDetailPanel = this.byId("collabEngPulseDetails");
+            oCollabDetailPanel.bindElement({ path: sPath, model: "oEngPulseModel" });
         },
 
         getAnciennete (currentStartDate,ancienneteId)

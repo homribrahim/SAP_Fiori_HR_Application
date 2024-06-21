@@ -630,6 +630,12 @@
 /*End Of Authentification Page View*/
  
 /*Dashboardf View Section*/
+
+.astro
+{
+  width:1500px;
+  height: 450px;
+}
  
 
 .sapSampleRevealGridWrapper {
