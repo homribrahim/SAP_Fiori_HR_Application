@@ -21,14 +21,14 @@
 	xmlns:w="sap.ui.integration.widgets"
 	height="100%">
 
-	<Image 
+<!-- 	<Image 
             id="imgLogo"
             class="imgLogo"
             ariaDetails="detailsActiveImage" 
             src="../utils/images/logo.png"
             decorative="true"
             width="60px"
-            />
+            /> -->
 
 <tnt:ToolPage id="toolPage">
 		<tnt:header>
@@ -100,6 +100,7 @@
 		<tnt:mainContents>
 			<NavContainer id="pageContainer" initialPage="home">
 				<pages>
+				
 					<!--Start Of Performance Pulse-->
 					<ScrollContainer
 						id="home"
@@ -107,19 +108,18 @@
 						vertical="true"
 						height="100%"
 						class="sapUiContentPadding">
-						<HBox 
-							>
-							
-							<!-- 	<Image 
+						<HBox>
+							<!-- 	
+								<Image 
 									class="astro"
 									ariaDetails="detailsActiveImage" src="../utils/images/as.jpg"
 									decorative="false"
-									/> -->
-				
-						
+								/> 
+							-->
 						</HBox>
-					<!-- 	<HBox>
-							<Panel headerText="Group 1" height="100%">
+				<!-- 
+					<HBox>
+						<Panel headerText="Group 1" height="100%">
 								<layoutData>
 									<FlexItemData baseSize="50%" />
 								</layoutData>
@@ -161,9 +161,8 @@
 									</w:Card>
 
 								</f2:GridContainer>
-							</Panel>
-
-							<Panel headerText="Group 2" height="100%">
+						</Panel>
+						<Panel headerText="Group 2" height="100%">
 								<layoutData>
 									<FlexItemData baseSize="50%" />
 								</layoutData>
@@ -193,10 +192,11 @@
 										</w:layoutData>
 									</w:Card>
 								</f2:GridContainer>
-							</Panel>
-						</HBox> -->
-<!-- 
-						<HBox>
+						</Panel>
+					</HBox> 
+				-->
+				<!-- 
+					<HBox>
 							<Panel headerText="Group 3" height="100%">
 								<layoutData>
 									<FlexItemData baseSize="50%" />
@@ -277,11 +277,6 @@
 									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Aymaxo Your Magical Guide"/>
 								</html:div>
 						</HBox> -->
-
-
-		
-
-
 						<!-- <Text text="This is homepage" /> -->
 					</ScrollContainer>
 

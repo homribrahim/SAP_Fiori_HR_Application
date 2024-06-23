@@ -413,19 +413,19 @@ sap.ui.define([
                     collabTableSection.setVisible(true)
                 }, 4000); 
                 
-                this.byId("toolPage").setVisible(false);
+             /*    this.byId("toolPage").setVisible(false);
                 this.byId("imgLogo").setVisible(true);
 
                 var toolPage = this.byId("toolPage").setVisible(false);
-                var imgLogo = this.byId("imgLogo").setVisible(true);
+                var imgLogo = this.byId("imgLogo").setVisible(true); */
 
 
 
-            setTimeout(function() {
+         /*  /*   setTimeout(function() {
                 imgLogo.setVisible(false);
                 toolPage.setVisible(true);
-            }, 4000);  
-            },
+            }, 4000);   */
+            }, 
 
 
         onPageReload ()
