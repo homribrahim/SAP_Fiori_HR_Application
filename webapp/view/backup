@@ -2078,3 +2078,166 @@
                                             </ColumnListItem>                                                                                                            
                                         </items>
                                     </Table> -->
+
+									-----------
+										<!-- 
+					<HBox>
+						<Panel headerText="Group 1" height="100%">
+								<layoutData>
+									<FlexItemData baseSize="50%" />
+								</layoutData>
+
+								<f2:GridContainer id="grid1" borderReached=".onBorderReached">
+
+									<GenericTile header="Cumulative Totals" subheader="Expenses">
+										<layoutData>
+											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
+										</layoutData>
+										<TileContent unit="Unit" footer="Footer Text">
+											<NumericContent value="1762" icon="sap-icon://line-charts" />
+										</TileContent>
+									</GenericTile>
+
+
+									<w:Card manifest="{manifests>/listContent/orders}">
+										<w:layoutData>
+											<f2:GridContainerItemLayoutData columns="3" />
+										</w:layoutData>
+										<w:customData>
+											<BadgeCustomData value="New" />
+										</w:customData>
+									</w:Card>
+
+									<GenericTile header="Manage Activity Master Data Type" subheader="Subtitle">
+										<layoutData>
+											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
+										</layoutData>
+										<TileContent>
+											<ImageContent src="sap-icon://activities" />
+										</TileContent>
+									</GenericTile>
+
+									<w:Card manifest="{manifests>/tableContent/employees}">
+										<w:layoutData>
+											<f2:GridContainerItemLayoutData minRows="3" columns="4" />
+										</w:layoutData>
+									</w:Card>
+
+								</f2:GridContainer>
+						</Panel>
+						<Panel headerText="Group 2" height="100%">
+								<layoutData>
+									<FlexItemData baseSize="50%" />
+								</layoutData>
+
+								<f2:GridContainer id="grid2" borderReached=".onBorderReached">
+									<GenericTile header="Account" subheader="Your personal information">
+										<layoutData>
+											<f2:GridContainerItemLayoutData rows="2" columns="2" />
+										</layoutData>
+										<TileContent>
+											<ImageContent src="sap-icon://account" />
+										</TileContent>
+									</GenericTile>
+
+									<GenericTile header="Profit Margin">
+										<layoutData>
+											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
+										</layoutData>
+										<TileContent unit="Unit">
+											<NumericContent scale="%" value="12" valueColor="Critical" indicator="Up" />
+										</TileContent>
+									</GenericTile>
+
+									<w:Card manifest="{manifests>/listContent/contacts}">
+										<w:layoutData>
+											<f2:GridContainerItemLayoutData minRows="4" columns="3" />
+										</w:layoutData>
+									</w:Card>
+								</f2:GridContainer>
+						</Panel>
+					</HBox> 
+				-->
+				<!-- 
+					<HBox>
+							<Panel headerText="Group 3" height="100%">
+								<layoutData>
+									<FlexItemData baseSize="50%" />
+								</layoutData>
+
+								<f2:GridContainer id="grid3" borderReached=".onBorderReached">
+
+									<w:Card manifest="{manifests>/objectContent/contact}">
+										<w:layoutData>
+											<f2:GridContainerItemLayoutData minRows="4" columns="3" />
+										</w:layoutData>
+									</w:Card>
+
+									<GenericTile header="Appointments management">
+										<layoutData>
+											<f2:GridContainerItemLayoutData rows="2" columns="2" />
+										</layoutData>
+										<TileContent unit="EUR" footer="Current Quarter">
+											<ImageContent src="sap-icon://appointment" />
+										</TileContent>
+									</GenericTile>
+
+									<GenericTile header="Sales Fulfillment Application Title" subheader="Subtitle">
+										<layoutData>
+											<f2:GridContainerItemLayoutData rows="2" columns="2" />
+										</layoutData>
+										<TileContent unit="EUR" footer="Current Quarter">
+											<ImageContent src="sap-icon://home-share" />
+										</TileContent>
+									</GenericTile>
+
+								</f2:GridContainer>
+							</Panel>
+
+							<Panel headerText="Group 4" height="100%">
+								<layoutData>
+									<FlexItemData baseSize="50%" />
+								</layoutData>
+
+								<f2:GridContainer id="grid4" borderReached=".onBorderReached">
+									<GenericTile header="Sales Fulfillment Application Title">
+										<layoutData>
+											<f2:GridContainerItemLayoutData minRows="1" columns="2" />
+										</layoutData>
+										<TileContent unit="EUR" footer="Current Quarter" />
+									</GenericTile>
+
+									<GenericTile header="Travel and Expenses" subheader="Access Concur">
+										<layoutData>
+											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
+										</layoutData>
+										<TileContent>
+											<ImageContent src="sap-icon://travel-expense" />
+										</TileContent>
+									</GenericTile>
+
+
+									<w:Card manifest="{manifests>/adaptiveContent/summary}">
+										<w:layoutData>
+											<f2:GridContainerItemLayoutData columns="3" />
+										</w:layoutData>
+									</w:Card>
+					
+
+									<w:Card manifest="{manifests>/listContent/withAction}">
+										<w:layoutData>
+											<f2:GridContainerItemLayoutData minRows="3" columns="3" />
+										</w:layoutData>
+									</w:Card>
+								</f2:GridContainer>
+							</Panel>
+						</HBox> -->
+
+						<!-- <HBox class="infoPanel">
+								<Image src="../utils/images/astroInfo.png" width="200px" />
+
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Aymaxo Your Magical Guide"/>
+								</html:div>
+						</HBox> -->
+						<!-- <Text text="This is homepage" /> -->

@@ -56,7 +56,10 @@ sap.ui.define([
                 window.location.reload();
             } */
 
-          
+            this.animateCounter(0, 400, 2500 ,"counterText1","+",);
+            this.animateCounter(0, 10, 2500 ,"counterText2","+",);
+            this.animateCounter(0, 4.5, 2500 ,"counterText3","",);
+            this.animateCounter(0, 80, 2500 ,"counterText4","+");
             
             var that = this;
             this.oSF = this.byId("searchField");   
@@ -426,6 +429,27 @@ sap.ui.define([
                 toolPage.setVisible(true);
             }, 4000);   */
             }, 
+
+            animateCounter: function (start, end, duration,counterText,customText) {
+                var counterText = this.byId(counterText);
+                var startTime = null;
+    
+                var step = (timestamp) => {
+                    if (!startTime) {
+                        startTime = timestamp;
+                    }
+                    var progress = timestamp - startTime;
+                    var currentNumber = Math.min(Math.floor(start + (progress / duration) * end - start), end);
+    
+                    counterText.setText(customText + currentNumber);
+    
+                    if (progress < duration) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+    
+                window.requestAnimationFrame(step);
+            },
 
 
         onPageReload ()

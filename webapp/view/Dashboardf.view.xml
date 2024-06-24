@@ -21,14 +21,7 @@
 	xmlns:w="sap.ui.integration.widgets"
 	height="100%">
 
-<!-- 	<Image 
-            id="imgLogo"
-            class="imgLogo"
-            ariaDetails="detailsActiveImage" 
-            src="../utils/images/logo.png"
-            decorative="true"
-            width="60px"
-            /> -->
+
 
 <tnt:ToolPage id="toolPage">
 		<tnt:header>
@@ -107,8 +100,23 @@
 						horizontal="false"
 						vertical="true"
 						height="100%"
-						class="sapUiContentPadding">
-						<HBox>
+						>
+						<VBox
+							class="astroBanner"
+							height="328px"
+							>
+							<FlexBox class="sapUiLargeMarginTop homeFlex">
+								<Text text="🌟 Bienvenue sur votre plateforme d'auto-évaluation , {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! 🌟" class="sapUiTinyMarginBottom homeFlexTitle" />
+								<Text text="ʻʻ Prêt pour une nouvelle journée de croissance et de réussite ? Votre engagement et vos talents sont notre moteur. " class="sapUiTinyMarginBottom homeFlexText"/>
+								<Text text="Continuez à briller et à vous surpasser chaque jour ! ”" class="sapUiTinyMarginBottom homeFlexText"/>
+
+							</FlexBox>
+
+							<FlexBox class="sapUiLargeMarginTop homeFlexSub">
+									<Text text="Avec énergie et enthousiasme " class="sapUiTinyMarginBottom homeFlexText2" />
+									<Text text="L'équipe RH" class="sapUiTinyMarginBottom homeFlexText2" />
+
+							</FlexBox>
 							<!-- 	
 								<Image 
 									class="astro"
@@ -116,168 +124,89 @@
 									decorative="false"
 								/> 
 							-->
-						</HBox>
-				<!-- 
-					<HBox>
-						<Panel headerText="Group 1" height="100%">
-								<layoutData>
-									<FlexItemData baseSize="50%" />
-								</layoutData>
-
-								<f2:GridContainer id="grid1" borderReached=".onBorderReached">
-
-									<GenericTile header="Cumulative Totals" subheader="Expenses">
-										<layoutData>
-											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
-										</layoutData>
-										<TileContent unit="Unit" footer="Footer Text">
-											<NumericContent value="1762" icon="sap-icon://line-charts" />
-										</TileContent>
-									</GenericTile>
-
-
-									<w:Card manifest="{manifests>/listContent/orders}">
-										<w:layoutData>
-											<f2:GridContainerItemLayoutData columns="3" />
-										</w:layoutData>
-										<w:customData>
-											<BadgeCustomData value="New" />
-										</w:customData>
-									</w:Card>
-
-									<GenericTile header="Manage Activity Master Data Type" subheader="Subtitle">
-										<layoutData>
-											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
-										</layoutData>
-										<TileContent>
-											<ImageContent src="sap-icon://activities" />
-										</TileContent>
-									</GenericTile>
-
-									<w:Card manifest="{manifests>/tableContent/employees}">
-										<w:layoutData>
-											<f2:GridContainerItemLayoutData minRows="3" columns="4" />
-										</w:layoutData>
-									</w:Card>
-
-								</f2:GridContainer>
-						</Panel>
-						<Panel headerText="Group 2" height="100%">
-								<layoutData>
-									<FlexItemData baseSize="50%" />
-								</layoutData>
-
-								<f2:GridContainer id="grid2" borderReached=".onBorderReached">
-									<GenericTile header="Account" subheader="Your personal information">
-										<layoutData>
-											<f2:GridContainerItemLayoutData rows="2" columns="2" />
-										</layoutData>
-										<TileContent>
-											<ImageContent src="sap-icon://account" />
-										</TileContent>
-									</GenericTile>
-
-									<GenericTile header="Profit Margin">
-										<layoutData>
-											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
-										</layoutData>
-										<TileContent unit="Unit">
-											<NumericContent scale="%" value="12" valueColor="Critical" indicator="Up" />
-										</TileContent>
-									</GenericTile>
-
-									<w:Card manifest="{manifests>/listContent/contacts}">
-										<w:layoutData>
-											<f2:GridContainerItemLayoutData minRows="4" columns="3" />
-										</w:layoutData>
-									</w:Card>
-								</f2:GridContainer>
-						</Panel>
-					</HBox> 
-				-->
-				<!-- 
-					<HBox>
-							<Panel headerText="Group 3" height="100%">
-								<layoutData>
-									<FlexItemData baseSize="50%" />
-								</layoutData>
-
-								<f2:GridContainer id="grid3" borderReached=".onBorderReached">
-
-									<w:Card manifest="{manifests>/objectContent/contact}">
-										<w:layoutData>
-											<f2:GridContainerItemLayoutData minRows="4" columns="3" />
-										</w:layoutData>
-									</w:Card>
-
-									<GenericTile header="Appointments management">
-										<layoutData>
-											<f2:GridContainerItemLayoutData rows="2" columns="2" />
-										</layoutData>
-										<TileContent unit="EUR" footer="Current Quarter">
-											<ImageContent src="sap-icon://appointment" />
-										</TileContent>
-									</GenericTile>
-
-									<GenericTile header="Sales Fulfillment Application Title" subheader="Subtitle">
-										<layoutData>
-											<f2:GridContainerItemLayoutData rows="2" columns="2" />
-										</layoutData>
-										<TileContent unit="EUR" footer="Current Quarter">
-											<ImageContent src="sap-icon://home-share" />
-										</TileContent>
-									</GenericTile>
-
-								</f2:GridContainer>
-							</Panel>
-
-							<Panel headerText="Group 4" height="100%">
-								<layoutData>
-									<FlexItemData baseSize="50%" />
-								</layoutData>
-
-								<f2:GridContainer id="grid4" borderReached=".onBorderReached">
-									<GenericTile header="Sales Fulfillment Application Title">
-										<layoutData>
-											<f2:GridContainerItemLayoutData minRows="1" columns="2" />
-										</layoutData>
-										<TileContent unit="EUR" footer="Current Quarter" />
-									</GenericTile>
-
-									<GenericTile header="Travel and Expenses" subheader="Access Concur">
-										<layoutData>
-											<f2:GridContainerItemLayoutData minRows="2" columns="2" />
-										</layoutData>
-										<TileContent>
-											<ImageContent src="sap-icon://travel-expense" />
-										</TileContent>
-									</GenericTile>
-
-
-									<w:Card manifest="{manifests>/adaptiveContent/summary}">
-										<w:layoutData>
-											<f2:GridContainerItemLayoutData columns="3" />
-										</w:layoutData>
-									</w:Card>
-					
-
-									<w:Card manifest="{manifests>/listContent/withAction}">
-										<w:layoutData>
-											<f2:GridContainerItemLayoutData minRows="3" columns="3" />
-										</w:layoutData>
-									</w:Card>
-								</f2:GridContainer>
-							</Panel>
-						</HBox> -->
-
-						<!-- <HBox class="infoPanel">
-								<Image src="../utils/images/astroInfo.png" width="200px" />
-
-								<html:div class="thought">
-									<Text class="infoPanelText" text="Hello {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! I'm Aymaxo Your Magical Guide"/>
+						
+						</VBox>
+						
+							<html:div class="container">
+								<html:div class="card">
+									<html:div class="type">
+										<html:h1>AYMAX En Chiffres</html:h1>
+										<html:p>
+											Découvrez des tableaux de bord interactifs et des rapports personnalisés présentent les données de manière claire et concise, 
+											mettant en évidence les points clés et les indicateurs de performance essentiels pour une prise de décision rapide et efficace.	
+										</html:p>								
+										<html:button>
+											Tableaux de Bord Analytiques
+										</html:button>
+									</html:div>
+									<html:div class="stats">
+										<html:div class="clientrev">
+										<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://employee"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText1" class="counterText" />
+											</FlexBox>
+										</html:span>
+										<html:p class="par">Consultants-e-s</html:p>
+										</html:div>
+										<html:div class="adspend">
+											<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://capital-projects"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText2" class="counterText" />
+											</FlexBox>
+											</html:span>
+										<html:p class="par">Chiffre d'affaires en Millions d'euro (2023)</html:p>
+										</html:div>
+										<html:div class="maus">
+										<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://heart"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText3" class="counterText" />
+											</FlexBox>
+										</html:span>
+										<html:p class="par">Notation Happy at Work</html:p>
+										</html:div>
+										<html:div class="roi">
+										<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://account"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText4" class="counterText" />
+											</FlexBox>
+										</html:span>
+										<html:p class="par">Clients et Partenaires</html:p>
+										</html:div>
+									</html:div>
 								</html:div>
-						</HBox> -->
-						<!-- <Text text="This is homepage" /> -->
+							</html:div>
 					</ScrollContainer>
 
 					<ScrollContainer
@@ -2676,7 +2605,7 @@
 						horizontal="false"
 						vertical="true"
 						height="100%"
-						class="sapUiContentPadding">
+						>
 						<f2:DynamicPage id="collabEngPulseSection" headerExpanded="false">
                                 <f2:title>
                                     <f2:DynamicPageTitle>

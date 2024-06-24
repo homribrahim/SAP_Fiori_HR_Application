@@ -1,9 +1,136 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&display=swap');
 *
 {
   scroll-behavior: smooth;
 }
- 
+
+:root{
+  --bg-clr: #382f60;
+  --card-bg-clr: #8274A6;
+  --card-clr-left: #57417F;
+  --card-clr-right: #645AA8;
+  --bg-clr-button: #8274A6;
+  --text-clr-light: #d3cedf;
+  --text-clr: #fff;
+}
+
+.container{
+  color: var(--text-clr);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+ /*  display: flex;
+  justify-content: center;
+  align-items: center; */
+  flex-wrap: wrap;
+  
+  
+}
+
+.card{
+  background: white;
+  color: #010b3a;
+  margin: 1em 1em;
+  padding: 8em 8em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 70px !important;
+}
+
+.par 
+{
+  color: rgb(169, 163, 163) !important;
+  font-size: 10px !important;
+}
+
+.type h1{
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.type p{
+  width: 55ch;
+  margin: 1em auto 2em;
+  color: #010b3a;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+
+}
+
+.type button{
+  outline: none;
+  border: none;
+  background: #FFCC33;
+  color: var(--text-clr);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.2ch;
+  padding: 1em 2em;
+  border-radius: 2px;
+  transition: all 150ms;
+}
+
+.type button:hover{
+  transform: translateY(-10%);
+  background: #010b3a;
+  cursor: pointer;
+}
+
+.stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5em;
+  position: relative;
+}
+
+.stats span{
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.stats p{
+  font-size: 0.7rem;
+  margin-left: 1em;
+  text-transform: uppercase;
+  color: var(--text-clr-light);
+}
+
+.stats::before, .stats::after{
+  content: '';
+  position: absolute;
+}
+
+.stats::before{
+  top: 50%;
+  left: -5%;
+  width: 110%;
+  height: 1px;
+  background: rgba(0, 32, 83, 0.4);
+}
+
+.stats::after{
+  left: 50%;
+  top: -5%;
+  width: 0.8px;
+  height: 110%;
+  background: rgba(0, 32, 83, 0.4);
+}
+
+/* .card::before{
+  content: '';
+  position: absolute;
+  z-index: -10;
+  width: 90%;
+  height: 110%;
+  left: 5%;
+  right: 0;
+  top: -5%;
+  bottom: 0;
+}
+  */
 /*Defining Fonts Section */
  
  @font-face {
@@ -17,6 +144,12 @@
   src: url("../utils/fonts/mw.ttf");
 }
  
+.homeFlexFont {
+  font-family: "Playwrite NZ", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
 /*End Of Defining Fonts Section */
  
 /*Media Queries Section*/
@@ -52,6 +185,19 @@
     margin-top: 10px !important;
   }
 }
+
+@media only screen and (max-width: 1210px)
+{
+  .card
+  {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction:column;
+   
+  }
+}
+
  
 /*End Of Media Queries Section*/
  
@@ -111,6 +257,28 @@
 /*End Of Animations Section*/
  
 /*Common Elements*/
+
+.astroBanner
+{
+  background-image: url("../utils/images/astroBanner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: 3s fadeInUp !important; 
+  
+}
+
+.astroBanner::before
+{
+  content:'';
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:328px;
+  background: rgba(0, 32, 83, 0.6);
+  animation: 1s fadeInUp !important;  
+}
 
 .imgLogo
 { 
@@ -435,7 +603,7 @@
       animation: 1.25s fadeInUp !important;  
     }
  
-.card
+/* .card
     {
       width: 370px;
       height: 260px;
@@ -457,7 +625,7 @@
       box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
       -webkit-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
       -moz-box-shadow: -2px 4px 30px -1px rgba(0,0,0,0.75);
-    }
+    } */
  
 .card .cardTitle
     {
@@ -622,6 +790,78 @@
 /*End Of Authentification Page View*/
  
 /*Dashboardf View Section*/
+
+
+.homeFlex
+{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.homeFlexSub
+{
+  display:flex;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 98%;
+}
+
+.homeFlexTitle
+{
+  font-size: 26px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:white;
+  animation: 2s fadeInUp !important;  
+
+}
+
+.homeFlexText
+{
+  font-size: 22px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:white;
+  text-align: center !important;
+  animation: 2s fadeInUp !important;  
+
+}
+
+.homeFlexText2
+{
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:white;
+  animation: 2s fadeInUp !important;  
+}
+
+.counterText {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 35px !important;
+  text-align: center;
+  width: 120%;
+  color: #010b3a;
+}
+
+.cardHome
+{
+  width: 300px !important;
+  margin: 40px !important;
+  background-color: transparent !important;
+}
+
+/* .statsFlex
+{
+  gap: 15px !important;
+}
+ */
+/* .homeFlexFont {
+  font-family: "Playwrite NZ", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+ */
 
 .astro
 {
@@ -839,8 +1079,8 @@
 }
 
 .card1 {
-  width: 450px;
-  height: 320px;
+  width: 300px;
+  height: 250px;
   outline: none;
   border: none;
   background: white;
@@ -856,8 +1096,8 @@
 }
 
 .card2 {
-  width: 450px;
-  height: 320px;
+  width: 300px;
+  height: 250px;
   outline: none;
   border: none;
   background: white;
@@ -873,8 +1113,8 @@
 }
 
 .card3 {
-  width: 450px;
-  height: 320px;
+  width: 300px;
+  height: 250px;
   outline: none;
   border: none;
   background: white;
@@ -889,8 +1129,8 @@
 }
 
 .card4 {
-  width: 450px;
-  height: 320px;
+  width: 300px;
+  height: 250px;
   outline: none;
   border: none;
   background: white;
@@ -900,8 +1140,8 @@
 }
 
 .card5 {
-  width: 450px;
-  height: 320px;
+  width: 300px;
+  height: 250px;
   outline: none;
   border: none;
   background: white;
@@ -910,8 +1150,8 @@
 }
 
 .card6 {
-  width: 450px;
-  height: 320px;
+  width: 300px;
+  height: 250px;
   outline: none;
   border: none;
   background: white;
