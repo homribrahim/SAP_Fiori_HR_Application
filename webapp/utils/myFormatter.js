@@ -14,7 +14,14 @@ sap.ui.define([], () => {
               }
                  
             },
-           
+            formatIconColor(C) {
+              if (C == "M." ){
+                return "Accent6";
+               } else if (C =="Mme.") {
+                return "Accent2";
+             }
+   
+            }
            
           }
    

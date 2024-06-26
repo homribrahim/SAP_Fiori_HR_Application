@@ -1,14 +1,33 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
-    "sap/ui/core/BusyIndicator"
-
-
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,JSONModel,BusyIndicator) {
+
+    /* 
+        ****************               
+        **************** 
+        ****************   
+        ****************               
+        **************** 
+        ****************   
+        
+                        La logique utilisée dans la partie d'authentification 
+                        est provisoire et n'est pas sécurisé, en attendant que
+                        tous les collaborateurs concernés par l'auto évaluation 
+                        auront leurs comptes sur le cloud pour qu'ils puissent y accéder.
+                        (Les équipes RH , Sales , WebMax , etc ... n'ont pas de comptes pour le moment)
+                        
+        ****************   
+        ****************  
+        ****************
+        ****************   
+        ****************  
+        ****************
+    */
+    function (Controller,JSONModel) {
         
         "use strict";
 
@@ -16,34 +35,19 @@ sap.ui.define([
         var userID = ""
 
         return Controller.extend("brahim.project.controller.Authentification", {
+
             onInit: function () {
-
-              /*   
-                if(localStorage.getItem("userData"))
-                {
-                    this.getOwnerComponent().getRouter().navTo("Dashboardf")
-                   this.getOwnerComponent().getRouter().getRoute().stop()   
-                }  */
-
-/*                 window.history.forward();
- */
-              /*   this.byId("authPage").setVisible(true);
-                this.byId("imgLogo").setVisible(false); */
 
                 this.byId("imgLogo").setVisible(false);
                 var oLoginModel = this.getOwnerComponent().getModel();
                 var that = this;
-                /* console.log(oCollabModel) */
                      
                 oLoginModel.read("/ZCOLLAB_ENTSet", {
-                  /*   filters: [
-                        new sap.ui.model.Filter("Role", sap.ui.model.FilterOperator.EQ, "manager")
-                    ],  */
                     async: true,
                     success: function(data){
-                        var xModel = new JSONModel(data);
-                        that.getView().setModel(xModel,"oLoginModel");   
-                        console.log(xModel)           
+                        var oLoginModelData = new JSONModel(data);
+                        that.getView().setModel(oLoginModelData,"oLoginModel");   
+                        console.log(oLoginModelData)           
                     },
                     error: function(oError){
                         console.log(oError);
@@ -51,23 +55,9 @@ sap.ui.define([
                     });
             },
 
-            onDuc : function ()
-            {
-                this.byId("authPage").setVisible(false);
-                this.byId("imgLogo").setVisible(true);
-            },
 
             onLogin: function (){
 
-             /*    var authPage = this.byId("authPage").setVisible(false);
-                var imgLogo = this.byId("imgLogo").setVisible(true);  */
-
-/*                 this.byId("authPage").setVisible(false);
- */               /*  this.byId("imgLogo").setVisible(true);
-
-                     */ 
-
-                
                 var oLogin = this.getView().getModel("oLoginModel").getProperty("/results")
                 console.log(oLogin)
                 var login = this.byId("loginInput").getValue()
@@ -86,7 +76,7 @@ sap.ui.define([
                             var oUserModel = this.getOwnerComponent().getModel();
                             
                             oUserModel.read("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + userID + "')", {
-                                async: true,
+                                
                                 success: function(data)
                                 {           
                                     data.MotDePasse = Math.random().toString(36).substring(2,30);
@@ -98,10 +88,8 @@ sap.ui.define([
                                     console.log(oError);
                                 }
                                 });
-                            this.getOwnerComponent().getRouter().navTo("Dashboardf")  
-                            
-                           
-                        }                   
+                        }        
+                        this.getOwnerComponent().getRouter().navTo("Dashboardf")  
                     }
                 }  
                

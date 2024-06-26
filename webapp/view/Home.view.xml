@@ -15,20 +15,17 @@
         <Text class="jumboSubtitle" text="Your Business Powered by IT !"/>
         <Text class="sapUiLargeMarginTop jumboText" text="Découvrez notre plateforme dédiée au développement 
                 et à l'épanouissement professionnel." />
-        <Text class="jumboText" text="Explorez vos talents,
-                évaluez-vous et tracez votre chemin vers le succès."/>
-
-       
+        <Text class="jumboText" text="Explorez vos talents, évaluez-vous et tracez votre chemin vers le succès."/>
         <FlexBox class="homeButtons" direction="Row" alignItems="Start">
             <html:button class="discoverButton">Decouvrir</html:button>
             <html:a href="#/Authentification/">
                 <html:button class="learn-more">
-                            <html:span class="circle" aria-hidden="true">
-                                <html:span class="icon arrow"></html:span>
-                            </html:span>
-                            <html:span class="button-text">
-                                <html:p >Connectez-vous</html:p>
-                            </html:span>
+                    <html:span class="circle" aria-hidden="true">
+                        <html:span class="icon arrow"></html:span>
+                    </html:span>
+                    <html:span class="button-text">
+                        <html:p >Connectez-vous</html:p>
+                    </html:span>
                 </html:button>  
             </html:a>
         </FlexBox>
@@ -38,8 +35,8 @@
         height="auto"
         class="servicesSection"   
     >
-        <Text  class="sectionName" text="NOS SERVICES"/>
-        <Text  class="sapUiLargeMarginBottom sectionDescription" text="Une gamme de services raffinés illuminant votre parcours professionnel et éclairant votre chemin vers l'excellence."/>
+        <Text class="sectionName" text="NOS SERVICES"/>
+        <Text class="sapUiLargeMarginBottom sectionDescription" text="Une gamme de services raffinés illuminant votre parcours professionnel et éclairant votre chemin vers l'excellence."/>
         <FlexBox class="cardsRows" direction="Column" alignItems="Start" height="90%">
              <FlexBox
                 class="sapUiLargeMarginTop cardsRowOne"			
@@ -80,7 +77,7 @@
                 direction="Row">
                 <html:div class="card">
                     <html:div class="cardIcon">
-                          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="63px" height="48px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="63px" height="48px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <path class="fil0" d="M466 512l-420 0c-4,0 -7,-3 -7,-7 0,-4 3,-7 7,-7l420 0c4,0 7,3 7,7 0,4 -3,7 -7,7z"></path>   
                             <path class="fil0" d="M149 512l-44 0c-4,0 -7,-3 -7,-7l0 -156c0,-4 3,-7 7,-7l44 0c4,0 7,3 7,7l0 156c0,4 -3,7 -7,7zm-37 -14l31 0 0 -142 -31 0 0 142z"></path>
                             <path class="fil0" d="M235 512l-44 0c-4,0 -7,-3 -7,-7l0 -209c0,-4 3,-7 7,-7l44 0c4,0 7,3 7,7l0 209c0,4 -3,7 -7,7zm-37 -14l31 0 0 -195 -31 0 0 195z"></path>
@@ -118,7 +115,6 @@
                     <html:p class="cardTitle">My Moment</html:p>
                     <html:p class="cardText">Des divers aspects tels que la qualité de vie au travail.</html:p>
                 </html:div>
-
 			</FlexBox>
         </FlexBox>
     </VBox>

@@ -30,6 +30,7 @@ sap.ui.define([
 
     var DialogType = mobileLibrary.DialogType;
     var ValueState = coreLibrary.ValueState;
+    var verifSelect = false;
     const date = new Date();
     const month = date.getMonth();
     var year = new Date().getFullYear()
@@ -50,16 +51,21 @@ sap.ui.define([
         stateFormatter :myFormatter ,
 
         onInit: function () {
-  
-        /*     if (!window.hasPageReloaded) {
-                window.hasPageReloaded = true;
-                window.location.reload();
-            } */
 
-            this.animateCounter(0, 400, 2500 ,"counterText1","+",);
-            this.animateCounter(0, 10, 2500 ,"counterText2","+",);
-            this.animateCounter(0, 4.5, 2500 ,"counterText3","",);
-            this.animateCounter(0, 80, 2500 ,"counterText4","+");
+
+            /* console.log(this.byId("etat_collab_edit").open())
+            console.log(this.byId("etat_collab_edit").isOpen()) */
+
+            
+            var oSideContentModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));       
+            this.getView().setModel(oSideContentModel);
+            this._setToggleButtonTooltip(!Device.system.desktop);
+            window.addEventListener("resize", this.onWindowResize.bind(this)); 
+  
+            this.animateCounter(0, 400, 3000 ,"counterText1","+",);
+            this.animateCounter(0, 10, 3000 ,"counterText2","+",);
+            this.animateCounter(0, 4.5, 3000 ,"counterText3","",);
+            this.animateCounter(0, 80, 3000 ,"counterText4","+");
             
             var that = this;
             this.oSF = this.byId("searchField");   
@@ -215,29 +221,43 @@ sap.ui.define([
                        }
                 })
 
-
-
-
-
-                
             var listItem = this.getView().byId("navigationList");
             
             // Attach event listener for when the items are rendered
             listItem.addEventDelegate({
                 onAfterRendering: function() {
-                    console.log(listItem);
-                    console.log(listItem.getItems());
+                  
                     if (role == "collaborateur")
                     {
-                        listItem.getItems()[2].setVisible(false)
-                        listItem.getItems()[3].getItems()[2].setVisible(false)
-                        listItem.getItems()[3].getItems()[3].setVisible(false)
-                        listItem.getItems()[4].getItems()[1].setVisible(false)
-                        listItem.getItems()[4].getItems()[2].setVisible(false)
+                        
+                        console.log("collab")
+                        setTimeout(function() {
+                            var items = listItem.getItems();
+                            
+                            if (items[2]) {
+                                items[2].setVisible(false);
+                            }
+                            if (items[3]) {
+                                var subItems3 = items[3].getItems();
+                                if (subItems3[1]) {
+                                    subItems3[1].setVisible(false);
+                                }
+                                if (subItems3[2]) {
+                                    subItems3[2].setVisible(false);
+                                }
+                            }
+                            if (items[4]) {
+                                var subItems4 = items[4].getItems();
+                                if (subItems4[1]) {
+                                    subItems4[1].setVisible(false);
+                                }
+                            }
+                        }, 0);
                     }
                     else if  (role == "manager")
                     {   
                         console.log('Manager')
+                        
 /*                         that.getView().byId("collabTableManager").setVisible(true) 
  */                        that.getView().byId("collabTable").setVisible(true)
 
@@ -246,21 +266,12 @@ sap.ui.define([
                     {   
                         console.log('RH')
                         that.getView().byId("collabTable").setVisible(true)
-
-
                     } 
-
-
-
                 }
             });
 
             /*Loading SideContent JSON*/
-
-            var oSideContentModel = new JSONModel(sap.ui.require.toUrl("brahim/project/model/sideContent.json"));       
-            this.getView().setModel(oSideContentModel);
-            this._setToggleButtonTooltip(!Device.system.desktop);
-            window.addEventListener("resize", this.onWindowResize.bind(this));  
+ 
 
 
             /* Loading Countries JSON */
@@ -395,6 +406,7 @@ sap.ui.define([
 
                 this.getView().byId("collabDetails").setVisible(false);   
                 this.byId("saveButton").setVisible(false);
+                this.byId("cancelButton").setVisible(false);
                 this.byId("collabInfosEdit").setVisible(false);
                 this.byId("collabCoordEdit").setVisible(false);
                 this.byId("collabTableSection").setVisible(false);
@@ -407,6 +419,7 @@ sap.ui.define([
                 this.getView().byId("collabEvalDetails").setVisible(false);   
                 this.getView().byId("collabEngPulseDetails").setVisible(false);   
                 this.byId("noEngPulse").setVisible(false);
+                
 
                 var busyLoader = this.byId("busyLoader");
                 var collabTableSection = this.byId("collabTableSection");
@@ -478,11 +491,6 @@ sap.ui.define([
             var year = String(now.getFullYear())
          
            return (day  + " " + month + " " + year)
- 
-           
- 
-           /*  var dateAutoEvalModel = new JSONModel({ dateAutoEval: dateAutoEval });
-            this.getView().setModel(dateAutoEvalModel, "dateAutoEvalModel"); */
  
         },
  
@@ -1006,6 +1014,7 @@ sap.ui.define([
         {
             this.byId("editButton").setVisible(false);
             this.byId("deleteButton").setVisible(false);
+            this.byId("cancelButton").setVisible(true);
 			this.byId("saveButton").setVisible(true);
 			this.byId("collabInfosEdit").setVisible(true);
             this.byId("collabCoordEdit").setVisible(true);
@@ -1014,6 +1023,23 @@ sap.ui.define([
             this.byId("headerInfoDisplay").setVisible(false);
             this.byId("headerInfoEdit").setVisible(true);
         },
+
+        onCancel: function() {
+ 
+            this.byId("cancelButton").setVisible(false);
+            this.byId("collabInfosDisplay").setVisible(true);
+            this.byId("collabCoordDisplay").setVisible(true);
+            this.byId("headerInfoDisplay").setVisible(true);
+            this.byId("saveButton").setVisible(false);
+            this.byId("editButton").setVisible(true);
+            this.byId("collabInfosEdit").setVisible(false);
+            this.byId("collabCoordEdit").setVisible(false);
+            this.byId("headerInfoEdit").setVisible(false);
+            this.byId("deleteButton").setVisible(true);
+            this.byId("AutoEvalSectionR").setVisible(true);
+
+        },
+ 
 
         onWindowResize() {
             const oSideNavigation = this.byId("sideNavigation");
@@ -1111,13 +1137,16 @@ sap.ui.define([
                     currentPassword : (this.getView().getModel("odataModel").getProperty(sPath)).MotDePasse,
                     currentRole :  (this.getView().getModel("odataModel").getProperty(sPath)).Role,
                     currentState : (this.getView().getModel("odataModel").getProperty(sPath)).Etat,     
-                    currentStartDate : (this.getView().getModel("odataModel").getProperty(sPath)).DateDemarrage
+                    currentStartDate : (this.getView().getModel("odataModel").getProperty(sPath)).DateDemarrage,
+                    currentEtat : (this.getView().getModel("odataModel").getProperty(sPath)).Etat
                     
                 });
 
             this.getView().setModel(currentIdCollab, "currentIdCollabModel");       
             var currentStartDate = this.getView().getModel("currentIdCollabModel").getProperty("/currentStartDate");
             this.getAnciennete(currentStartDate,"anciennete")
+            this.getAnciennete(currentStartDate,"anciennete_edit")
+ 
 
 
             //Model to read AUTOEVAL FOR COLLABORATOR
@@ -1426,16 +1455,25 @@ sap.ui.define([
                 }); 
         },
 
+        onVerif () 
+        {
+            verifSelect = true
+            console.log(verifSelect)
+            return verifSelect
+        },
+
         onApproveDialogPress: function () {
-			if (!this.oApproveDialog) {
-				this.oApproveDialog = new Dialog({
-					type: DialogType.Message,
-					title: "Mise à jour du Compte",
-					content: new Text({ text: "Confirmez-vous la mise à jour de ce profil ?" }),
-					beginButton: new Button({
-						type: ButtonType.Emphasized,
-						text: "Confirmer",
-						press: function () {
+            if (!this.oApproveDialog) {
+                this.oApproveDialog = new Dialog({
+                    type: DialogType.Message,
+                    title: "Mise à jour du Compte",
+                    content: new Text({ text: "Confirmez-vous la mise à jour de ce profil ?" }),
+                    beginButton: new Button({
+                        type: ButtonType.Emphasized,
+                        text: "Confirmer",
+                        press: function () {
+                            this.oApproveDialog.close();                
+                            window.location.reload()
                             this.byId("collabInfosDisplay").setVisible(true);
                             this.byId("collabCoordDisplay").setVisible(true);
                             this.byId("headerInfoDisplay").setVisible(true);
@@ -1444,57 +1482,91 @@ sap.ui.define([
                             this.byId("collabInfosEdit").setVisible(false);
                             this.byId("collabCoordEdit").setVisible(false);
                             this.byId("headerInfoEdit").setVisible(false);
+                            this.byId("deleteButton").setVisible(true);
+                            this.byId("AutoEvalSectionR").setVisible(true);
                             var currentIdCollab = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdCollab");
                             var currentCivilite = this.getView().getModel("currentIdCollabModel").getProperty("/currentCivilite");
                             var currentNom = this.getView().getModel("currentIdCollabModel").getProperty("/currentNom");
                             var currentPrenom = this.getView().getModel("currentIdCollabModel").getProperty("/currentPrenom");
-                            var currentType = this.getView().getModel("currentIdCollabModel").getProperty("/currentType");
-                            var currentPole = this.getView().getModel("currentIdCollabModel").getProperty("/currentPole");
-                            var currentFonction = this.getView().getModel("currentIdCollabModel").getProperty("/currentFonction");
                             var currentDateCreation = this.getView().getModel("currentIdCollabModel").getProperty("/currentDateCreation");
-                            var currentAgence = this.getView().getModel("currentIdCollabModel").getProperty("/currentAgence");
-                            var currentIdManager = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdManager");
-                            var currentIdRh = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdRh");
+                            var currentAgence = this.getView().getModel("currentIdCollabModel").getProperty("/currentAgence");    
                             var currentLogin = this.getView().getModel("currentIdCollabModel").getProperty("/currentLogin");
                             var currentPassword = this.getView().getModel("currentIdCollabModel").getProperty("/currentPassword");
-                            var currentRole = this.getView().getModel("currentIdCollabModel").getProperty("/currentRole");
-
+                            var currentEtat = this.getView().getModel("currentIdCollabModel").getProperty("/currentEtat");
+                           
+ 
                             var oDateFormat = DateFormat.getDateInstance({
-                                pattern: "dd/MM/yyyy HH:mm" 
+                                pattern: "dd/MM/yyyy HH:mm"
                             });
-                
+               
                             var oDate = new Date();
                             var sFormattedDate = oDateFormat.format(oDate);
-                
+               
                             console.log(sFormattedDate)
-                
+               
                             var ReferenceInterne = this.byId("comp_edit").getValue();
-                            var Etat = this.byId("etat_collab_edit").getValue();
+
+                            console.log(this.onVerif())
+
+                            if ( this.onVerif() == true )
+                            {
+                                var Etat = this.byId("etat_collab_edit").getSelectedItem().getText();
+                            }
+                            else
+                            {
+                                var Etat = currentEtat
+                            }
                             var Titre = this.byId("titre_collab_edit").getValue();
                             var Domaine = this.byId("domaine_collab_edit").getValue();
                             var Experience = this.byId("xp_collab_edit").getValue();
-                            var Mobilite = this.byId("mobilite_collab_edit").getValue();
+                            var Mobilite = this.byId("mobilite_collab_edit").getSelectedItem().getText();
                             var Email = this.byId("email_collab_edit").getValue();
-                            var EmailLinkedin = this.byId("linkedin_collab_edit").getValue();                           
+                            var EmailLinkedin = this.byId("linkedin_collab_edit").getValue();                          
                             var NumTel = this.byId("phone_collab_edit").getValue();
                             var DateNaissance = this.byId("naissance_collab_edit").getValue();
-                            var Nationalite = this.byId("nationalite_collab_edit").getValue();
-                            var SituationFamiliale = this.byId("situation_familiale_edit").getValue();
+                            var Nationalite = this.byId("nationalite_collab_edit").getSelectedItem().getText();
+                            var SituationFamiliale = this.byId("situation_familiale_edit").getSelectedItem().getText();
+                            var Pole = this.byId("pole_collab_edit").getSelectedItem().getText();
+                            var Role = this.byId("role_collab_edit").getSelectedItem().getText();
                             var NumeroSecuriteSociale = this.byId("nss_edit").getValue();
                             var Adresse = this.byId("adresse_collab_edit").getValue();
                             var CodePostal = this.byId("code_postal_edit").getValue();
                             var Ville = this.byId("ville_collab_edit").getValue();
-                            var Pays = this.byId("pays_collab_edit").getValue();
+                            var Pays = this.byId("pays_collab_edit").getSelectedItem().getText();
                             var Diplomes = this.byId("diplome_collab_edit").getValue();
                             var DateDemarrage = this.byId("date_demarrage_edit").getValue();
-                                  
+                            var ManagerId = this.byId("responsable_manager_edit").getSelectedItem().getKey();
+                            var RHId = this.byId("responsable_rh_edit").getSelectedItem().getKey();
+                            var Type = this.byId("type_collab_edit").getSelectedItem().getText();
+                            var Fonction = this.byId("fonction_collab_edit").getValue();
+                           
+ 
+                            switch(Mobilite)
+                            {
+                                case "France":
+                                    var agency = "AYMAX CONSULTING"
+                                    break;
+                               
+                                case "Egypte":
+                                    var agency = "AYMAX EGYPTE"
+                                    break;
+                               
+                                case "Tunisie":
+                                    var agency = "AYMAX EGYPTE"
+                                    break;
+ 
+                                case "Non":
+                                    var agency = currentAgence
+                                    break;
+                            }
+ 
                             var collabData = {}
                                 collabData.Idcollab = currentIdCollab
                                 collabData.ReferenceInterne = ReferenceInterne
                                 collabData.Civilite = currentCivilite  
                                 collabData.Nom = currentNom
                                 collabData.Prenom = currentPrenom
-                                collabData.Type = currentType
+                                collabData.Type = Type
                                 collabData.Etat = Etat
                                 collabData.Titre = Titre
                                 collabData.Domaine = Domaine
@@ -1511,25 +1583,26 @@ sap.ui.define([
                                 collabData.CodePostal = CodePostal
                                 collabData.Ville = Ville
                                 collabData.Pays = Pays
-                                collabData.Pole = currentPole
-                                collabData.Agence = currentAgence
+                                collabData.Pole = Pole
+                                collabData.Agence = agency
                                 collabData.DateCreation = currentDateCreation //current
                                 collabData.DateMiseAJour = sFormattedDate
                                 collabData.Diplomes = Diplomes
                                 collabData.DateDemarrage = DateDemarrage
-                                collabData.Fonction = currentFonction
-                                collabData.IdManager = currentIdManager
-                                collabData.IdRh = currentIdRh
-                                collabData.Role = currentRole
+                                collabData.Fonction = Fonction
+                                collabData.IdManager = ManagerId
+                                collabData.IdRh = RHId
+                                collabData.Role = Role
                                 collabData.Login = currentLogin
                                 collabData.MotDePasse = currentPassword
-
+ 
                             console.log(collabData)
-                      
+                     
+ 
                     var oUpdateModel = this.getOwnerComponent().getModel();
-                
+               
                     oUpdateModel.update("/ZCOLLAB_ENTSet(Mandt='200',Idcollab='" + currentIdCollab + "')",collabData,
-                    {         
+                    {        
                         success:function()
                         {
                             this.oApproveDialog.close();
@@ -1542,19 +1615,21 @@ sap.ui.define([
                             console.log(oError)
                         }
                     })}.bind(this)
-					}),
-
-					endButton: new Button({
-						text: "Annuler",
-						press: function () {
-							this.oApproveDialog.close();
-						}.bind(this)
-					})
-				});
-			}
-
-			this.oApproveDialog.open();
-		},
+                    }),
+ 
+                    endButton: new Button({
+                        text: "Annuler",
+                        press: function () {
+                            this.oApproveDialog.close();
+                           
+                        }.bind(this)
+                    })
+                });
+            }
+ 
+            this.oApproveDialog.open();
+        },
+ 
  
         onDelete :function () {
 			if (!this.oApproveDialog) {
@@ -1568,6 +1643,7 @@ sap.ui.define([
 						press: function () {
                             this.byId("collabDetails").setVisible(false);                
                             this.byId("collabTableSection").setVisible(true);
+                            this.oApproveDialog.close()
                             var currentIdCollab = this.getView().getModel("currentIdCollabModel").getProperty("/currentIdCollab");
                             var oDeleteModel = this.getOwnerComponent().getModel();
 

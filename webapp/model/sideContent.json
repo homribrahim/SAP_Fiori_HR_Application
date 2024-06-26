@@ -26,10 +26,7 @@
 			"icon": "sap-icon://performance",
 			"expanded": true,
 			"items": [
-				{
-					"title": "Fixation Des Objectifs",
-					"key": "objCollab"
-				},
+				
 				{
 					"title": "Auto Evaluation Collaborateur",
 					"key": "evalCollab"

@@ -6,56 +6,58 @@
 	xmlns:core="sap.ui.core"
     height="100%">
 
+
+    <!--AYMAX Loader-->
     <Image 
-            id="imgLogo"
-            class="imgLogo"
-            ariaDetails="detailsActiveImage" 
-            src="../utils/images/logo.png"
-            decorative="true"
-            width="60px"
-            />
+        id="imgLogo"
+        class="imgLogo"
+        ariaDetails="detailsActiveImage" 
+        src="../utils/images/logo.png"
+        decorative="true"
+        width="60px"
+        />
 
-<Page id="authPage" class="authPage" showHeader="false">
+    <Page id="authPage" class="authPage" showHeader="false">
 
-    <VBox
-        id="auth"
-        width="100%"
-        height="100%"
-        alignItems="Center"
-        justifyContent="Center"
-        >
-        <HBox 
+        <VBox
+            id="auth"
+            width="100%"
+            height="100%"
             alignItems="Center"
             justifyContent="Center"
-            class="authElementsBox"
-            >                                     
-            <f:Card class="sapUiLargeMarginTop authCard" width="90%">
-                <f:header>
-                    <card:Header class="sapUiMediumMarginTop sapUiLargeMarginEnd sapUiSmallMarginBegin cardHeader" title="S'identifier" subtitle="Connectez-vous et stimuler votre expérience professionnelle"/>
-                </f:header>                 
-                <f:content>              
-                    <VBox
-                        height="400px"
-                        class="sapUiLargeMarginBegin"
-                        justifyContent="Center"
-                        >                                                         
-                        <VBox justifyContent="Center">
-                            <Label text="Identifiant" design="Bold"></Label>
-                            <Input id="loginInput" class="sapMInputBaseContentWrapper" placeholder="Identifiant" width="20.8rem">
-                            </Input>
+            >
+            <HBox 
+                alignItems="Center"
+                justifyContent="Center"
+                class="authElementsBox"
+                >                                     
+                <f:Card class="sapUiLargeMarginTop authCard" width="90%">
+                    <f:header>
+                        <card:Header class="sapUiMediumMarginTop sapUiLargeMarginEnd sapUiSmallMarginBegin cardHeader" title="S'identifier" subtitle="Connectez-vous et stimuler votre expérience professionnelle"/>
+                    </f:header>                 
+                    <f:content>              
+                        <VBox
+                            height="400px"
+                            class="sapUiLargeMarginBegin"
+                            justifyContent="Center"
+                            >                                                         
+                            <VBox justifyContent="Center">
+                                <Label text="Identifiant" design="Bold"></Label>
+                                <Input id="loginInput" class="sapMInputBaseContentWrapper" placeholder="Identifiant" width="20.8rem">
+                                </Input>
+                            </VBox>
+                            <VBox class="sapUiSmallMarginTop" justifyContent="Center">
+                                <Label text="Mot de passe" design="Bold"></Label>
+                                <Input id="passwordInput" class="sapMInputBaseContentWrapper" placeholder="Mot de passe" width="20.8rem" type="Password">
+                                </Input>
+                            </VBox>
+                            <HBox>
+                                <Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="20.8rem" text="S'identifier" press="onLogin"></Button>
+                            </HBox>                           
                         </VBox>
-                        <VBox class="sapUiSmallMarginTop" justifyContent="Center">
-                            <Label text="Mot de passe" design="Bold"></Label>
-                            <Input id="passwordInput" class="sapMInputBaseContentWrapper" placeholder="Mot de passe" width="20.8rem" type="Password">
-                            </Input>
-                        </VBox>
-                        <HBox>
-                            <Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="20.8rem" text="S'identifier" press="onLogin"></Button>
-                        </HBox>                           
-                    </VBox>
-                </f:content>
-            </f:Card>
-        </HBox>
-    </VBox>
-</Page>
+                    </f:content>
+                </f:Card>
+            </HBox>
+        </VBox>
+    </Page>
 </mvc:View>
