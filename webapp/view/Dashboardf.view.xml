@@ -103,7 +103,7 @@
 						>
 						<VBox
 							class="astroBanner"
-							height="328px"
+							height="328px" 
 							>
 							<FlexBox class="sapUiLargeMarginTop homeFlex">
 								<Text text="🌟 Bienvenue sur votre plateforme d'auto-évaluation , {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! 🌟" class="sapUiTinyMarginBottom homeFlexTitle" />
@@ -300,7 +300,7 @@
                                                             columnsM="2"
                                                             columnsL="3"
                                                             columnsXL="4">
-                                                             <core:Title class="inp" icon="sap-icon://employee" text="Informations Personnelles" />
+                                                            <core:Title class="inp" icon="sap-icon://employee" text="Informations Personnelles" />
  
                                                             <m:Label text="Réference Interne" />
                                                             <m:Text text="{oUserdataModel>/ReferenceInterne}" />
@@ -592,15 +592,17 @@
                                                 <m:Title text="Etat" class="sapUiTinyMarginBottom" />
                                                     
                                                 <Select 
-                                                id="etat_collab_edit"
-                                                change="onVerif"
-                                                >
-                                                        <items>
-                                                         <core:Item text="En cours" key="en cours"/>
-                                                         <core:Item text="Intercontrat" key="intercontrat"/>
-                                                         <core:Item text="Sortie" key="Sortie"/>
-                                                        </items>
+                                                    id="etat_collab_edit"
+                                                    enabled="false"
+                                                    >
+                                                    <items>
+                                                        <core:Item id="firstItem" text="{odataModel>Etat}" key="default"/>
+                                                        <core:Item text="En cours" key="en cours"/>
+                                                        <core:Item text="Intercontrat" key="intercontrat"/>
+                                                        <core:Item text="Sortie" key="Sortie"/>
+                                                    </items>
                                                </Select>
+                                               	<CheckBox id="checkEtat" text="Changer" select="onCheckSelect('checkEtat','etat_collab_edit')" selected="false" />
                                             </m:VBox>
 
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
@@ -615,39 +617,64 @@
 
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
-                                                <Select id="mobilite_collab_edit">
+                                                <Select 
+                                                    id="mobilite_collab_edit"
+                                                    enabled="false">
                                                  <items>
+                                                    <core:Item text="{odataModel>Mobilite}" key="default"/>
                                                     <core:Item text="France" />
                                                     <core:Item text="Egypte" />
                                                     <core:Item text="Tunisie" />
                                                     <core:Item text="Non" />                            
                                                   </items>
                                                 </Select>
+                                            <CheckBox id="checkCountry" text="Changer" select="onCheckSelect('checkCountry','mobilite_collab_edit')" selected="false" />
+
                                             </m:VBox>   
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Responsable Manager" class="sapUiTinyMarginBottom" />
+                                                <Select id="responsable_manager_edit"
+                                                    visible="false"
+                                                      items=
+                                                        "{
+                                                            path: 'odataModel>/results',
+                                                            filters: [{
+                                                                path: 'Role',
+                                                                operator: 'EQ',
+                                                                value1: 'manager'
+                                                            },
+                                                            {
+                                                                path: 'Role',
+                                                                operator: 'EQ',
+                                                                value1: 'Manager/RH'
+                                                            }                      
+                                                            ]              
+                                                            }"           
+                                                        > 
+                                                    
+                                                    <items>
+                                                                                                   
+                                                        <core:Item id="itemManager" text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}"/>                                           
+                                                    </items>
+          
+                                                </Select>
+                                                <Select id="responsable_manager_display"
+                                                        enabled="false"
+                                                    > 
+                                                    <items>
+                                                         <core:Item text="{oCollabManagerModel>/Manager}"/>
+                                                    </items>
+          
+                                                </Select>
+                                                <CheckBox id="checkManager" text="Changer" select="onCheckSelectFromModel('checkManager','responsable_manager_display','responsable_manager_edit')" selected="false" />
 
-                                             <Select id="responsable_manager_edit"
-                                              items=
-                                               "{ 
-                                                path: 'odataModel>/results',
-                                                filters: [{
-                                                    path: 'Role',
-                                                    operator: 'EQ',
-                                                    value1: 'manager'
-                                                }]              
-                                                }"          
-                                                > 
-                                                <items>
-                                                    <core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}" />                                           
-                                                </items>
-                                              </Select>
                                             </m:VBox>   
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
-                                                <m:Title text="Responsable RH" class="sapUiTinyMarginBottom" />
+                                                <m:Title text="Responsable RH" class="sapUiTinyMarginBottom"/>
                                                 <Select 
-                                                id="responsable_rh_edit"
-                                                 items=
+                                                    id="responsable_rh_edit"
+                                                    visible="false"
+                                                    items=
                                                     "{ 
                                                         path: 'odataModel>/results',
                                                         filters: [{
@@ -655,13 +682,24 @@
                                                             operator: 'EQ',
                                                             value1: 'rh'
                                                         }]              
-                                                        }"
+                                                    }"
                                                     >
                                                 <items>
-                                                    <core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>IdRh}"/>
-                                                
+                                                    <core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}"/>             
                                                 </items>
+                                                
                                             </Select>
+
+                                            <Select 
+                                                    id="responsable_rh_display"
+                                                    enabled="false"
+                                                    > 
+                                                    <items>
+                                                        <core:Item text="{oCollabRHModel>/RH}"/>                                           
+                                                    </items>
+          
+                                            </Select>
+                                            <CheckBox id="checkRH" text="Changer" select="onCheckSelectFromModel('checkRH','responsable_rh_display','responsable_rh_edit')" selected="false" />
                                             </m:VBox>       
                                         </m:FlexBox>
                                     </ux:headerContent>
@@ -741,18 +779,32 @@
                                                                 <Input id="naissance_collab_edit" value="{odataModel>DateNaissance}" />
 
                                                                 <Label text="Nationalité" />
-                                                                <Select id="nationalite_collab_edit" items="{ path: 'appData>/Countries'}">
-                                                                    <core:Item key="{appData>code}" text="{appData>nationalite_feminin}" />
-                                                                </Select>
-
-                                                                <Label text="Situation Familiale" />
-                                                                <Select id="situation_familiale_edit" >
+                                                               
+                                                                <Select 
+                                                                    id="nationalite_collab_display"
+                                                                    enabled="false"
+                                                                    > 
                                                                     <items>
-                                                                        <core:Item text="{oDataModel>SituationFamiliale}" />
-                                                                       <!--  <core:Item text="Célibataire" key="celib"/>
-                                                                        <core:Item text="Autre" key="autre"/> -->
+                                                                        <core:Item text="{odataModel>Nationalite}"  />                                           
                                                                     </items>
                                                                 </Select>
+
+                                                                <Select id="nationalite_collab_edit" visible="false" items="{ path: 'appData>/Countries'}">
+                                                                    <core:Item key="{appData>code}" text="{appData>nationalite_feminin}" />
+                                                                </Select>
+                                               
+                                                                <CheckBox id="checkNationality" text="Changer" select="onCheckSelectFromModel('checkNationality','nationalite_collab_display','nationalite_collab_edit')" selected="false" />
+
+                                                                <Label text="Situation Familiale" />
+                                                                <Select id="situation_familiale_edit" enabled="false" change="onSituationChange">
+                                                                    <items>
+                                                                        <core:Item text="{odataModel>SituationFamiliale}" />
+                                                                        <core:Item text="Célibataire" key="celib"/>
+                                                                        <core:Item text="Marié" key="marié"/>
+                                                                        <core:Item text="Autre" key="autre"/>
+                                                                    </items>
+                                                                </Select>
+                                                                <CheckBox id="checkSituation" text="Changer" select="onCheckSelect('checkSituation','situation_familiale_edit')" selected="false" />
 
                                                                 <core:Title icon="sap-icon://building" text="Informations Professionnelles" />
 
@@ -768,11 +820,11 @@
                                                                 <Label text="Diplômes" />
                                                                 <Input id="diplome_collab_edit" value="{odataModel>Diplomes}" />
  
-
                                                                 <Label text="Pôle" />
-                                                                <Select id="pole_collab_edit" >
+                                                                <Select id="pole_collab_edit" enabled="false">
                                                                     <items>
-                                                                        <core:Item text="DIRECTION" />
+                                                                            <core:Item text="{odataModel>Pole}" />
+                                                                            <core:Item text="DIRECTION" />
                                                                             <core:Item text="SAP FONCTIONNEL" />
                                                                             <core:Item text="SAP TECHNIQUE" />
                                                                             <core:Item text="DIGITAL" />
@@ -784,13 +836,15 @@
                                                                             <core:Item text="RESSOURCE HUMAINE" />      
                                                                     </items>
                                                                 </Select>
+                                                                <CheckBox id="checkPole" text="Changer" select="onCheckSelect('checkPole','pole_collab_edit')" selected="false" />
 
                                                                 <Label text="Fonction" />
                                                                 <Input id="fonction_collab_edit" value="{odataModel>Fonction}" />
 
                                                                 <Label text="Type" />
-                                                                <Select id="type_collab_edit">
+                                                                <Select id="type_collab_edit" enabled="false">
                                                                     <items>
+                                                                        <core:Item text="{odataModel>Type}" />
                                                                         <core:Item text="Directeur" />
                                                                         <core:Item text="Consultant Interne" />
                                                                         <core:Item text="Manager" />
@@ -819,6 +873,7 @@
                                                                         <core:Item text="Stagiaire PFE" />                                                                        
                                                                     </items>
                                                                 </Select>
+                                                                <CheckBox id="checkType" text="Changer" select="onCheckSelect('checkType','type_collab_edit')" selected="false" />
 
                                                                 <core:Title icon="sap-icon://add-employee" text="Informations Compte" />
 
@@ -829,13 +884,15 @@
                                                                 <Input enabled="false" value="{odataModel>DateMiseAJour}"/>
 
                                                                 <Label text="Rôle" />
-                                                                <Select id="role_collab_edit">
+                                                                <Select id="role_collab_edit" enabled="false">
                                                                         <items>
+                                                                            <core:Item text="{odataModel>Role}" />
                                                                             <core:Item text="Collaborateur" />
                                                                             <core:Item text="Manager" />
                                                                             <core:Item text="RH" />                              
                                                                         </items>
                                                                 </Select>
+                                                                <CheckBox id="checkRole" text="Changer" select="onCheckSelect('checkRole','role_collab_edit')" selected="false" />
 
                                                             </f:content>
                                                         </forms:SimpleForm>
@@ -907,15 +964,25 @@
                                                             <core:Title icon="sap-icon://addresses" text="Adresses" />
 
                                                             <Label text="Pays" />
+
+                                                            <Select 
+                                                                id="pays_collab_display"
+                                                                enabled="false" 
+                                                                >
+                                                                <core:Item text="{odataModel>Pays}" />
+                                                            </Select>
+
                                                             <Select 
                                                                 change="onCountryChange"    
                                                                 id="pays_collab_edit" 
-                                                                items="{ path: 'appData>/Countries'}"   
-                                                                                                        
-                                                            
+                                                                items="{ path: 'appData>/Countries'}"  
+                                                                visible="false"
                                                             >
+                                                                <core:Item text="{odataModel>Pays}" />
                                                                 <core:Item key="{appData>code}" text="{appData>name}" />
                                                             </Select>
+
+                                                            <CheckBox id="checkPays" text="Changer" select="onCheckSelectFromModel('checkPays','pays_collab_display','pays_collab_edit')" selected="false" />
 
                                                             <Label text="Code Postal/Ville" />
                                                             <Input id="code_postal_edit" value="{odataModel>CodePostal}" >
@@ -1054,7 +1121,8 @@
                                                         id=""
                                                         class="sapUiTinyMarginBeginEnd exportButton"
                                                         icon="sap-icon://back-to-top"                                                  
-                                                        text="Exporter">
+                                                        text="Exporter"
+                                                        press="onExport">
                                                     </Button>
                                                 <ToolbarSpacer/>
                                                 <SearchField
@@ -1258,18 +1326,24 @@
                                             
                                             <Label text="Responsable Manager" />
                                             <Select id="responsable_manager"
-                                             items=
-                                             "{ 
-                                                path: 'odataModel>/results',
-                                                filters: [{
-                                                    path: 'Role',
-                                                    operator: 'EQ',
-                                                    value1: 'manager'
-                                                }]              
-                                                }"          
-                                                >
+                                                items=
+                                                "{
+                                                    path: 'odataModel>/results',
+                                                    filters: [{
+                                                        path: 'Role',
+                                                        operator: 'EQ',
+                                                        value1: 'manager'
+                                                    },
+                                                    {
+                                                        path: 'Role',
+                                                        operator: 'EQ',
+                                                        value1: 'Manager/RH'
+                                                    }                      
+                                                    ]              
+                                                    }"       
+                                                    >
                                                 <items>
-                                                    <core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}" />                                           
+                                                    <core:Item text="{odataModel>Nom} {odataModel>Prenom}" key="{odataModel>Idcollab}" />                                          
                                                 </items>
                                             </Select>
 
@@ -1686,6 +1760,7 @@
 												</headerToolbar>
 											<content class="feedInput">
 													<FeedInput
+                                                        placeholder=""
 														enabled="false"
 														id="comment"
 														showIcon="false"
@@ -1802,11 +1877,9 @@
                                             <ux:subSections>
                                                 <ux:ObjectPageSubSection id="questEval">
                                                     <ux:blocks>
-
 														<FlexBox direction="Column">
 															<FlexBox direction="Row" alignItems="Center" justifyContent="Center">
 															<m:Title class="evalTitle" text="Je voulais évaluer le collaborateur" wrapping="true" />
-											
 																<Select 	
 																	class="selectCollab"
 																	change="onDisappearInfoPanel2"
@@ -1815,7 +1888,6 @@
 																	items="{ path: 'oUserdataModel>/collabManagerList'}"
 																>
 																	<core:Item key="{oUserdataModel>IdCollab}" text="{oUserdataModel>Collab}" />
-																
 																</Select>
 															</FlexBox>
 															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
@@ -1834,7 +1906,6 @@
 																	class="labelQuestion"
 																	labelFor="rbg3"
 																	text="Collaboration et synergie" />
-																
 																	<RadioButtonGroup enabled="false" id= "radioQuest1" columns="5" class="sapUiSmallMarginTop radioQuestions">
 																		<RadioButton  text="1" />
 																		<RadioButton  text="2" />
@@ -1866,7 +1937,6 @@
 																	class="labelQuestion"
 																	labelFor="rbg3"
 																	text="Apprentissage et développement" />
-																
 																	<RadioButtonGroup enabled="false" id= "radioQuest2" columns="5" class="sapUiSmallMarginTop radioQuestions">
 																		<RadioButton text="1" />
 																		<RadioButton text="2" />
@@ -1886,7 +1956,6 @@
 																</headerToolbar>
 																<content>
 																<VBox class="sapUiMediumMarginTop questionBox">
-																
 																	<RadioButtonGroup enabled="false" id= "radioQuest3" columns="5" class="sapUiSmallMarginTop radioQuestions">
 																		<RadioButton text="Oui" />
 																		<RadioButton text="Non" />
@@ -1904,7 +1973,6 @@
 																</headerToolbar>
 																<content>
 																<VBox class="sapUiMediumMarginTop questionBox">
-																
 																	<RadioButtonGroup enabled="false" id= "radioQuest4" columns="5" class="sapUiSmallMarginTop radioQuestions">
 																		<RadioButton text="Oui" />
 																		<RadioButton text="Non" />
@@ -1922,7 +1990,6 @@
 																</headerToolbar>
 																<content>
 																<VBox class="sapUiMediumMarginTop questionBox">
-																
 																	<RadioButtonGroup enabled="false" id= "radioQuest5" columns="5" class="sapUiSmallMarginTop radioQuestions">
 																		<RadioButton text="Oui" />
 																		<RadioButton text="Non" />
@@ -1964,7 +2031,7 @@
 																</content>
 															</Panel>
 
-															<Panel expanded="true" expandable="true"  stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+															<Panel expanded="true" expandable="true"  stickyHeader="false" width="auto" class="sapUiResponsiveMargin">
 																<headerToolbar>
 																	<OverflowToolbar style="Clear">
 																		<Text class="Textlabel" text="Commentaires et Conclusion générale"/>
@@ -1972,16 +2039,17 @@
 																</headerToolbar>
 																<content class="feedInput">
 																	<FeedInput
+                                                                        placeholder=""
 																		enabled="false"
 																		id="commentEval"
-																		showIcon="true"
+																		showIcon="false"
 																		/>
 																</content>
 															</Panel>
+                                                            
 															<FlexBox class="sapUiMediumMarginTop sapUiLargeMarginRight" direction="Row" justifyContent="End">
 																<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="10rem" text="Envoyer" press="onSendEval"></Button>
 																<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom sapUiLargeMarginRight signInButton" width="10rem" text="Annuler" ></Button>
-
 															</FlexBox>
 														</FlexBox>
                                                     </ux:blocks>
@@ -1998,10 +2066,13 @@
                         horizontal="false"
                         vertical="true"
                         height="100%">
-                        <f2:DynamicPage id="collabEvalSection" headerExpanded="false">
+                        <f2:DynamicPage id="collabEvalSection" headerExpanded="true">
                                 <f2:title>
                                     <f2:DynamicPageTitle>
-                                        <f2:heading>
+                                      <!--   <f2:heading>
+                                            <svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+                                        </f2:heading> -->
+                                      <f2:heading>
                                         <VBox>
                                             <HBox>
                                                 <core:Icon
@@ -2014,35 +2085,38 @@
                                                 </core:Icon>
                                                     <m:Title class="customMargin" text="Consolidation des Résultats" wrapping="true" />
                                                    
-                                                </HBox>
-                                                <HBox class="sapUiTinyMarginBegin sapUiSmallMarginTop">
-                                                 <m:Label text="Afficher les filtres"/>
-                                                 </HBox>
-                                                 </VBox>
- 
+                                            </HBox>
                                                
+                                        </VBox>
+        
                                         </f2:heading>
-                                   
+
+                                        <f2:expandedContent>
+                                            <Label id="expandedLabel" text="Pas de filtres actives" />
+                                        </f2:expandedContent>
+                                        <f2:snappedContent>
+                                            <Label id="snappedLabel" text="Pas de filtres actives" />
+                                        </f2:snappedContent>
                                     </f2:DynamicPageTitle>
                                 </f2:title>
                                 <f2:header>
                                     <f2:DynamicPageHeader class="pageHeader">
                                         <f2:content>
-                                            <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+                                            <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="onSearchTable" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
                                                 <fb:filterGroupItems>
                                                
-                                                    <fb:FilterGroupItem name="Manager" label="Manager" groupName="Group1" visibleInFilterBar="true">
+                                                    <fb:FilterGroupItem name="NomComplet" label="Manager" groupName="Group1" visibleInFilterBar="true">
                                                         <fb:control>
                                                             <MultiComboBox
                                                                 name="Manager"
                                                                 placeholder="Choisir un manager"
                                                                 selectionChange=".onSelectionChange"
                                                                 items="{
-                                                                    path: 'oEvalModel>/results',
+                                                                    path: 'oFilterObjectModel>/0',
                                                                     templateShareable: true
                                                                 }"
                                                             >
-                                                                <core:Item key="{key}" text="{oEvalModel>Prenom} {oEvalModel>Nom}"/>
+                                                                <core:Item key="{oFilterObjectModel>Manager}" text="{oFilterObjectModel>Manager}"/>
                                                             </MultiComboBox>
                                                         </fb:control>
                                                     </fb:FilterGroupItem>
@@ -2052,11 +2126,11 @@
                                                                 name="Collaborateur"
                                                                 placeholder="Choisir un collaborateur"
                                                                 items="{
-                                                                    path: 'oEvalModel>/results',
+                                                                    path: 'oFilterObjectModel>/1',
                                                                     templateShareable: true
                                                                 }"
                                                             >
-                                                                <core:Item key="{key}" text="{oEvalModel>Collaborateur}"/>
+                                                                <core:Item key="{oFilterObjectModel>Collaborateur}" text="{oFilterObjectModel>Collaborateur}"/>
                                                             </MultiComboBox>
                                                         </fb:control>
                                                     </fb:FilterGroupItem>
@@ -2067,11 +2141,11 @@
                                                                 placeholder="Choisir une trimestre"
                                                                 selectionChange=".onSelectionChange"
                                                                 items="{
-                                                                    path: 'oEvalModel>/results',
+                                                                    path: 'oFilterObjectModel>/2',
                                                                     templateShareable: true
                                                                 }"
                                                             >
-                                                                <core:Item key="{key}" text="{oEvalModel>Trimestre}"/>
+                                                                <core:Item key="{oFilterObjectModel>Trimestre}" text="{oFilterObjectModel>Trimestre}"/>
                                                             </MultiComboBox>
                                                         </fb:control>
                                                     </fb:FilterGroupItem>
@@ -2082,9 +2156,9 @@
                                 </f2:header>
                                 <f2:content>
                                         <Table  
- 
-                                           items="{
-                                            path: 'oEvalModel>/results'
+                                        id="table"
+                                        items="{
+                                        path: 'oEvalModel>/results'
                                          
                                         }"  
                                                
