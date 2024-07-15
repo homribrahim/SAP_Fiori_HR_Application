@@ -19,6 +19,26 @@ sap.ui.define([
             onImagePress: function()
             {
                 window.open("https://app.ouickly.fr/","_blank")
+            },
+            onAfterRendering: function() {
+                var oButton = this.byId("discoverButton");
+                if (oButton) {
+                    oButton.getDomRef().addEventListener("click", this.onDiscoverPress.bind(this));
+                }
+            },
+            
+            onDiscoverPress: function () {
+                this.scrollToSection("vb");
+            },
+            
+            scrollToSection: function(sectionId) {
+                var oSection = this.byId(sectionId);
+                if (oSection) {
+                    var oDomRef = oSection.getDomRef();
+                    if (oDomRef) {
+                        oDomRef.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             }
         });
     });

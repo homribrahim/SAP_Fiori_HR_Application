@@ -1,0 +1,375 @@
+<core:FragmentDefinition
+	xmlns:ux="sap.uxap"
+	xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:f2="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:tnt="sap.tnt"
+	xmlns:t="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:svm="sap.ui.comp.smartvariants"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:w="sap.ui.integration.widgets"
+	height="100%"
+>
+<VBox>
+								<ux:ObjectPageLayout
+									id="engagementCollab"
+									class="collabProfile"
+									
+									showTitleInHeaderContent="true"
+									upperCaseAnchorBar="false"
+								>
+                                    <ux:headerTitle>    
+                                        <ux:ObjectPageDynamicHeaderTitle>
+                                            <ux:expandedHeading>
+												<HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                               		<m:Title class="customMargin" text="Questionnaire D'engagement pulse" wrapping="true" />
+												</HBox>
+                                            </ux:expandedHeading>
+ 
+                                            <ux:snappedHeading>
+                                                <m:HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                                    <m:VBox>											
+                                                        <m:Title class="customMargin"  text="Questionnaire D'engagement pulse" wrapping="true"/>
+                                                    </m:VBox>
+                                                </m:HBox>
+                                            </ux:snappedHeading>
+                                   
+                                     		<ux:expandedContent>
+									   				
+                                                <m:Label text="Plongez dans les profondeurs de votre être, et révélez la richesse de votre parcours !"/>
+                                            </ux:expandedContent>
+ 
+                                            <!-- <ux:snappedTitleOnMobile>
+                                                <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}"/>
+                                            </ux:snappedTitleOnMobile> -->
+                       
+                                        </ux:ObjectPageDynamicHeaderTitle>
+                                    </ux:headerTitle>
+
+                                    <ux:headerContent>
+										<Button class="sapUiTinyMarginBottom" width="12rem" icon="sap-icon://fob-watch" text="Lancer Le Questionnaire" press="onStartEngPulse"></Button>	
+                                    </ux:headerContent>
+
+									<ux:ObjectPageSection class="hetEsm" titleUppercase="false">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection id="questEngagementPulse">
+                                                    <ux:blocks>
+														<FlexBox direction="Column">		
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Aymax est votre première expérience professionnelle ?"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">															
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions2" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Oui" />
+																		<RadioButton  text="Non" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Durée de votre expérience chez Aymax ?"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions3" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="0 - 1 An" />
+																		<RadioButton  text="1 - 3 Ans" />
+																		<RadioButton  text="3 - 5 Ans" />
+																		<RadioButton  text="5 Ans et plus" />
+																
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Sur une échelle de 0 à 10, quelle est la probabilité que vous recommandiez AYMAX à un ami ou à un confrère ?"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<HBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions4" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="1" />
+																		<RadioButton  text="2" />
+																		<RadioButton  text="3" />
+																		<RadioButton  text="4" />
+																		<RadioButton  text="5" />
+																		<RadioButton  text="6" />
+																		<RadioButton  text="7" />
+																		<RadioButton  text="8" />
+																		<RadioButton  text="9" />
+																		<RadioButton  text="10" />
+																	</RadioButtonGroup>
+																</HBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+																	<headerToolbar>
+																		<OverflowToolbar style="Clear">
+																			<Text  class="Textlabel" text="Pourquoi avez-vous donné cette note ?"/>
+																		</OverflowToolbar>
+																	</headerToolbar>
+																<content class="feedInput">
+																		<FeedInput
+																			enabled="false"
+																			id="commentEng1"
+																			showIcon="false"
+																			/>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+																	<headerToolbar>
+																		<OverflowToolbar style="Clear">
+																			<Text class="Textlabel" text="Quels sont les aspects d’AYMAX qui vous rendent plus ou moins susceptibles de la recommander ?"/>
+																		</OverflowToolbar>
+																	</headerToolbar>
+																<content class="feedInput">
+																		<FeedInput
+																			enabled="false"
+																			id="commentEng2"
+																			showIcon="false"
+																			/>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+																	<headerToolbar>
+																		<OverflowToolbar style="Clear">
+																			<Text class="Textlabel" text="Qu'est-ce que nous pourrions faire pour améliorer votre expérience en tant qu'employé ?"/>
+																		</OverflowToolbar>
+																	</headerToolbar>
+																<content class="feedInput">
+																		<FeedInput
+																			enabled="false"
+																			id="commentEng3"
+																			showIcon="false"
+																			/>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je suis enthousiasmé(e) par la mission de mon entreprise"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions5" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Au travail, je sais parfaitement ce que l’on attend de moi"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions6" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Dans mon équipe, je suis entouré(e) de personnes qui partagent mes valeurs"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions7" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="J’ai l’opportunité de pouvoir utiliser mes points forts tous les jours au travail"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions8" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Mes collègues me soutiennent"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions9" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je sais que je serai reconnu(e) pour la qualité de mon travail"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions10" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je suis confiant(e) en l’avenir de mon entreprise"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions11" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Au travail, je suis toujours encouragé(e) à progresser"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																
+																	<RadioButtonGroup enabled="false" id="radioEngPulseQuestions12" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="Pas du tout d'accord" />
+																		<RadioButton  text="Pas d'accord" />
+																		<RadioButton  text="Ni en désaccord ni d'accord" />
+																		<RadioButton  text="D'accord" />
+																		<RadioButton  text="Tout à fait d'accord" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<FlexBox class="sapUiMediumMarginTop" direction="Row" justifyContent="Center">
+																<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="10rem" text="Envoyer" press="onSendEngPulse"></Button>
+															</FlexBox>
+															
+														</FlexBox>
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                    </ux:ObjectPageSection>
+
+								</ux:ObjectPageLayout>
+
+								<FlexBox id="noEngPulse" justifyContent="Center" alignItems="Center" direction="Column" height="75vh">
+									<Image src="../utils/images/astro.png" width="220px"/>
+									<html:br></html:br>
+									<html:br></html:br>
+									<Text text="Vous n'avez pas" class="sapUiTinyMarginBottom noEvalText" />
+									<html:br></html:br>	
+									<Text text="de questionnaire d'engagement pulse pour le moment." class="sapUiTinyMarginBottom noEvalText" />
+									<html:br></html:br>	
+									<Text text="Revenir à la page d'accueil ?"  class="sapUiTinyMarginBottom noEvalSubText" />
+									<Link text="Accueil" press="onPageReload"/>
+								</FlexBox>
+							
+           					</VBox> 
+</core:FragmentDefinition>

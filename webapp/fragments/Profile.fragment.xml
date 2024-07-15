@@ -1,0 +1,285 @@
+ <core:FragmentDefinition
+	xmlns:ux="sap.uxap"
+	xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:f2="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:tnt="sap.tnt"
+	xmlns:t="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:svm="sap.ui.comp.smartvariants"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:w="sap.ui.integration.widgets"
+	height="100%"
+>
+ 
+ <ux:ObjectPageLayout
+                                id="collabmyprofile"
+                                class="collabProfile"
+                                height="88vh"
+                                showTitleInHeaderContent="true"
+                                upperCaseAnchorBar="false">
+                                    <ux:headerTitle>    
+                                        <ux:ObjectPageDynamicHeaderTitle>
+                                            <ux:expandedHeading>
+                                                <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}" wrapping="true" />
+                                            </ux:expandedHeading>
+ 
+                                            <ux:snappedHeading>
+                                                <m:HBox>
+                                                    <m:VBox>
+                                                        <m:Avatar src="./test-resources/sap/uxap/images/mageID_275314.png" class="sapUiSmallMarginEnd" />
+                                                    </m:VBox>
+                                                    <m:VBox>
+                                                        <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}" wrapping="true"/>
+                                                        <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>
+                                                    </m:VBox>
+                                                </m:HBox>
+                                            </ux:snappedHeading>
+                                   
+                                     		<ux:expandedContent>
+                                                <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>                                              
+                                            </ux:expandedContent>
+ 
+                                            <ux:snappedTitleOnMobile>
+                                                <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}"/>
+                                            </ux:snappedTitleOnMobile>
+                       
+                                        </ux:ObjectPageDynamicHeaderTitle>
+                                    </ux:headerTitle>
+
+
+                                    <ux:headerContent class="headerTitle">
+                                        <m:FlexBox id="headerMyprofileDisplay" wrap="Wrap" fitContainer="true" >
+                                           
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                                <m:Title text="Etat" class="sapUiTinyMarginBottom"/>            
+                                               
+                                                <m:ObjectStatus text="{
+                                                                            path: 'oUserdataModel>/Etat'
+                                                                           
+                                                                        }"
+                                                                state="{    path: 'oUserdataModel>/Etat',
+                                                                            formatter: '.stateFormatter.statusText'}"
+ 
+                                                                class="sapMObjectStatusLarge"/>
+                                               
+                                            </m:VBox>
+ 
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                                <m:Title text="Date de Démarrage" class="sapUiTinyMarginBottom" />
+                                                <m:ObjectStatus text="{oUserdataModel>/DateDemarrage}" icon="sap-icon://date-time" class="sapMObjectStatusLarge ddate"/>
+                                            </m:VBox>
+ 
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                                <m:Title text="Ancienneté" class="sapUiTinyMarginBottom" />
+                                                <m:ObjectStatus id="ancienneteProfile" icon="sap-icon://end-user-experience-monitoring" text="" class="sapMObjectStatusLarge ddate"/>  
+                                            </m:VBox>
+ 
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                                <m:Title text="Mobilité" class="sapUiTinyMarginBottom" />
+                                                <m:ObjectStatus text="{oUserdataModel>/Mobilite}" icon="sap-icon://globe" class="sapMObjectStatusLarge ddate"/>
+                                            </m:VBox>
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                                <m:Title text="Responsable Manager" class="sapUiTinyMarginBottom" />
+                                                <m:ObjectStatus text="{oUserdataModel>/Manager}" icon="sap-icon://manager" class="sapMObjectStatusLarge ddate"/>
+                                            </m:VBox>
+                                            <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                                                <m:Title text="Responsable RH" class="sapUiTinyMarginBottom" />
+                                                <m:ObjectStatus text="{oUserdataModel>/ResponsableRh}" icon="sap-icon://employee-lookup" class="sapMObjectStatusLarge ddate"/>
+                                            </m:VBox>  
+                                                           
+                                        </m:FlexBox>
+                                    </ux:headerContent>
+ 
+                                      <ux:sections>
+                                        <ux:ObjectPageSection titleUppercase="false" title="Informations Générales">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection title="Informations Personnelles" showTitle="false">
+                                                    <ux:blocks>
+                                                        <forms:SimpleForm
+                                                            id="collabMyprofileDisplay"            
+                                                            class="sapUxAPObjectPageSubSectionAlignContent"
+                                                            layout="ColumnLayout"
+                                                            columnsM="2"
+                                                            columnsL="3"
+                                                            columnsXL="4">
+                                                            <core:Title class="inp" icon="sap-icon://employee" text="Informations Personnelles" />
+ 
+                                                            <m:Label text="Réference Interne" />
+                                                            <m:Text text="{oUserdataModel>/ReferenceInterne}" />
+ 
+                                                            <m:Label text="Numéro de Sécurité Sociale" />
+                                                            <m:Text text="{oUserdataModel>/NumeroSecuriteSociale}" />
+ 
+                                                            <m:Label text="Date de Naissance" />
+                                                            <m:Text text="{oUserdataModel>/DateNaissance}" />
+ 
+                                                            <m:Label text="Nationalité" />
+                                                            <m:Text text="{oUserdataModel>/Nationalite}" />
+ 
+                                                            <m:Label text="Situation Familiale" />
+                                                            <m:Text text="{oUserdataModel>/SituationFamiliale}" />
+ 
+                                                            <core:Title icon="sap-icon://building" text="Informations Professionnelles" />
+ 
+                                                            <m:Label text="Titre" />
+                                                            <m:Text text="{oUserdataModel>/Titre}" />
+                                                            <m:Label text="Pôle" />
+                                                            <m:Text text="{oUserdataModel>/Pole}" />
+                                                            <m:Label text="Expérience" />
+                                                            <m:Text text="{oUserdataModel>/Experience}" />
+ 
+                                                            <m:Label text="Domaine" />
+                                                            <m:Text text="{oUserdataModel>/Domaine}" />
+ 
+                                                            <m:Label text="Diplômes" />
+                                                            <m:Text text="{oUserdataModel>/Diplomes}" />
+ 
+                                                            <core:Title icon="sap-icon://add-employee" text="Informations du Compte" />
+ 
+                                                            <m:Label text="Date de Création" />
+                                                            <m:Text text="{oUserdataModel>/DateCreation}"/>
+ 
+                                                            <m:Label text="Date de Mise à Jour" />
+                                                            <m:Text text="{oUserdataModel>/DateMiseAJour}"/>
+         
+                                                        </forms:SimpleForm>                                    
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+ 
+ 
+                                            <ux:ObjectPageSubSection title="Coordonnées" showTitle="false">
+                                                    <ux:blocks>
+                                                    <forms:SimpleForm
+                                                            id="CoordMyprofileDisplay"
+                                                            class="sapUxAPObjectPageSubSectionAlignContent"
+                                                            layout="ColumnLayout"
+                                                            columnsM="2"
+                                                            columnsL="3"
+                                                            columnsXL="4">
+                                                            <core:Title icon="sap-icon://call" text="Numéro de Télèphone" />
+ 
+                                                            <m:Label text="Mobile"/>
+                                                            <m:Text text="{oUserdataModel>/NumeroTelephone}" />                                
+ 
+                                                            <core:Title icon="sap-icon://customer-and-contacts" text="Comptes" />
+ 
+                                                            <m:Label text="Email" />
+                                                            <m:Link class='link' text="{oUserdataModel>/Email}" href="{oUserdataModel>/Email}"/>
+ 
+                                                            <m:Label text="LinkedIn"/>
+                                                            <m:Link class='link' text="{oUserdataModel>/EmailLinkedin}"                      
+                                                           
+                                                             />
+ 
+                                                            <core:Title icon="sap-icon://addresses"  text="Adresses" />
+ 
+                                                            <m:Label text="Pays" />
+                                                            <m:Text text="{oUserdataModel>/Pays}" />
+ 
+                                                            <m:Label text="Ville" />
+                                                            <m:Text text="{oUserdataModel>/Ville}" />
+ 
+                                                            <m:Label text="Adresse" />
+                                                            <m:Text text="{oUserdataModel>/Adresse}" />
+ 
+                                                            <m:Label text="Code Postal" />
+                                                            <m:Text text="{oUserdataModel>/CodePostal}" />  
+ 
+                                                        </forms:SimpleForm>
+                                                        </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                                </ux:subSections>
+                                        </ux:ObjectPageSection>
+ 
+ 
+                                         <ux:ObjectPageSection titleUppercase="false" title="Auto Evaluation">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection id="autoevalsection" title="Mes Auto Evaluations">
+                                                    <ux:blocks>
+                                                    <m:Table class="sapUxAPObjectPageSubSectionAlignContent" 
+														width="auto"
+														 items="{
+															path: 'oAutoEvalCollabModel>/results'
+														
+														}"
+														>
+                                                            <m:headerToolbar>
+                                                                <m:OverflowToolbar>
+                                                                    <m:ToolbarSpacer />
+                                                                    <m:SearchField width="17.5rem" />
+                                                                    <m:OverflowToolbarButton tooltip="Sort"
+                                                                        text="Sort"
+                                                                        icon="sap-icon://sort" />
+                                                                    <m:OverflowToolbarButton tooltip="Filter"
+                                                                        text="Filter"
+                                                                        icon="sap-icon://filter" />
+                                                                    <m:OverflowToolbarButton tooltip="Group"
+                                                                        text="Group"
+                                                                        icon="sap-icon://group-2" />
+                                                                   
+                                                                </m:OverflowToolbar>
+                                                            </m:headerToolbar>
+                                                  
+															<m:columns>
+                                                                <m:Column>
+                                                                    <m:Text text="Numéro Auto Eval" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Trimestre" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text  text="Date Auto Eval" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 1" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 2" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 3" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 4" />
+                                                                </m:Column>
+                                                                <m:Column  minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Question 5" />
+                                                                </m:Column>
+                                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                                    <m:Text text="Commentaire" />
+                                                                </m:Column>
+                                                            </m:columns>
+ 
+                                                            <m:items>
+                                                                <m:ColumnListItem>
+                                                                    <m:Text text="{oAutoEvalCollabModel>IdAutoeval}" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>Trimestre}" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>DateA}" />                                            
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question1}" />
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question2}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question3}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question4}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Question5}"/>
+                                                                    <m:Text text="{oAutoEvalCollabModel>Commentaire}"/>
+                                                                </m:ColumnListItem>
+                                                            </m:items>
+
+                                                        </m:Table>
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                        </ux:ObjectPageSection>
+                                    </ux:sections>
+                              </ux:ObjectPageLayout>         
+                              
+</core:FragmentDefinition>

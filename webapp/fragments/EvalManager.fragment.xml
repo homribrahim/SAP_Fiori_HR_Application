@@ -1,0 +1,284 @@
+<core:FragmentDefinition
+	xmlns:ux="sap.uxap"
+	xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:f2="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:tnt="sap.tnt"
+	xmlns:t="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:svm="sap.ui.comp.smartvariants"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:w="sap.ui.integration.widgets"
+	height="100%"
+>
+ <VBox>
+							<HBox class="infoPanel1" id="infoPanel1" >
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Pour initier l'évaluation de votre complice, Cliquez sur le bouton, là-haut, Lancer l'évaluation."/>
+								</html:div>
+							</HBox>
+
+							<HBox class="infoPanel2" id="infoPanel2">
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />								
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Bravo ! Ne vous reste maintenant que de choisir le nom de votre complice."/>
+								</html:div>
+							</HBox>
+
+							<HBox class="infoPanel3" id="infoPanel3">
+								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<html:div class="thought">
+									<Text class="infoPanelText" text="Vous avez déja évalué ce collaborateur pour le trimestre {quarterNow>/quarter}."/>
+								</html:div>
+							</HBox>
+                          <ux:ObjectPageLayout
+									id="evaluationManager"
+									class="collabProfile"
+									height="88vh"
+									showTitleInHeaderContent="true"
+									upperCaseAnchorBar="false"
+								>
+                                    <ux:headerTitle>    
+                                        <ux:ObjectPageDynamicHeaderTitle>
+                                            <ux:expandedHeading>
+												<HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                               		<m:Title class="customMargin" text="Questionnaire D'évaluation" wrapping="true" />
+												</HBox>
+                                            </ux:expandedHeading>
+ 
+                                            <ux:snappedHeading>
+                                                <m:HBox>
+												<core:Icon
+													src="sap-icon://approvals"
+													class="size2"
+													color="#010b3a" >
+													<core:layoutData>
+														<FlexItemData growFactor="1" />
+													</core:layoutData>
+												</core:Icon>
+                                                    <m:VBox>											
+                                                        <m:Title class="customMargin"  text="Questionnaire D'évaluation" wrapping="true"/>
+                                                    </m:VBox>
+                                                </m:HBox>
+                                            </ux:snappedHeading>
+                                   
+                                     		<ux:expandedContent>
+									   				
+                                                <m:Label text="Cultiver la croissance et tracer le chemin vers l'excellence pour votre équipe !"/>
+                                            </ux:expandedContent>
+ 
+                                            <ux:snappedTitleOnMobile>
+                                                <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}"/>
+                                            </ux:snappedTitleOnMobile>
+                       
+                                        </ux:ObjectPageDynamicHeaderTitle>
+                                    </ux:headerTitle>
+                                    <ux:headerContent>
+										<Button class="sapUiTinyMarginBottom" width="12rem" icon="sap-icon://fob-watch" text="Lancer L'évaluation" press="onStartEval"></Button>	
+                                    </ux:headerContent>
+
+									<ux:ObjectPageSection class="hetEsm" titleUppercase="false">
+                                            <ux:subSections>
+                                                <ux:ObjectPageSubSection id="questEval">
+                                                    <ux:blocks>
+														<FlexBox direction="Column">
+															<FlexBox direction="Row" alignItems="Center" justifyContent="Center">
+															<m:Title class="evalTitle" text="Je voulais évaluer le collaborateur" wrapping="true" />
+																<Select 	
+																	class="selectCollab"
+																	change="onDisappearInfoPanel2"
+																	id="collabSelect"
+																	enabled="false"
+																	items="{ path: 'oUserdataModel>/collabManagerList'}"
+																>
+																	<core:Item key="{oUserdataModel>IdCollab}" text="{oUserdataModel>Collab}" />
+																</Select>
+															</FlexBox>
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin panelQuest">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je compte toujours sur mon(a) collaborateur-rice pour obtenir des résultats exceptionnels"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Dépendance et confiance" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Collaboration et synergie" />
+																	<RadioButtonGroup enabled="false" id= "radioQuest1" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton  text="1" />
+																		<RadioButton  text="2" />
+																		<RadioButton  text="3" />
+																		<RadioButton  text="4" />
+																		<RadioButton  text="5" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je choisis de travailler avec mon(a) collaborateur-rice dans la mesure du possible"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Meilleure communication et collaboration" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Motivation et soutien" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Apprentissage et développement" />
+																	<RadioButtonGroup enabled="false" id= "radioQuest2" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="1" />
+																		<RadioButton text="2" />
+																		<RadioButton text="3" />
+																		<RadioButton text="4" />
+																		<RadioButton text="5" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="J’accorderais une promotion à mon(a) collaborateur-rice aujourd’hui si je le pouvais" />
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<RadioButtonGroup enabled="false" id= "radioQuest3" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="Oui" />
+																		<RadioButton text="Non" />
+																	
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je pense que mon(a) collaborateur-rice rencontre un problème de performance auquel je dois immédiatement remédier" />
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<RadioButtonGroup enabled="false" id= "radioQuest4" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="Oui" />
+																		<RadioButton text="Non" />
+																	
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+				
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Je pense que mon(a) collaborateur-rice a des compétences difficiles à remplacer" />
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<RadioButtonGroup enabled="false" id= "radioQuest5" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="Oui" />
+																		<RadioButton text="Non" />
+																	
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Mon(a) collaborateur-rice a atteint tous les objectifs fixés et indicateurs définis pour son poste"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content>
+																<VBox class="sapUiMediumMarginTop questionBox">
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Performance exceptionnelle" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Potentiel élevé du collaborateur" />
+																	<Label
+																	class="labelQuestion"
+																	labelFor="rbg3"
+																	text="Impact positif sur l'équipe" />
+																
+																	<RadioButtonGroup enabled="false" id= "radioQuest6" columns="5" class="sapUiSmallMarginTop radioQuestions">
+																		<RadioButton text="1" />
+																		<RadioButton text="2" />
+																		<RadioButton text="3" />
+																		<RadioButton text="4" />
+																		<RadioButton text="5" />
+																	</RadioButtonGroup>
+																</VBox>
+																</content>
+															</Panel>
+
+															<Panel expanded="true" expandable="true"  stickyHeader="false" width="auto" class="sapUiResponsiveMargin">
+																<headerToolbar>
+																	<OverflowToolbar style="Clear">
+																		<Text class="Textlabel" text="Commentaires et Conclusion générale"/>
+																	</OverflowToolbar>
+																</headerToolbar>
+																<content class="feedInput">
+																	<FeedInput
+                                                                        placeholder=""
+																		enabled="false"
+																		id="commentEval"
+																		showIcon="false"
+																		/>
+																</content>
+															</Panel>
+                                                            
+															<FlexBox class="sapUiMediumMarginTop sapUiLargeMarginRight" direction="Row" justifyContent="End">
+																<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom signInButton" width="10rem" text="Envoyer" press="onSendEval"></Button>
+																<Button class="sapUiMediumMarginTop sapUiLargeMarginBottom sapUiLargeMarginRight signInButton" width="10rem" text="Annuler" ></Button>
+															</FlexBox>
+														</FlexBox>
+                                                    </ux:blocks>
+                                                </ux:ObjectPageSubSection>
+                                            </ux:subSections>
+                                    </ux:ObjectPageSection>
+								</ux:ObjectPageLayout>
+                        </VBox>
+											
+</core:FragmentDefinition>

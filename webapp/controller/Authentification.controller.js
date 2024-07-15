@@ -5,6 +5,26 @@ sap.ui.define([
 
 
 ],
+
+
+
+/* 
+*************************************************************************************************************************
+*************************************************************************************************************************
+*************************************************************************************************************************
+*************************************************************************************************************************
+
+            La logique utilisée dans la phase d'authentification est provisoire et n'est pas sécurisé , en attendant la
+            disposition des comptes BTP pour tous les collaborateurs concerné par l'auto évaluation d'AYMAX et WEBMAX, 
+            pour que la connexion soit à travers leurs coordonnées Cloud.
+
+*************************************************************************************************************************
+*************************************************************************************************************************
+*************************************************************************************************************************
+*************************************************************************************************************************
+
+*/
+
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
@@ -38,22 +58,7 @@ sap.ui.define([
                     });
             },
 
-            onDuc : function ()
-            {
-                this.byId("authPage").setVisible(false);
-                this.byId("imgLogo").setVisible(true);
-            },
-
             onLogin: function (){
-
-             /*    var authPage = this.byId("authPage").setVisible(false);
-                var imgLogo = this.byId("imgLogo").setVisible(true);  */
-
-/*                 this.byId("authPage").setVisible(false);
- */               /*  this.byId("imgLogo").setVisible(true);
-
-                     */ 
-
                 
                 var oLogin = this.getView().getModel("oLoginModel").getProperty("/results")
                 console.log(oLogin)
@@ -87,7 +92,6 @@ sap.ui.define([
                                 });
                             this.getOwnerComponent().getRouter().navTo("Dashboardf")  
                             
-                           
                         }                   
                     }
                 }  

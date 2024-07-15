@@ -1382,6 +1382,22 @@
  
 }
 
+.customTextStyle
+{
+  color: #001575 !important;
+  font-size: 22px !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+  max-width: 800px !important;
+  margin-top: 40px !important;
+}
+.customTextStyle2
+{
+  color: #001575 !important;
+  font-size: 22px !important;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+  max-width: 800px !important;
+}
+
 
 
 

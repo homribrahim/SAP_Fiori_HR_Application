@@ -1,0 +1,124 @@
+<core:FragmentDefinition
+	xmlns:ux="sap.uxap"
+	xmlns="sap.m"
+    xmlns:card="sap.f.cards"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:f2="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:tnt="sap.tnt"
+	xmlns:t="sap.ui.table"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:svm="sap.ui.comp.smartvariants"
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:w="sap.ui.integration.widgets"
+	height="100%"
+>
+						<VBox
+							class="astroBanner"
+							height="328px" 
+							>
+							<FlexBox class="sapUiLargeMarginTop homeFlex">
+								<Text text="🌟 Bienvenue sur votre plateforme d'auto-évaluation , {oUserdataModel>/Prenom} {oUserdataModel>/Nom} ! 🌟" class="sapUiTinyMarginBottom homeFlexTitle" />
+								<Text text="ʻʻ Prêt pour une nouvelle journée de croissance et de réussite ? Votre engagement et vos talents sont notre moteur. " class="sapUiTinyMarginBottom homeFlexText"/>
+								<Text text="Continuez à briller et à vous surpasser chaque jour ! ”" class="sapUiTinyMarginBottom homeFlexText"/>
+
+							</FlexBox>
+
+							<FlexBox class="sapUiLargeMarginTop homeFlexSub">
+									<Text text="Avec énergie et enthousiasme " class="sapUiTinyMarginBottom homeFlexText2" />
+									<Text text="L'équipe RH" class="sapUiTinyMarginBottom homeFlexText2" />
+
+							</FlexBox>
+							
+						
+						</VBox>
+
+			 			<VBox>
+								<html:div class="cardHome">
+									<html:div class="type">
+										<html:h1>AYMAX En Chiffres</html:h1>
+										<html:p>
+											Découvrez des tableaux de bord interactifs et des rapports personnalisés présentent les données de manière claire et concise, 
+											mettant en évidence les points clés et les indicateurs de performance essentiels pour une prise de décision rapide et efficace.	
+										</html:p>								
+										<html:button>
+											Tableaux de Bord Analytiques
+										</html:button>
+									</html:div>
+									<html:div class="stats">
+										<html:div class="clientrev">
+										<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://employee"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText1" class="counterText" />
+											</FlexBox>
+										</html:span>
+										<html:p class="par">Consultants-e-s</html:p>
+										</html:div>
+										<html:div class="adspend">
+											<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://capital-projects"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText2" class="counterText" />
+											</FlexBox>
+											</html:span>
+										<html:p class="par">Chiffre d'affaires en Millions d'euro (2023)</html:p>
+										</html:div>
+										<html:div class="maus">
+										<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://heart"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText3" class="counterText" />
+											</FlexBox>
+										</html:span>
+										<html:p class="par">Notation Happy at Work</html:p>
+										</html:div>
+										<html:div class="roi">
+										<html:span>
+											<FlexBox class="statsFlex">
+												<core:Icon
+														
+															src="sap-icon://account"
+															color="#031E48" >
+															<core:layoutData>
+																<FlexItemData growFactor="1" />
+															</core:layoutData>
+												</core:Icon>
+												<Text id="counterText4" class="counterText" />
+											</FlexBox>
+										</html:span>
+										<html:p class="par">Clients et Partenaires</html:p>
+										</html:div>
+									</html:div>
+								</html:div> 
+						</VBox>
+
+</core:FragmentDefinition>

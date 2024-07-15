@@ -431,6 +431,7 @@ sap.ui.define([
                     success: function(data){
                         var oEngPulseModel = new JSONModel(data);         
                         that.getView().setModel(oEngPulseModel,"oEngPulseModel");
+                        console.log(oEngPulseModel)
                        
                          
                     },
@@ -623,28 +624,29 @@ sap.ui.define([
             oAutoEvalModel.create("/ZAUTOEVAL_ENTSet",autoEvalData, {
                 success: function(){
                     console.log("Auto Eval Added Successfully !")  
-                    
-
                     that.byId("noAutoEval").setVisible(true);
                     that.byId("evaluationCollab").setVisible(false);
-            
-                },  
-                
+                },        
                 error: function(oError){
                     console.log(oError)
                 }
                 });
 
-            this.onSuccessMessageDialogPress("Votre réponse a été envoyée. Nous vous remercions pour le temps que vous avez consacré à votre auto-évaluation ✅Votre manager reviendra vers vous dans les prochains jours pour finaliser le processus d'entretien d'évaluation des performances par un échange de vive voix 🌟🚀Excellente journée.")
+                this.onSuccessMessageDialogPress("Votre réponse a été envoyée.","Nous vous remercions pour le temps que vous avez consacré à votre auto-évaluation ✅","Votre manager reviendra vers vous dans les prochains jours pour finaliser le processus d'entretien d'évaluation des performances par un échange de vive voix 🌟","Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀","Excellente journée.")
+            },
+
+        pressOnMe : function ()
+        {
+            this.onSuccessMessageDialogPress("Votre réponse a été envoyée.","Nous vous remercions pour le temps que vous avez consacré à votre auto-évaluation ✅","Votre manager reviendra vers vous dans les prochains jours pour finaliser le processus d'entretien d'évaluation des performances par un échange de vive voix 🌟","Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀","Excellente journée.")
         },
 
-        onSuccessMessageDialogPress: function (SUCCESSDESC) {
+        onSuccessMessageDialogPress: function (SUCCESSDESC,SUCCESSDESC2,SUCCESSDESC3,SUCCESSDESC4,SUCCESSDESC5) {
 			if (!this.oSuccessMessageDialog) {
 				this.oSuccessMessageDialog = new Dialog({
 					type: DialogType.Message,
 					title: "Success",
 					state: ValueState.Success,
-                    contentWidth:"1000px",
+                    contentWidth:"1400px",
                     content: [
                       
                         new HBox({
@@ -656,8 +658,24 @@ sap.ui.define([
                                         items : [
                                             new Text({
                                                 text: SUCCESSDESC,
-                                                textAlign: "Center",                                      
-                                            }),                                        
+                                                textAlign: "Left",     
+                                          }).addStyleClass("customTextStyle"),    
+                                            new Text({
+                                                text: SUCCESSDESC2,
+                                                textAlign: "Left",     
+                                        }).addStyleClass("customTextStyle2"),  
+                                            new Text({
+                                                text: SUCCESSDESC3,
+                                                textAlign: "Left",     
+                                        }).addStyleClass("customTextStyle"),  
+                                            new Text({
+                                                text: SUCCESSDESC4,
+                                                textAlign: "Left",     
+                                        }).addStyleClass("customTextStyle"),   
+                                            new Text({
+                                                text: SUCCESSDESC5,
+                                                textAlign: "Left",     
+                                        }).addStyleClass("customTextStyle"),                                      
                                         ]
                                     }
                                 ),
@@ -917,7 +935,7 @@ sap.ui.define([
                 }
                 });
 
-            this.onSuccessMessageDialogPress("Votre réponse a été envoyée.Nous vous remercions pour le temps que vous avez consacré à l'évaluation de performance pulse de votre collaborateur ✅L'équipe RH et votre ressource Manager reviendront vers vous pour partager les résultats d'évaluation des performances trimestrielles de votre équipe par un échange de vive voix et de clôturer l'exercice🌟Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀Excellente journée.") 
+            this.onSuccessMessageDialogPress("Votre réponse a été envoyée.","Nous vous remercions pour le temps que vous avez consacré à l'évaluation d'engagement pulse ✅","L'équipe RH et votre ressource Manager reviendront vers vous pour partager les résultats d'évaluation par un échange de vive voix et de clôturer l'exercice🌟","Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀","Excellente journée.") 
 
         },
   
@@ -1036,8 +1054,8 @@ sap.ui.define([
                 }
                 });
 
-            this.onSuccessMessageDialogPress("Votre réponse a été envoyée.Nous vous remercions pour le temps que vous avez consacré à l'évaluation de performance pulse de votre collaborateur ✅L'équipe RH et votre ressource Manager reviendront vers vous pour partager les résultats d'évaluation des performances trimestrielles de votre équipe par un échange de vive voix et de clôturer l'exercice🌟Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀Excellente journée.") 
-        },
+                this.onSuccessMessageDialogPress("Votre réponse a été envoyée.","Nous vous remercions pour le temps que vous avez consacré à l'évaluation de performance pulse de votre collaborateur ✅","L'équipe RH et votre ressource Manager reviendront vers vous pour partager les résultats d'évaluation des performances trimesterielles de votre équipe par un échange de vive voix et de clôturer l'exercice🌟","Cet échange est votre moment privilégié de partage et de proximité, nous vous invitons à en profiter 🚀","Excellente journée.") 
+            },
     
          onDisconnect ()
          {     
