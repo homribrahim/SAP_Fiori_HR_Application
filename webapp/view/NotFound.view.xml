@@ -1,0 +1,9 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  controllerName="brahim.project.controller.NotFound">
+  <Page title="404 Not Found" id="notFound" class="notFound" showHeader="false">
+    <html:button class="homeButton" id="homeButton" >Page d'accueil</html:button>
+  </Page>
+</mvc:View>

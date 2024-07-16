@@ -9,6 +9,8 @@ sap.ui.define([
  
         return Controller.extend("brahim.project.controller.Home", {
             onInit: function () {
+               
+
             },
         
             onScrollToServices: function() {
@@ -22,14 +24,38 @@ sap.ui.define([
             },
             onAfterRendering: function() {
                 var oButton = this.byId("discoverButton");
+                var oConnectButton = this.byId("connectButton")
                 if (oButton) {
                     oButton.getDomRef().addEventListener("click", this.onDiscoverPress.bind(this));
                 }
+              if (oConnectButton)
+                {
+                    oConnectButton.getDomRef().addEventListener("click",this.onAuth.bind(this));
+                }
+                  
+                
+              /*   if (oConnectButton)
+                {
+                    oConnectButton.getDomRef().addEventListener("click",this.onAuth())  
+                } */
+            },
+
+            onAuth : function ()
+            {
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("Authentification");
+
             },
             
             onDiscoverPress: function () {
                 this.scrollToSection("vb");
             },
+
+           /*  onAuth:function()
+            {
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("/Authentification");
+            }, */
             
             scrollToSection: function(sectionId) {
                 var oSection = this.byId(sectionId);

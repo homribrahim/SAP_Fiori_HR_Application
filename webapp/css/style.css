@@ -215,6 +215,44 @@
 
 /*End Of Common Elements*/
 
+/*NotFound View*/
+
+.notFound
+{
+  background-image: url("../utils/images/notFoundBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: 1s fadeInUp !important;
+}
+
+.homeButton{
+  position: fixed;
+  left: 50%;
+  top: 81%;
+  transform: translate(-50%, 0);
+  padding: 10px 80px;
+  border-radius: 45px;
+  height: 65px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: all 0.5s ease;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+ 
+.homeButton:hover {
+  letter-spacing: 1px;
+  background-color:#2A247A;
+  color: hsl(0, 0%, 100%);
+}
+
+/*End Of NotFound View*/
+
 /*Home Page View*/
  
 .homePage

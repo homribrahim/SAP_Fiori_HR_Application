@@ -18,16 +18,15 @@
         <Text class="jumboText" text="Explorez vos talents, évaluez-vous et tracez votre chemin vers le succès."/>
         <FlexBox class="homeButtons" direction="Row" alignItems="Start">
             <html:button class="discoverButton" id="discoverButton" >Decouvrir</html:button>
-            <html:a href="#/Authentification/">
-                <html:button class="learn-more">
+            <html:button class="learn-more" id="connectButton">
                     <html:span class="circle" aria-hidden="true">
                         <html:span class="icon arrow"></html:span>
                     </html:span>
                     <html:span class="button-text">
                         <html:p >Connectez-vous</html:p>
                     </html:span>
-                </html:button>  
-            </html:a>
+            </html:button>  
+            
         </FlexBox>
     </FlexBox>
 
