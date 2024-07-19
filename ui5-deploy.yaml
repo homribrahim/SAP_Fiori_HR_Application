@@ -17,9 +17,9 @@ builder:
           destination: DEV_ADE
           url: http://ADEDEV.aymax.local:5200
         app:
-          name: ZSAPUI_HR
-          description: HR APP
-          package: ZPFE2024_SUJET8
+          name: ZRHAPP
+          description: App HR
+          package: zpfe2024_sujet8
           transport: ADEK903954
         exclude:
           - /test/

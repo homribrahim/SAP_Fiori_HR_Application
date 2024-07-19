@@ -35,9 +35,7 @@
  
                                             <ux:snappedHeading>
                                                 <m:HBox>
-                                                    <m:VBox>
-                                                        <m:Avatar src="./test-resources/sap/uxap/images/mageID_275314.png" class="sapUiSmallMarginEnd" />
-                                                    </m:VBox>
+                                                  
                                                     <m:VBox>
                                                         <m:Title text="{oUserdataModel>/Civilite} {oUserdataModel>/Prenom} {oUserdataModel>/Nom}" wrapping="true"/>
                                                         <m:Label text="{oUserdataModel>/Fonction} à {oUserdataModel>/Agence}"/>
@@ -103,7 +101,7 @@
                                       <ux:sections>
                                         <ux:ObjectPageSection titleUppercase="false" title="Informations Générales">
                                             <ux:subSections>
-                                                <ux:ObjectPageSubSection title="Informations Personnelles" showTitle="false">
+                                                <ux:ObjectPageSubSection title="Informations Personnelles" >
                                                     <ux:blocks>
                                                         <forms:SimpleForm
                                                             id="collabMyprofileDisplay"            
@@ -157,7 +155,7 @@
                                                 </ux:ObjectPageSubSection>
  
  
-                                            <ux:ObjectPageSubSection title="Coordonnées" showTitle="false">
+                                            <ux:ObjectPageSubSection title="Coordonnées" >
                                                     <ux:blocks>
                                                     <forms:SimpleForm
                                                             id="CoordMyprofileDisplay"

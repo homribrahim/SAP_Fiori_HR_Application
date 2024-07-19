@@ -124,56 +124,44 @@
         class="footerSection"
         >
         <FlexBox class="footer" justifyContent="Center" alignItems="Center" direction="Column"> 	
-            <Image class="sapUiLargeMarginTop sapUiLargeMarginBottom imageLog" press="onImagePress" src="../utils/images/logo.png" height="80px" width="80px"/>
+            <Image class="sapUiLargeMarginTop sapUiLargeMarginBottom imageLog" press="onImagePress" src="{imageModel>/path}/utils/images/logo.png" height="80px" width="80px"/>
             <FlexBox class="sapUiSmallMarginTop sapUiLargeMarginBottom footerElements" justifyContent="Center" direction="Row" >
                 <VBox width="auto"> 
-                    <core:Icon
-                        src="sap-icon://map-fill"
-                        class="footerIcon"
-                        color="#e2c20d" >
-                        <core:layoutData>
-                            <FlexItemData growFactor="1" />
-                        </core:layoutData>
-                    </core:Icon>
+                    <Image
+                            src="{imageModel>/path}/utils/images/map.png"
+                            class="footerIcon"
+                            >
+                    </Image>
                     <Text class="sapUiTinyMarginTop footText" text="Tunis | Tunisie"></Text>          
                     <Text class="footText" text="Avenue de Dinars 1053, Tunis 1053"></Text>   
                     <Text class="footText" text="+216 71 130 872"></Text>                             
                 </VBox>
                 <VBox width="auto"> 
-                <core:Icon
-                        src="sap-icon://map-fill"
-                        class="footerIcon"
-                        color="#e2c20d" >
-                        <core:layoutData>
-                            <FlexItemData growFactor="1" />
-                        </core:layoutData>
-                    </core:Icon>
+                    <Image
+                            src="{imageModel>/path}/utils/images/map.png"
+                            class="footerIcon"
+                            >
+                    </Image>
                     <Text class="sapUiTinyMarginTop footText" text="Paris | France"></Text>          
                     <Text class="footText" text="17 Place des reflets, Courbevoie"></Text>   
                     <Text class="footText" text="+33 141 32 53 60"></Text>          
                 </VBox>
                 <VBox width="auto">
-                <core:Icon
-                        src="sap-icon://map-fill"
-                        class="footerIcon"
-                        color="#e2c20d" >
-                        <core:layoutData>
-                            <FlexItemData growFactor="1" />
-                        </core:layoutData>
-                    </core:Icon>
+                    <Image
+                            src="{imageModel>/path}/utils/images/map.png"
+                            class="footerIcon"
+                            >
+                    </Image>
                     <Text class="sapUiTinyMarginTop footText" text="Bruxelles | Belgique"></Text>          
                     <Text class="footText" text="Avenue des arts 56, 1000 Bruxelles"></Text>
                     <Text class="footText" text="+32 2801 13 83"></Text>          
                  </VBox>
                 <VBox width="auto"> 
-                <core:Icon
-                        src="sap-icon://map-fill"
-                        class="footerIcon"
-                        color="#e2c20d" >
-                        <core:layoutData>
-                            <FlexItemData growFactor="1" />
-                        </core:layoutData>
-                    </core:Icon>
+                    <Image
+                            src="{imageModel>/path}/utils/images/map.png"
+                            class="footerIcon"
+                            >
+                    </Image>
                   <Text class="sapUiTinyMarginTop footText" text="Le Caire | Egypte"></Text>          
                     <Text class="footText" text="24 Al Shahid John Alias Gamal"></Text>   
                     <Text class="footText" text="+20 222 90 94 47"></Text>          

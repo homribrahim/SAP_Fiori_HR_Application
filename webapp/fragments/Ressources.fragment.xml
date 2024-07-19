@@ -37,9 +37,9 @@
                                             <ux:snappedHeading>
                                                 <m:HBox>
                                                     <m:VBox>
-                                                        <m:Avatar backgroundColor="{  path: 'odataModel>Civilite',
+                                                       <!--  <m:Avatar backgroundColor="{  path: 'odataModel>Civilite',
                                                                         formatter: '.stateFormatter.formatIconColor'}"
-                                                                  class="sapUiSmallMarginEnd sapUiSmallMarginBottom" />
+                                                                  class="sapUiSmallMarginEnd sapUiSmallMarginBottom" /> -->
                                                     </m:VBox>
                                                     <m:VBox>
                                                         <m:Title text="{odataModel>Civilite} {odataModel>Prenom} {odataModel>Nom}" wrapping="true"/>
@@ -60,13 +60,13 @@
 											
                                                 <m:Button id="editButton" press="onEdit" text="Modifier" type="Emphasized"/>
 												<m:Button id="cancelButton" press="onCancel" text="Annuler" type="Emphasized"/>
-                                                <m:Button id="deleteButton" press="onDelete" text="Supprimer le Compte"  icon="sap-icon://clear-all" type="Neutral"/>
+                                                <m:Button id="deleteButton" press="onDelete" text="Supprimer le Compte"  icon="sap-icon://clear-all" type="Emphasized"/>
                                                 <m:Button 
                                                     id="saveButton"
                                                     press="onApproveDialogPress"
                                                     type="Emphasized"
                                                     text="Sauvegarder"
-                                                    ariaHasPopup="Dialog"/>
+                                                   />
 
                                                 <m:OverflowToolbarButton press="onBack('collabDetails','collabTableSection')" icon="sap-icon://decline" type="Transparent" text="close" tooltip="action"/>
                                             </ux:actions>
@@ -75,12 +75,12 @@
 
                                     <ux:headerContent>
                                         <m:FlexBox id="headerInfoDisplay" wrap="Wrap" fitContainer="true" >
-                                            <m:Avatar 
+                                            <!-- <m:Avatar 
                                                     backgroundColor="{  path: 'odataModel>Civilite',
                                                                         formatter: '.stateFormatter.formatIconColor'}"
                                                     badgeIcon="sap-icon://add" 
                                                     class="sapUiMediumMarginEnd sapUiTinyMarginBottom" 
-                                                    displaySize="L"/>
+                                                    displaySize="L"/> -->
                                             
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                 <m:Title text="Etat" class="sapUiTinyMarginBottom"/>            
@@ -125,11 +125,11 @@
 
                                     <ux:headerContent>
                                         <m:FlexBox id="headerInfoEdit" wrap="Wrap" fitContainer="true" >
-                                            <m:Avatar  
+                                          <!--   <m:Avatar  
                                             backgroundColor="{  path: 'odataModel>Civilite',
                                                                 formatter: '.stateFormatter.formatIconColor'}"
                                             class="sapUiMediumMarginEnd sapUiTinyMarginBottom" 
-                                            displaySize="L"/>
+                                            displaySize="L"/> -->
                                             <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
                                                                     
                                                 <m:Title text="Etat" class="sapUiTinyMarginBottom" />
@@ -250,7 +250,7 @@
                                     <ux:sections>
                                         <ux:ObjectPageSection titleUppercase="false" title="Informations Générales" class="sapUiTinyMarginTop">
                                             <ux:subSections>
-                                                <ux:ObjectPageSubSection  title="Informations Personnelles" showTitle="false">
+                                                <ux:ObjectPageSubSection  title="Informations Personnelles" >
                                                     <ux:blocks>
                                                         <forms:SimpleForm 
                                                             id="collabInfosDisplay"             
@@ -443,7 +443,7 @@
                                                 </ux:ObjectPageSubSection>
 
 
-                                                <ux:ObjectPageSubSection title="Coordonnées" showTitle="false">
+                                                <ux:ObjectPageSubSection title="Coordonnées" >
                                                     <ux:blocks>
 
                                                     <forms:SimpleForm 

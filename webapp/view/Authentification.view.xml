@@ -11,8 +11,7 @@
     <Image 
         id="imgLogo"
         class="imgLogo"
-        ariaDetails="detailsActiveImage" 
-        src="../utils/images/logo.png"
+        src="{imageModel>/path}/utils/images/logo.png"
         decorative="true"
         width="60px"
         />

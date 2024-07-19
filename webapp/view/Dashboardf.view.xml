@@ -36,7 +36,7 @@
 					</layoutData>
 				</Button>
 				<ToolbarSpacer width="20px" />
-				<Image src="../utils/images/aymax.png" decorative="false" press="onLogoPressed" tooltip="Aymax Logo">
+				<Image height="140px" src="{imageModel>/path}/utils/images/aymaxWhite.png" decorative="false" press="onLogoPressed" tooltip="Aymax Logo">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow"/>
 					</layoutData>
@@ -52,7 +52,7 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
 					</layoutData>
 				</ToolbarSpacer>
-				<Button text="{oUserdataModel>/Prenom} {oUserdataModel>/Nom}" type="Transparent" press=".handleUserNamePress" ariaHasPopup="Menu">
+				<Button text="{oUserdataModel>/Prenom} {oUserdataModel>/Nom}" type="Transparent" press=".handleUserNamePress" >
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
@@ -62,10 +62,11 @@
 		</tnt:header>
 		<tnt:sideContent>
 			<tnt:SideNavigation
-				width="340px"
+				
 				id="sideNavigation"
+				class="sapUiLargeMarginRight"
+				
 				expanded="true"
-				selectedKey="{/selectedKey}"
 				itemSelect=".onItemSelect">
 				<tnt:NavigationList	
 					id="navigationList"

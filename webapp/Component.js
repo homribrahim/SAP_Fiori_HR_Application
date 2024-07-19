@@ -33,6 +33,14 @@ function (UIComponent, Device, models) {
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+
+			var oRootPath = jQuery.sap.getModulePath("brahim.project"); 
+					
+			var oImageModel = new sap.ui.model.json.JSONModel({
+				path : oRootPath,
+			});
+					
+			this.setModel(oImageModel, "imageModel");
 		}
 	});
 }

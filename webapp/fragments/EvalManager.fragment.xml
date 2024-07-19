@@ -22,21 +22,21 @@
 >
  <VBox>
 							<HBox class="infoPanel1" id="infoPanel1" >
-								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<Image class="astroImg" src="{imageModel>/path}/utils/images/astroInfo.png" width="200px" />
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Pour initier l'évaluation de votre complice, Cliquez sur le bouton, là-haut, Lancer l'évaluation."/>
 								</html:div>
 							</HBox>
 
 							<HBox class="infoPanel2" id="infoPanel2">
-								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />								
+								<Image class="astroImg" src="{imageModel>/path}/utils/images/astroInfo.png" width="200px" />								
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Bravo ! Ne vous reste maintenant que de choisir le nom de votre complice."/>
 								</html:div>
 							</HBox>
 
 							<HBox class="infoPanel3" id="infoPanel3">
-								<Image class="astroImg" src="../utils/images/astroInfo.png" width="200px" />
+								<Image class="astroImg" src="{imageModel>/path}/utils/images/astroInfo.png" width="200px" />
 								<html:div class="thought">
 									<Text class="infoPanelText" text="Vous avez déja évalué ce collaborateur pour le trimestre {quarterNow>/quarter}."/>
 								</html:div>
@@ -253,7 +253,7 @@
 																</content>
 															</Panel>
 
-															<Panel expanded="true" expandable="true"  stickyHeader="false" width="auto" class="sapUiResponsiveMargin">
+															<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 																<headerToolbar>
 																	<OverflowToolbar style="Clear">
 																		<Text class="Textlabel" text="Commentaires et Conclusion générale"/>

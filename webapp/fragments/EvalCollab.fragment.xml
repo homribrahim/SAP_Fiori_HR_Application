@@ -239,7 +239,7 @@
 											</VBox>
 											</content>
 										</Panel>
-										<Panel expanded="true" expandable="true" stickyHeader="true" width="auto" class="sapUiResponsiveMargin">
+										<Panel expanded="true" expandable="true" width="auto" class="sapUiResponsiveMargin">
 												<headerToolbar>
 													<OverflowToolbar style="Clear">
 														<Text  class="Textlabel" text="Commentaires et Suggestions"/>
@@ -264,7 +264,7 @@
                                     </ux:ObjectPageSection>
 								</ux:ObjectPageLayout>
 							<FlexBox id="noAutoEval" justifyContent="Center" alignItems="Center" direction="Column" height="75vh">
-								<Image src="../utils/images/astro.png" width="220px"/>
+								<Image src="{imageModel>/path}/utils/images/astro.png" width="220px"/>
 								<html:br></html:br>
 								<html:br></html:br>
 								<Text text="Vous n'avez pas" class="sapUiTinyMarginBottom noEvalText" />

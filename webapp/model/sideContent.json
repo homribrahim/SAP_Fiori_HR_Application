@@ -28,7 +28,7 @@
 			"items": [
 				
 				{
-					"title": "Auto Evaluation Collaborateur",
+					"title": "Auto Eval Collaborateur",
 					"key": "evalCollab"
 				},
 				{
@@ -49,7 +49,7 @@
 			"expanded": true,
 			"items": [
 				{
-					"title": "Questionnaire Engagement Pulse",
+					"title": "Engagement Pulse",
 					"key": "epulseQuest"
 				},
 				{

@@ -7,22 +7,6 @@
   --text-clr: #fff;
 }
 
-
-
-/*Defining Fonts Section */
- 
- @font-face {
-  font-family: myFirstFont;
-  src: url("../utils/fonts/ModernWarfare-OV7KP.ttf");
-}
- 
- 
-@font-face {
-  font-family: mySecondFont;
-  src: url("../utils/fonts/mw.ttf");
-}
- 
-
 /*End Of Defining Fonts Section */
  
 /*Media Queries Section*/
@@ -441,7 +425,7 @@
  
 .jumboTitle,.jumboSubtitle
   {
-    font-family: myFirstFont;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 2.813rem;
     padding: 5px 45px;
     text-align: center;
@@ -618,12 +602,12 @@
  
     .footerIcon
     {
-     font-size: 40px;
+     font-size: 10px;
     }
  
     .footer
     {
-      text-align: center !important;
+      text-align: center !important;  
     }
    
 /*End Of Home Page View */
@@ -679,6 +663,8 @@
 /*End Of Authentification Page View*/
  
 /*Dashboardf View Section*/
+
+
 
 .astroBanner
 {

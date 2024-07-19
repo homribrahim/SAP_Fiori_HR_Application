@@ -164,8 +164,8 @@
                                             <ux:expandedHeading>
                                             <m:HBox>
                                                 <m:Title class="consolidationText" text="{oEvalModel>Collaborateur}" wrapping="true" />
-                                                <m:ObjectMarker width="100px" type="Favorite" class="sapUiSmallMarginBegin iconheader"/>            
-                                                <m:ObjectStatus type="Emphasized" icon="sap-icon://employee-approvals" class="sapUiSmallMarginBegin sapUiSmallMarginTop iconheader iH"  />
+                                                <m:ObjectMarker type="Favorite" class="sapUiSmallMarginBegin iconheader"/>            
+                                                <m:ObjectStatus  icon="sap-icon://employee-approvals" class="sapUiSmallMarginBegin sapUiSmallMarginTop iconheader iH"  />
                                                 </m:HBox>
                                             </ux:expandedHeading>
  

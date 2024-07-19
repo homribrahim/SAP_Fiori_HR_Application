@@ -681,8 +681,8 @@ sap.ui.define([
                                 ),
                                                                        
                                 new Image({ 
-                                    src: "../utils/images/astronaut.png",
-                                    width: "400px"
+                                    src: "{imageModel>/path}/utils/images/astronaut.png",
+                                    
                                 })
                             ],
                             
